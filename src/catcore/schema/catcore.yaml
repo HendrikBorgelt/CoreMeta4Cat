@@ -18,7 +18,7 @@ prefixes:
   AFP: http://purl.allotrope.org/ontologies/process#AFP_
   AFQ: http://purl.allotrope.org/ontologies/quality#AFQ_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
-  nmrCV: http://nmrML.org/nmrCV#NMR:
+  nmrCV: 'http://nmrML.org/nmrCV#NMR:'
   linkml: https://w3id.org/linkml/
 
 default_prefix: catcore
