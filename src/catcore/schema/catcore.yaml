@@ -3234,11 +3234,11 @@ slots:
   #   slot_uri: catcore:reaction_vessel
   #   multivalued: true
     
-  mixing_device:
-    description: Device used for mixing
-    range: string
-    slot_uri: catcore:mixing_device
-    multivalued: true
+  # mixing_device:
+  #   description: Device used for mixing
+  #   range: string
+  #   slot_uri: catcore:mixing_device
+  #   multivalued: true
     
   crystallisation_solvents:
     description: Solvents used for crystallisation
