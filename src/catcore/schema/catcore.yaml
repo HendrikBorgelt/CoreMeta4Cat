@@ -3246,25 +3246,25 @@ slots:
   #   slot_uri: catcore:crystallisation_solvents
   #   multivalued: true
     
-  precipitation_agent:
-    description: Agent used for precipitation
-    range: string
-    slot_uri: catcore:precipitation_agent
-    multivalued: true
+  # precipitation_agent:
+  #   description: Agent used for precipitation
+  #   range: string
+  #   slot_uri: catcore:precipitation_agent
+  #   multivalued: true
     
-  crystallisation_duration:
-    description: Duration of crystallisation
-    range: float
-    slot_uri: catcore:crystallisation_duration
-    multivalued: true
-    unit:
-      ucum_code: h
+  # crystallisation_duration:
+  #   description: Duration of crystallisation
+  #   range: float
+  #   slot_uri: catcore:crystallisation_duration
+  #   multivalued: true
+  #   unit:
+  #     ucum_code: h
     
-  purification_solvent:
-    description: Solvent used for purification
-    range: string
-    slot_uri: catcore:purification_solvent
-    multivalued: true
+  # purification_solvent:
+  #   description: Solvent used for purification
+  #   range: string
+  #   slot_uri: catcore:purification_solvent
+  #   multivalued: true
 
   bubble_size_distribution:
     range: string
