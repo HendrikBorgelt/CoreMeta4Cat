@@ -3240,11 +3240,11 @@ slots:
   #   slot_uri: catcore:mixing_device
   #   multivalued: true
     
-  crystallisation_solvents:
-    description: Solvents used for crystallisation
-    range: string
-    slot_uri: catcore:crystallisation_solvents
-    multivalued: true
+  # crystallisation_solvents:
+  #   description: Solvents used for crystallisation
+  #   range: string
+  #   slot_uri: catcore:crystallisation_solvents
+  #   multivalued: true
     
   precipitation_agent:
     description: Agent used for precipitation
