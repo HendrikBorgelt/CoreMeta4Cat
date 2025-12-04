@@ -14,9 +14,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:nominal_composition`](catcore:nominal_composition)
+**URI:** [`catcore:nominal_composition`](https://w3id.org/nfdi4cat/catcore/nominal_composition)
 
-**Schema Reference:** [nominal_composition](elements/nominal_composition.md)
+**Schema Reference:** [nominal_composition](./elements/nominal_composition.md)
 
 </details>
 
@@ -27,9 +27,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:catalyst_measured_properties`](catcore:catalyst_measured_properties)
+**URI:** [`catcore:catalyst_measured_properties`](https://w3id.org/nfdi4cat/catcore/catalyst_measured_properties)
 
-**Schema Reference:** [catalyst_measured_properties](elements/catalyst_measured_properties.md)
+**Schema Reference:** [catalyst_measured_properties](./elements/catalyst_measured_properties.md)
 
 </details>
 
@@ -40,9 +40,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** Precursor
 
-**URI:** [`catcore:precursor`](catcore:precursor)
+**URI:** [`catcore:precursor`](https://w3id.org/nfdi4cat/catcore/precursor)
 
-**Schema Reference:** [precursor](elements/precursor.md)
+**Schema Reference:** [precursor](./elements/precursor.md)
 
 **Range Class Details:**
 
@@ -51,7 +51,7 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Precursor material used in catalyst synthesis
 
-**Schema Reference:** [Precursor](elements/Precursor.md)
+**Schema Reference:** [Precursor](./elements/Precursor.md)
 
 **Slots**
 
@@ -62,9 +62,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:precursor_quantity`](catcore:precursor_quantity)
+**URI:** [`catcore:precursor_quantity`](https://w3id.org/nfdi4cat/catcore/precursor_quantity)
 
-**Schema Reference:** [precursor_quantity](elements/precursor_quantity.md)
+**Schema Reference:** [precursor_quantity](./elements/precursor_quantity.md)
 
 **Unit:** g
 
@@ -81,9 +81,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** PreparationMethod
 
-**URI:** [`voc4cat:0007016`](voc4cat:0007016)
+**URI:** [`voc4cat:0007016`](https://w3id.org/nfdi4cat/voc4cat_0007016)
 
-**Schema Reference:** [preparation_method](elements/preparation_method.md)
+**Schema Reference:** [preparation_method](./elements/preparation_method.md)
 
 **Range Class Details:**
 
@@ -94,7 +94,7 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Method used for catalyst preparation
 
-**Schema Reference:** [PreparationMethod](elements/PreparationMethod.md)
+**Schema Reference:** [PreparationMethod](./elements/PreparationMethod.md)
 
 </details>
 
@@ -105,9 +105,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Impregnation method for catalyst preparation
 
-**URI:** [`catcore:Impregnation`](catcore:Impregnation)
+**URI:** [`catcore:Impregnation`](https://w3id.org/nfdi4cat/catcore/Impregnation)
 
-**Schema Reference:** [Impregnation](elements/Impregnation.md)
+**Schema Reference:** [Impregnation](./elements/Impregnation.md)
 
 **Slots**
 
@@ -118,9 +118,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** ImpregnationTypeEnum
 
-**URI:** [`catcore:impregnation_type`](catcore:impregnation_type)
+**URI:** [`catcore:impregnation_type`](https://w3id.org/nfdi4cat/catcore/impregnation_type)
 
-**Schema Reference:** [impregnation_type](elements/impregnation_type.md)
+**Schema Reference:** [impregnation_type](./elements/impregnation_type.md)
 
 </details>
 
@@ -131,9 +131,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:impregnation_duration`](catcore:impregnation_duration)
+**URI:** [`catcore:impregnation_duration`](https://w3id.org/nfdi4cat/catcore/impregnation_duration)
 
-**Schema Reference:** [impregnation_duration](elements/impregnation_duration.md)
+**Schema Reference:** [impregnation_duration](./elements/impregnation_duration.md)
 
 **Unit:** h
 
@@ -146,9 +146,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:impregnation_temperature`](catcore:impregnation_temperature)
+**URI:** [`catcore:impregnation_temperature`](https://w3id.org/nfdi4cat/catcore/impregnation_temperature)
 
-**Schema Reference:** [impregnation_temperature](elements/impregnation_temperature.md)
+**Schema Reference:** [impregnation_temperature](./elements/impregnation_temperature.md)
 
 **Unit:** Cel
 
@@ -161,9 +161,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_device`](catcore:drying_device)
+**URI:** [`catcore:drying_device`](https://w3id.org/nfdi4cat/catcore/drying_device)
 
-**Schema Reference:** [drying_device](elements/drying_device.md)
+**Schema Reference:** [drying_device](./elements/drying_device.md)
 
 </details>
 
@@ -174,9 +174,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_temperature`](catcore:drying_temperature)
+**URI:** [`catcore:drying_temperature`](https://w3id.org/nfdi4cat/catcore/drying_temperature)
 
-**Schema Reference:** [drying_temperature](elements/drying_temperature.md)
+**Schema Reference:** [drying_temperature](./elements/drying_temperature.md)
 
 **Unit:** Cel
 
@@ -189,9 +189,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_time`](catcore:drying_time)
+**URI:** [`catcore:drying_time`](https://w3id.org/nfdi4cat/catcore/drying_time)
 
-**Schema Reference:** [drying_time](elements/drying_time.md)
+**Schema Reference:** [drying_time](./elements/drying_time.md)
 
 **Unit:** h
 
@@ -204,9 +204,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_atmosphere`](catcore:drying_atmosphere)
+**URI:** [`catcore:drying_atmosphere`](https://w3id.org/nfdi4cat/catcore/drying_atmosphere)
 
-**Schema Reference:** [drying_atmosphere](elements/drying_atmosphere.md)
+**Schema Reference:** [drying_atmosphere](./elements/drying_atmosphere.md)
 
 </details>
 
@@ -217,9 +217,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000057`](voc4cat:0000057)
+**URI:** [`voc4cat:0000057`](https://w3id.org/nfdi4cat/voc4cat_0000057)
 
-**Schema Reference:** [calcination_initial_temperature](elements/calcination_initial_temperature.md)
+**Schema Reference:** [calcination_initial_temperature](./elements/calcination_initial_temperature.md)
 
 **Unit:** Cel
 
@@ -232,9 +232,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000058`](voc4cat:0000058)
+**URI:** [`voc4cat:0000058`](https://w3id.org/nfdi4cat/voc4cat_0000058)
 
-**Schema Reference:** [calcination_final_temperature](elements/calcination_final_temperature.md)
+**Schema Reference:** [calcination_final_temperature](./elements/calcination_final_temperature.md)
 
 **Unit:** Cel
 
@@ -247,9 +247,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000060`](voc4cat:0000060)
+**URI:** [`voc4cat:0000060`](https://w3id.org/nfdi4cat/voc4cat_0000060)
 
-**Schema Reference:** [calcination_dwelling_time](elements/calcination_dwelling_time.md)
+**Schema Reference:** [calcination_dwelling_time](./elements/calcination_dwelling_time.md)
 
 **Unit:** h
 
@@ -262,9 +262,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -275,9 +275,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000055`](voc4cat:0000055)
+**URI:** [`voc4cat:0000055`](https://w3id.org/nfdi4cat/voc4cat_0000055)
 
-**Schema Reference:** [calcination_gaseous_environment](elements/calcination_gaseous_environment.md)
+**Schema Reference:** [calcination_gaseous_environment](./elements/calcination_gaseous_environment.md)
 
 </details>
 
@@ -288,9 +288,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000059`](voc4cat:0000059)
+**URI:** [`voc4cat:0000059`](https://w3id.org/nfdi4cat/voc4cat_0000059)
 
-**Schema Reference:** [calcination_heating_rate](elements/calcination_heating_rate.md)
+**Schema Reference:** [calcination_heating_rate](./elements/calcination_heating_rate.md)
 
 **Unit:** Cel/min
 
@@ -303,9 +303,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000056`](voc4cat:0000056)
+**URI:** [`voc4cat:0000056`](https://w3id.org/nfdi4cat/voc4cat_0000056)
 
-**Schema Reference:** [calcination_gas_flow_rate](elements/calcination_gas_flow_rate.md)
+**Schema Reference:** [calcination_gas_flow_rate](./elements/calcination_gas_flow_rate.md)
 
 **Unit:** mL/min
 
@@ -318,9 +318,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Co-precipitation method for catalyst preparation
 
-**URI:** [`catcore:CoPrecipitation`](catcore:CoPrecipitation)
+**URI:** [`catcore:CoPrecipitation`](https://w3id.org/nfdi4cat/catcore/CoPrecipitation)
 
-**Schema Reference:** [CoPrecipitation](elements/CoPrecipitation.md)
+**Schema Reference:** [CoPrecipitation](./elements/CoPrecipitation.md)
 
 **Slots**
 
@@ -331,9 +331,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:precipitating_agent`](catcore:precipitating_agent)
+**URI:** [`catcore:precipitating_agent`](https://w3id.org/nfdi4cat/catcore/precipitating_agent)
 
-**Schema Reference:** [precipitating_agent](elements/precipitating_agent.md)
+**Schema Reference:** [precipitating_agent](./elements/precipitating_agent.md)
 
 </details>
 
@@ -344,9 +344,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:precipitating_concentration`](catcore:precipitating_concentration)
+**URI:** [`catcore:precipitating_concentration`](https://w3id.org/nfdi4cat/catcore/precipitating_concentration)
 
-**Schema Reference:** [precipitating_concentration](elements/precipitating_concentration.md)
+**Schema Reference:** [precipitating_concentration](./elements/precipitating_concentration.md)
 
 **Unit:** mol/L
 
@@ -359,9 +359,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000052`](voc4cat:0000052)
+**URI:** [`voc4cat:0000052`](https://w3id.org/nfdi4cat/voc4cat_0000052)
 
-**Schema Reference:** [synthesis_ph](elements/synthesis_ph.md)
+**Schema Reference:** [synthesis_ph](./elements/synthesis_ph.md)
 
 </details>
 
@@ -372,9 +372,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_rate`](catcore:mixing_rate)
+**URI:** [`catcore:mixing_rate`](https://w3id.org/nfdi4cat/catcore/mixing_rate)
 
-**Schema Reference:** [mixing_rate](elements/mixing_rate.md)
+**Schema Reference:** [mixing_rate](./elements/mixing_rate.md)
 
 **Unit:** rpm
 
@@ -387,9 +387,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_time`](catcore:mixing_time)
+**URI:** [`catcore:mixing_time`](https://w3id.org/nfdi4cat/catcore/mixing_time)
 
-**Schema Reference:** [mixing_time](elements/mixing_time.md)
+**Schema Reference:** [mixing_time](./elements/mixing_time.md)
 
 **Unit:** h
 
@@ -402,9 +402,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_temperature`](catcore:mixing_temperature)
+**URI:** [`catcore:mixing_temperature`](https://w3id.org/nfdi4cat/catcore/mixing_temperature)
 
-**Schema Reference:** [mixing_temperature](elements/mixing_temperature.md)
+**Schema Reference:** [mixing_temperature](./elements/mixing_temperature.md)
 
 **Unit:** Cel
 
@@ -417,9 +417,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_device`](catcore:drying_device)
+**URI:** [`catcore:drying_device`](https://w3id.org/nfdi4cat/catcore/drying_device)
 
-**Schema Reference:** [drying_device](elements/drying_device.md)
+**Schema Reference:** [drying_device](./elements/drying_device.md)
 
 </details>
 
@@ -430,9 +430,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_temperature`](catcore:drying_temperature)
+**URI:** [`catcore:drying_temperature`](https://w3id.org/nfdi4cat/catcore/drying_temperature)
 
-**Schema Reference:** [drying_temperature](elements/drying_temperature.md)
+**Schema Reference:** [drying_temperature](./elements/drying_temperature.md)
 
 **Unit:** Cel
 
@@ -445,9 +445,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_time`](catcore:drying_time)
+**URI:** [`catcore:drying_time`](https://w3id.org/nfdi4cat/catcore/drying_time)
 
-**Schema Reference:** [drying_time](elements/drying_time.md)
+**Schema Reference:** [drying_time](./elements/drying_time.md)
 
 **Unit:** h
 
@@ -460,9 +460,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_atmosphere`](catcore:drying_atmosphere)
+**URI:** [`catcore:drying_atmosphere`](https://w3id.org/nfdi4cat/catcore/drying_atmosphere)
 
-**Schema Reference:** [drying_atmosphere](elements/drying_atmosphere.md)
+**Schema Reference:** [drying_atmosphere](./elements/drying_atmosphere.md)
 
 </details>
 
@@ -473,9 +473,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000057`](voc4cat:0000057)
+**URI:** [`voc4cat:0000057`](https://w3id.org/nfdi4cat/voc4cat_0000057)
 
-**Schema Reference:** [calcination_initial_temperature](elements/calcination_initial_temperature.md)
+**Schema Reference:** [calcination_initial_temperature](./elements/calcination_initial_temperature.md)
 
 **Unit:** Cel
 
@@ -488,9 +488,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000058`](voc4cat:0000058)
+**URI:** [`voc4cat:0000058`](https://w3id.org/nfdi4cat/voc4cat_0000058)
 
-**Schema Reference:** [calcination_final_temperature](elements/calcination_final_temperature.md)
+**Schema Reference:** [calcination_final_temperature](./elements/calcination_final_temperature.md)
 
 **Unit:** Cel
 
@@ -503,9 +503,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000060`](voc4cat:0000060)
+**URI:** [`voc4cat:0000060`](https://w3id.org/nfdi4cat/voc4cat_0000060)
 
-**Schema Reference:** [calcination_dwelling_time](elements/calcination_dwelling_time.md)
+**Schema Reference:** [calcination_dwelling_time](./elements/calcination_dwelling_time.md)
 
 **Unit:** h
 
@@ -518,9 +518,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -531,9 +531,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000055`](voc4cat:0000055)
+**URI:** [`voc4cat:0000055`](https://w3id.org/nfdi4cat/voc4cat_0000055)
 
-**Schema Reference:** [calcination_gaseous_environment](elements/calcination_gaseous_environment.md)
+**Schema Reference:** [calcination_gaseous_environment](./elements/calcination_gaseous_environment.md)
 
 </details>
 
@@ -544,9 +544,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000059`](voc4cat:0000059)
+**URI:** [`voc4cat:0000059`](https://w3id.org/nfdi4cat/voc4cat_0000059)
 
-**Schema Reference:** [calcination_heating_rate](elements/calcination_heating_rate.md)
+**Schema Reference:** [calcination_heating_rate](./elements/calcination_heating_rate.md)
 
 **Unit:** Cel/min
 
@@ -559,9 +559,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000056`](voc4cat:0000056)
+**URI:** [`voc4cat:0000056`](https://w3id.org/nfdi4cat/voc4cat_0000056)
 
-**Schema Reference:** [calcination_gas_flow_rate](elements/calcination_gas_flow_rate.md)
+**Schema Reference:** [calcination_gas_flow_rate](./elements/calcination_gas_flow_rate.md)
 
 **Unit:** mL/min
 
@@ -574,9 +574,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:order_of_addition`](catcore:order_of_addition)
+**URI:** [`catcore:order_of_addition`](https://w3id.org/nfdi4cat/catcore/order_of_addition)
 
-**Schema Reference:** [order_of_addition](elements/order_of_addition.md)
+**Schema Reference:** [order_of_addition](./elements/order_of_addition.md)
 
 </details>
 
@@ -587,9 +587,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filtration`](catcore:filtration)
+**URI:** [`catcore:filtration`](https://w3id.org/nfdi4cat/catcore/filtration)
 
-**Schema Reference:** [filtration](elements/filtration.md)
+**Schema Reference:** [filtration](./elements/filtration.md)
 
 </details>
 
@@ -600,9 +600,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:purification`](catcore:purification)
+**URI:** [`catcore:purification`](https://w3id.org/nfdi4cat/catcore/purification)
 
-**Schema Reference:** [purification](elements/purification.md)
+**Schema Reference:** [purification](./elements/purification.md)
 
 </details>
 
@@ -613,9 +613,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:aging_temperature`](catcore:aging_temperature)
+**URI:** [`catcore:aging_temperature`](https://w3id.org/nfdi4cat/catcore/aging_temperature)
 
-**Schema Reference:** [aging_temperature](elements/aging_temperature.md)
+**Schema Reference:** [aging_temperature](./elements/aging_temperature.md)
 
 **Unit:** Cel
 
@@ -628,9 +628,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:aging_time`](catcore:aging_time)
+**URI:** [`catcore:aging_time`](https://w3id.org/nfdi4cat/catcore/aging_time)
 
-**Schema Reference:** [aging_time](elements/aging_time.md)
+**Schema Reference:** [aging_time](./elements/aging_time.md)
 
 **Unit:** h
 
@@ -643,9 +643,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Sol-gel method for catalyst preparation
 
-**URI:** [`catcore:SolGel`](catcore:SolGel)
+**URI:** [`catcore:SolGel`](https://w3id.org/nfdi4cat/catcore/SolGel)
 
-**Schema Reference:** [SolGel](elements/SolGel.md)
+**Schema Reference:** [SolGel](./elements/SolGel.md)
 
 **Slots**
 
@@ -656,9 +656,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:hydrolysis_ratio`](catcore:hydrolysis_ratio)
+**URI:** [`catcore:hydrolysis_ratio`](https://w3id.org/nfdi4cat/catcore/hydrolysis_ratio)
 
-**Schema Reference:** [hydrolysis_ratio](elements/hydrolysis_ratio.md)
+**Schema Reference:** [hydrolysis_ratio](./elements/hydrolysis_ratio.md)
 
 </details>
 
@@ -669,9 +669,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:aging_time`](catcore:aging_time)
+**URI:** [`catcore:aging_time`](https://w3id.org/nfdi4cat/catcore/aging_time)
 
-**Schema Reference:** [aging_time](elements/aging_time.md)
+**Schema Reference:** [aging_time](./elements/aging_time.md)
 
 **Unit:** h
 
@@ -684,9 +684,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying`](catcore:drying)
+**URI:** [`catcore:drying`](https://w3id.org/nfdi4cat/catcore/drying)
 
-**Schema Reference:** [drying](elements/drying.md)
+**Schema Reference:** [drying](./elements/drying.md)
 
 </details>
 
@@ -697,9 +697,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:surfactant_template`](catcore:surfactant_template)
+**URI:** [`catcore:surfactant_template`](https://w3id.org/nfdi4cat/catcore/surfactant_template)
 
-**Schema Reference:** [surfactant_template](elements/surfactant_template.md)
+**Schema Reference:** [surfactant_template](./elements/surfactant_template.md)
 
 </details>
 
@@ -710,9 +710,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Solvothermal method for catalyst preparation
 
-**URI:** [`catcore:Solvothermal`](catcore:Solvothermal)
+**URI:** [`catcore:Solvothermal`](https://w3id.org/nfdi4cat/catcore/Solvothermal)
 
-**Schema Reference:** [Solvothermal](elements/Solvothermal.md)
+**Schema Reference:** [Solvothermal](./elements/Solvothermal.md)
 
 **Slots**
 
@@ -723,9 +723,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:filling_volume`](catcore:filling_volume)
+**URI:** [`catcore:filling_volume`](https://w3id.org/nfdi4cat/catcore/filling_volume)
 
-**Schema Reference:** [filling_volume](elements/filling_volume.md)
+**Schema Reference:** [filling_volume](./elements/filling_volume.md)
 
 **Unit:** mL
 
@@ -738,9 +738,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000051`](voc4cat:0000051)
+**URI:** [`voc4cat:0000051`](https://w3id.org/nfdi4cat/voc4cat_0000051)
 
-**Schema Reference:** [synthesis_temperature](elements/synthesis_temperature.md)
+**Schema Reference:** [synthesis_temperature](./elements/synthesis_temperature.md)
 
 **Unit:** Cel
 
@@ -753,9 +753,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000050`](voc4cat:0000050)
+**URI:** [`voc4cat:0000050`](https://w3id.org/nfdi4cat/voc4cat_0000050)
 
-**Schema Reference:** [synthesis_duration](elements/synthesis_duration.md)
+**Schema Reference:** [synthesis_duration](./elements/synthesis_duration.md)
 
 **Unit:** h
 
@@ -768,9 +768,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:vessel_type`](catcore:vessel_type)
+**URI:** [`catcore:vessel_type`](https://w3id.org/nfdi4cat/catcore/vessel_type)
 
-**Schema Reference:** [vessel_type](elements/vessel_type.md)
+**Schema Reference:** [vessel_type](./elements/vessel_type.md)
 
 </details>
 
@@ -781,9 +781,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000187`](voc4cat:0000187)
+**URI:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
 
-**Schema Reference:** [equipment](elements/equipment.md)
+**Schema Reference:** [equipment](./elements/equipment.md)
 
 </details>
 
@@ -794,9 +794,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:stirring_speed`](catcore:stirring_speed)
+**URI:** [`catcore:stirring_speed`](https://w3id.org/nfdi4cat/catcore/stirring_speed)
 
-**Schema Reference:** [stirring_speed](elements/stirring_speed.md)
+**Schema Reference:** [stirring_speed](./elements/stirring_speed.md)
 
 **Unit:** rpm
 
@@ -809,9 +809,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:stirrer_type`](catcore:stirrer_type)
+**URI:** [`catcore:stirrer_type`](https://w3id.org/nfdi4cat/catcore/stirrer_type)
 
-**Schema Reference:** [stirrer_type](elements/stirrer_type.md)
+**Schema Reference:** [stirrer_type](./elements/stirrer_type.md)
 
 </details>
 
@@ -822,9 +822,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:cooling_rate`](catcore:cooling_rate)
+**URI:** [`catcore:cooling_rate`](https://w3id.org/nfdi4cat/catcore/cooling_rate)
 
-**Schema Reference:** [cooling_rate](elements/cooling_rate.md)
+**Schema Reference:** [cooling_rate](./elements/cooling_rate.md)
 
 **Unit:** Cel/min
 
@@ -837,9 +837,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Plasma-assisted method for catalyst preparation
 
-**URI:** [`catcore:PlasmaAssisted`](catcore:PlasmaAssisted)
+**URI:** [`catcore:PlasmaAssisted`](https://w3id.org/nfdi4cat/catcore/PlasmaAssisted)
 
-**Schema Reference:** [PlasmaAssisted](elements/PlasmaAssisted.md)
+**Schema Reference:** [PlasmaAssisted](./elements/PlasmaAssisted.md)
 
 **Slots**
 
@@ -850,9 +850,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:plasma_type`](catcore:plasma_type)
+**URI:** [`catcore:plasma_type`](https://w3id.org/nfdi4cat/catcore/plasma_type)
 
-**Schema Reference:** [plasma_type](elements/plasma_type.md)
+**Schema Reference:** [plasma_type](./elements/plasma_type.md)
 
 </details>
 
@@ -863,9 +863,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000187`](voc4cat:0000187)
+**URI:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
 
-**Schema Reference:** [equipment](elements/equipment.md)
+**Schema Reference:** [equipment](./elements/equipment.md)
 
 </details>
 
@@ -876,9 +876,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:atmosphere`](catcore:atmosphere)
+**URI:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
 
-**Schema Reference:** [atmosphere](elements/atmosphere.md)
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
 
 </details>
 
@@ -889,9 +889,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:power_input`](catcore:power_input)
+**URI:** [`catcore:power_input`](https://w3id.org/nfdi4cat/catcore/power_input)
 
-**Schema Reference:** [power_input](elements/power_input.md)
+**Schema Reference:** [power_input](./elements/power_input.md)
 
 **Unit:** W
 
@@ -904,9 +904,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:exposure_time`](catcore:exposure_time)
+**URI:** [`catcore:exposure_time`](https://w3id.org/nfdi4cat/catcore/exposure_time)
 
-**Schema Reference:** [exposure_time](elements/exposure_time.md)
+**Schema Reference:** [exposure_time](./elements/exposure_time.md)
 
 **Unit:** min
 
@@ -919,9 +919,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000053`](voc4cat:0000053)
+**URI:** [`voc4cat:0000053`](https://w3id.org/nfdi4cat/voc4cat_0000053)
 
-**Schema Reference:** [synthesis_pressure](elements/synthesis_pressure.md)
+**Schema Reference:** [synthesis_pressure](./elements/synthesis_pressure.md)
 
 **Unit:** bar
 
@@ -934,9 +934,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000051`](voc4cat:0000051)
+**URI:** [`voc4cat:0000051`](https://w3id.org/nfdi4cat/voc4cat_0000051)
 
-**Schema Reference:** [synthesis_temperature](elements/synthesis_temperature.md)
+**Schema Reference:** [synthesis_temperature](./elements/synthesis_temperature.md)
 
 **Unit:** Cel
 
@@ -949,9 +949,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Combustion synthesis method for catalyst preparation
 
-**URI:** [`catcore:CombustionSynthesis`](catcore:CombustionSynthesis)
+**URI:** [`catcore:CombustionSynthesis`](https://w3id.org/nfdi4cat/catcore/CombustionSynthesis)
 
-**Schema Reference:** [CombustionSynthesis](elements/CombustionSynthesis.md)
+**Schema Reference:** [CombustionSynthesis](./elements/CombustionSynthesis.md)
 
 **Slots**
 
@@ -962,9 +962,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:fuel`](catcore:fuel)
+**URI:** [`catcore:fuel`](https://w3id.org/nfdi4cat/catcore/fuel)
 
-**Schema Reference:** [fuel](elements/fuel.md)
+**Schema Reference:** [fuel](./elements/fuel.md)
 
 </details>
 
@@ -975,9 +975,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:oxidizer`](catcore:oxidizer)
+**URI:** [`catcore:oxidizer`](https://w3id.org/nfdi4cat/catcore/oxidizer)
 
-**Schema Reference:** [oxidizer](elements/oxidizer.md)
+**Schema Reference:** [oxidizer](./elements/oxidizer.md)
 
 </details>
 
@@ -988,9 +988,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:fuel_to_oxidizer_ratio`](catcore:fuel_to_oxidizer_ratio)
+**URI:** [`catcore:fuel_to_oxidizer_ratio`](https://w3id.org/nfdi4cat/catcore/fuel_to_oxidizer_ratio)
 
-**Schema Reference:** [fuel_to_oxidizer_ratio](elements/fuel_to_oxidizer_ratio.md)
+**Schema Reference:** [fuel_to_oxidizer_ratio](./elements/fuel_to_oxidizer_ratio.md)
 
 </details>
 
@@ -1001,9 +1001,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:set_temperature`](catcore:set_temperature)
+**URI:** [`catcore:set_temperature`](https://w3id.org/nfdi4cat/catcore/set_temperature)
 
-**Schema Reference:** [set_temperature](elements/set_temperature.md)
+**Schema Reference:** [set_temperature](./elements/set_temperature.md)
 
 **Unit:** Cel
 
@@ -1016,9 +1016,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:post_treatment`](catcore:post_treatment)
+**URI:** [`catcore:post_treatment`](https://w3id.org/nfdi4cat/catcore/post_treatment)
 
-**Schema Reference:** [post_treatment](elements/post_treatment.md)
+**Schema Reference:** [post_treatment](./elements/post_treatment.md)
 
 </details>
 
@@ -1029,9 +1029,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:atmosphere`](catcore:atmosphere)
+**URI:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
 
-**Schema Reference:** [atmosphere](elements/atmosphere.md)
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
 
 </details>
 
@@ -1042,9 +1042,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:vessel_type`](catcore:vessel_type)
+**URI:** [`catcore:vessel_type`](https://w3id.org/nfdi4cat/catcore/vessel_type)
 
-**Schema Reference:** [vessel_type](elements/vessel_type.md)
+**Schema Reference:** [vessel_type](./elements/vessel_type.md)
 
 </details>
 
@@ -1055,9 +1055,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000187`](voc4cat:0000187)
+**URI:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
 
-**Schema Reference:** [equipment](elements/equipment.md)
+**Schema Reference:** [equipment](./elements/equipment.md)
 
 </details>
 
@@ -1068,9 +1068,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Atomic layer deposition method for catalyst preparation
 
-**URI:** [`catcore:AtomicLayerDeposition`](catcore:AtomicLayerDeposition)
+**URI:** [`catcore:AtomicLayerDeposition`](https://w3id.org/nfdi4cat/catcore/AtomicLayerDeposition)
 
-**Schema Reference:** [AtomicLayerDeposition](elements/AtomicLayerDeposition.md)
+**Schema Reference:** [AtomicLayerDeposition](./elements/AtomicLayerDeposition.md)
 
 **Slots**
 
@@ -1081,9 +1081,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000024`](voc4cat:0000024)
+**URI:** [`voc4cat:0000024`](https://w3id.org/nfdi4cat/voc4cat_0000024)
 
-**Schema Reference:** [substrate](elements/substrate.md)
+**Schema Reference:** [substrate](./elements/substrate.md)
 
 </details>
 
@@ -1094,9 +1094,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:pulse_time`](catcore:pulse_time)
+**URI:** [`catcore:pulse_time`](https://w3id.org/nfdi4cat/catcore/pulse_time)
 
-**Schema Reference:** [pulse_time](elements/pulse_time.md)
+**Schema Reference:** [pulse_time](./elements/pulse_time.md)
 
 **Unit:** s
 
@@ -1109,9 +1109,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000112`](voc4cat:0000112)
+**URI:** [`voc4cat:0000112`](https://w3id.org/nfdi4cat/voc4cat_0000112)
 
-**Schema Reference:** [purging_duration](elements/purging_duration.md)
+**Schema Reference:** [purging_duration](./elements/purging_duration.md)
 
 **Unit:** s
 
@@ -1124,9 +1124,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -1137,9 +1137,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:deposition_temperature`](catcore:deposition_temperature)
+**URI:** [`catcore:deposition_temperature`](https://w3id.org/nfdi4cat/catcore/deposition_temperature)
 
-**Schema Reference:** [deposition_temperature](elements/deposition_temperature.md)
+**Schema Reference:** [deposition_temperature](./elements/deposition_temperature.md)
 
 **Unit:** Cel
 
@@ -1152,9 +1152,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:carrier_gas`](catcore:carrier_gas)
+**URI:** [`catcore:carrier_gas`](https://w3id.org/nfdi4cat/catcore/carrier_gas)
 
-**Schema Reference:** [carrier_gas](elements/carrier_gas.md)
+**Schema Reference:** [carrier_gas](./elements/carrier_gas.md)
 
 </details>
 
@@ -1165,9 +1165,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Deposition-precipitation method for catalyst preparation
 
-**URI:** [`catcore:DepositionPrecipitation`](catcore:DepositionPrecipitation)
+**URI:** [`catcore:DepositionPrecipitation`](https://w3id.org/nfdi4cat/catcore/DepositionPrecipitation)
 
-**Schema Reference:** [DepositionPrecipitation](elements/DepositionPrecipitation.md)
+**Schema Reference:** [DepositionPrecipitation](./elements/DepositionPrecipitation.md)
 
 **Slots**
 
@@ -1178,9 +1178,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:precipitating_agent`](catcore:precipitating_agent)
+**URI:** [`catcore:precipitating_agent`](https://w3id.org/nfdi4cat/catcore/precipitating_agent)
 
-**Schema Reference:** [precipitating_agent](elements/precipitating_agent.md)
+**Schema Reference:** [precipitating_agent](./elements/precipitating_agent.md)
 
 </details>
 
@@ -1191,9 +1191,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000052`](voc4cat:0000052)
+**URI:** [`voc4cat:0000052`](https://w3id.org/nfdi4cat/voc4cat_0000052)
 
-**Schema Reference:** [synthesis_ph](elements/synthesis_ph.md)
+**Schema Reference:** [synthesis_ph](./elements/synthesis_ph.md)
 
 </details>
 
@@ -1204,9 +1204,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:deposition_temperature`](catcore:deposition_temperature)
+**URI:** [`catcore:deposition_temperature`](https://w3id.org/nfdi4cat/catcore/deposition_temperature)
 
-**Schema Reference:** [deposition_temperature](elements/deposition_temperature.md)
+**Schema Reference:** [deposition_temperature](./elements/deposition_temperature.md)
 
 **Unit:** Cel
 
@@ -1219,9 +1219,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:deposition_time`](catcore:deposition_time)
+**URI:** [`catcore:deposition_time`](https://w3id.org/nfdi4cat/catcore/deposition_time)
 
-**Schema Reference:** [deposition_time](elements/deposition_time.md)
+**Schema Reference:** [deposition_time](./elements/deposition_time.md)
 
 **Unit:** h
 
@@ -1234,9 +1234,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_rate`](catcore:mixing_rate)
+**URI:** [`catcore:mixing_rate`](https://w3id.org/nfdi4cat/catcore/mixing_rate)
 
-**Schema Reference:** [mixing_rate](elements/mixing_rate.md)
+**Schema Reference:** [mixing_rate](./elements/mixing_rate.md)
 
 **Unit:** rpm
 
@@ -1249,9 +1249,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_time`](catcore:mixing_time)
+**URI:** [`catcore:mixing_time`](https://w3id.org/nfdi4cat/catcore/mixing_time)
 
-**Schema Reference:** [mixing_time](elements/mixing_time.md)
+**Schema Reference:** [mixing_time](./elements/mixing_time.md)
 
 **Unit:** h
 
@@ -1264,9 +1264,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_temperature`](catcore:mixing_temperature)
+**URI:** [`catcore:mixing_temperature`](https://w3id.org/nfdi4cat/catcore/mixing_temperature)
 
-**Schema Reference:** [mixing_temperature](elements/mixing_temperature.md)
+**Schema Reference:** [mixing_temperature](./elements/mixing_temperature.md)
 
 **Unit:** Cel
 
@@ -1279,9 +1279,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_device`](catcore:drying_device)
+**URI:** [`catcore:drying_device`](https://w3id.org/nfdi4cat/catcore/drying_device)
 
-**Schema Reference:** [drying_device](elements/drying_device.md)
+**Schema Reference:** [drying_device](./elements/drying_device.md)
 
 </details>
 
@@ -1292,9 +1292,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_temperature`](catcore:drying_temperature)
+**URI:** [`catcore:drying_temperature`](https://w3id.org/nfdi4cat/catcore/drying_temperature)
 
-**Schema Reference:** [drying_temperature](elements/drying_temperature.md)
+**Schema Reference:** [drying_temperature](./elements/drying_temperature.md)
 
 **Unit:** Cel
 
@@ -1307,9 +1307,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_time`](catcore:drying_time)
+**URI:** [`catcore:drying_time`](https://w3id.org/nfdi4cat/catcore/drying_time)
 
-**Schema Reference:** [drying_time](elements/drying_time.md)
+**Schema Reference:** [drying_time](./elements/drying_time.md)
 
 **Unit:** h
 
@@ -1322,9 +1322,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_atmosphere`](catcore:drying_atmosphere)
+**URI:** [`catcore:drying_atmosphere`](https://w3id.org/nfdi4cat/catcore/drying_atmosphere)
 
-**Schema Reference:** [drying_atmosphere](elements/drying_atmosphere.md)
+**Schema Reference:** [drying_atmosphere](./elements/drying_atmosphere.md)
 
 </details>
 
@@ -1335,9 +1335,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000057`](voc4cat:0000057)
+**URI:** [`voc4cat:0000057`](https://w3id.org/nfdi4cat/voc4cat_0000057)
 
-**Schema Reference:** [calcination_initial_temperature](elements/calcination_initial_temperature.md)
+**Schema Reference:** [calcination_initial_temperature](./elements/calcination_initial_temperature.md)
 
 **Unit:** Cel
 
@@ -1350,9 +1350,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000058`](voc4cat:0000058)
+**URI:** [`voc4cat:0000058`](https://w3id.org/nfdi4cat/voc4cat_0000058)
 
-**Schema Reference:** [calcination_final_temperature](elements/calcination_final_temperature.md)
+**Schema Reference:** [calcination_final_temperature](./elements/calcination_final_temperature.md)
 
 **Unit:** Cel
 
@@ -1365,9 +1365,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000060`](voc4cat:0000060)
+**URI:** [`voc4cat:0000060`](https://w3id.org/nfdi4cat/voc4cat_0000060)
 
-**Schema Reference:** [calcination_dwelling_time](elements/calcination_dwelling_time.md)
+**Schema Reference:** [calcination_dwelling_time](./elements/calcination_dwelling_time.md)
 
 **Unit:** h
 
@@ -1380,9 +1380,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -1393,9 +1393,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000055`](voc4cat:0000055)
+**URI:** [`voc4cat:0000055`](https://w3id.org/nfdi4cat/voc4cat_0000055)
 
-**Schema Reference:** [calcination_gaseous_environment](elements/calcination_gaseous_environment.md)
+**Schema Reference:** [calcination_gaseous_environment](./elements/calcination_gaseous_environment.md)
 
 </details>
 
@@ -1406,9 +1406,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000059`](voc4cat:0000059)
+**URI:** [`voc4cat:0000059`](https://w3id.org/nfdi4cat/voc4cat_0000059)
 
-**Schema Reference:** [calcination_heating_rate](elements/calcination_heating_rate.md)
+**Schema Reference:** [calcination_heating_rate](./elements/calcination_heating_rate.md)
 
 **Unit:** Cel/min
 
@@ -1421,9 +1421,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000056`](voc4cat:0000056)
+**URI:** [`voc4cat:0000056`](https://w3id.org/nfdi4cat/voc4cat_0000056)
 
-**Schema Reference:** [calcination_gas_flow_rate](elements/calcination_gas_flow_rate.md)
+**Schema Reference:** [calcination_gas_flow_rate](./elements/calcination_gas_flow_rate.md)
 
 **Unit:** mL/min
 
@@ -1436,9 +1436,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:order_of_addition`](catcore:order_of_addition)
+**URI:** [`catcore:order_of_addition`](https://w3id.org/nfdi4cat/catcore/order_of_addition)
 
-**Schema Reference:** [order_of_addition](elements/order_of_addition.md)
+**Schema Reference:** [order_of_addition](./elements/order_of_addition.md)
 
 </details>
 
@@ -1449,9 +1449,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filtration`](catcore:filtration)
+**URI:** [`catcore:filtration`](https://w3id.org/nfdi4cat/catcore/filtration)
 
-**Schema Reference:** [filtration](elements/filtration.md)
+**Schema Reference:** [filtration](./elements/filtration.md)
 
 </details>
 
@@ -1462,9 +1462,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:purification`](catcore:purification)
+**URI:** [`catcore:purification`](https://w3id.org/nfdi4cat/catcore/purification)
 
-**Schema Reference:** [purification](elements/purification.md)
+**Schema Reference:** [purification](./elements/purification.md)
 
 </details>
 
@@ -1475,9 +1475,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:aging_temperature`](catcore:aging_temperature)
+**URI:** [`catcore:aging_temperature`](https://w3id.org/nfdi4cat/catcore/aging_temperature)
 
-**Schema Reference:** [aging_temperature](elements/aging_temperature.md)
+**Schema Reference:** [aging_temperature](./elements/aging_temperature.md)
 
 **Unit:** Cel
 
@@ -1490,9 +1490,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:aging_time`](catcore:aging_time)
+**URI:** [`catcore:aging_time`](https://w3id.org/nfdi4cat/catcore/aging_time)
 
-**Schema Reference:** [aging_time](elements/aging_time.md)
+**Schema Reference:** [aging_time](./elements/aging_time.md)
 
 **Unit:** h
 
@@ -1505,9 +1505,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Microwave-assisted method for catalyst preparation
 
-**URI:** [`catcore:MicrowaveAssisted`](catcore:MicrowaveAssisted)
+**URI:** [`catcore:MicrowaveAssisted`](https://w3id.org/nfdi4cat/catcore/MicrowaveAssisted)
 
-**Schema Reference:** [MicrowaveAssisted](elements/MicrowaveAssisted.md)
+**Schema Reference:** [MicrowaveAssisted](./elements/MicrowaveAssisted.md)
 
 **Slots**
 
@@ -1518,9 +1518,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000187`](voc4cat:0000187)
+**URI:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
 
-**Schema Reference:** [equipment](elements/equipment.md)
+**Schema Reference:** [equipment](./elements/equipment.md)
 
 </details>
 
@@ -1531,9 +1531,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:power`](catcore:power)
+**URI:** [`catcore:power`](https://w3id.org/nfdi4cat/catcore/power)
 
-**Schema Reference:** [power](elements/power.md)
+**Schema Reference:** [power](./elements/power.md)
 
 **Unit:** W
 
@@ -1546,9 +1546,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000050`](voc4cat:0000050)
+**URI:** [`voc4cat:0000050`](https://w3id.org/nfdi4cat/voc4cat_0000050)
 
-**Schema Reference:** [synthesis_duration](elements/synthesis_duration.md)
+**Schema Reference:** [synthesis_duration](./elements/synthesis_duration.md)
 
 **Unit:** h
 
@@ -1561,9 +1561,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000051`](voc4cat:0000051)
+**URI:** [`voc4cat:0000051`](https://w3id.org/nfdi4cat/voc4cat_0000051)
 
-**Schema Reference:** [synthesis_temperature](elements/synthesis_temperature.md)
+**Schema Reference:** [synthesis_temperature](./elements/synthesis_temperature.md)
 
 **Unit:** Cel
 
@@ -1576,9 +1576,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:microwave_frequency`](catcore:microwave_frequency)
+**URI:** [`catcore:microwave_frequency`](https://w3id.org/nfdi4cat/catcore/microwave_frequency)
 
-**Schema Reference:** [microwave_frequency](elements/microwave_frequency.md)
+**Schema Reference:** [microwave_frequency](./elements/microwave_frequency.md)
 
 **Unit:** GHz
 
@@ -1591,9 +1591,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:vessel_type`](catcore:vessel_type)
+**URI:** [`catcore:vessel_type`](https://w3id.org/nfdi4cat/catcore/vessel_type)
 
-**Schema Reference:** [vessel_type](elements/vessel_type.md)
+**Schema Reference:** [vessel_type](./elements/vessel_type.md)
 
 </details>
 
@@ -1604,9 +1604,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Sonochemical synthesis method for catalyst preparation
 
-**URI:** [`catcore:SonochemicalSynthesis`](catcore:SonochemicalSynthesis)
+**URI:** [`catcore:SonochemicalSynthesis`](https://w3id.org/nfdi4cat/catcore/SonochemicalSynthesis)
 
-**Schema Reference:** [SonochemicalSynthesis](elements/SonochemicalSynthesis.md)
+**Schema Reference:** [SonochemicalSynthesis](./elements/SonochemicalSynthesis.md)
 
 **Slots**
 
@@ -1617,9 +1617,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:stirring_duration`](catcore:stirring_duration)
+**URI:** [`catcore:stirring_duration`](https://w3id.org/nfdi4cat/catcore/stirring_duration)
 
-**Schema Reference:** [stirring_duration](elements/stirring_duration.md)
+**Schema Reference:** [stirring_duration](./elements/stirring_duration.md)
 
 **Unit:** h
 
@@ -1632,9 +1632,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:sonication_power`](catcore:sonication_power)
+**URI:** [`catcore:sonication_power`](https://w3id.org/nfdi4cat/catcore/sonication_power)
 
-**Schema Reference:** [sonication_power](elements/sonication_power.md)
+**Schema Reference:** [sonication_power](./elements/sonication_power.md)
 
 **Unit:** W
 
@@ -1647,9 +1647,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:sonication_duration`](catcore:sonication_duration)
+**URI:** [`catcore:sonication_duration`](https://w3id.org/nfdi4cat/catcore/sonication_duration)
 
-**Schema Reference:** [sonication_duration](elements/sonication_duration.md)
+**Schema Reference:** [sonication_duration](./elements/sonication_duration.md)
 
 **Unit:** min
 
@@ -1662,9 +1662,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`AFR:0001584`](AFR:0001584)
+**URI:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
 
-**Schema Reference:** [temperature](elements/temperature.md)
+**Schema Reference:** [temperature](./elements/temperature.md)
 
 **Unit:** Cel
 
@@ -1677,9 +1677,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_device`](catcore:drying_device)
+**URI:** [`catcore:drying_device`](https://w3id.org/nfdi4cat/catcore/drying_device)
 
-**Schema Reference:** [drying_device](elements/drying_device.md)
+**Schema Reference:** [drying_device](./elements/drying_device.md)
 
 </details>
 
@@ -1690,9 +1690,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_temperature`](catcore:drying_temperature)
+**URI:** [`catcore:drying_temperature`](https://w3id.org/nfdi4cat/catcore/drying_temperature)
 
-**Schema Reference:** [drying_temperature](elements/drying_temperature.md)
+**Schema Reference:** [drying_temperature](./elements/drying_temperature.md)
 
 **Unit:** Cel
 
@@ -1705,9 +1705,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_time`](catcore:drying_time)
+**URI:** [`catcore:drying_time`](https://w3id.org/nfdi4cat/catcore/drying_time)
 
-**Schema Reference:** [drying_time](elements/drying_time.md)
+**Schema Reference:** [drying_time](./elements/drying_time.md)
 
 **Unit:** h
 
@@ -1720,9 +1720,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_atmosphere`](catcore:drying_atmosphere)
+**URI:** [`catcore:drying_atmosphere`](https://w3id.org/nfdi4cat/catcore/drying_atmosphere)
 
-**Schema Reference:** [drying_atmosphere](elements/drying_atmosphere.md)
+**Schema Reference:** [drying_atmosphere](./elements/drying_atmosphere.md)
 
 </details>
 
@@ -1733,9 +1733,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000057`](voc4cat:0000057)
+**URI:** [`voc4cat:0000057`](https://w3id.org/nfdi4cat/voc4cat_0000057)
 
-**Schema Reference:** [calcination_initial_temperature](elements/calcination_initial_temperature.md)
+**Schema Reference:** [calcination_initial_temperature](./elements/calcination_initial_temperature.md)
 
 **Unit:** Cel
 
@@ -1748,9 +1748,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000058`](voc4cat:0000058)
+**URI:** [`voc4cat:0000058`](https://w3id.org/nfdi4cat/voc4cat_0000058)
 
-**Schema Reference:** [calcination_final_temperature](elements/calcination_final_temperature.md)
+**Schema Reference:** [calcination_final_temperature](./elements/calcination_final_temperature.md)
 
 **Unit:** Cel
 
@@ -1763,9 +1763,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000060`](voc4cat:0000060)
+**URI:** [`voc4cat:0000060`](https://w3id.org/nfdi4cat/voc4cat_0000060)
 
-**Schema Reference:** [calcination_dwelling_time](elements/calcination_dwelling_time.md)
+**Schema Reference:** [calcination_dwelling_time](./elements/calcination_dwelling_time.md)
 
 **Unit:** h
 
@@ -1778,9 +1778,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -1791,9 +1791,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000055`](voc4cat:0000055)
+**URI:** [`voc4cat:0000055`](https://w3id.org/nfdi4cat/voc4cat_0000055)
 
-**Schema Reference:** [calcination_gaseous_environment](elements/calcination_gaseous_environment.md)
+**Schema Reference:** [calcination_gaseous_environment](./elements/calcination_gaseous_environment.md)
 
 </details>
 
@@ -1804,9 +1804,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000059`](voc4cat:0000059)
+**URI:** [`voc4cat:0000059`](https://w3id.org/nfdi4cat/voc4cat_0000059)
 
-**Schema Reference:** [calcination_heating_rate](elements/calcination_heating_rate.md)
+**Schema Reference:** [calcination_heating_rate](./elements/calcination_heating_rate.md)
 
 **Unit:** Cel/min
 
@@ -1819,9 +1819,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000056`](voc4cat:0000056)
+**URI:** [`voc4cat:0000056`](https://w3id.org/nfdi4cat/voc4cat_0000056)
 
-**Schema Reference:** [calcination_gas_flow_rate](elements/calcination_gas_flow_rate.md)
+**Schema Reference:** [calcination_gas_flow_rate](./elements/calcination_gas_flow_rate.md)
 
 **Unit:** mL/min
 
@@ -1834,9 +1834,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Flame spray pyrolysis method for catalyst preparation
 
-**URI:** [`voc4cat:0007031`](voc4cat:0007031)
+**URI:** [`voc4cat:0007031`](https://w3id.org/nfdi4cat/voc4cat_0007031)
 
-**Schema Reference:** [FlameSprayPyrolysis](elements/FlameSprayPyrolysis.md)
+**Schema Reference:** [FlameSprayPyrolysis](./elements/FlameSprayPyrolysis.md)
 
 **Slots**
 
@@ -1847,9 +1847,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:flame_type`](catcore:flame_type)
+**URI:** [`catcore:flame_type`](https://w3id.org/nfdi4cat/catcore/flame_type)
 
-**Schema Reference:** [flame_type](elements/flame_type.md)
+**Schema Reference:** [flame_type](./elements/flame_type.md)
 
 </details>
 
@@ -1860,9 +1860,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:flow_rate`](catcore:flow_rate)
+**URI:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
 
-**Schema Reference:** [flow_rate](elements/flow_rate.md)
+**Schema Reference:** [flow_rate](./elements/flow_rate.md)
 
 **Unit:** mL/min
 
@@ -1875,9 +1875,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:inlet_system`](catcore:inlet_system)
+**URI:** [`catcore:inlet_system`](https://w3id.org/nfdi4cat/catcore/inlet_system)
 
-**Schema Reference:** [inlet_system](elements/inlet_system.md)
+**Schema Reference:** [inlet_system](./elements/inlet_system.md)
 
 </details>
 
@@ -1888,9 +1888,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:flame_ring`](catcore:flame_ring)
+**URI:** [`catcore:flame_ring`](https://w3id.org/nfdi4cat/catcore/flame_ring)
 
-**Schema Reference:** [flame_ring](elements/flame_ring.md)
+**Schema Reference:** [flame_ring](./elements/flame_ring.md)
 
 </details>
 
@@ -1901,9 +1901,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:dispersant`](catcore:dispersant)
+**URI:** [`catcore:dispersant`](https://w3id.org/nfdi4cat/catcore/dispersant)
 
-**Schema Reference:** [dispersant](elements/dispersant.md)
+**Schema Reference:** [dispersant](./elements/dispersant.md)
 
 </details>
 
@@ -1914,9 +1914,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:capillary_pressure`](catcore:capillary_pressure)
+**URI:** [`catcore:capillary_pressure`](https://w3id.org/nfdi4cat/catcore/capillary_pressure)
 
-**Schema Reference:** [capillary_pressure](elements/capillary_pressure.md)
+**Schema Reference:** [capillary_pressure](./elements/capillary_pressure.md)
 
 **Unit:** bar
 
@@ -1929,9 +1929,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:fuel_dispersant_ratio`](catcore:fuel_dispersant_ratio)
+**URI:** [`catcore:fuel_dispersant_ratio`](https://w3id.org/nfdi4cat/catcore/fuel_dispersant_ratio)
 
-**Schema Reference:** [fuel_dispersant_ratio](elements/fuel_dispersant_ratio.md)
+**Schema Reference:** [fuel_dispersant_ratio](./elements/fuel_dispersant_ratio.md)
 
 </details>
 
@@ -1942,9 +1942,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filtration_device`](catcore:filtration_device)
+**URI:** [`catcore:filtration_device`](https://w3id.org/nfdi4cat/catcore/filtration_device)
 
-**Schema Reference:** [filtration_device](elements/filtration_device.md)
+**Schema Reference:** [filtration_device](./elements/filtration_device.md)
 
 </details>
 
@@ -1955,9 +1955,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filter_type`](catcore:filter_type)
+**URI:** [`catcore:filter_type`](https://w3id.org/nfdi4cat/catcore/filter_type)
 
-**Schema Reference:** [filter_type](elements/filter_type.md)
+**Schema Reference:** [filter_type](./elements/filter_type.md)
 
 </details>
 
@@ -1968,9 +1968,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Mechanochemical synthesis method for catalyst preparation
 
-**URI:** [`catcore:MechanochemicalSynthesis`](catcore:MechanochemicalSynthesis)
+**URI:** [`catcore:MechanochemicalSynthesis`](https://w3id.org/nfdi4cat/catcore/MechanochemicalSynthesis)
 
-**Schema Reference:** [MechanochemicalSynthesis](elements/MechanochemicalSynthesis.md)
+**Schema Reference:** [MechanochemicalSynthesis](./elements/MechanochemicalSynthesis.md)
 
 **Slots**
 
@@ -1981,9 +1981,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000187`](voc4cat:0000187)
+**URI:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
 
-**Schema Reference:** [equipment](elements/equipment.md)
+**Schema Reference:** [equipment](./elements/equipment.md)
 
 </details>
 
@@ -1994,9 +1994,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:vessel_volume`](catcore:vessel_volume)
+**URI:** [`catcore:vessel_volume`](https://w3id.org/nfdi4cat/catcore/vessel_volume)
 
-**Schema Reference:** [vessel_volume](elements/vessel_volume.md)
+**Schema Reference:** [vessel_volume](./elements/vessel_volume.md)
 
 **Unit:** mL
 
@@ -2009,9 +2009,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:size_and_material`](catcore:size_and_material)
+**URI:** [`catcore:size_and_material`](https://w3id.org/nfdi4cat/catcore/size_and_material)
 
-**Schema Reference:** [size_and_material](elements/size_and_material.md)
+**Schema Reference:** [size_and_material](./elements/size_and_material.md)
 
 </details>
 
@@ -2022,9 +2022,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:milling_speed`](catcore:milling_speed)
+**URI:** [`catcore:milling_speed`](https://w3id.org/nfdi4cat/catcore/milling_speed)
 
-**Schema Reference:** [milling_speed](elements/milling_speed.md)
+**Schema Reference:** [milling_speed](./elements/milling_speed.md)
 
 **Unit:** rpm
 
@@ -2037,9 +2037,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:milling_duration`](catcore:milling_duration)
+**URI:** [`catcore:milling_duration`](https://w3id.org/nfdi4cat/catcore/milling_duration)
 
-**Schema Reference:** [milling_duration](elements/milling_duration.md)
+**Schema Reference:** [milling_duration](./elements/milling_duration.md)
 
 **Unit:** h
 
@@ -2052,9 +2052,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000051`](voc4cat:0000051)
+**URI:** [`voc4cat:0000051`](https://w3id.org/nfdi4cat/voc4cat_0000051)
 
-**Schema Reference:** [synthesis_temperature](elements/synthesis_temperature.md)
+**Schema Reference:** [synthesis_temperature](./elements/synthesis_temperature.md)
 
 **Unit:** Cel
 
@@ -2067,9 +2067,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:atmosphere`](catcore:atmosphere)
+**URI:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
 
-**Schema Reference:** [atmosphere](elements/atmosphere.md)
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
 
 </details>
 
@@ -2080,9 +2080,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:ball_material`](catcore:ball_material)
+**URI:** [`catcore:ball_material`](https://w3id.org/nfdi4cat/catcore/ball_material)
 
-**Schema Reference:** [ball_material](elements/ball_material.md)
+**Schema Reference:** [ball_material](./elements/ball_material.md)
 
 </details>
 
@@ -2093,9 +2093,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:ball_size`](catcore:ball_size)
+**URI:** [`catcore:ball_size`](https://w3id.org/nfdi4cat/catcore/ball_size)
 
-**Schema Reference:** [ball_size](elements/ball_size.md)
+**Schema Reference:** [ball_size](./elements/ball_size.md)
 
 **Unit:** mm
 
@@ -2108,9 +2108,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:ball_to_powder_ratio`](catcore:ball_to_powder_ratio)
+**URI:** [`catcore:ball_to_powder_ratio`](https://w3id.org/nfdi4cat/catcore/ball_to_powder_ratio)
 
-**Schema Reference:** [ball_to_powder_ratio](elements/ball_to_powder_ratio.md)
+**Schema Reference:** [ball_to_powder_ratio](./elements/ball_to_powder_ratio.md)
 
 </details>
 
@@ -2121,9 +2121,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Sublimation method for catalyst preparation
 
-**URI:** [`catcore:Sublimation`](catcore:Sublimation)
+**URI:** [`catcore:Sublimation`](https://w3id.org/nfdi4cat/catcore/Sublimation)
 
-**Schema Reference:** [Sublimation](elements/Sublimation.md)
+**Schema Reference:** [Sublimation](./elements/Sublimation.md)
 
 **Slots**
 
@@ -2134,9 +2134,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`AFR:0001584`](AFR:0001584)
+**URI:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
 
-**Schema Reference:** [temperature](elements/temperature.md)
+**Schema Reference:** [temperature](./elements/temperature.md)
 
 **Unit:** Cel
 
@@ -2149,9 +2149,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000053`](voc4cat:0000053)
+**URI:** [`voc4cat:0000053`](https://w3id.org/nfdi4cat/voc4cat_0000053)
 
-**Schema Reference:** [synthesis_pressure](elements/synthesis_pressure.md)
+**Schema Reference:** [synthesis_pressure](./elements/synthesis_pressure.md)
 
 **Unit:** bar
 
@@ -2164,9 +2164,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000050`](voc4cat:0000050)
+**URI:** [`voc4cat:0000050`](https://w3id.org/nfdi4cat/voc4cat_0000050)
 
-**Schema Reference:** [synthesis_duration](elements/synthesis_duration.md)
+**Schema Reference:** [synthesis_duration](./elements/synthesis_duration.md)
 
 **Unit:** h
 
@@ -2179,9 +2179,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Molecular synthesis method for catalyst preparation
 
-**URI:** [`catcore:MolecularSynthesis`](catcore:MolecularSynthesis)
+**URI:** [`catcore:MolecularSynthesis`](https://w3id.org/nfdi4cat/catcore/MolecularSynthesis)
 
-**Schema Reference:** [MolecularSynthesis](elements/MolecularSynthesis.md)
+**Schema Reference:** [MolecularSynthesis](./elements/MolecularSynthesis.md)
 
 **Slots**
 
@@ -2192,9 +2192,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:atmosphere`](catcore:atmosphere)
+**URI:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
 
-**Schema Reference:** [atmosphere](elements/atmosphere.md)
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
 
 </details>
 
@@ -2205,9 +2205,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000050`](voc4cat:0000050)
+**URI:** [`voc4cat:0000050`](https://w3id.org/nfdi4cat/voc4cat_0000050)
 
-**Schema Reference:** [synthesis_duration](elements/synthesis_duration.md)
+**Schema Reference:** [synthesis_duration](./elements/synthesis_duration.md)
 
 **Unit:** h
 
@@ -2220,9 +2220,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:reaction_vessel`](catcore:reaction_vessel)
+**URI:** [`catcore:reaction_vessel`](https://w3id.org/nfdi4cat/catcore/reaction_vessel)
 
-**Schema Reference:** [reaction_vessel](elements/reaction_vessel.md)
+**Schema Reference:** [reaction_vessel](./elements/reaction_vessel.md)
 
 </details>
 
@@ -2233,9 +2233,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:mixing_device`](catcore:mixing_device)
+**URI:** [`catcore:mixing_device`](https://w3id.org/nfdi4cat/catcore/mixing_device)
 
-**Schema Reference:** [mixing_device](elements/mixing_device.md)
+**Schema Reference:** [mixing_device](./elements/mixing_device.md)
 
 </details>
 
@@ -2246,9 +2246,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:stirring_duration`](catcore:stirring_duration)
+**URI:** [`catcore:stirring_duration`](https://w3id.org/nfdi4cat/catcore/stirring_duration)
 
-**Schema Reference:** [stirring_duration](elements/stirring_duration.md)
+**Schema Reference:** [stirring_duration](./elements/stirring_duration.md)
 
 **Unit:** h
 
@@ -2261,9 +2261,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:stirring_speed`](catcore:stirring_speed)
+**URI:** [`catcore:stirring_speed`](https://w3id.org/nfdi4cat/catcore/stirring_speed)
 
-**Schema Reference:** [stirring_speed](elements/stirring_speed.md)
+**Schema Reference:** [stirring_speed](./elements/stirring_speed.md)
 
 **Unit:** rpm
 
@@ -2276,9 +2276,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:mixing_temperature`](catcore:mixing_temperature)
+**URI:** [`catcore:mixing_temperature`](https://w3id.org/nfdi4cat/catcore/mixing_temperature)
 
-**Schema Reference:** [mixing_temperature](elements/mixing_temperature.md)
+**Schema Reference:** [mixing_temperature](./elements/mixing_temperature.md)
 
 **Unit:** Cel
 
@@ -2291,9 +2291,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filtration_device`](catcore:filtration_device)
+**URI:** [`catcore:filtration_device`](https://w3id.org/nfdi4cat/catcore/filtration_device)
 
-**Schema Reference:** [filtration_device](elements/filtration_device.md)
+**Schema Reference:** [filtration_device](./elements/filtration_device.md)
 
 </details>
 
@@ -2304,9 +2304,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:filter_type`](catcore:filter_type)
+**URI:** [`catcore:filter_type`](https://w3id.org/nfdi4cat/catcore/filter_type)
 
-**Schema Reference:** [filter_type](elements/filter_type.md)
+**Schema Reference:** [filter_type](./elements/filter_type.md)
 
 </details>
 
@@ -2317,9 +2317,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:crystallisation_solvents`](catcore:crystallisation_solvents)
+**URI:** [`catcore:crystallisation_solvents`](https://w3id.org/nfdi4cat/catcore/crystallisation_solvents)
 
-**Schema Reference:** [crystallisation_solvents](elements/crystallisation_solvents.md)
+**Schema Reference:** [crystallisation_solvents](./elements/crystallisation_solvents.md)
 
 </details>
 
@@ -2330,9 +2330,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:precipitation_agent`](catcore:precipitation_agent)
+**URI:** [`catcore:precipitation_agent`](https://w3id.org/nfdi4cat/catcore/precipitation_agent)
 
-**Schema Reference:** [precipitation_agent](elements/precipitation_agent.md)
+**Schema Reference:** [precipitation_agent](./elements/precipitation_agent.md)
 
 </details>
 
@@ -2343,9 +2343,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:crystallisation_duration`](catcore:crystallisation_duration)
+**URI:** [`catcore:crystallisation_duration`](https://w3id.org/nfdi4cat/catcore/crystallisation_duration)
 
-**Schema Reference:** [crystallisation_duration](elements/crystallisation_duration.md)
+**Schema Reference:** [crystallisation_duration](./elements/crystallisation_duration.md)
 
 **Unit:** h
 
@@ -2358,9 +2358,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:purification_solvent`](catcore:purification_solvent)
+**URI:** [`catcore:purification_solvent`](https://w3id.org/nfdi4cat/catcore/purification_solvent)
 
-**Schema Reference:** [purification_solvent](elements/purification_solvent.md)
+**Schema Reference:** [purification_solvent](./elements/purification_solvent.md)
 
 </details>
 
@@ -2371,9 +2371,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** integer
 
-**URI:** [`catcore:number_of_cycles`](catcore:number_of_cycles)
+**URI:** [`catcore:number_of_cycles`](https://w3id.org/nfdi4cat/catcore/number_of_cycles)
 
-**Schema Reference:** [number_of_cycles](elements/number_of_cycles.md)
+**Schema Reference:** [number_of_cycles](./elements/number_of_cycles.md)
 
 </details>
 
@@ -2384,9 +2384,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:drying_device`](catcore:drying_device)
+**URI:** [`catcore:drying_device`](https://w3id.org/nfdi4cat/catcore/drying_device)
 
-**Schema Reference:** [drying_device](elements/drying_device.md)
+**Schema Reference:** [drying_device](./elements/drying_device.md)
 
 </details>
 
@@ -2397,9 +2397,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_temperature`](catcore:drying_temperature)
+**URI:** [`catcore:drying_temperature`](https://w3id.org/nfdi4cat/catcore/drying_temperature)
 
-**Schema Reference:** [drying_temperature](elements/drying_temperature.md)
+**Schema Reference:** [drying_temperature](./elements/drying_temperature.md)
 
 **Unit:** Cel
 
@@ -2412,9 +2412,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:temperature_ramp`](catcore:temperature_ramp)
+**URI:** [`catcore:temperature_ramp`](https://w3id.org/nfdi4cat/catcore/temperature_ramp)
 
-**Schema Reference:** [temperature_ramp](elements/temperature_ramp.md)
+**Schema Reference:** [temperature_ramp](./elements/temperature_ramp.md)
 
 **Unit:** Cel/min
 
@@ -2427,9 +2427,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`catcore:drying_time`](catcore:drying_time)
+**URI:** [`catcore:drying_time`](https://w3id.org/nfdi4cat/catcore/drying_time)
 
-**Schema Reference:** [drying_time](elements/drying_time.md)
+**Schema Reference:** [drying_time](./elements/drying_time.md)
 
 **Unit:** h
 
@@ -2442,9 +2442,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Description:** Exsolution synthesis method for catalyst preparation
 
-**URI:** [`catcore:ExsolutionSynthesis`](catcore:ExsolutionSynthesis)
+**URI:** [`catcore:ExsolutionSynthesis`](https://w3id.org/nfdi4cat/catcore/ExsolutionSynthesis)
 
-**Schema Reference:** [ExsolutionSynthesis](elements/ExsolutionSynthesis.md)
+**Schema Reference:** [ExsolutionSynthesis](./elements/ExsolutionSynthesis.md)
 
 **Slots**
 
@@ -2455,9 +2455,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000057`](voc4cat:0000057)
+**URI:** [`voc4cat:0000057`](https://w3id.org/nfdi4cat/voc4cat_0000057)
 
-**Schema Reference:** [calcination_initial_temperature](elements/calcination_initial_temperature.md)
+**Schema Reference:** [calcination_initial_temperature](./elements/calcination_initial_temperature.md)
 
 **Unit:** Cel
 
@@ -2470,9 +2470,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000058`](voc4cat:0000058)
+**URI:** [`voc4cat:0000058`](https://w3id.org/nfdi4cat/voc4cat_0000058)
 
-**Schema Reference:** [calcination_final_temperature](elements/calcination_final_temperature.md)
+**Schema Reference:** [calcination_final_temperature](./elements/calcination_final_temperature.md)
 
 **Unit:** Cel
 
@@ -2485,9 +2485,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000060`](voc4cat:0000060)
+**URI:** [`voc4cat:0000060`](https://w3id.org/nfdi4cat/voc4cat_0000060)
 
-**Schema Reference:** [calcination_dwelling_time](elements/calcination_dwelling_time.md)
+**Schema Reference:** [calcination_dwelling_time](./elements/calcination_dwelling_time.md)
 
 **Unit:** h
 
@@ -2500,9 +2500,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000055`](voc4cat:0000055)
+**URI:** [`voc4cat:0000055`](https://w3id.org/nfdi4cat/voc4cat_0000055)
 
-**Schema Reference:** [calcination_gaseous_environment](elements/calcination_gaseous_environment.md)
+**Schema Reference:** [calcination_gaseous_environment](./elements/calcination_gaseous_environment.md)
 
 </details>
 
@@ -2513,9 +2513,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000059`](voc4cat:0000059)
+**URI:** [`voc4cat:0000059`](https://w3id.org/nfdi4cat/voc4cat_0000059)
 
-**Schema Reference:** [calcination_heating_rate](elements/calcination_heating_rate.md)
+**Schema Reference:** [calcination_heating_rate](./elements/calcination_heating_rate.md)
 
 **Unit:** Cel/min
 
@@ -2528,9 +2528,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** float
 
-**URI:** [`voc4cat:0000056`](voc4cat:0000056)
+**URI:** [`voc4cat:0000056`](https://w3id.org/nfdi4cat/voc4cat_0000056)
 
-**Schema Reference:** [calcination_gas_flow_rate](elements/calcination_gas_flow_rate.md)
+**Schema Reference:** [calcination_gas_flow_rate](./elements/calcination_gas_flow_rate.md)
 
 **Unit:** mL/min
 
@@ -2547,9 +2547,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:storage_conditions`](catcore:storage_conditions)
+**URI:** [`catcore:storage_conditions`](https://w3id.org/nfdi4cat/catcore/storage_conditions)
 
-**Schema Reference:** [storage_conditions](elements/storage_conditions.md)
+**Schema Reference:** [storage_conditions](./elements/storage_conditions.md)
 
 </details>
 
@@ -2560,9 +2560,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`catcore:support`](catcore:support)
+**URI:** [`catcore:support`](https://w3id.org/nfdi4cat/catcore/support)
 
-**Schema Reference:** [support](elements/support.md)
+**Schema Reference:** [support](./elements/support.md)
 
 </details>
 
@@ -2573,9 +2573,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0007246`](voc4cat:0007246)
+**URI:** [`voc4cat:0007246`](https://w3id.org/nfdi4cat/voc4cat_0007246)
 
-**Schema Reference:** [solvent](elements/solvent.md)
+**Schema Reference:** [solvent](./elements/solvent.md)
 
 </details>
 
@@ -2586,9 +2586,9 @@ with research data concerning the field of catalyst synthesis.
 
 **Range:** string
 
-**URI:** [`voc4cat:0000122`](voc4cat:0000122)
+**URI:** [`voc4cat:0000122`](https://w3id.org/nfdi4cat/voc4cat_0000122)
 
-**Schema Reference:** [sample_pretreatment](elements/sample_pretreatment.md)
+**Schema Reference:** [sample_pretreatment](./elements/sample_pretreatment.md)
 
 </details>
 
