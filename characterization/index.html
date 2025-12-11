@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a_heros_journey/" class="md-nav__link">
+      <a href="../a_heros_journey/a_heros_journey/" class="md-nav__link">
         
   
   
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../infrastructure/" class="md-nav__link">
+      <a href="../a_heros_journey/infrastructure/" class="md-nav__link">
         
   
   
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workflow/" class="md-nav__link">
+      <a href="../a_heros_journey/workflow/" class="md-nav__link">
         
   
   
@@ -390,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collaboration_and_future/" class="md-nav__link">
+      <a href="../a_heros_journey/collaboration_and_future/" class="md-nav__link">
         
   
   
@@ -756,27 +756,34 @@
 
 
 <h1 id="characterization">Characterization</h1>
-<p>The data class 'Characterization' describes the minimum information which should be 
-reported with research data to describe the nature of the catalyst.</p>
-<h2 id="slots">Slots</h2>
-<p>Fields for Metadata which should be described when using this Metadata Aspect.</p>
+<p>test description</p>
+<details>
+<summary> <strong>Legend</strong> </summary>
 <ul>
 <li>
 <p><strong>Description:</strong>A short description for Comprehension purposes</p>
 </li>
 <li>
-<p><strong>Data Type:</strong> Further Aspects which are Important for describing a certain aspect</p>
+<p><strong>Data Type:</strong> This specifies exactly what kind of information belongs in this field. Most simply, it could be a direct value, such as a number (float) or a piece of text (string). However, the Data Type can also point to another Class in the schema. When this happens, the field is not just a single value; it becomes a structured container. Designating a Class as the Data Type causes the field to contain a complete structured record, defined entirely by its own comprehensive collection of specific fields. Consequently, this allows for the systematic construction of complex data structures via organized, nested information layers within the broader schema architecture.</p>
 </li>
 <li>
-<p><strong>Cardinality:</strong> A description how often it is allowed and how important it is to describe a certain aspect</p>
+<p><strong>Cardinality:</strong> This controls how many entries a specific data field must have. It defines if a field is required or optional, and whether it can accept a single value versus a list of multiple values.</p>
 </li>
 <li>
-<p><strong>CURIE:</strong> The Abbreviated form of a URI, where the Prefix, e.g. voc4cat, described to which terminology a Concept belong. The Links are fully implemented here. For reusing these CURIE's you need to substitute the prefix against the URI for it.</p>
+<p><strong>CURIE:</strong> A CURIE (Compact URI) is a short, easy-to-read reference that acts as a useful shortcut for a long, complex web address. Instead of seeing a full URL, you will see a two-part reference like gene:symbol, where the parts are separated by a colon. The first part is the prefix (a short code for the source website), and the second is the local identifier for the specific item. This structure is much easier to read and type, making the schema less cluttered and reducing errors. The full web link (URI) for the CURIE is always available if you click the provided link.</p>
 </li>
 <li>
-<p><strong>Schema Reference:</strong> A Link to the native LinkML Documentation on which this metadatacatalog and strucutre is based upon</p>
+<p><strong>Schema Reference:</strong> This link directs you to the complete, technical documentation for this part of the schema. This detailed view is generated automatically by LinkML’s documentation tool and provides all underlying rules, data types, and complex relationships for expert users and developers.</p>
+</li>
+<li>
+<p><strong>Slots:</strong> A Slot represents an individual data field or attribute that belongs to a specific Class (entity type) within the schema. If a Class defines an entity like 'Book', the Slots define the individual pieces of information about that book, such as the 'title', 'author', and 'ISBN'. Essentially, Slots are the essential building blocks that define the characteristics and permissible data for every record in the schema.</p>
+</li>
+<li>
+<p><strong>Enumerations:</strong> Often called an Enum, Enumerations are a predefined, fixed list of permissible values that a Slot can accept. It is used to strictly limit the available choices for a data field to ensure consistency and prevent errors. For example, a 'Status' field might be restricted to the Enumeration list of only 'Active', 'Inactive', or 'Pending'. Any data entered that is not on this fixed list is considered invalid by the schema.</p>
 </li>
 </ul>
+</details>
+<h2 id="slots">Slots</h2>
 <details>
 <summary><strong>equipment</strong> (Required, Multivalued)</summary>
 <p><strong>Description:</strong> Equipment used</p>
@@ -785,7 +792,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000187"><code>voc4cat:0000187</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/equipment/">equipment</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20equipment" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20equipment target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -804,7 +811,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Description:</strong> Characterization technique used for catalyst analysis</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/CharacterizationTechnique/">CharacterizationTechnique</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CharacterizationTechnique" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CharacterizationTechnique target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -824,7 +831,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/OBI_0001138"><code>OBI:0001138</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/xray_source/">xray_source</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -837,7 +844,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -850,7 +857,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -864,7 +871,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_2theta/">minimum_2theta</a></p>
 <p><strong>Unit:</strong> deg</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_2theta" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_2theta target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -878,7 +885,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_2theta/">maximum_2theta</a></p>
 <p><strong>Unit:</strong> deg</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_2theta" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_2theta target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -891,7 +898,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000950"><code>AFR:0000950</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size/">step_size</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -904,7 +911,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/CHMO_0002120"><code>CHMO:0002120</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/monochromator/">monochromator</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -918,7 +925,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -932,7 +939,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_spinning_speed/">sample_spinning_speed</a></p>
 <p><strong>Unit:</strong> rpm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_spinning_speed" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_spinning_speed target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -946,13 +953,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/experiment_duration/">experiment_duration</a></p>
 <p><strong>Unit:</strong> h</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_duration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_duration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PowderXRD" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PowderXRD target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -971,7 +978,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -984,7 +991,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/element_analyzed"><code>catcore:element_analyzed</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/element_analyzed/">element_analyzed</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20element_analyzed" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20element_analyzed target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -997,7 +1004,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/absorption_edge"><code>catcore:absorption_edge</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/absorption_edge/">absorption_edge</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20absorption_edge" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20absorption_edge target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1010,7 +1017,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/CHMO_0002120"><code>CHMO:0002120</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/monochromator/">monochromator</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1024,7 +1031,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_energy/">minimum_energy</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1038,7 +1045,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_energy/">maximum_energy</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1052,7 +1059,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/energy_resolution/">energy_resolution</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20energy_resolution" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20energy_resolution target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1066,7 +1073,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1079,7 +1086,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/beamline_source"><code>catcore:beamline_source</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/beamline_source/">beamline_source</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20beamline_source" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20beamline_source target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1092,7 +1099,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/noise_of_measurement"><code>catcore:noise_of_measurement</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/noise_of_measurement/">noise_of_measurement</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20noise_of_measurement" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20noise_of_measurement target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1105,13 +1112,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/number_of_cycles"><code>catcore:number_of_cycles</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_cycles/">number_of_cycles</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_cycles" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_cycles target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XRayAbsorptionSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XRayAbsorptionSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1130,7 +1137,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1144,7 +1151,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_wavenumber/">minimum_wavenumber</a></p>
 <p><strong>Unit:</strong> cm-1</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_wavenumber" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_wavenumber target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1158,7 +1165,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_wavenumber/">maximum_wavenumber</a></p>
 <p><strong>Unit:</strong> cm-1</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_wavenumber" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_wavenumber target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1171,7 +1178,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000950"><code>AFR:0000950</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size/">step_size</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1185,7 +1192,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1198,7 +1205,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/process#AFP_0003721"><code>AFP:0003721</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/background_correction/">background_correction</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1211,7 +1218,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0003051"><code>AFR:0003051</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_scans/">number_of_scans</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1224,13 +1231,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20InfraredSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20InfraredSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1250,7 +1257,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/excitation_laser_wavelength/">excitation_laser_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_laser_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_laser_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1264,7 +1271,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/excitation_laser_power/">excitation_laser_power</a></p>
 <p><strong>Unit:</strong> mW</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_laser_power" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_laser_power target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1277,7 +1284,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002226"><code>AFR:0002226</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/magnification_setting/">magnification_setting</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20magnification_setting" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20magnification_setting target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1291,7 +1298,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/integration_time/">integration_time</a></p>
 <p><strong>Unit:</strong> s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1304,7 +1311,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0003051"><code>AFR:0003051</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_scans/">number_of_scans</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1317,7 +1324,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1331,7 +1338,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1344,13 +1351,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/filter_or_grating"><code>catcore:filter_or_grating</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/filter_or_grating/">filter_or_grating</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20filter_or_grating" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20filter_or_grating target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20RamanSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20RamanSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1369,7 +1376,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/external_standard"><code>catcore:external_standard</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/external_standard/">external_standard</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1382,7 +1389,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/internal_standard"><code>catcore:internal_standard</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/internal_standard/">internal_standard</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1395,7 +1402,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002026"><code>AFR:0002026</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/column_type/">column_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1408,7 +1415,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/carrier_gas"><code>catcore:carrier_gas</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/carrier_gas/">carrier_gas</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1421,7 +1428,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/carrier_gas_purity"><code>catcore:carrier_gas_purity</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/carrier_gas_purity/">carrier_gas_purity</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas_purity" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas_purity target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1435,7 +1442,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/inlet_temperature/">inlet_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20inlet_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20inlet_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1449,7 +1456,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_oven_temperature/">minimum_oven_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_oven_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_oven_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1463,7 +1470,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_oven_temperature/">maximum_oven_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_oven_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_oven_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1477,7 +1484,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_ramp/">heating_ramp</a></p>
 <p><strong>Unit:</strong> Cel/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_ramp" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_ramp target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1490,7 +1497,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/heating_procedure"><code>catcore:heating_procedure</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_procedure/">heating_procedure</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1503,7 +1510,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/acquisition_mode"><code>catcore:acquisition_mode</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/acquisition_mode/">acquisition_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acquisition_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acquisition_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1517,7 +1524,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/solvent_delay/">solvent_delay</a></p>
 <p><strong>Unit:</strong> min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_delay" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_delay target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1530,7 +1537,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/trace_ion_detection"><code>catcore:trace_ion_detection</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/trace_ion_detection/">trace_ion_detection</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20trace_ion_detection" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20trace_ion_detection target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1543,7 +1550,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002652"><code>AFR:0002652</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/mz_minimum/">mz_minimum</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1556,7 +1563,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002653"><code>AFR:0002653</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/mz_maximum/">mz_maximum</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1569,7 +1576,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/split_ratio"><code>catcore:split_ratio</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/split_ratio/">split_ratio</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20split_ratio" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20split_ratio target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1583,13 +1590,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/injection_volume/">injection_volume</a></p>
 <p><strong>Unit:</strong> uL</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20GCMS" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20GCMS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1608,7 +1615,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/nucleus"><code>catcore:nucleus</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/nucleus/">nucleus</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nucleus" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nucleus target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1621,7 +1628,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007246"><code>voc4cat:0007246</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/solvent/">solvent</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1635,7 +1642,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/irradiation_frequency/">irradiation_frequency</a></p>
 <p><strong>Unit:</strong> MHz</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20irradiation_frequency" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20irradiation_frequency target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1649,7 +1656,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1662,7 +1669,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://nmrML.org/nmrCV#NMR:1400037"><code>nmrCV:1400037</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/nmr_pulse_sequence/">nmr_pulse_sequence</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nmr_pulse_sequence" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nmr_pulse_sequence target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1675,7 +1682,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://nmrML.org/nmrCV#NMR:1400132"><code>nmrCV:1400132</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/nmr_sample_tube/">nmr_sample_tube</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nmr_sample_tube" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20nmr_sample_tube target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1688,7 +1695,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0003051"><code>AFR:0003051</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_scans/">number_of_scans</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1701,13 +1708,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20NMRSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20NMRSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1726,7 +1733,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1739,7 +1746,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/gun_type"><code>catcore:gun_type</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/gun_type/">gun_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1753,7 +1760,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/acceleration_voltage/">acceleration_voltage</a></p>
 <p><strong>Unit:</strong> kV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1766,13 +1773,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002226"><code>AFR:0002226</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/magnification_setting/">magnification_setting</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20magnification_setting" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20magnification_setting target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TransmissionElectronMicroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TransmissionElectronMicroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1791,7 +1798,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/element_analyzed"><code>catcore:element_analyzed</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/element_analyzed/">element_analyzed</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20element_analyzed" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20element_analyzed target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1804,7 +1811,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/calibration_method"><code>catcore:calibration_method</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/calibration_method/">calibration_method</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1817,7 +1824,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/NCIT_C105701"><code>NCIT:C105701</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/detection_limit/">detection_limit</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detection_limit" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detection_limit target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1830,13 +1837,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/matrix_effect_correction"><code>catcore:matrix_effect_correction</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/matrix_effect_correction/">matrix_effect_correction</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20matrix_effect_correction" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20matrix_effect_correction target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ICPAES" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ICPAES target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1855,7 +1862,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/gun_type"><code>catcore:gun_type</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/gun_type/">gun_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1869,7 +1876,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/acceleration_voltage/">acceleration_voltage</a></p>
 <p><strong>Unit:</strong> kV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1883,7 +1890,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/image_resolution/">image_resolution</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20image_resolution" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20image_resolution target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1896,13 +1903,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/field_emitter"><code>catcore:field_emitter</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/field_emitter/">field_emitter</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20field_emitter" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20field_emitter target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ScanningElectronMicroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ScanningElectronMicroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -1921,7 +1928,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1934,7 +1941,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1948,7 +1955,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/initial_temperature/">initial_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20initial_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20initial_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1962,7 +1969,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/final_temperature/">final_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20final_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20final_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1976,7 +1983,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_rate/">heating_rate</a></p>
 <p><strong>Unit:</strong> Cel/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1989,7 +1996,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/heating_procedure"><code>catcore:heating_procedure</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_procedure/">heating_procedure</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2003,13 +2010,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_mass/">sample_mass</a></p>
 <p><strong>Unit:</strong> mg</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Thermogravimetry" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Thermogravimetry target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2028,7 +2035,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/OBI_0001138"><code>OBI:0001138</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/xray_source/">xray_source</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2042,7 +2049,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/total_acquisition_time/">total_acquisition_time</a></p>
 <p><strong>Unit:</strong> s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20total_acquisition_time" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20total_acquisition_time target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2055,7 +2062,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0003051"><code>AFR:0003051</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_scans/">number_of_scans</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2069,7 +2076,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/spot_size/">spot_size</a></p>
 <p><strong>Unit:</strong> mm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spot_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spot_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2082,7 +2089,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/lense_mode/">lense_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lense_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lense_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2096,7 +2103,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_energy/">minimum_energy</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2110,7 +2117,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_energy/">maximum_energy</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2123,7 +2130,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000950"><code>AFR:0000950</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size/">step_size</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2137,7 +2144,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/pass_energy/">pass_energy</a></p>
 <p><strong>Unit:</strong> eV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pass_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pass_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2150,7 +2157,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/charge_compensation"><code>catcore:charge_compensation</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/charge_compensation/">charge_compensation</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20charge_compensation" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20charge_compensation target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2163,13 +2170,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XPS" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XPS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2188,7 +2195,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/adsorbate_gas"><code>catcore:adsorbate_gas</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/adsorbate_gas/">adsorbate_gas</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorbate_gas" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorbate_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2202,7 +2209,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/degassing_temperature/">degassing_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20degassing_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20degassing_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2216,7 +2223,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/measurement_temperature/">measurement_temperature</a></p>
 <p><strong>Unit:</strong> K</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2229,7 +2236,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/pore_size_distribution_method"><code>catcore:pore_size_distribution_method</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/pore_size_distribution_method/">pore_size_distribution_method</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pore_size_distribution_method" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pore_size_distribution_method target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2243,13 +2250,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_mass/">sample_mass</a></p>
 <p><strong>Unit:</strong> mg</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20BET" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20BET target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2268,7 +2275,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/elements_analyzed"><code>catcore:elements_analyzed</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/elements_analyzed/">elements_analyzed</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20elements_analyzed" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20elements_analyzed target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2282,7 +2289,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/combustion_temperature/">combustion_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20combustion_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20combustion_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2295,13 +2302,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/carrier_gas"><code>catcore:carrier_gas</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/carrier_gas/">carrier_gas</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ElementalAnalysis" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ElementalAnalysis target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2321,7 +2328,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_wavelength/">minimum_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2335,7 +2342,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_wavelength/">maximum_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2349,7 +2356,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/path_length/">path_length</a></p>
 <p><strong>Unit:</strong> cm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20path_length" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20path_length target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2362,7 +2369,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007246"><code>voc4cat:0007246</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/solvent/">solvent</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2376,13 +2383,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/concentration/">concentration</a></p>
 <p><strong>Unit:</strong> mol/L</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20UVVisSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20UVVisSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2401,7 +2408,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/adsorption_gas"><code>catcore:adsorption_gas</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/adsorption_gas/">adsorption_gas</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorption_gas" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorption_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2414,7 +2421,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2428,7 +2435,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/flow_rate/">flow_rate</a></p>
 <p><strong>Unit:</strong> mL/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2441,7 +2448,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/diluting_reference"><code>catcore:diluting_reference</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/diluting_reference/">diluting_reference</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20diluting_reference" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20diluting_reference target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2454,7 +2461,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/ratio_reference_sample"><code>catcore:ratio_reference_sample</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ratio_reference_sample/">ratio_reference_sample</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ratio_reference_sample" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ratio_reference_sample target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2467,7 +2474,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000950"><code>AFR:0000950</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size/">step_size</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2481,7 +2488,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/resolution/">resolution</a></p>
 <p><strong>Unit:</strong> cm-1</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2494,7 +2501,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/background_correction_method"><code>catcore:background_correction_method</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/background_correction_method/">background_correction_method</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction_method" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction_method target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2508,7 +2515,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2521,13 +2528,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0003051"><code>AFR:0003051</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_scans/">number_of_scans</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DRIFTS" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DRIFTS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2547,7 +2554,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/scan_rate/">scan_rate</a></p>
 <p><strong>Unit:</strong> mV/s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20scan_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20scan_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2561,7 +2568,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_potential/">minimum_potential</a></p>
 <p><strong>Unit:</strong> V</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_potential" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_potential target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2575,7 +2582,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_potential/">maximum_potential</a></p>
 <p><strong>Unit:</strong> V</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_potential" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_potential target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2589,7 +2596,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size_potential/">step_size_potential</a></p>
 <p><strong>Unit:</strong> mV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size_potential" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size_potential target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2602,7 +2609,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/electrolyte_composition"><code>catcore:electrolyte_composition</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/electrolyte_composition/">electrolyte_composition</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_composition" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_composition target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2616,7 +2623,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/electrolyte_concentration/">electrolyte_concentration</a></p>
 <p><strong>Unit:</strong> mol/L</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_concentration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_concentration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2629,7 +2636,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007204"><code>voc4cat:0007204</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/reference_electrode/">reference_electrode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reference_electrode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reference_electrode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2642,7 +2649,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/number_of_cycles"><code>catcore:number_of_cycles</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_cycles/">number_of_cycles</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_cycles" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_cycles target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2655,7 +2662,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007202"><code>voc4cat:0007202</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/working_electrode/">working_electrode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20working_electrode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20working_electrode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2668,7 +2675,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007203"><code>voc4cat:0007203</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/counter_electrode/">counter_electrode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counter_electrode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counter_electrode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2681,7 +2688,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2695,13 +2702,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CyclicVoltammetry" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CyclicVoltammetry target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2720,7 +2727,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007246"><code>voc4cat:0007246</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/solvent/">solvent</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2734,7 +2741,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/concentration/">concentration</a></p>
 <p><strong>Unit:</strong> mol/L</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2748,7 +2755,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/light_wavelength/">light_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20light_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20light_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2762,7 +2769,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/scattering_angle/">scattering_angle</a></p>
 <p><strong>Unit:</strong> deg</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20scattering_angle" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20scattering_angle target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2775,7 +2782,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/refractive_index"><code>catcore:refractive_index</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/refractive_index/">refractive_index</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20refractive_index" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20refractive_index target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2789,7 +2796,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2802,7 +2809,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/dispersant"><code>catcore:dispersant</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/dispersant/">dispersant</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20dispersant" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20dispersant target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2816,13 +2823,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/measurement_duration/">measurement_duration</a></p>
 <p><strong>Unit:</strong> s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_duration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_duration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DynamicLightScattering" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DynamicLightScattering target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2841,7 +2848,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000108"><code>voc4cat:0000108</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/operation_mode/">operation_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2854,7 +2861,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002652"><code>AFR:0002652</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/mz_minimum/">mz_minimum</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2867,7 +2874,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002653"><code>AFR:0002653</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/mz_maximum/">mz_maximum</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2881,7 +2888,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/spray_voltage/">spray_voltage</a></p>
 <p><strong>Unit:</strong> kV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spray_voltage" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spray_voltage target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2895,7 +2902,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/capillary_temperature/">capillary_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20capillary_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20capillary_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2908,7 +2915,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007246"><code>voc4cat:0007246</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/solvent_composition/">solvent_composition</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_composition" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_composition target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2922,7 +2929,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/flow_rate/">flow_rate</a></p>
 <p><strong>Unit:</strong> mL/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2935,7 +2942,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/carrier_gas"><code>catcore:carrier_gas</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/carrier_gas/">carrier_gas</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2949,13 +2956,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/concentration/">concentration</a></p>
 <p><strong>Unit:</strong> mol/L</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20concentration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ESI_MS" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ESI_MS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -2975,7 +2982,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/excitation_wavelength/">excitation_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -2989,7 +2996,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/emission_wavelength/">emission_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3002,7 +3009,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/optical_filter"><code>catcore:optical_filter</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/optical_filter/">optical_filter</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3016,7 +3023,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3029,7 +3036,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/emission_range"><code>catcore:emission_range</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/emission_range/">emission_range</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_range" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_range target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3043,7 +3050,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/slit_width/">slit_width</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20slit_width" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20slit_width target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3056,7 +3063,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000950"><code>AFR:0000950</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/step_size/">step_size</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3070,13 +3077,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/integration_time/">integration_time</a></p>
 <p><strong>Unit:</strong> s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceSpectroscopy" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3096,7 +3103,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/excitation_wavelength/">excitation_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3110,7 +3117,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/emission_wavelength/">emission_wavelength</a></p>
 <p><strong>Unit:</strong> nm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3123,7 +3130,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/optical_filter"><code>catcore:optical_filter</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/optical_filter/">optical_filter</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3137,7 +3144,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3150,7 +3157,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/lifetime_fitting_model"><code>catcore:lifetime_fitting_model</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/lifetime_fitting_model/">lifetime_fitting_model</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lifetime_fitting_model" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lifetime_fitting_model target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3163,13 +3170,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/number_of_shots"><code>catcore:number_of_shots</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/number_of_shots/">number_of_shots</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_shots" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_shots target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceLifetime" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceLifetime target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3188,7 +3195,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002026"><code>AFR:0002026</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/column_type/">column_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3202,7 +3209,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3215,7 +3222,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/role#AFRL_0000011"><code>AFRL:0000011</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/eluent/">eluent</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3229,7 +3236,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/flow_rate/">flow_rate</a></p>
 <p><strong>Unit:</strong> mL/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3242,7 +3249,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/calibration_standard"><code>catcore:calibration_standard</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/calibration_standard/">calibration_standard</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_standard" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_standard target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3256,13 +3263,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/injection_volume/">injection_volume</a></p>
 <p><strong>Unit:</strong> uL</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SizeExclusionChromatography" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SizeExclusionChromatography target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3281,7 +3288,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0002026"><code>AFR:0002026</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/column_type/">column_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3294,7 +3301,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/role#AFRL_0000011"><code>AFRL:0000011</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/eluent/">eluent</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3307,7 +3314,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/gradient_program"><code>catcore:gradient_program</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/gradient_program/">gradient_program</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gradient_program" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gradient_program target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3320,7 +3327,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/ionization_mode"><code>catcore:ionization_mode</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ionization_mode/">ionization_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ionization_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ionization_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3334,7 +3341,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3348,7 +3355,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/flow_rate/">flow_rate</a></p>
 <p><strong>Unit:</strong> mL/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3362,7 +3369,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/injection_volume/">injection_volume</a></p>
 <p><strong>Unit:</strong> uL</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3375,7 +3382,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/external_standard"><code>catcore:external_standard</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/external_standard/">external_standard</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3388,13 +3395,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/internal_standard"><code>catcore:internal_standard</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/internal_standard/">internal_standard</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20HPLC_MS" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20HPLC_MS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3413,7 +3420,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/OBI_0001138"><code>OBI:0001138</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/xray_source/">xray_source</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3427,13 +3434,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SingleCrystalXRD" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SingleCrystalXRD target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3453,7 +3460,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/primary_energy/">primary_energy</a></p>
 <p><strong>Unit:</strong> keV</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20primary_energy" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20primary_energy target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3467,7 +3474,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/counting_time/">counting_time</a></p>
 <p><strong>Unit:</strong> s</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counting_time" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counting_time target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3481,7 +3488,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/resolution/">resolution</a></p>
 <p><strong>Unit:</strong> cm-1</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3494,13 +3501,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/calibration_method"><code>catcore:calibration_method</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/calibration_method/">calibration_method</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20EDX" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20EDX target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3519,7 +3526,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/oxidizing_gas_composition"><code>catcore:oxidizing_gas_composition</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/oxidizing_gas_composition/">oxidizing_gas_composition</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20oxidizing_gas_composition" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20oxidizing_gas_composition target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3533,7 +3540,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_rate/">heating_rate</a></p>
 <p><strong>Unit:</strong> Cel/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3547,7 +3554,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_temperature/">minimum_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3561,13 +3568,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_temperature/">maximum_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPO" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPO target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3586,7 +3593,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/reducing_gas_composition"><code>catcore:reducing_gas_composition</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/reducing_gas_composition/">reducing_gas_composition</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reducing_gas_composition" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reducing_gas_composition target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3600,7 +3607,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/heating_rate/">heating_rate</a></p>
 <p><strong>Unit:</strong> Cel/min</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3614,7 +3621,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/minimum_temperature/">minimum_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3628,13 +3635,13 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/maximum_temperature/">maximum_temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPR" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPR target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -3654,7 +3661,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/temperature/">temperature</a></p>
 <p><strong>Unit:</strong> Cel</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3667,7 +3674,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/electrode_configuration"><code>catcore:electrode_configuration</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/electrode_configuration/">electrode_configuration</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrode_configuration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrode_configuration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3681,7 +3688,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/frequency/">frequency</a></p>
 <p><strong>Unit:</strong> Hz</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20frequency" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20frequency target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3694,7 +3701,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/ac_dc_mode"><code>catcore:ac_dc_mode</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ac_dc_mode/">ac_dc_mode</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ac_dc_mode" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ac_dc_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3707,19 +3714,19 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/sample_geometry"><code>catcore:sample_geometry</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_geometry/">sample_geometry</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_geometry" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_geometry target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ConductivityMeasurement" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ConductivityMeasurement target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
 </details>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20characterization_technique" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20characterization_technique target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3732,7 +3739,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/sample_state"><code>catcore:sample_state</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_state/">sample_state</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_state" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_state target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3745,7 +3752,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/sample_description"><code>catcore:sample_description</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_description/">sample_description</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_description" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_description target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3758,7 +3765,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/result#AFR_0000317"><code>AFR:0000317</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/detector_type/">detector_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detector_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detector_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3771,7 +3778,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="http://purl.allotrope.org/ontologies/process#AFP_0001159"><code>AFP:0001159</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_preparation/">sample_preparation</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_preparation" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_preparation target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -3784,7 +3791,7 @@ reported with research data to describe the nature of the catalyst.</p>
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000122"><code>voc4cat:0000122</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/sample_pretreatment/">sample_pretreatment</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_pretreatment" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_pretreatment target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>

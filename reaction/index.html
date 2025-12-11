@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://HendrikBorgelt.github.io/CatCore/reaction/">
       
       
-        <link rel="prev" href="../collaboration_and_future/">
+        <link rel="prev" href="../a_heros_journey/collaboration_and_future/">
       
       
         <link rel="next" href="../characterization/">
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../a_heros_journey/" class="md-nav__link">
+      <a href="../a_heros_journey/a_heros_journey/" class="md-nav__link">
         
   
   
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../infrastructure/" class="md-nav__link">
+      <a href="../a_heros_journey/infrastructure/" class="md-nav__link">
         
   
   
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workflow/" class="md-nav__link">
+      <a href="../a_heros_journey/workflow/" class="md-nav__link">
         
   
   
@@ -390,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../collaboration_and_future/" class="md-nav__link">
+      <a href="../a_heros_journey/collaboration_and_future/" class="md-nav__link">
         
   
   
@@ -756,27 +756,34 @@
 
 
 <h1 id="reaction">Reaction</h1>
-<p>The data class 'Reaction' describes the minimum information which should be reported 
-with research data concerning the reaction for which the catalyst is applied.</p>
-<h2 id="slots">Slots</h2>
-<p>Fields for Metadata which should be described when using this Metadata Aspect.</p>
+<p>test description</p>
+<details>
+<summary> <strong>Legend</strong> </summary>
 <ul>
 <li>
 <p><strong>Description:</strong>A short description for Comprehension purposes</p>
 </li>
 <li>
-<p><strong>Data Type:</strong> Further Aspects which are Important for describing a certain aspect</p>
+<p><strong>Data Type:</strong> This specifies exactly what kind of information belongs in this field. Most simply, it could be a direct value, such as a number (float) or a piece of text (string). However, the Data Type can also point to another Class in the schema. When this happens, the field is not just a single value; it becomes a structured container. Designating a Class as the Data Type causes the field to contain a complete structured record, defined entirely by its own comprehensive collection of specific fields. Consequently, this allows for the systematic construction of complex data structures via organized, nested information layers within the broader schema architecture.</p>
 </li>
 <li>
-<p><strong>Cardinality:</strong> A description how often it is allowed and how important it is to describe a certain aspect</p>
+<p><strong>Cardinality:</strong> This controls how many entries a specific data field must have. It defines if a field is required or optional, and whether it can accept a single value versus a list of multiple values.</p>
 </li>
 <li>
-<p><strong>CURIE:</strong> The Abbreviated form of a URI, where the Prefix, e.g. voc4cat, described to which terminology a Concept belong. The Links are fully implemented here. For reusing these CURIE's you need to substitute the prefix against the URI for it.</p>
+<p><strong>CURIE:</strong> A CURIE (Compact URI) is a short, easy-to-read reference that acts as a useful shortcut for a long, complex web address. Instead of seeing a full URL, you will see a two-part reference like gene:symbol, where the parts are separated by a colon. The first part is the prefix (a short code for the source website), and the second is the local identifier for the specific item. This structure is much easier to read and type, making the schema less cluttered and reducing errors. The full web link (URI) for the CURIE is always available if you click the provided link.</p>
 </li>
 <li>
-<p><strong>Schema Reference:</strong> A Link to the native LinkML Documentation on which this metadatacatalog and strucutre is based upon</p>
+<p><strong>Schema Reference:</strong> This link directs you to the complete, technical documentation for this part of the schema. This detailed view is generated automatically by LinkML’s documentation tool and provides all underlying rules, data types, and complex relationships for expert users and developers.</p>
+</li>
+<li>
+<p><strong>Slots:</strong> A Slot represents an individual data field or attribute that belongs to a specific Class (entity type) within the schema. If a Class defines an entity like 'Book', the Slots define the individual pieces of information about that book, such as the 'title', 'author', and 'ISBN'. Essentially, Slots are the essential building blocks that define the characteristics and permissible data for every record in the schema.</p>
+</li>
+<li>
+<p><strong>Enumerations:</strong> Often called an Enum, Enumerations are a predefined, fixed list of permissible values that a Slot can accept. It is used to strictly limit the available choices for a data field to ensure consistency and prevent errors. For example, a 'Status' field might be restricted to the Enumeration list of only 'Active', 'Inactive', or 'Pending'. Any data entered that is not on this fixed list is considered invalid by the schema.</p>
 </li>
 </ul>
+</details>
+<h2 id="slots">Slots</h2>
 <details>
 <summary><strong>catalyst quantity</strong> (Required, Multivalued)</summary>
 <p><strong>Description:</strong> Quantity of catalyst used</p>
@@ -786,7 +793,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Schema Reference:</strong> <a href="../elements/catalyst_quantity/">catalyst_quantity</a></p>
 <p><strong>Unit:</strong> g</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20catalyst_quantity" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20catalyst_quantity target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -805,7 +812,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Description:</strong> Type of reactor design used</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ReactorDesignType/">ReactorDesignType</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ReactorDesignType" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ReactorDesignType target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -817,7 +824,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000193"><code>voc4cat:0000193</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ElectrochemicalReactor/">ElectrochemicalReactor</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ElectrochemicalReactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ElectrochemicalReactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -828,7 +835,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007019"><code>voc4cat:0007019</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/CSTR/">CSTR</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CSTR" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20CSTR target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -839,7 +846,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007102"><code>voc4cat:0007102</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/PlugFlowReactor/">PlugFlowReactor</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PlugFlowReactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PlugFlowReactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -850,7 +857,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/NCIT_C93052"><code>NCIT:C93052</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/Autoclave/">Autoclave</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Autoclave" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Autoclave target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -861,7 +868,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/SlurryReactor"><code>catcore:SlurryReactor</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/SlurryReactor/">SlurryReactor</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SlurryReactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SlurryReactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -872,7 +879,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000234"><code>voc4cat:0000234</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/Microreactor/">Microreactor</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Microreactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Microreactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -883,7 +890,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/FixedBedReactor"><code>catcore:FixedBedReactor</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/FixedBedReactor/">FixedBedReactor</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20FixedBedReactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20FixedBedReactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
@@ -902,7 +909,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/gas_distributor_type"><code>catcore:gas_distributor_type</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/gas_distributor_type/">gas_distributor_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gas_distributor_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gas_distributor_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -916,7 +923,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Schema Reference:</strong> <a href="../elements/bed_expansion_height/">bed_expansion_height</a></p>
 <p><strong>Unit:</strong> cm</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20bed_expansion_height" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20bed_expansion_height target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -928,19 +935,19 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Cardinality:</strong>  Optional</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/bubble_size_distribution/">bubble_size_distribution</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20bubble_size_distribution" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20bubble_size_distribution target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20FluidizedBedReactor" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20FluidizedBedReactor target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
 </details>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactor_design_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactor_design_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -953,7 +960,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0000101"><code>voc4cat:0000101</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/reactant/">reactant</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactant" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactant target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -979,7 +986,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007032"><code>voc4cat:0007032</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/reactor_temperature_range/">reactor_temperature_range</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactor_temperature_range" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reactor_temperature_range target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -992,7 +999,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/atmosphere"><code>catcore:atmosphere</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/atmosphere/">atmosphere</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1006,7 +1013,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Schema Reference:</strong> <a href="../elements/experiment_pressure/">experiment_pressure</a></p>
 <p><strong>Unit:</strong> bar</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_pressure" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_pressure target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1019,7 +1026,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/catcore/feed_composition_range"><code>catcore:feed_composition_range</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/feed_composition_range/">feed_composition_range</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20feed_composition_range" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20feed_composition_range target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1033,19 +1040,19 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Schema Reference:</strong> <a href="../elements/experiment_duration/">experiment_duration</a></p>
 <p><strong>Unit:</strong> h</p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_duration" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20experiment_duration target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
 </details>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20OperationParameters" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20OperationParameters target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
 </details>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_parameters" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_parameters target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1064,13 +1071,13 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>Description:</strong> Method used for product identification</p>
 <p><strong>Schema Reference:</strong> <a href="../elements/ProductIdentificationMethod/">ProductIdentificationMethod</a></p>
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ProductIdentificationMethod" target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ProductIdentificationMethod target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p>
 </details>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20product_identification_method" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20product_identification_method target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
@@ -1083,7 +1090,7 @@ with research data concerning the reaction for which the catalyst is applied.</p
 <p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/voc4cat_0007014"><code>voc4cat:0007014</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/catalyst_type/">catalyst_type</a></p>
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20catalyst_type" target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20catalyst_type target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p>
