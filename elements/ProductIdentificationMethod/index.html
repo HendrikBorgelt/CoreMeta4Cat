@@ -427,6 +427,8 @@
       CatCoreEntity &lt;|-- ProductIdentificationMethod
         click CatCoreEntity href "../CatCoreEntity/"
 
+      ProductIdentificationMethod : equipment
+
       ProductIdentificationMethod : identifier
 
 
@@ -449,6 +451,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../equipment/">equipment</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Equipment used</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../identifier/">identifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -509,6 +517,8 @@ description: Method used for product identification
 from_schema: https://w3id.org/nfdi4cat/catcore
 is_a: CatCoreEntity
 abstract: true
+slots:
+- equipment
 
 </code></pre>
 </details>
@@ -520,6 +530,24 @@ from_schema: https://w3id.org/nfdi4cat/catcore
 is_a: CatCoreEntity
 abstract: true
 attributes:
+  equipment:
+    name: equipment
+    description: Equipment used
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    rank: 1000
+    slot_uri: voc4cat:0000187
+    alias: equipment
+    owner: ProductIdentificationMethod
+    domain_of:
+    - Solvothermal
+    - PlasmaAssisted
+    - CombustionSynthesis
+    - MicrowaveAssisted
+    - MechanochemicalSynthesis
+    - Characterization
+    - ProductIdentificationMethod
+    range: string
+    multivalued: true
   identifier:
     name: identifier
     description: Unique identifier for the entity
