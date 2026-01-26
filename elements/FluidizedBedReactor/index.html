@@ -460,8 +460,8 @@
 </tr>
 <tr>
 <td><a href="../bubble_size_distribution/">bubble_size_distribution</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Bubble size distribution in fluidized bed reactor</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -547,13 +547,16 @@ attributes:
       ucum_code: cm
   bubble_size_distribution:
     name: bubble_size_distribution
+    description: Bubble size distribution in fluidized bed reactor
     from_schema: https://w3id.org/nfdi4cat/catcore
     rank: 1000
+    slot_uri: catcore:bubble_size_distribution
     alias: bubble_size_distribution
     owner: FluidizedBedReactor
     domain_of:
     - FluidizedBedReactor
     range: string
+    multivalued: true
   identifier:
     name: identifier
     description: Unique identifier for the entity

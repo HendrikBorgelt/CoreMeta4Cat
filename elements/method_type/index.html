@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://HendrikBorgelt.github.io/CatCore/elements/element_analyzed/">
+        <link rel="canonical" href="https://HendrikBorgelt.github.io/CatCore/elements/method_type/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: element_analyzed - CatCore</title>
+        <title>Slot: method_type - CatCore</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-element_analyzed" class="md-skip">
+        <a href="#slot-method_type" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: element_analyzed
+              Slot: method_type
             
           </span>
         </div>
@@ -754,10 +754,10 @@
   
 
 
-<h1 id="slot-element_analyzed">Slot: element_analyzed</h1>
-<p><em>Chemical element being analyzed</em></p>
-<p>URI: <a href="https://w3id.org/nfdi4cat/catcore/element_analyzed">catcore:element_analyzed</a>
-Alias: element_analyzed</p>
+<h1 id="slot-method_type">Slot: method_type</h1>
+<p><em>Type of preparation method</em></p>
+<p>URI: <a href="https://w3id.org/nfdi4cat/catcore/method_type">catcore:method_type</a>
+Alias: method_type</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -771,25 +771,90 @@ Alias: element_analyzed</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../XRayAbsorptionSpectroscopy/">XRayAbsorptionSpectroscopy</a></td>
-<td>X-ray absorption spectroscopy</td>
+<td><a href="../ExsolutionSynthesis/">ExsolutionSynthesis</a></td>
+<td>Exsolution synthesis method for catalyst preparation</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ICPAES/">ICPAES</a></td>
-<td>Inductively-coupled plasma atomic emission spectroscopy</td>
+<td><a href="../SonochemicalSynthesis/">SonochemicalSynthesis</a></td>
+<td>Sonochemical synthesis method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FlameSprayPyrolysis/">FlameSprayPyrolysis</a></td>
+<td>Flame spray pyrolysis method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PlasmaAssisted/">PlasmaAssisted</a></td>
+<td>Plasma-assisted method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CombustionSynthesis/">CombustionSynthesis</a></td>
+<td>Combustion synthesis method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SolGel/">SolGel</a></td>
+<td>Sol-gel method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../DepositionPrecipitation/">DepositionPrecipitation</a></td>
+<td>Deposition-precipitation method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../MechanochemicalSynthesis/">MechanochemicalSynthesis</a></td>
+<td>Mechanochemical synthesis method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Sublimation/">Sublimation</a></td>
+<td>Sublimation method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PreparationMethod/">PreparationMethod</a></td>
+<td>Method used for catalyst preparation</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../MolecularSynthesis/">MolecularSynthesis</a></td>
+<td>Molecular synthesis method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Solvothermal/">Solvothermal</a></td>
+<td>Solvothermal method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AtomicLayerDeposition/">AtomicLayerDeposition</a></td>
+<td>Atomic layer deposition method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Impregnation/">Impregnation</a></td>
+<td>Impregnation method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../MicrowaveAssisted/">MicrowaveAssisted</a></td>
+<td>Microwave-assisted method for catalyst preparation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CoPrecipitation/">CoPrecipitation</a></td>
+<td>Co-precipitation method for catalyst preparation</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -807,28 +872,26 @@ Alias: element_analyzed</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>catcore:element_analyzed</td>
+<td>catcore:method_type</td>
 </tr>
 <tr>
 <td>native</td>
-<td>catcore:element_analyzed</td>
+<td>catcore:method_type</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: element_analyzed
-description: Chemical element being analyzed
+<pre><code class="language-yaml">name: method_type
+description: Type of preparation method
 from_schema: https://w3id.org/nfdi4cat/catcore
 rank: 1000
-slot_uri: catcore:element_analyzed
-alias: element_analyzed
+designates_type: true
+alias: method_type
 domain_of:
-- XRayAbsorptionSpectroscopy
-- ICPAES
+- PreparationMethod
 range: string
-multivalued: true
 
 </code></pre>
 

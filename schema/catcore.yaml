@@ -398,6 +398,28 @@ enums:
         text: other
         description: Other sample state
 slots:
+  method_type:
+    name: method_type
+    definition_uri: https://w3id.org/nfdi4cat/catcore/method_type
+    description: Type of preparation method
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    slot_uri: catcore:method_type
+    designates_type: true
+    owner: PreparationMethod
+    domain_of:
+    - PreparationMethod
+    range: string
+  technique_type:
+    name: technique_type
+    definition_uri: https://w3id.org/nfdi4cat/catcore/technique_type
+    description: Type of characterization technique
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    slot_uri: catcore:technique_type
+    designates_type: true
+    owner: CharacterizationTechnique
+    domain_of:
+    - CharacterizationTechnique
+    range: string
   identifier:
     name: identifier
     definition_uri: https://w3id.org/nfdi4cat/catcore/identifier
@@ -4832,12 +4854,16 @@ slots:
   bubble_size_distribution:
     name: bubble_size_distribution
     definition_uri: https://w3id.org/nfdi4cat/catcore/bubble_size_distribution
+    description: Bubble size distribution in fluidized bed reactor
     from_schema: https://w3id.org/nfdi4cat/catcore
+    mappings:
+    - catcore:bubble_size_distribution
     slot_uri: catcore:bubble_size_distribution
     owner: FluidizedBedReactor
     domain_of:
     - FluidizedBedReactor
     range: string
+    multivalued: true
   CatCore_catalysis_research_field:
     name: CatCore_catalysis_research_field
     definition_uri: https://w3id.org/nfdi4cat/catcore/catalysis_research_field
@@ -5016,6 +5042,22 @@ slots:
     multivalued: true
     unit:
       ucum_code: g
+  PreparationMethod_method_type:
+    name: PreparationMethod_method_type
+    definition_uri: https://w3id.org/nfdi4cat/catcore/method_type
+    description: Type of preparation method
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    is_a: method_type
+    domain: PreparationMethod
+    slot_uri: catcore:method_type
+    designates_type: true
+    alias: method_type
+    owner: PreparationMethod
+    domain_of:
+    - PreparationMethod
+    is_usage_slot: true
+    usage_slot_name: method_type
+    range: string
   Characterization_equipment:
     name: Characterization_equipment
     definition_uri: https://w3id.org/nfdi4cat/catcore/equipment
@@ -5056,6 +5098,22 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  CharacterizationTechnique_technique_type:
+    name: CharacterizationTechnique_technique_type
+    definition_uri: https://w3id.org/nfdi4cat/catcore/technique_type
+    description: Type of characterization technique
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    is_a: technique_type
+    domain: CharacterizationTechnique
+    slot_uri: catcore:technique_type
+    designates_type: true
+    alias: technique_type
+    owner: CharacterizationTechnique
+    domain_of:
+    - CharacterizationTechnique
+    is_usage_slot: true
+    usage_slot_name: technique_type
+    range: string
   Reaction_catalyst_quantity:
     name: Reaction_catalyst_quantity
     definition_uri: https://w3id.org/nfdi4cat/catcore/catalyst_quantity
@@ -5334,6 +5392,11 @@ classes:
     abstract: true
     slots:
     - identifier
+    - PreparationMethod_method_type
+    slot_usage:
+      method_type:
+        name: method_type
+        designates_type: true
     class_uri: catcore:PreparationMethod
   Impregnation:
     name: Impregnation
@@ -5345,6 +5408,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - impregnation_type
     - impregnation_duration
     - impregnation_temperature
@@ -5370,6 +5434,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - precipitating_agent
     - precipitating_concentration
     - synthesis_ph
@@ -5403,6 +5468,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - hydrolysis_ratio
     - aging_time
     - drying
@@ -5418,6 +5484,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - filling_volume
     - synthesis_temperature
     - synthesis_duration
@@ -5437,6 +5504,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - plasma_type
     - equipment
     - atmosphere
@@ -5455,6 +5523,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - fuel
     - oxidizer
     - fuel_to_oxidizer_ratio
@@ -5474,6 +5543,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - substrate
     - pulse_time
     - purging_duration
@@ -5491,6 +5561,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - precipitating_agent
     - synthesis_ph
     - deposition_temperature
@@ -5525,6 +5596,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - equipment
     - power
     - synthesis_duration
@@ -5542,6 +5614,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - stirring_duration
     - sonication_power
     - sonication_duration
@@ -5568,6 +5641,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - flame_type
     - flow_rate
     - inlet_system
@@ -5588,6 +5662,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - equipment
     - vessel_volume
     - size_and_material
@@ -5609,6 +5684,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - temperature
     - synthesis_pressure
     - synthesis_duration
@@ -5623,6 +5699,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - atmosphere
     - synthesis_duration
     - reaction_vessel
@@ -5652,6 +5729,7 @@ classes:
     is_a: PreparationMethod
     slots:
     - identifier
+    - PreparationMethod_method_type
     - calcination_initial_temperature
     - calcination_final_temperature
     - calcination_dwelling_time
@@ -5693,6 +5771,11 @@ classes:
     abstract: true
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
+    slot_usage:
+      technique_type:
+        name: technique_type
+        designates_type: true
     class_uri: catcore:CharacterizationTechnique
   PowderXRD:
     name: PowderXRD
@@ -5704,6 +5787,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - xray_source
     - atmosphere
     - operation_mode
@@ -5725,6 +5809,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - operation_mode
     - element_analyzed
     - absorption_edge
@@ -5747,6 +5832,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - operation_mode
     - minimum_wavenumber
     - maximum_wavenumber
@@ -5766,6 +5852,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - excitation_laser_wavelength
     - excitation_laser_power
     - magnification_setting
@@ -5785,6 +5872,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - external_standard
     - internal_standard
     - column_type
@@ -5813,6 +5901,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - nucleus
     - solvent
     - irradiation_frequency
@@ -5832,6 +5921,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - operation_mode
     - gun_type
     - acceleration_voltage
@@ -5847,6 +5937,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - element_analyzed
     - calibration_method
     - detection_limit
@@ -5862,6 +5953,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - gun_type
     - acceleration_voltage
     - image_resolution
@@ -5877,6 +5969,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - operation_mode
     - atmosphere
     - initial_temperature
@@ -5895,6 +5988,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - xray_source
     - total_acquisition_time
     - number_of_scans
@@ -5917,6 +6011,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - adsorbate_gas
     - degassing_temperature
     - measurement_temperature
@@ -5933,6 +6028,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - elements_analyzed
     - combustion_temperature
     - carrier_gas
@@ -5947,6 +6043,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - minimum_wavelength
     - maximum_wavelength
     - path_length
@@ -5963,6 +6060,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - adsorption_gas
     - atmosphere
     - flow_rate
@@ -5984,6 +6082,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - scan_rate
     - minimum_potential
     - maximum_potential
@@ -6007,6 +6106,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - solvent
     - concentration
     - light_wavelength
@@ -6026,6 +6126,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - operation_mode
     - mz_minimum
     - mz_maximum
@@ -6046,6 +6147,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - excitation_wavelength
     - emission_wavelength
     - optical_filter
@@ -6065,6 +6167,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - excitation_wavelength
     - emission_wavelength
     - optical_filter
@@ -6082,6 +6185,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - column_type
     - temperature
     - eluent
@@ -6099,6 +6203,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - column_type
     - eluent
     - gradient_program
@@ -6119,6 +6224,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - xray_source
     - temperature
     class_uri: CHMO:0000852
@@ -6132,6 +6238,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - primary_energy
     - counting_time
     - resolution
@@ -6147,6 +6254,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - oxidizing_gas_composition
     - heating_rate
     - minimum_temperature
@@ -6162,6 +6270,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - reducing_gas_composition
     - heating_rate
     - minimum_temperature
@@ -6177,6 +6286,7 @@ classes:
     is_a: CharacterizationTechnique
     slots:
     - identifier
+    - CharacterizationTechnique_technique_type
     - temperature
     - electrode_configuration
     - frequency
@@ -6669,7 +6779,7 @@ classes:
     class_uri: catcore:BandGap
 metamodel_version: 1.7.0
 source_file: catcore.yaml
-source_file_date: '2026-01-21T11:53:59'
-source_file_size: 79982
-generation_date: '2026-01-21T11:54:08'
+source_file_date: '2026-01-26T15:48:18'
+source_file_size: 79348
+generation_date: '2026-01-26T15:48:29'
 

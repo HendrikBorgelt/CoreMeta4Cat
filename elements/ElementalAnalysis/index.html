@@ -423,6 +423,8 @@
 
       ElementalAnalysis : identifier
 
+      ElementalAnalysis : technique_type
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -463,6 +465,12 @@
 <td>* <br/> <a href="../String/">String</a></td>
 <td>Carrier gas used</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../technique_type/">technique_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Type of characterization technique</td>
+<td><a href="../CharacterizationTechnique/">CharacterizationTechnique</a></td>
 </tr>
 <tr>
 <td><a href="../identifier/">identifier</a></td>
@@ -560,6 +568,17 @@ attributes:
     - ESI_MS
     range: string
     multivalued: true
+  technique_type:
+    name: technique_type
+    description: Type of characterization technique
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    rank: 1000
+    designates_type: true
+    alias: technique_type
+    owner: ElementalAnalysis
+    domain_of:
+    - CharacterizationTechnique
+    range: string
   identifier:
     name: identifier
     description: Unique identifier for the entity

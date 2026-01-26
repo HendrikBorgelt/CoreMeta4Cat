@@ -423,6 +423,8 @@
 
       PlasmaAssisted : identifier
 
+      PlasmaAssisted : method_type
+
       PlasmaAssisted : plasma_type
 
       PlasmaAssisted : power_input
@@ -495,6 +497,12 @@
 <td>* <br/> <a href="../Float/">Float</a></td>
 <td>Temperature during synthesis</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../method_type/">method_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Type of preparation method</td>
+<td><a href="../PreparationMethod/">PreparationMethod</a></td>
 </tr>
 <tr>
 <td><a href="../identifier/">identifier</a></td>
@@ -669,6 +677,17 @@ attributes:
     multivalued: true
     unit:
       ucum_code: Cel
+  method_type:
+    name: method_type
+    description: Type of preparation method
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    rank: 1000
+    designates_type: true
+    alias: method_type
+    owner: PlasmaAssisted
+    domain_of:
+    - PreparationMethod
+    range: string
   identifier:
     name: identifier
     description: Unique identifier for the entity

@@ -427,6 +427,8 @@
 
       UVVisSpectroscopy : solvent
 
+      UVVisSpectroscopy : technique_type
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -479,6 +481,12 @@
 <td>* <br/> <a href="../Float/">Float</a></td>
 <td>Concentration of sample</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../technique_type/">technique_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Type of characterization technique</td>
+<td><a href="../CharacterizationTechnique/">CharacterizationTechnique</a></td>
 </tr>
 <tr>
 <td><a href="../identifier/">identifier</a></td>
@@ -610,6 +618,17 @@ attributes:
     multivalued: true
     unit:
       ucum_code: mol/L
+  technique_type:
+    name: technique_type
+    description: Type of characterization technique
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    rank: 1000
+    designates_type: true
+    alias: technique_type
+    owner: UVVisSpectroscopy
+    domain_of:
+    - CharacterizationTechnique
+    range: string
   identifier:
     name: identifier
     description: Unique identifier for the entity

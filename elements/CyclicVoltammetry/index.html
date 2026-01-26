@@ -437,6 +437,8 @@
 
       CyclicVoltammetry : step_size_potential
 
+      CyclicVoltammetry : technique_type
+
       CyclicVoltammetry : temperature
 
       CyclicVoltammetry : working_electrode
@@ -535,6 +537,12 @@
 <td>* <br/> <a href="../Float/">Float</a></td>
 <td>Temperature</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../technique_type/">technique_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Type of characterization technique</td>
+<td><a href="../CharacterizationTechnique/">CharacterizationTechnique</a></td>
 </tr>
 <tr>
 <td><a href="../identifier/">identifier</a></td>
@@ -793,6 +801,17 @@ attributes:
     multivalued: true
     unit:
       ucum_code: Cel
+  technique_type:
+    name: technique_type
+    description: Type of characterization technique
+    from_schema: https://w3id.org/nfdi4cat/catcore
+    rank: 1000
+    designates_type: true
+    alias: technique_type
+    owner: CyclicVoltammetry
+    domain_of:
+    - CharacterizationTechnique
+    range: string
   identifier:
     name: identifier
     description: Unique identifier for the entity
