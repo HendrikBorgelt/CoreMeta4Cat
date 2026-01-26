@@ -102,6 +102,11 @@ classes:
     is_a: CatCoreEntity
     description: Method used for catalyst preparation
     abstract: true
+    slots:
+      - method_type  # Add this slot
+    slot_usage:
+      method_type:
+        designates_type: true  # This tells LinkML to use this slot for type discrimination
     
   Impregnation:
     is_a: PreparationMethod
@@ -377,6 +382,11 @@ classes:
     is_a: CatCoreEntity
     description: Characterization technique used for catalyst analysis
     abstract: true
+    slots:
+      - technique_type
+    slot_usage:
+      technique_type:
+        designates_type: true
 
   PowderXRD:
     is_a: CharacterizationTechnique
@@ -1056,6 +1066,16 @@ classes:
 # ==================== SLOTS ====================
 
 slots:
+
+  method_type:
+    description: Type of preparation method
+    range: string
+    designates_type: true
+
+  technique_type:
+    description: Type of characterization technique
+    range: string
+    designates_type: true
 
   # Common slots
   identifier:
@@ -3223,56 +3243,12 @@ slots:
     unit:
       ucum_code: eV
     
-  # Sublimation specific slots
-  # synthesis_duration:
-  #   description: Duration of synthesis
-  #   range: float
-  #   slot_uri: voc4cat:0000050
-  #   multivalued: true
-  #   unit:
-  #     ucum_code: h
-
-  # Molecular synthesis specific slots  
-  # reaction_vessel:
-  #   description: Vessel used for reaction
-  #   range: string
-  #   slot_uri: catcore:reaction_vessel
-  #   multivalued: true
-    
-  # mixing_device:
-  #   description: Device used for mixing
-  #   range: string
-  #   slot_uri: catcore:mixing_device
-  #   multivalued: true
-    
-  # crystallisation_solvents:
-  #   description: Solvents used for crystallisation
-  #   range: string
-  #   slot_uri: catcore:crystallisation_solvents
-  #   multivalued: true
-    
-  # precipitation_agent:
-  #   description: Agent used for precipitation
-  #   range: string
-  #   slot_uri: catcore:precipitation_agent
-  #   multivalued: true
-    
-  # crystallisation_duration:
-  #   description: Duration of crystallisation
-  #   range: float
-  #   slot_uri: catcore:crystallisation_duration
-  #   multivalued: true
-  #   unit:
-  #     ucum_code: h
-    
-  # purification_solvent:
-  #   description: Solvent used for purification
-  #   range: string
-  #   slot_uri: catcore:purification_solvent
-  #   multivalued: true
 
   bubble_size_distribution:
+    description: Bubble size distribution in fluidized bed reactor
     range: string
+    slot_uri: catcore:bubble_size_distribution
+    multivalued: true
 
 # ==================== ENUMERATIONS ====================
 

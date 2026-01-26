@@ -261,7 +261,7 @@ class Synthesis(CatCoreEntity):
     nominal_composition: str = Field(default=..., description="""Nominal composition of the catalyst""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'], 'slot_uri': 'catcore:nominal_composition'} })
     catalyst_measured_properties: str = Field(default=..., description="""Measured properties of the catalyst (e.g., BET, sieve fraction, molar ratio)""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'], 'slot_uri': 'catcore:catalyst_measured_properties'} })
     precursor: list[Precursor] = Field(default=..., description="""Precursor material used in synthesis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'], 'slot_uri': 'catcore:precursor'} })
-    preparation_method: list[PreparationMethod] = Field(default=..., description="""Method used for catalyst preparation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'], 'slot_uri': 'voc4cat:0007016'} })
+    preparation_method: list[Union[PreparationMethod,Impregnation,CoPrecipitation,SolGel,Solvothermal,PlasmaAssisted,CombustionSynthesis,AtomicLayerDeposition,DepositionPrecipitation,MicrowaveAssisted,SonochemicalSynthesis,FlameSprayPyrolysis,MechanochemicalSynthesis,Sublimation,MolecularSynthesis,ExsolutionSynthesis]] = Field(default=..., description="""Method used for catalyst preparation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'], 'slot_uri': 'voc4cat:0007016'} })
     storage_conditions: Optional[list[str]] = Field(default=[], description="""Conditions for storage""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'],
          'recommended': True,
          'slot_uri': 'catcore:storage_conditions'} })
@@ -293,8 +293,12 @@ class PreparationMethod(CatCoreEntity):
     """
     Method used for catalyst preparation
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://w3id.org/nfdi4cat/catcore'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'from_schema': 'https://w3id.org/nfdi4cat/catcore',
+         'slot_usage': {'method_type': {'designates_type': True,
+                                        'name': 'method_type'}}})
 
+    method_type: Literal["PreparationMethod"] = Field(default="PreparationMethod", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -387,6 +391,7 @@ class Impregnation(PreparationMethod):
                        'ExsolutionSynthesis'],
          'slot_uri': 'voc4cat:0000056',
          'unit': {'ucum_code': 'mL/min'}} })
+    method_type: Literal["Impregnation"] = Field(default="Impregnation", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -502,6 +507,7 @@ class CoPrecipitation(PreparationMethod):
     aging_time: Optional[list[float]] = Field(default=[], description="""Duration of aging process""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoPrecipitation', 'SolGel', 'DepositionPrecipitation'],
          'slot_uri': 'catcore:aging_time',
          'unit': {'ucum_code': 'h'}} })
+    method_type: Literal["CoPrecipitation"] = Field(default="CoPrecipitation", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -518,6 +524,7 @@ class SolGel(PreparationMethod):
          'unit': {'ucum_code': 'h'}} })
     drying: Optional[list[str]] = Field(default=[], description="""Drying process description""", json_schema_extra = { "linkml_meta": {'domain_of': ['SolGel'], 'slot_uri': 'catcore:drying'} })
     surfactant_template: Optional[list[str]] = Field(default=[], description="""Surfactant template used""", json_schema_extra = { "linkml_meta": {'domain_of': ['SolGel'], 'slot_uri': 'catcore:surfactant_template'} })
+    method_type: Literal["SolGel"] = Field(default="SolGel", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -560,6 +567,7 @@ class Solvothermal(PreparationMethod):
     cooling_rate: Optional[list[float]] = Field(default=[], description="""Rate of cooling""", json_schema_extra = { "linkml_meta": {'domain_of': ['Solvothermal'],
          'slot_uri': 'catcore:cooling_rate',
          'unit': {'ucum_code': 'Cel/min'}} })
+    method_type: Literal["Solvothermal"] = Field(default="Solvothermal", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -608,6 +616,7 @@ class PlasmaAssisted(PreparationMethod):
                        'MechanochemicalSynthesis'],
          'slot_uri': 'voc4cat:0000051',
          'unit': {'ucum_code': 'Cel'}} })
+    method_type: Literal["PlasmaAssisted"] = Field(default="PlasmaAssisted", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -650,6 +659,7 @@ class CombustionSynthesis(PreparationMethod):
                        'Characterization',
                        'ProductIdentificationMethod'],
          'slot_uri': 'voc4cat:0000187'} })
+    method_type: Literal["CombustionSynthesis"] = Field(default="CombustionSynthesis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -681,6 +691,7 @@ class AtomicLayerDeposition(PreparationMethod):
          'unit': {'ucum_code': 'Cel'}} })
     carrier_gas: Optional[list[str]] = Field(default=[], description="""Carrier gas used""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition', 'GCMS', 'ElementalAnalysis', 'ESI_MS'],
          'slot_uri': 'catcore:carrier_gas'} })
+    method_type: Literal["AtomicLayerDeposition"] = Field(default="AtomicLayerDeposition", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -799,6 +810,7 @@ class DepositionPrecipitation(PreparationMethod):
     aging_time: Optional[list[float]] = Field(default=[], description="""Duration of aging process""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoPrecipitation', 'SolGel', 'DepositionPrecipitation'],
          'slot_uri': 'catcore:aging_time',
          'unit': {'ucum_code': 'h'}} })
+    method_type: Literal["DepositionPrecipitation"] = Field(default="DepositionPrecipitation", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -837,6 +849,7 @@ class MicrowaveAssisted(PreparationMethod):
          'unit': {'ucum_code': 'GHz'}} })
     vessel_type: Optional[list[str]] = Field(default=[], description="""Type of vessel used""", json_schema_extra = { "linkml_meta": {'domain_of': ['Solvothermal', 'CombustionSynthesis', 'MicrowaveAssisted'],
          'slot_uri': 'catcore:vessel_type'} })
+    method_type: Literal["MicrowaveAssisted"] = Field(default="MicrowaveAssisted", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -952,6 +965,7 @@ class SonochemicalSynthesis(PreparationMethod):
                        'ExsolutionSynthesis'],
          'slot_uri': 'voc4cat:0000056',
          'unit': {'ucum_code': 'mL/min'}} })
+    method_type: Literal["SonochemicalSynthesis"] = Field(default="SonochemicalSynthesis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -983,6 +997,7 @@ class FlameSprayPyrolysis(PreparationMethod):
          'slot_uri': 'catcore:filtration_device'} })
     filter_type: Optional[list[str]] = Field(default=[], description="""Type of filter used""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis', 'MolecularSynthesis'],
          'slot_uri': 'catcore:filter_type'} })
+    method_type: Literal["FlameSprayPyrolysis"] = Field(default="FlameSprayPyrolysis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1038,6 +1053,7 @@ class MechanochemicalSynthesis(PreparationMethod):
          'unit': {'ucum_code': 'mm'}} })
     ball_to_powder_ratio: Optional[list[float]] = Field(default=[], description="""Ratio of ball to powder""", json_schema_extra = { "linkml_meta": {'domain_of': ['MechanochemicalSynthesis'],
          'slot_uri': 'catcore:ball_to_powder_ratio'} })
+    method_type: Literal["MechanochemicalSynthesis"] = Field(default="MechanochemicalSynthesis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1078,6 +1094,7 @@ class Sublimation(PreparationMethod):
                        'MolecularSynthesis'],
          'slot_uri': 'voc4cat:0000050',
          'unit': {'ucum_code': 'h'}} })
+    method_type: Literal["Sublimation"] = Field(default="Sublimation", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1165,6 +1182,7 @@ class MolecularSynthesis(PreparationMethod):
                        'MolecularSynthesis'],
          'slot_uri': 'catcore:drying_time',
          'unit': {'ucum_code': 'h'}} })
+    method_type: Literal["MolecularSynthesis"] = Field(default="MolecularSynthesis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1216,6 +1234,7 @@ class ExsolutionSynthesis(PreparationMethod):
                        'ExsolutionSynthesis'],
          'slot_uri': 'voc4cat:0000056',
          'unit': {'ucum_code': 'mL/min'}} })
+    method_type: Literal["ExsolutionSynthesis"] = Field(default="ExsolutionSynthesis", description="""Type of preparation method""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['PreparationMethod']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1237,7 +1256,7 @@ class Characterization(CatCoreEntity):
                        'Characterization',
                        'ProductIdentificationMethod'],
          'slot_uri': 'voc4cat:0000187'} })
-    characterization_technique: list[CharacterizationTechnique] = Field(default=..., description="""Technique used for characterization""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'], 'slot_uri': 'voc4cat:0000066'} })
+    characterization_technique: list[Union[CharacterizationTechnique,PowderXRD,XRayAbsorptionSpectroscopy,InfraredSpectroscopy,RamanSpectroscopy,GCMS,NMRSpectroscopy,TransmissionElectronMicroscopy,ICPAES,ScanningElectronMicroscopy,Thermogravimetry,XPS,BET,ElementalAnalysis,UVVisSpectroscopy,DRIFTS,CyclicVoltammetry,DynamicLightScattering,ESIMS,PhotoluminescenceSpectroscopy,PhotoluminescenceLifetime,SizeExclusionChromatography,HPLCMS,SingleCrystalXRD,EDX,TPO,TPR,ConductivityMeasurement]] = Field(default=..., description="""Technique used for characterization""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'], 'slot_uri': 'voc4cat:0000066'} })
     sample_state: Optional[list[SampleStateEnum]] = Field(default=[], description="""State of the sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'], 'slot_uri': 'catcore:sample_state'} })
     sample_description: Optional[list[str]] = Field(default=[], description="""Description of the sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'], 'slot_uri': 'catcore:sample_description'} })
     detector_type: Optional[list[str]] = Field(default=[], description="""Type of detector used""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'], 'slot_uri': 'AFR:0000317'} })
@@ -1250,8 +1269,12 @@ class CharacterizationTechnique(CatCoreEntity):
     """
     Characterization technique used for catalyst analysis
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://w3id.org/nfdi4cat/catcore'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'from_schema': 'https://w3id.org/nfdi4cat/catcore',
+         'slot_usage': {'technique_type': {'designates_type': True,
+                                           'name': 'technique_type'}}})
 
+    technique_type: Literal["CharacterizationTechnique"] = Field(default="CharacterizationTechnique", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1326,6 +1349,7 @@ class PowderXRD(CharacterizationTechnique):
     experiment_duration: Optional[list[float]] = Field(default=[], description="""Duration of the experiment""", json_schema_extra = { "linkml_meta": {'domain_of': ['PowderXRD', 'OperationParameters'],
          'slot_uri': 'AFR:0002455',
          'unit': {'ucum_code': 'h'}} })
+    technique_type: Literal["PowderXRD"] = Field(default="PowderXRD", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1392,6 +1416,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique):
                        'XRayAbsorptionSpectroscopy',
                        'CyclicVoltammetry'],
          'slot_uri': 'catcore:number_of_cycles'} })
+    technique_type: Literal["XRayAbsorptionSpectroscopy"] = Field(default="XRayAbsorptionSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1463,6 +1488,7 @@ class InfraredSpectroscopy(CharacterizationTechnique):
                        'CyclicVoltammetry',
                        'OperationParameters'],
          'slot_uri': 'catcore:atmosphere'} })
+    technique_type: Literal["InfraredSpectroscopy"] = Field(default="InfraredSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1526,6 +1552,7 @@ class RamanSpectroscopy(CharacterizationTechnique):
          'slot_uri': 'AFR:0001584',
          'unit': {'ucum_code': 'Cel'}} })
     filter_or_grating: Optional[list[str]] = Field(default=[], description="""Filter or grating used""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy'], 'slot_uri': 'catcore:filter_or_grating'} })
+    technique_type: Literal["RamanSpectroscopy"] = Field(default="RamanSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1568,6 +1595,7 @@ class GCMS(CharacterizationTechnique):
     injection_volume: Optional[list[float]] = Field(default=[], description="""Injection volume""", json_schema_extra = { "linkml_meta": {'domain_of': ['GCMS', 'SizeExclusionChromatography', 'HPLC_MS'],
          'slot_uri': 'AFR:0001577',
          'unit': {'ucum_code': 'uL'}} })
+    technique_type: Literal["GCMS"] = Field(default="GCMS", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1630,6 +1658,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
                        'CyclicVoltammetry',
                        'OperationParameters'],
          'slot_uri': 'catcore:atmosphere'} })
+    technique_type: Literal["NMRSpectroscopy"] = Field(default="NMRSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1654,6 +1683,7 @@ class TransmissionElectronMicroscopy(CharacterizationTechnique):
          'unit': {'ucum_code': 'kV'}} })
     magnification_setting: Optional[list[float]] = Field(default=[], description="""Magnification setting""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy', 'TransmissionElectronMicroscopy'],
          'slot_uri': 'AFR:0002226'} })
+    technique_type: Literal["TransmissionElectronMicroscopy"] = Field(default="TransmissionElectronMicroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1669,6 +1699,7 @@ class ICPAES(CharacterizationTechnique):
     calibration_method: Optional[list[str]] = Field(default=[], description="""Calibration method used""", json_schema_extra = { "linkml_meta": {'domain_of': ['ICPAES', 'EDX'], 'slot_uri': 'catcore:calibration_method'} })
     detection_limit: Optional[list[float]] = Field(default=[], description="""Detection limit""", json_schema_extra = { "linkml_meta": {'domain_of': ['ICPAES'], 'slot_uri': 'NCIT:C105701'} })
     matrix_effect_correction: Optional[list[str]] = Field(default=[], description="""Matrix effect correction method""", json_schema_extra = { "linkml_meta": {'domain_of': ['ICPAES'], 'slot_uri': 'catcore:matrix_effect_correction'} })
+    technique_type: Literal["ICPAES"] = Field(default="ICPAES", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1689,6 +1720,7 @@ class ScanningElectronMicroscopy(CharacterizationTechnique):
          'unit': {'ucum_code': 'nm'}} })
     field_emitter: Optional[list[str]] = Field(default=[], description="""Field emitter type""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScanningElectronMicroscopy'],
          'slot_uri': 'catcore:field_emitter'} })
+    technique_type: Literal["ScanningElectronMicroscopy"] = Field(default="ScanningElectronMicroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1734,6 +1766,7 @@ class Thermogravimetry(CharacterizationTechnique):
     sample_mass: Optional[list[float]] = Field(default=[], description="""Mass of sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Thermogravimetry', 'BET'],
          'slot_uri': 'voc4cat:0007038',
          'unit': {'ucum_code': 'mg'}} })
+    technique_type: Literal["Thermogravimetry"] = Field(default="Thermogravimetry", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1789,6 +1822,7 @@ class XPS(CharacterizationTechnique):
                        'CyclicVoltammetry',
                        'OperationParameters'],
          'slot_uri': 'catcore:atmosphere'} })
+    technique_type: Literal["XPS"] = Field(default="XPS", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1809,6 +1843,7 @@ class BET(CharacterizationTechnique):
     sample_mass: Optional[list[float]] = Field(default=[], description="""Mass of sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Thermogravimetry', 'BET'],
          'slot_uri': 'voc4cat:0007038',
          'unit': {'ucum_code': 'mg'}} })
+    technique_type: Literal["BET"] = Field(default="BET", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1825,6 +1860,7 @@ class ElementalAnalysis(CharacterizationTechnique):
          'unit': {'ucum_code': 'Cel'}} })
     carrier_gas: Optional[list[str]] = Field(default=[], description="""Carrier gas used""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition', 'GCMS', 'ElementalAnalysis', 'ESI_MS'],
          'slot_uri': 'catcore:carrier_gas'} })
+    technique_type: Literal["ElementalAnalysis"] = Field(default="ElementalAnalysis", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1852,6 +1888,7 @@ class UVVisSpectroscopy(CharacterizationTechnique):
     concentration: Optional[list[float]] = Field(default=[], description="""Concentration of sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy', 'DynamicLightScattering', 'ESI_MS'],
          'slot_uri': 'voc4cat:0007244',
          'unit': {'ucum_code': 'mol/L'}} })
+    technique_type: Literal["UVVisSpectroscopy"] = Field(default="UVVisSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1923,6 +1960,7 @@ class DRIFTS(CharacterizationTechnique):
                        'XPS',
                        'DRIFTS'],
          'slot_uri': 'AFR:0003051'} })
+    technique_type: Literal["DRIFTS"] = Field(default="DRIFTS", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -1997,6 +2035,7 @@ class CyclicVoltammetry(CharacterizationTechnique):
                        'AqueousStability'],
          'slot_uri': 'AFR:0001584',
          'unit': {'ucum_code': 'Cel'}} })
+    technique_type: Literal["CyclicVoltammetry"] = Field(default="CyclicVoltammetry", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2049,6 +2088,7 @@ class DynamicLightScattering(CharacterizationTechnique):
     measurement_duration: Optional[list[float]] = Field(default=[], description="""Duration of measurement""", json_schema_extra = { "linkml_meta": {'domain_of': ['DynamicLightScattering'],
          'slot_uri': 'catcore:measurement_duration',
          'unit': {'ucum_code': 's'}} })
+    technique_type: Literal["DynamicLightScattering"] = Field(default="DynamicLightScattering", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2087,6 +2127,7 @@ class ESIMS(CharacterizationTechnique):
     concentration: Optional[list[float]] = Field(default=[], description="""Concentration of sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy', 'DynamicLightScattering', 'ESI_MS'],
          'slot_uri': 'voc4cat:0007244',
          'unit': {'ucum_code': 'mol/L'}} })
+    technique_type: Literal["ESI_MS"] = Field(default="ESI_MS", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2140,6 +2181,7 @@ class PhotoluminescenceSpectroscopy(CharacterizationTechnique):
     integration_time: Optional[list[float]] = Field(default=[], description="""Integration time""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy', 'PhotoluminescenceSpectroscopy'],
          'slot_uri': 'AFR:0001671',
          'unit': {'ucum_code': 's'}} })
+    technique_type: Literal["PhotoluminescenceSpectroscopy"] = Field(default="PhotoluminescenceSpectroscopy", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2183,6 +2225,7 @@ class PhotoluminescenceLifetime(CharacterizationTechnique):
          'slot_uri': 'catcore:lifetime_fitting_model'} })
     number_of_shots: Optional[list[int]] = Field(default=[], description="""Number of shots for measurement""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceLifetime'],
          'slot_uri': 'catcore:number_of_shots'} })
+    technique_type: Literal["PhotoluminescenceLifetime"] = Field(default="PhotoluminescenceLifetime", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2229,6 +2272,7 @@ class SizeExclusionChromatography(CharacterizationTechnique):
     injection_volume: Optional[list[float]] = Field(default=[], description="""Injection volume""", json_schema_extra = { "linkml_meta": {'domain_of': ['GCMS', 'SizeExclusionChromatography', 'HPLC_MS'],
          'slot_uri': 'AFR:0001577',
          'unit': {'ucum_code': 'uL'}} })
+    technique_type: Literal["SizeExclusionChromatography"] = Field(default="SizeExclusionChromatography", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2278,6 +2322,7 @@ class HPLCMS(CharacterizationTechnique):
          'unit': {'ucum_code': 'uL'}} })
     external_standard: Optional[list[str]] = Field(default=[], description="""External standard used for calibration""", json_schema_extra = { "linkml_meta": {'domain_of': ['GCMS', 'HPLC_MS'], 'slot_uri': 'catcore:external_standard'} })
     internal_standard: Optional[list[str]] = Field(default=[], description="""Internal standard used for calibration""", json_schema_extra = { "linkml_meta": {'domain_of': ['GCMS', 'HPLC_MS'], 'slot_uri': 'catcore:internal_standard'} })
+    technique_type: Literal["HPLC_MS"] = Field(default="HPLC_MS", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2311,6 +2356,7 @@ class SingleCrystalXRD(CharacterizationTechnique):
                        'AqueousStability'],
          'slot_uri': 'AFR:0001584',
          'unit': {'ucum_code': 'Cel'}} })
+    technique_type: Literal["SingleCrystalXRD"] = Field(default="SingleCrystalXRD", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2331,6 +2377,7 @@ class EDX(CharacterizationTechnique):
          'slot_uri': 'catcore:resolution',
          'unit': {'ucum_code': 'cm-1'}} })
     calibration_method: Optional[list[str]] = Field(default=[], description="""Calibration method used""", json_schema_extra = { "linkml_meta": {'domain_of': ['ICPAES', 'EDX'], 'slot_uri': 'catcore:calibration_method'} })
+    technique_type: Literal["EDX"] = Field(default="EDX", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2351,6 +2398,7 @@ class TPO(CharacterizationTechnique):
     maximum_temperature: Optional[list[float]] = Field(default=[], description="""Maximum temperature""", json_schema_extra = { "linkml_meta": {'domain_of': ['TPO', 'TPR'],
          'slot_uri': 'catcore:maximum_temperature',
          'unit': {'ucum_code': 'Cel'}} })
+    technique_type: Literal["TPO"] = Field(default="TPO", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2371,6 +2419,7 @@ class TPR(CharacterizationTechnique):
     maximum_temperature: Optional[list[float]] = Field(default=[], description="""Maximum temperature""", json_schema_extra = { "linkml_meta": {'domain_of': ['TPO', 'TPR'],
          'slot_uri': 'catcore:maximum_temperature',
          'unit': {'ucum_code': 'Cel'}} })
+    technique_type: Literal["TPR"] = Field(default="TPR", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2410,6 +2459,7 @@ class ConductivityMeasurement(CharacterizationTechnique):
     ac_dc_mode: Optional[list[str]] = Field(default=[], description="""AC or DC measurement mode""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConductivityMeasurement'], 'slot_uri': 'catcore:ac_dc_mode'} })
     sample_geometry: Optional[list[str]] = Field(default=[], description="""Geometry of the sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConductivityMeasurement'],
          'slot_uri': 'catcore:sample_geometry'} })
+    technique_type: Literal["ConductivityMeasurement"] = Field(default="ConductivityMeasurement", description="""Type of characterization technique""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['CharacterizationTechnique']} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 
@@ -2533,7 +2583,8 @@ class FluidizedBedReactor(ReactorDesignType):
     bed_expansion_height: Optional[list[float]] = Field(default=[], description="""Bed expansion height""", json_schema_extra = { "linkml_meta": {'domain_of': ['FluidizedBedReactor'],
          'slot_uri': 'catcore:bed_expansion_height',
          'unit': {'ucum_code': 'cm'}} })
-    bubble_size_distribution: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FluidizedBedReactor']} })
+    bubble_size_distribution: Optional[list[str]] = Field(default=[], description="""Bubble size distribution in fluidized bed reactor""", json_schema_extra = { "linkml_meta": {'domain_of': ['FluidizedBedReactor'],
+         'slot_uri': 'catcore:bubble_size_distribution'} })
     identifier: Optional[str] = Field(default=None, description="""Unique identifier for the entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatCoreEntity'], 'slot_uri': 'catcore:identifier'} })
 
 

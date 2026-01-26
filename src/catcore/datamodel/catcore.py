@@ -1,5 +1,5 @@
 # Auto generated from catcore.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-21T11:56:35
+# Generation date: 2026-01-26T16:45:21
 # Schema: catcore-metadata
 #
 # id: https://w3id.org/nfdi4cat/catcore
@@ -230,6 +230,7 @@ class Precursor(CatCoreEntity):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
 class PreparationMethod(CatCoreEntity):
     """
     Method used for catalyst preparation
@@ -240,6 +241,31 @@ class PreparationMethod(CatCoreEntity):
     class_class_curie: ClassVar[str] = "catcore:PreparationMethod"
     class_name: ClassVar[str] = "PreparationMethod"
     class_model_uri: ClassVar[URIRef] = CATCORE.PreparationMethod
+
+    method_type: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self.method_type = str(self.class_name)
+
+        super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
+
+
+    def __new__(cls, *args, **kwargs):
+
+        type_designator = "method_type"
+        if not type_designator in kwargs:
+            return super().__new__(cls,*args,**kwargs)
+        else:
+            type_designator_value = kwargs[type_designator]
+            target_cls = cls._class_for("class_name", type_designator_value)
+
+
+            if target_cls is None:
+                raise ValueError(f"Wrong type designator value: class {cls.__name__} "
+                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
+            return super().__new__(target_cls,*args,**kwargs)
+
 
 
 @dataclass(repr=False)
@@ -327,6 +353,7 @@ class Impregnation(PreparationMethod):
         self.calcination_gas_flow_rate = [v if isinstance(v, float) else float(v) for v in self.calcination_gas_flow_rate]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -454,6 +481,7 @@ class CoPrecipitation(PreparationMethod):
         self.aging_time = [v if isinstance(v, float) else float(v) for v in self.aging_time]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -491,6 +519,7 @@ class SolGel(PreparationMethod):
         self.surfactant_template = [v if isinstance(v, str) else str(v) for v in self.surfactant_template]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -548,6 +577,7 @@ class Solvothermal(PreparationMethod):
         self.cooling_rate = [v if isinstance(v, float) else float(v) for v in self.cooling_rate]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -600,6 +630,7 @@ class PlasmaAssisted(PreparationMethod):
         self.synthesis_temperature = [v if isinstance(v, float) else float(v) for v in self.synthesis_temperature]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -657,6 +688,7 @@ class CombustionSynthesis(PreparationMethod):
         self.equipment = [v if isinstance(v, str) else str(v) for v in self.equipment]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -704,6 +736,7 @@ class AtomicLayerDeposition(PreparationMethod):
         self.carrier_gas = [v if isinstance(v, str) else str(v) for v in self.carrier_gas]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -836,6 +869,7 @@ class DepositionPrecipitation(PreparationMethod):
         self.aging_time = [v if isinstance(v, float) else float(v) for v in self.aging_time]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -883,6 +917,7 @@ class MicrowaveAssisted(PreparationMethod):
         self.vessel_type = [v if isinstance(v, str) else str(v) for v in self.vessel_type]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -975,6 +1010,7 @@ class SonochemicalSynthesis(PreparationMethod):
         self.calcination_gas_flow_rate = [v if isinstance(v, float) else float(v) for v in self.calcination_gas_flow_rate]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1037,6 +1073,7 @@ class FlameSprayPyrolysis(PreparationMethod):
         self.filter_type = [v if isinstance(v, str) else str(v) for v in self.filter_type]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1104,6 +1141,7 @@ class MechanochemicalSynthesis(PreparationMethod):
         self.ball_to_powder_ratio = [v if isinstance(v, float) else float(v) for v in self.ball_to_powder_ratio]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1136,6 +1174,7 @@ class Sublimation(PreparationMethod):
         self.synthesis_duration = [v if isinstance(v, float) else float(v) for v in self.synthesis_duration]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1243,6 +1282,7 @@ class MolecularSynthesis(PreparationMethod):
         self.drying_time = [v if isinstance(v, float) else float(v) for v in self.drying_time]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1290,6 +1330,7 @@ class ExsolutionSynthesis(PreparationMethod):
         self.calcination_gas_flow_rate = [v if isinstance(v, float) else float(v) for v in self.calcination_gas_flow_rate]
 
         super().__post_init__(**kwargs)
+        self.method_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1349,6 +1390,7 @@ class Characterization(CatCoreEntity):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
 class CharacterizationTechnique(CatCoreEntity):
     """
     Characterization technique used for catalyst analysis
@@ -1359,6 +1401,31 @@ class CharacterizationTechnique(CatCoreEntity):
     class_class_curie: ClassVar[str] = "catcore:CharacterizationTechnique"
     class_name: ClassVar[str] = "CharacterizationTechnique"
     class_model_uri: ClassVar[URIRef] = CATCORE.CharacterizationTechnique
+
+    technique_type: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self.technique_type = str(self.class_name)
+
+        super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
+
+
+    def __new__(cls, *args, **kwargs):
+
+        type_designator = "technique_type"
+        if not type_designator in kwargs:
+            return super().__new__(cls,*args,**kwargs)
+        else:
+            type_designator_value = kwargs[type_designator]
+            target_cls = cls._class_for("class_name", type_designator_value)
+
+
+            if target_cls is None:
+                raise ValueError(f"Wrong type designator value: class {cls.__name__} "
+                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
+            return super().__new__(target_cls,*args,**kwargs)
+
 
 
 @dataclass(repr=False)
@@ -1426,6 +1493,7 @@ class PowderXRD(CharacterizationTechnique):
         self.experiment_duration = [v if isinstance(v, float) else float(v) for v in self.experiment_duration]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1498,6 +1566,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique):
         self.number_of_cycles = [v if isinstance(v, int) else int(v) for v in self.number_of_cycles]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1555,6 +1624,7 @@ class InfraredSpectroscopy(CharacterizationTechnique):
         self.atmosphere = [v if isinstance(v, str) else str(v) for v in self.atmosphere]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1612,6 +1682,7 @@ class RamanSpectroscopy(CharacterizationTechnique):
         self.filter_or_grating = [v if isinstance(v, str) else str(v) for v in self.filter_or_grating]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1714,6 +1785,7 @@ class GCMS(CharacterizationTechnique):
         self.injection_volume = [v if isinstance(v, float) else float(v) for v in self.injection_volume]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1771,6 +1843,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
         self.atmosphere = [v if isinstance(v, str) else str(v) for v in self.atmosphere]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1808,6 +1881,7 @@ class TransmissionElectronMicroscopy(CharacterizationTechnique):
         self.magnification_setting = [v if isinstance(v, float) else float(v) for v in self.magnification_setting]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1845,6 +1919,7 @@ class ICPAES(CharacterizationTechnique):
         self.matrix_effect_correction = [v if isinstance(v, str) else str(v) for v in self.matrix_effect_correction]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1882,6 +1957,7 @@ class ScanningElectronMicroscopy(CharacterizationTechnique):
         self.field_emitter = [v if isinstance(v, str) else str(v) for v in self.field_emitter]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -1934,6 +2010,7 @@ class Thermogravimetry(CharacterizationTechnique):
         self.sample_mass = [v if isinstance(v, float) else float(v) for v in self.sample_mass]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2006,6 +2083,7 @@ class XPS(CharacterizationTechnique):
         self.atmosphere = [v if isinstance(v, str) else str(v) for v in self.atmosphere]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2048,6 +2126,7 @@ class BET(CharacterizationTechnique):
         self.sample_mass = [v if isinstance(v, float) else float(v) for v in self.sample_mass]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2080,6 +2159,7 @@ class ElementalAnalysis(CharacterizationTechnique):
         self.carrier_gas = [v if isinstance(v, str) else str(v) for v in self.carrier_gas]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2122,6 +2202,7 @@ class UVVisSpectroscopy(CharacterizationTechnique):
         self.concentration = [v if isinstance(v, float) else float(v) for v in self.concentration]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2189,6 +2270,7 @@ class DRIFTS(CharacterizationTechnique):
         self.number_of_scans = [v if isinstance(v, int) else int(v) for v in self.number_of_scans]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2266,6 +2348,7 @@ class CyclicVoltammetry(CharacterizationTechnique):
         self.temperature = [v if isinstance(v, float) else float(v) for v in self.temperature]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2323,6 +2406,7 @@ class DynamicLightScattering(CharacterizationTechnique):
         self.measurement_duration = [v if isinstance(v, float) else float(v) for v in self.measurement_duration]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2385,6 +2469,7 @@ class ESIMS(CharacterizationTechnique):
         self.concentration = [v if isinstance(v, float) else float(v) for v in self.concentration]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2442,6 +2527,7 @@ class PhotoluminescenceSpectroscopy(CharacterizationTechnique):
         self.integration_time = [v if isinstance(v, float) else float(v) for v in self.integration_time]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2489,6 +2575,7 @@ class PhotoluminescenceLifetime(CharacterizationTechnique):
         self.number_of_shots = [v if isinstance(v, int) else int(v) for v in self.number_of_shots]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2536,6 +2623,7 @@ class SizeExclusionChromatography(CharacterizationTechnique):
         self.injection_volume = [v if isinstance(v, float) else float(v) for v in self.injection_volume]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2598,6 +2686,7 @@ class HPLCMS(CharacterizationTechnique):
         self.internal_standard = [v if isinstance(v, str) else str(v) for v in self.internal_standard]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2625,6 +2714,7 @@ class SingleCrystalXRD(CharacterizationTechnique):
         self.temperature = [v if isinstance(v, float) else float(v) for v in self.temperature]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2662,6 +2752,7 @@ class EDX(CharacterizationTechnique):
         self.calibration_method = [v if isinstance(v, str) else str(v) for v in self.calibration_method]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2699,6 +2790,7 @@ class TPO(CharacterizationTechnique):
         self.maximum_temperature = [v if isinstance(v, float) else float(v) for v in self.maximum_temperature]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2736,6 +2828,7 @@ class TPR(CharacterizationTechnique):
         self.maximum_temperature = [v if isinstance(v, float) else float(v) for v in self.maximum_temperature]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2778,6 +2871,7 @@ class ConductivityMeasurement(CharacterizationTechnique):
         self.sample_geometry = [v if isinstance(v, str) else str(v) for v in self.sample_geometry]
 
         super().__post_init__(**kwargs)
+        self.technique_type = str(self.class_name)
 
 
 @dataclass(repr=False)
@@ -2948,7 +3042,7 @@ class FluidizedBedReactor(ReactorDesignType):
 
     gas_distributor_type: Optional[Union[str, list[str]]] = empty_list()
     bed_expansion_height: Optional[Union[float, list[float]]] = empty_list()
-    bubble_size_distribution: Optional[str] = None
+    bubble_size_distribution: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if not isinstance(self.gas_distributor_type, list):
@@ -2959,8 +3053,9 @@ class FluidizedBedReactor(ReactorDesignType):
             self.bed_expansion_height = [self.bed_expansion_height] if self.bed_expansion_height is not None else []
         self.bed_expansion_height = [v if isinstance(v, float) else float(v) for v in self.bed_expansion_height]
 
-        if self.bubble_size_distribution is not None and not isinstance(self.bubble_size_distribution, str):
-            self.bubble_size_distribution = str(self.bubble_size_distribution)
+        if not isinstance(self.bubble_size_distribution, list):
+            self.bubble_size_distribution = [self.bubble_size_distribution] if self.bubble_size_distribution is not None else []
+        self.bubble_size_distribution = [v if isinstance(v, str) else str(v) for v in self.bubble_size_distribution]
 
         super().__post_init__(**kwargs)
 
@@ -3962,6 +4057,12 @@ class SampleStateEnum(EnumDefinitionImpl):
 class slots:
     pass
 
+slots.method_type = Slot(uri=CATCORE.method_type, name="method_type", curie=CATCORE.curie('method_type'),
+                   model_uri=CATCORE.method_type, domain=None, range=Optional[str])
+
+slots.technique_type = Slot(uri=CATCORE.technique_type, name="technique_type", curie=CATCORE.curie('technique_type'),
+                   model_uri=CATCORE.technique_type, domain=None, range=Optional[str])
+
 slots.identifier = Slot(uri=CATCORE.identifier, name="identifier", curie=CATCORE.curie('identifier'),
                    model_uri=CATCORE.identifier, domain=None, range=Optional[str])
 
@@ -4884,7 +4985,7 @@ slots.excitonic_correction = Slot(uri=CATCORE.excitonic_correction, name="excito
                    model_uri=CATCORE.excitonic_correction, domain=None, range=Optional[Union[float, list[float]]])
 
 slots.bubble_size_distribution = Slot(uri=CATCORE.bubble_size_distribution, name="bubble_size_distribution", curie=CATCORE.curie('bubble_size_distribution'),
-                   model_uri=CATCORE.bubble_size_distribution, domain=None, range=Optional[str])
+                   model_uri=CATCORE.bubble_size_distribution, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.CatCore_catalysis_research_field = Slot(uri=VOC4CAT['0000196'], name="CatCore_catalysis_research_field", curie=VOC4CAT.curie('0000196'),
                    model_uri=CATCORE.CatCore_catalysis_research_field, domain=CatCore, range=Union[str, "CatalysisResearchFieldEnum"])
@@ -4913,11 +5014,17 @@ slots.Synthesis_storage_conditions = Slot(uri=CATCORE.storage_conditions, name="
 slots.Precursor_precursor_quantity = Slot(uri=CATCORE.precursor_quantity, name="Precursor_precursor_quantity", curie=CATCORE.curie('precursor_quantity'),
                    model_uri=CATCORE.Precursor_precursor_quantity, domain=Precursor, range=Union[float, list[float]])
 
+slots.PreparationMethod_method_type = Slot(uri=CATCORE.method_type, name="PreparationMethod_method_type", curie=CATCORE.curie('method_type'),
+                   model_uri=CATCORE.PreparationMethod_method_type, domain=PreparationMethod, range=Optional[str])
+
 slots.Characterization_equipment = Slot(uri=VOC4CAT['0000187'], name="Characterization_equipment", curie=VOC4CAT.curie('0000187'),
                    model_uri=CATCORE.Characterization_equipment, domain=Characterization, range=Union[str, list[str]])
 
 slots.Characterization_characterization_technique = Slot(uri=VOC4CAT['0000066'], name="Characterization_characterization_technique", curie=VOC4CAT.curie('0000066'),
                    model_uri=CATCORE.Characterization_characterization_technique, domain=Characterization, range=Union[Union[dict, "CharacterizationTechnique"], list[Union[dict, "CharacterizationTechnique"]]])
+
+slots.CharacterizationTechnique_technique_type = Slot(uri=CATCORE.technique_type, name="CharacterizationTechnique_technique_type", curie=CATCORE.curie('technique_type'),
+                   model_uri=CATCORE.CharacterizationTechnique_technique_type, domain=CharacterizationTechnique, range=Optional[str])
 
 slots.Reaction_catalyst_quantity = Slot(uri=CATCORE.catalyst_quantity, name="Reaction_catalyst_quantity", curie=CATCORE.curie('catalyst_quantity'),
                    model_uri=CATCORE.Reaction_catalyst_quantity, domain=Reaction, range=Union[float, list[float]])
