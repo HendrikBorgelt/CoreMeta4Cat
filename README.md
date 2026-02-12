@@ -6,7 +6,7 @@ A metadata reference collection for catalysis related research
 
 ## Documentation Website
 
-[https://HendrikBorgelt.github.io/CatCore](https://HendrikBorgelt.github.io/CatCore)
+[https://HendrikBorgelt.github.io/CoreMeta4Cat/](https://HendrikBorgelt.github.io/CoreMeta4Cat/)
 
 ## Repository Structure
 
