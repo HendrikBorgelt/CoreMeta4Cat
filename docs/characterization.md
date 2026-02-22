@@ -2,6 +2,8 @@
 
 test description
 
+**CURIE:** [`OBI:0000070`](OBI:0000070)
+
 <details markdown="1"><summary markdown="1"> **Legend** </summary>
 
 - **Description:**A short description for Comprehension purposes
@@ -12,45 +14,120 @@ test description
 
 - **CURIE:** A CURIE (Compact URI) is a short, easy-to-read reference that acts as a useful shortcut for a long, complex web address. Instead of seeing a full URL, you will see a two-part reference like gene:symbol, where the parts are separated by a colon. The first part is the prefix (a short code for the source website), and the second is the local identifier for the specific item. This structure is much easier to read and type, making the schema less cluttered and reducing errors. The full web link (URI) for the CURIE is always available if you click the provided link.
 
-- **Schema Reference:** This link directs you to the complete, technical documentation for this part of the schema. This detailed view is generated automatically by LinkML’s documentation tool and provides all underlying rules, data types, and complex relationships for expert users and developers.
+- **Schema Reference:** This link directs you to the complete, technical documentation for this part of the schema. This detailed view is generated automatically by LinkML's documentation tool and provides all underlying rules, data types, and complex relationships for expert users and developers.
 
 - **Slots:** A Slot represents an individual data field or attribute that belongs to a specific Class (entity type) within the schema. If a Class defines an entity like 'Book', the Slots define the individual pieces of information about that book, such as the 'title', 'author', and 'ISBN'. Essentially, Slots are the essential building blocks that define the characteristics and permissible data for every record in the schema.
 
-- **Enumerations:** Often called an Enum, Enumerations are a predefined, fixed list of permissible values that a Slot can accept. It is used to strictly limit the available choices for a data field to ensure consistency and prevent errors. For example, a 'Status' field might be restricted to the Enumeration list of only 'Active', 'Inactive', or 'Pending'. Any data entered that is not on this fixed list is considered invalid by the schema.
+- **Enumerations:** Often called an Enum, Enumerations are a predefined, fixed list of permissible values that a Slot can accept. It is used to strictly limit the available choices for a data field to ensure consistency and prevent errors. For example, a 'Status' field might be restricted to the Enumeration list of only 'Active', 'Inactive', or 'Pending'. Any data entered that is not on this limited list is considered invalid by the schema.
 
-</details>## Slots
+</details>
+## Slots
 
 <details markdown="1">
-<summary><strong>equipment</strong> (Required, Multivalued)</summary>
+<summary><strong>sample state</strong> (Optional, Multivalued)</summary>
 
-**Description:** Equipment used
+**Description:** Physical state of the sample during characterization.
 
-**Data Type:** string
+**Data Type:** SampleStateEnum
 
-**Cardinality:**  Required, Multivalued
+**Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`voc4cat:0000187`](https://w3id.org/nfdi4cat/voc4cat_0000187)
+**CURIE:** [`catcore:sample_state`](https://w3id.org/nfdi4cat/catcore/sample_state)
 
-**Schema Reference:** [equipment](./elements/equipment.md)
+**Schema Reference:** [sample_state](./elements/sample_state.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20equipment target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_state target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>characterization technique</strong> (Required, Multivalued)</summary>
+<summary><strong>sample description</strong> (Optional, Multivalued)</summary>
 
-**Description:** Technique used for characterization
+**Description:** Free-text description of the sample used in this characterization.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:sample_description`](https://w3id.org/nfdi4cat/catcore/sample_description)
+
+**Schema Reference:** [sample_description](./elements/sample_description.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_description target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>sample preparation</strong> (Optional, Multivalued)</summary>
+
+**Description:** Sample preparation steps applied immediately before measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFP:0001159`](http://purl.allotrope.org/ontologies/process#AFP_0001159)
+
+**Schema Reference:** [sample_preparation](./elements/sample_preparation.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_preparation target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>sample pretreatment</strong> (Optional, Multivalued)</summary>
+
+**Description:** Pre-treatment applied to the sample before a process or measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0000122`](https://w3id.org/nfdi4cat/voc4cat_0000122)
+
+**Schema Reference:** [sample_pretreatment](./elements/sample_pretreatment.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_pretreatment target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>detector type</strong> (Optional, Multivalued)</summary>
+
+**Description:** Type of detector used in the measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0000317`](http://purl.allotrope.org/ontologies/result#AFR_0000317)
+
+**Schema Reference:** [detector_type](./elements/detector_type.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detector_type target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>realized plan</strong> (Required)</summary>
+
+**Description:** The CharacterizationTechnique (protocol) realized in this Characterization.
 
 **Data Type:** CharacterizationTechnique
 
-**Cardinality:**  Required, Multivalued
+**Cardinality:**  Required
 
-**CURIE:** [`voc4cat:0000066`](https://w3id.org/nfdi4cat/voc4cat_0000066)
-
-**Schema Reference:** [characterization_technique](./elements/characterization_technique.md)
+**Schema Reference:** [realized_plan](./elements/realized_plan.md)
 
 **Data Type Class Details:**
 
@@ -59,7 +136,11 @@ test description
 
 **Abstract Class**
 
-**Description:** Characterization technique used for catalyst analysis
+**Description:** An abstract Plan describing the analytical protocol used to characterize
+a catalyst. Concrete subclasses specify technique-specific parameters.
+Linked from Characterization via realized_plan.
+
+**CURIE:** [`OBI:0000272`](http://purl.obolibrary.org/obo/OBI_0000272)
 
 **Schema Reference:** [CharacterizationTechnique](./elements/CharacterizationTechnique.md)
 
@@ -74,7 +155,7 @@ test description
 <details markdown="1">
 <summary><strong>PowderXRD</strong></summary>
 
-**Description:** Powder X-ray diffraction
+**Description:** Powder X-ray diffraction for phase identification and structural analysis.
 
 **CURIE:** [`CHMO:0000158`](http://purl.obolibrary.org/obo/CHMO_0000158)
 
@@ -83,66 +164,9 @@ test description
 **Slots**
 
 <details markdown="1">
-<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
-
-**Description:** X-ray source used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
-
-**Schema Reference:** [xray_source](./elements/xray_source.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
-
-**Description:** Atmospheric conditions
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
-
-**Schema Reference:** [atmosphere](./elements/atmosphere.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Operation mode of the instrument
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
-
-**Schema Reference:** [operation_mode](./elements/operation_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
 <summary><strong>minimum 2theta</strong> (Optional, Multivalued)</summary>
 
-**Description:** Minimum 2-theta angle
+**Description:** Minimum 2θ angle in the diffraction scan.
 
 **Data Type:** float
 
@@ -163,7 +187,7 @@ test description
 <details markdown="1">
 <summary><strong>maximum 2theta</strong> (Optional, Multivalued)</summary>
 
-**Description:** Maximum 2-theta angle
+**Description:** Maximum 2θ angle in the diffraction scan.
 
 **Data Type:** float
 
@@ -184,7 +208,7 @@ test description
 <details markdown="1">
 <summary><strong>step size</strong> (Optional, Multivalued)</summary>
 
-**Description:** Step size for measurements
+**Description:** Step size for a scan (angle, wavelength, energy, or potential).
 
 **Data Type:** float
 
@@ -201,20 +225,39 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
+<summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Monochromator type used
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
+**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
 
-**Schema Reference:** [monochromator](./elements/monochromator.md)
+**Schema Reference:** [operation_mode](./elements/operation_mode.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gaseous environment or atmospheric conditions during a process.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
@@ -222,7 +265,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -243,7 +286,7 @@ test description
 <details markdown="1">
 <summary><strong>sample spinning speed</strong> (Optional, Multivalued)</summary>
 
-**Description:** Sample spinning speed
+**Description:** Sample spinning speed during XRD measurement.
 
 **Data Type:** float
 
@@ -264,7 +307,7 @@ test description
 <details markdown="1">
 <summary><strong>experiment duration</strong> (Optional, Multivalued)</summary>
 
-**Description:** Duration of the experiment
+**Description:** Total duration of the experiment or measurement run.
 
 **Data Type:** float
 
@@ -282,6 +325,44 @@ test description
   </a>
 </p></details>
 
+<details markdown="1">
+<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray source used (e.g. Cu Kα, Mo Kα, synchrotron).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
+
+**Schema Reference:** [xray_source](./elements/xray_source.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
+
+**Description:** Monochromator type or configuration used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
+
+**Schema Reference:** [monochromator](./elements/monochromator.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
 <p>
       <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PowderXRD target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
@@ -289,9 +370,85 @@ test description
     </p></details>
 
 <details markdown="1">
+<summary><strong>SingleCrystalXRD</strong></summary>
+
+**Description:** Single crystal X-ray diffraction for structure determination.
+
+**CURIE:** [`CHMO:0000852`](http://purl.obolibrary.org/obo/CHMO_0000852)
+
+**Schema Reference:** [SingleCrystalXRD](./elements/SingleCrystalXRD.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray source used (e.g. Cu Kα, Mo Kα, synchrotron).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
+
+**Schema Reference:** [xray_source](./elements/xray_source.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
+
+**Description:** Monochromator type or configuration used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
+
+**Schema Reference:** [monochromator](./elements/monochromator.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SingleCrystalXRD target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
 <summary><strong>XRayAbsorptionSpectroscopy</strong></summary>
 
-**Description:** X-ray absorption spectroscopy
+**Description:** X-ray absorption spectroscopy (XAS/XANES/EXAFS) for electronic and local structure analysis.
 
 **CURIE:** [`voc4cat:0000286`](https://w3id.org/nfdi4cat/voc4cat_0000286)
 
@@ -302,7 +459,7 @@ test description
 <details markdown="1">
 <summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Operation mode of the instrument
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
 
 **Data Type:** string
 
@@ -321,7 +478,7 @@ test description
 <details markdown="1">
 <summary><strong>element analyzed</strong> (Optional, Multivalued)</summary>
 
-**Description:** Chemical element being analyzed
+**Description:** Chemical element analysed (e.g. Fe, Cu, Pt).
 
 **Data Type:** string
 
@@ -340,7 +497,7 @@ test description
 <details markdown="1">
 <summary><strong>absorption edge</strong> (Optional, Multivalued)</summary>
 
-**Description:** Absorption edge measured
+**Description:** X-ray absorption edge measured (e.g. K-edge, L3-edge).
 
 **Data Type:** string
 
@@ -357,70 +514,9 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
-
-**Description:** Monochromator type used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
-
-**Schema Reference:** [monochromator](./elements/monochromator.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>minimum energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum energy value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:minimum_energy`](https://w3id.org/nfdi4cat/catcore/minimum_energy)
-
-**Schema Reference:** [minimum_energy](./elements/minimum_energy.md)
-
-**Unit:** eV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>maximum energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum energy value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:maximum_energy`](https://w3id.org/nfdi4cat/catcore/maximum_energy)
-
-**Schema Reference:** [maximum_energy](./elements/maximum_energy.md)
-
-**Unit:** eV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
 <summary><strong>energy resolution</strong> (Optional, Multivalued)</summary>
 
-**Description:** Energy resolution of the measurement
+**Description:** Energy resolution of the spectrometer or monochromator.
 
 **Data Type:** float
 
@@ -441,7 +537,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -462,7 +558,7 @@ test description
 <details markdown="1">
 <summary><strong>beamline source</strong> (Optional, Multivalued)</summary>
 
-**Description:** Beamline source identification
+**Description:** Synchrotron beamline or X-ray source identifier.
 
 **Data Type:** string
 
@@ -481,7 +577,7 @@ test description
 <details markdown="1">
 <summary><strong>noise of measurement</strong> (Optional, Multivalued)</summary>
 
-**Description:** Noise level of the measurement
+**Description:** Noise level of the XAS measurement (signal-to-noise ratio).
 
 **Data Type:** float
 
@@ -500,7 +596,7 @@ test description
 <details markdown="1">
 <summary><strong>number of cycles</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of cycles in the process
+**Description:** Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).
 
 **Data Type:** integer
 
@@ -516,6 +612,86 @@ test description
   </a>
 </p></details>
 
+<details markdown="1">
+<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray source used (e.g. Cu Kα, Mo Kα, synchrotron).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
+
+**Schema Reference:** [xray_source](./elements/xray_source.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
+
+**Description:** Monochromator type or configuration used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
+
+**Schema Reference:** [monochromator](./elements/monochromator.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>minimum energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum energy of the scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:minimum_energy`](https://w3id.org/nfdi4cat/catcore/minimum_energy)
+
+**Schema Reference:** [minimum_energy](./elements/minimum_energy.md)
+
+**Unit:** eV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>maximum energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum energy of the scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_energy`](https://w3id.org/nfdi4cat/catcore/maximum_energy)
+
+**Schema Reference:** [maximum_energy](./elements/maximum_energy.md)
+
+**Unit:** eV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
 <p>
       <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XRayAbsorptionSpectroscopy target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
@@ -523,9 +699,361 @@ test description
     </p></details>
 
 <details markdown="1">
+<summary><strong>XPS</strong></summary>
+
+**Description:** X-ray photoelectron spectroscopy for surface elemental and chemical state analysis.
+
+**CURIE:** [`CHMO:0000404`](http://purl.obolibrary.org/obo/CHMO_0000404)
+
+**Schema Reference:** [XPS](./elements/XPS.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>total acquisition time</strong> (Optional, Multivalued)</summary>
+
+**Description:** Total time for XPS spectrum acquisition.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:total_acquisition_time`](https://w3id.org/nfdi4cat/catcore/total_acquisition_time)
+
+**Schema Reference:** [total_acquisition_time](./elements/total_acquisition_time.md)
+
+**Unit:** s
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20total_acquisition_time target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
+
+**Description:** Number of scans or accumulations recorded.
+
+**Data Type:** integer
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:number_of_scans`](https://w3id.org/nfdi4cat/catcore/number_of_scans)
+
+**Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>step size</strong> (Optional, Multivalued)</summary>
+
+**Description:** Step size for a scan (angle, wavelength, energy, or potential).
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0000950`](http://purl.allotrope.org/ontologies/result#AFR_0000950)
+
+**Schema Reference:** [step_size](./elements/step_size.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>pass energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Analyser pass energy setting in XPS.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:pass_energy`](https://w3id.org/nfdi4cat/catcore/pass_energy)
+
+**Schema Reference:** [pass_energy](./elements/pass_energy.md)
+
+**Unit:** eV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pass_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>spot size</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray spot size on the sample surface.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:spot_size`](https://w3id.org/nfdi4cat/catcore/spot_size)
+
+**Schema Reference:** [spot_size](./elements/spot_size.md)
+
+**Unit:** mm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spot_size target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>lense mode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Electron lens mode setting in XPS analyser.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
+
+**Schema Reference:** [lense_mode](./elements/lense_mode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lense_mode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>charge compensation</strong> (Optional, Multivalued)</summary>
+
+**Description:** Charge compensation method applied during XPS measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:charge_compensation`](https://w3id.org/nfdi4cat/catcore/charge_compensation)
+
+**Schema Reference:** [charge_compensation](./elements/charge_compensation.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20charge_compensation target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gaseous environment or atmospheric conditions during a process.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray source used (e.g. Cu Kα, Mo Kα, synchrotron).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
+
+**Schema Reference:** [xray_source](./elements/xray_source.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>monochromator</strong> (Optional, Multivalued)</summary>
+
+**Description:** Monochromator type or configuration used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`CHMO:0002120`](http://purl.obolibrary.org/obo/CHMO_0002120)
+
+**Schema Reference:** [monochromator](./elements/monochromator.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20monochromator target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>minimum energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum energy of the scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:minimum_energy`](https://w3id.org/nfdi4cat/catcore/minimum_energy)
+
+**Schema Reference:** [minimum_energy](./elements/minimum_energy.md)
+
+**Unit:** eV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>maximum energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum energy of the scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_energy`](https://w3id.org/nfdi4cat/catcore/maximum_energy)
+
+**Schema Reference:** [maximum_energy](./elements/maximum_energy.md)
+
+**Unit:** eV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XPS target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>EDX</strong></summary>
+
+**Description:** Energy-dispersive X-ray spectroscopy for elemental mapping and quantification.
+
+**CURIE:** [`CHMO:0000309`](http://purl.obolibrary.org/obo/CHMO_0000309)
+
+**Schema Reference:** [EDX](./elements/EDX.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>primary energy</strong> (Optional, Multivalued)</summary>
+
+**Description:** Primary electron beam energy for EDX excitation.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:primary_energy`](https://w3id.org/nfdi4cat/catcore/primary_energy)
+
+**Schema Reference:** [primary_energy](./elements/primary_energy.md)
+
+**Unit:** keV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20primary_energy target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>counting time</strong> (Optional, Multivalued)</summary>
+
+**Description:** X-ray counting time per point or spectrum.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:counting_time`](https://w3id.org/nfdi4cat/catcore/counting_time)
+
+**Schema Reference:** [counting_time](./elements/counting_time.md)
+
+**Unit:** s
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counting_time target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>resolution</strong> (Optional, Multivalued)</summary>
+
+**Description:** Resolution of a measurement or detector.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:resolution`](https://w3id.org/nfdi4cat/catcore/resolution)
+
+**Schema Reference:** [resolution](./elements/resolution.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>calibration method</strong> (Optional, Multivalued)</summary>
+
+**Description:** Calibration method applied during a measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:calibration_method`](https://w3id.org/nfdi4cat/catcore/calibration_method)
+
+**Schema Reference:** [calibration_method](./elements/calibration_method.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20EDX target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
 <summary><strong>InfraredSpectroscopy</strong></summary>
 
-**Description:** Infrared spectroscopy
+**Description:** Infrared spectroscopy (FTIR/ATR) for functional group and surface species identification.
 
 **CURIE:** [`catcore:InfraredSpectroscopy`](https://w3id.org/nfdi4cat/catcore/InfraredSpectroscopy)
 
@@ -536,7 +1064,7 @@ test description
 <details markdown="1">
 <summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Operation mode of the instrument
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
 
 **Data Type:** string
 
@@ -555,7 +1083,7 @@ test description
 <details markdown="1">
 <summary><strong>minimum wavenumber</strong> (Optional, Multivalued)</summary>
 
-**Description:** Minimum wavenumber
+**Description:** Minimum wavenumber of the IR scan range.
 
 **Data Type:** float
 
@@ -576,7 +1104,7 @@ test description
 <details markdown="1">
 <summary><strong>maximum wavenumber</strong> (Optional, Multivalued)</summary>
 
-**Description:** Maximum wavenumber
+**Description:** Maximum wavenumber of the IR scan range.
 
 **Data Type:** float
 
@@ -597,7 +1125,7 @@ test description
 <details markdown="1">
 <summary><strong>step size</strong> (Optional, Multivalued)</summary>
 
-**Description:** Step size for measurements
+**Description:** Step size for a scan (angle, wavelength, energy, or potential).
 
 **Data Type:** float
 
@@ -616,7 +1144,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -637,7 +1165,7 @@ test description
 <details markdown="1">
 <summary><strong>background correction</strong> (Optional, Multivalued)</summary>
 
-**Description:** Background correction method
+**Description:** Background correction method applied to IR spectra.
 
 **Data Type:** string
 
@@ -656,13 +1184,13 @@ test description
 <details markdown="1">
 <summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of scans performed
+**Description:** Number of scans or accumulations recorded.
 
 **Data Type:** integer
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0003051`](http://purl.allotrope.org/ontologies/result#AFR_0003051)
+**CURIE:** [`catcore:number_of_scans`](https://w3id.org/nfdi4cat/catcore/number_of_scans)
 
 **Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
 
@@ -675,7 +1203,7 @@ test description
 <details markdown="1">
 <summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
 
-**Description:** Atmospheric conditions
+**Description:** Gaseous environment or atmospheric conditions during a process.
 
 **Data Type:** string
 
@@ -698,9 +1226,221 @@ test description
     </p></details>
 
 <details markdown="1">
+<summary><strong>DRIFTS</strong></summary>
+
+**Description:** Diffuse reflectance infrared Fourier transform spectroscopy for in-situ
+surface species identification under reactive gas conditions.
+
+**CURIE:** [`CHMO:0000645`](http://purl.obolibrary.org/obo/CHMO_0000645)
+
+**Schema Reference:** [DRIFTS](./elements/DRIFTS.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>adsorption gas</strong> (Optional, Multivalued)</summary>
+
+**Description:** Probe gas adsorbed during in-situ DRIFTS measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:adsorption_gas`](https://w3id.org/nfdi4cat/catcore/adsorption_gas)
+
+**Schema Reference:** [adsorption_gas](./elements/adsorption_gas.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorption_gas target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gaseous environment or atmospheric conditions during a process.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Flow rate of a fluid or gas.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
+
+**Schema Reference:** [flow_rate](./elements/flow_rate.md)
+
+**Unit:** mL/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>diluting reference</strong> (Optional, Multivalued)</summary>
+
+**Description:** Reference material used to dilute the DRIFTS sample (e.g. KBr).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:diluting_reference`](https://w3id.org/nfdi4cat/catcore/diluting_reference)
+
+**Schema Reference:** [diluting_reference](./elements/diluting_reference.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20diluting_reference target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>ratio reference sample</strong> (Optional, Multivalued)</summary>
+
+**Description:** Mass ratio of reference material to catalyst sample in DRIFTS cup.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:ratio_reference_sample`](https://w3id.org/nfdi4cat/catcore/ratio_reference_sample)
+
+**Schema Reference:** [ratio_reference_sample](./elements/ratio_reference_sample.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ratio_reference_sample target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>step size</strong> (Optional, Multivalued)</summary>
+
+**Description:** Step size for a scan (angle, wavelength, energy, or potential).
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0000950`](http://purl.allotrope.org/ontologies/result#AFR_0000950)
+
+**Schema Reference:** [step_size](./elements/step_size.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>resolution</strong> (Optional, Multivalued)</summary>
+
+**Description:** Resolution of a measurement or detector.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:resolution`](https://w3id.org/nfdi4cat/catcore/resolution)
+
+**Schema Reference:** [resolution](./elements/resolution.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>background correction method</strong> (Optional, Multivalued)</summary>
+
+**Description:** Specific background correction method used in DRIFTS.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:background_correction_method`](https://w3id.org/nfdi4cat/catcore/background_correction_method)
+
+**Schema Reference:** [background_correction_method](./elements/background_correction_method.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction_method target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
+
+**Description:** Number of scans or accumulations recorded.
+
+**Data Type:** integer
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:number_of_scans`](https://w3id.org/nfdi4cat/catcore/number_of_scans)
+
+**Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DRIFTS target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
 <summary><strong>RamanSpectroscopy</strong></summary>
 
-**Description:** Raman spectroscopy
+**Description:** Raman spectroscopy for vibrational and structural characterization.
 
 **CURIE:** [`voc4cat:0000069`](https://w3id.org/nfdi4cat/voc4cat_0000069)
 
@@ -711,7 +1451,7 @@ test description
 <details markdown="1">
 <summary><strong>excitation laser wavelength</strong> (Optional, Multivalued)</summary>
 
-**Description:** Excitation laser wavelength
+**Description:** Wavelength of excitation laser used in Raman spectroscopy.
 
 **Data Type:** float
 
@@ -732,7 +1472,7 @@ test description
 <details markdown="1">
 <summary><strong>excitation laser power</strong> (Optional, Multivalued)</summary>
 
-**Description:** Excitation laser power
+**Description:** Power of the excitation laser at the sample.
 
 **Data Type:** float
 
@@ -753,7 +1493,7 @@ test description
 <details markdown="1">
 <summary><strong>magnification setting</strong> (Optional, Multivalued)</summary>
 
-**Description:** Magnification setting
+**Description:** Magnification setting used for imaging.
 
 **Data Type:** float
 
@@ -772,13 +1512,13 @@ test description
 <details markdown="1">
 <summary><strong>integration time</strong> (Optional, Multivalued)</summary>
 
-**Description:** Integration time
+**Description:** Integration or acquisition time per measurement step.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0001671`](http://purl.allotrope.org/ontologies/result#AFR_0001671)
+**CURIE:** [`catcore:integration_time`](https://w3id.org/nfdi4cat/catcore/integration_time)
 
 **Schema Reference:** [integration_time](./elements/integration_time.md)
 
@@ -793,13 +1533,13 @@ test description
 <details markdown="1">
 <summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of scans performed
+**Description:** Number of scans or accumulations recorded.
 
 **Data Type:** integer
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0003051`](http://purl.allotrope.org/ontologies/result#AFR_0003051)
+**CURIE:** [`catcore:number_of_scans`](https://w3id.org/nfdi4cat/catcore/number_of_scans)
 
 **Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
 
@@ -812,7 +1552,7 @@ test description
 <details markdown="1">
 <summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
 
-**Description:** Atmospheric conditions
+**Description:** Gaseous environment or atmospheric conditions during a process.
 
 **Data Type:** string
 
@@ -831,7 +1571,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -852,7 +1592,7 @@ test description
 <details markdown="1">
 <summary><strong>filter or grating</strong> (Optional, Multivalued)</summary>
 
-**Description:** Filter or grating used
+**Description:** Optical filter or grating used in Raman spectrometer.
 
 **Data Type:** string
 
@@ -875,361 +1615,12 @@ test description
     </p></details>
 
 <details markdown="1">
-<summary><strong>GCMS</strong></summary>
-
-**Description:** Gas chromatography-mass spectrometry
-
-**CURIE:** [`CHMO:0000497`](http://purl.obolibrary.org/obo/CHMO_0000497)
-
-**Schema Reference:** [GCMS](./elements/GCMS.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>external standard</strong> (Optional, Multivalued)</summary>
-
-**Description:** External standard used for calibration
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:external_standard`](https://w3id.org/nfdi4cat/catcore/external_standard)
-
-**Schema Reference:** [external_standard](./elements/external_standard.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>internal standard</strong> (Optional, Multivalued)</summary>
-
-**Description:** Internal standard used for calibration
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:internal_standard`](https://w3id.org/nfdi4cat/catcore/internal_standard)
-
-**Schema Reference:** [internal_standard](./elements/internal_standard.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>column type</strong> (Optional, Multivalued)</summary>
-
-**Description:** Type of chromatography column
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002026`](http://purl.allotrope.org/ontologies/result#AFR_0002026)
-
-**Schema Reference:** [column_type](./elements/column_type.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>carrier gas</strong> (Optional, Multivalued)</summary>
-
-**Description:** Carrier gas used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:carrier_gas`](https://w3id.org/nfdi4cat/catcore/carrier_gas)
-
-**Schema Reference:** [carrier_gas](./elements/carrier_gas.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>carrier gas purity</strong> (Optional, Multivalued)</summary>
-
-**Description:** Purity of carrier gas
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:carrier_gas_purity`](https://w3id.org/nfdi4cat/catcore/carrier_gas_purity)
-
-**Schema Reference:** [carrier_gas_purity](./elements/carrier_gas_purity.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas_purity target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>inlet temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Inlet temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:inlet_temperature`](https://w3id.org/nfdi4cat/catcore/inlet_temperature)
-
-**Schema Reference:** [inlet_temperature](./elements/inlet_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20inlet_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>minimum oven temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum oven temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:minimum_oven_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_oven_temperature)
-
-**Schema Reference:** [minimum_oven_temperature](./elements/minimum_oven_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_oven_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>maximum oven temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum oven temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:maximum_oven_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_oven_temperature)
-
-**Schema Reference:** [maximum_oven_temperature](./elements/maximum_oven_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_oven_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating ramp</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating ramp rate
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_ramp`](https://w3id.org/nfdi4cat/catcore/heating_ramp)
-
-**Schema Reference:** [heating_ramp](./elements/heating_ramp.md)
-
-**Unit:** Cel/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_ramp target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating procedure used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
-
-**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>acquisition mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Data acquisition mode
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:acquisition_mode`](https://w3id.org/nfdi4cat/catcore/acquisition_mode)
-
-**Schema Reference:** [acquisition_mode](./elements/acquisition_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acquisition_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>solvent delay</strong> (Optional, Multivalued)</summary>
-
-**Description:** Solvent delay time
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:solvent_delay`](https://w3id.org/nfdi4cat/catcore/solvent_delay)
-
-**Schema Reference:** [solvent_delay](./elements/solvent_delay.md)
-
-**Unit:** min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_delay target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>trace ion detection</strong> (Optional, Multivalued)</summary>
-
-**Description:** Trace ion detection setting
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:trace_ion_detection`](https://w3id.org/nfdi4cat/catcore/trace_ion_detection)
-
-**Schema Reference:** [trace_ion_detection](./elements/trace_ion_detection.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20trace_ion_detection target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>mz minimum</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum m/z value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002652`](http://purl.allotrope.org/ontologies/result#AFR_0002652)
-
-**Schema Reference:** [mz_minimum](./elements/mz_minimum.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>mz maximum</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum m/z value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002653`](http://purl.allotrope.org/ontologies/result#AFR_0002653)
-
-**Schema Reference:** [mz_maximum](./elements/mz_maximum.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>split ratio</strong> (Optional, Multivalued)</summary>
-
-**Description:** Split ratio for injection
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:split_ratio`](https://w3id.org/nfdi4cat/catcore/split_ratio)
-
-**Schema Reference:** [split_ratio](./elements/split_ratio.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20split_ratio target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>injection volume</strong> (Optional, Multivalued)</summary>
-
-**Description:** Injection volume
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001577`](http://purl.allotrope.org/ontologies/result#AFR_0001577)
-
-**Schema Reference:** [injection_volume](./elements/injection_volume.md)
-
-**Unit:** uL
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20GCMS target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
 <summary><strong>NMRSpectroscopy</strong></summary>
 
-**Description:** Nuclear magnetic resonance spectroscopy
+**Description:** Nuclear magnetic resonance spectroscopy for structure elucidation.
+Note: for detailed liquid-state NMR minimum information, the dedicated
+nmr_dcat_ap profile (MARGARITAS) should be used in combination with
+this subprofile.
 
 **CURIE:** [`voc4cat:0000073`](https://w3id.org/nfdi4cat/voc4cat_0000073)
 
@@ -1240,7 +1631,7 @@ test description
 <details markdown="1">
 <summary><strong>nucleus</strong> (Optional, Multivalued)</summary>
 
-**Description:** Nucleus being observed
+**Description:** NMR-active nucleus observed (e.g. 1H, 13C, 31P).
 
 **Data Type:** string
 
@@ -1259,7 +1650,7 @@ test description
 <details markdown="1">
 <summary><strong>solvent</strong> (Optional, Multivalued)</summary>
 
-**Description:** Solvent used
+**Description:** Solvent used in a process or sample preparation.
 
 **Data Type:** string
 
@@ -1278,13 +1669,13 @@ test description
 <details markdown="1">
 <summary><strong>irradiation frequency</strong> (Optional, Multivalued)</summary>
 
-**Description:** Irradiation frequency
+**Description:** Irradiation frequency of the NMR spectrometer.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`nmrCV:1400026`](http://nmrML.org/nmrCV#NMR:1400026)
+**CURIE:** [`catcore:irradiation_frequency`](https://w3id.org/nfdi4cat/catcore/irradiation_frequency)
 
 **Schema Reference:** [irradiation_frequency](./elements/irradiation_frequency.md)
 
@@ -1299,7 +1690,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -1320,13 +1711,13 @@ test description
 <details markdown="1">
 <summary><strong>nmr pulse sequence</strong> (Optional, Multivalued)</summary>
 
-**Description:** NMR pulse sequence used
+**Description:** NMR pulse sequence used (e.g. zgpg30, dept).
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`nmrCV:1400037`](http://nmrML.org/nmrCV#NMR:1400037)
+**CURIE:** [`catcore:nmr_pulse_sequence`](https://w3id.org/nfdi4cat/catcore/nmr_pulse_sequence)
 
 **Schema Reference:** [nmr_pulse_sequence](./elements/nmr_pulse_sequence.md)
 
@@ -1339,13 +1730,13 @@ test description
 <details markdown="1">
 <summary><strong>nmr sample tube</strong> (Optional, Multivalued)</summary>
 
-**Description:** NMR sample tube type
+**Description:** NMR sample tube type (e.g. 5mm standard, Shigemi tube).
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`nmrCV:1400132`](http://nmrML.org/nmrCV#NMR:1400132)
+**CURIE:** [`catcore:nmr_sample_tube`](https://w3id.org/nfdi4cat/catcore/nmr_sample_tube)
 
 **Schema Reference:** [nmr_sample_tube](./elements/nmr_sample_tube.md)
 
@@ -1358,13 +1749,13 @@ test description
 <details markdown="1">
 <summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of scans performed
+**Description:** Number of scans or accumulations recorded.
 
 **Data Type:** integer
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0003051`](http://purl.allotrope.org/ontologies/result#AFR_0003051)
+**CURIE:** [`catcore:number_of_scans`](https://w3id.org/nfdi4cat/catcore/number_of_scans)
 
 **Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
 
@@ -1377,7 +1768,7 @@ test description
 <details markdown="1">
 <summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
 
-**Description:** Atmospheric conditions
+**Description:** Gaseous environment or atmospheric conditions during a process.
 
 **Data Type:** string
 
@@ -1402,7 +1793,7 @@ test description
 <details markdown="1">
 <summary><strong>TransmissionElectronMicroscopy</strong></summary>
 
-**Description:** Transmission electron microscopy
+**Description:** TEM for atomic-resolution imaging and diffraction of catalyst particles.
 
 **CURIE:** [`voc4cat:0000078`](https://w3id.org/nfdi4cat/voc4cat_0000078)
 
@@ -1413,7 +1804,7 @@ test description
 <details markdown="1">
 <summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Operation mode of the instrument
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
 
 **Data Type:** string
 
@@ -1432,7 +1823,7 @@ test description
 <details markdown="1">
 <summary><strong>gun type</strong> (Optional, Multivalued)</summary>
 
-**Description:** Type of electron gun
+**Description:** Type of electron gun (e.g. FEG, thermionic LaB6).
 
 **Data Type:** string
 
@@ -1451,7 +1842,7 @@ test description
 <details markdown="1">
 <summary><strong>acceleration voltage</strong> (Optional, Multivalued)</summary>
 
-**Description:** Acceleration voltage
+**Description:** Acceleration voltage applied to the electron beam.
 
 **Data Type:** float
 
@@ -1472,7 +1863,7 @@ test description
 <details markdown="1">
 <summary><strong>magnification setting</strong> (Optional, Multivalued)</summary>
 
-**Description:** Magnification setting
+**Description:** Magnification setting used for imaging.
 
 **Data Type:** float
 
@@ -1495,9 +1886,679 @@ test description
     </p></details>
 
 <details markdown="1">
+<summary><strong>ScanningElectronMicroscopy</strong></summary>
+
+**Description:** SEM for surface morphology and particle size/shape imaging.
+
+**CURIE:** [`voc4cat:0000075`](https://w3id.org/nfdi4cat/voc4cat_0000075)
+
+**Schema Reference:** [ScanningElectronMicroscopy](./elements/ScanningElectronMicroscopy.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>image resolution</strong> (Optional, Multivalued)</summary>
+
+**Description:** Spatial resolution of SEM images.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:image_resolution`](https://w3id.org/nfdi4cat/catcore/image_resolution)
+
+**Schema Reference:** [image_resolution](./elements/image_resolution.md)
+
+**Unit:** nm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20image_resolution target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>field emitter</strong> (Optional, Multivalued)</summary>
+
+**Description:** Type of field emitter used in FE-SEM instrument.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:field_emitter`](https://w3id.org/nfdi4cat/catcore/field_emitter)
+
+**Schema Reference:** [field_emitter](./elements/field_emitter.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20field_emitter target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>gun type</strong> (Optional, Multivalued)</summary>
+
+**Description:** Type of electron gun (e.g. FEG, thermionic LaB6).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:gun_type`](https://w3id.org/nfdi4cat/catcore/gun_type)
+
+**Schema Reference:** [gun_type](./elements/gun_type.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>acceleration voltage</strong> (Optional, Multivalued)</summary>
+
+**Description:** Acceleration voltage applied to the electron beam.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:acceleration_voltage`](https://w3id.org/nfdi4cat/catcore/acceleration_voltage)
+
+**Schema Reference:** [acceleration_voltage](./elements/acceleration_voltage.md)
+
+**Unit:** kV
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>magnification setting</strong> (Optional, Multivalued)</summary>
+
+**Description:** Magnification setting used for imaging.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002226`](http://purl.allotrope.org/ontologies/result#AFR_0002226)
+
+**Schema Reference:** [magnification_setting](./elements/magnification_setting.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20magnification_setting target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ScanningElectronMicroscopy target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>Thermogravimetry</strong></summary>
+
+**Description:** Thermogravimetric analysis (TGA/DTG) for mass loss, decomposition, and oxidation state characterization.
+
+**CURIE:** [`CHMO:0000690`](http://purl.obolibrary.org/obo/CHMO_0000690)
+
+**Schema Reference:** [Thermogravimetry](./elements/Thermogravimetry.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
+
+**Schema Reference:** [operation_mode](./elements/operation_mode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gaseous environment or atmospheric conditions during a process.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>initial temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Initial temperature at the start of a thermal analysis run.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`NCIT:C164644`](http://purl.obolibrary.org/obo/NCIT_C164644)
+
+**Schema Reference:** [initial_temperature](./elements/initial_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20initial_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>final temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Final temperature at the end of a thermal analysis run.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`NCIT:C164644`](http://purl.obolibrary.org/obo/NCIT_C164644)
+
+**Schema Reference:** [final_temperature](./elements/final_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20final_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>sample mass</strong> (Optional, Multivalued)</summary>
+
+**Description:** Mass of the sample used in a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:sample_mass`](https://w3id.org/nfdi4cat/catcore/sample_mass)
+
+**Schema Reference:** [sample_mass](./elements/sample_mass.md)
+
+**Unit:** mg
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>minimum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum (start) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:minimum_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_temperature)
+
+**Schema Reference:** [minimum_temperature](./elements/minimum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>maximum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum (final) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_temperature)
+
+**Schema Reference:** [maximum_temperature](./elements/maximum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Rate at which temperature is increased during a process.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
+
+**Schema Reference:** [heating_rate](./elements/heating_rate.md)
+
+**Unit:** Cel/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
+
+**Description:** Description of the heating procedure applied.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
+
+**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Thermogravimetry target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>TPR</strong></summary>
+
+**Description:** Temperature-programmed reduction for reducibility and metal-support interaction characterization.
+
+**CURIE:** [`CHMO:0002908`](http://purl.obolibrary.org/obo/CHMO_0002908)
+
+**Schema Reference:** [TPR](./elements/TPR.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>reducing gas composition</strong> (Optional, Multivalued)</summary>
+
+**Description:** Composition of reducing gas used in TPR (e.g. 5% H2/Ar).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:reducing_gas_composition`](https://w3id.org/nfdi4cat/catcore/reducing_gas_composition)
+
+**Schema Reference:** [reducing_gas_composition](./elements/reducing_gas_composition.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reducing_gas_composition target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>minimum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum (start) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:minimum_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_temperature)
+
+**Schema Reference:** [minimum_temperature](./elements/minimum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>maximum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum (final) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_temperature)
+
+**Schema Reference:** [maximum_temperature](./elements/maximum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Rate at which temperature is increased during a process.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
+
+**Schema Reference:** [heating_rate](./elements/heating_rate.md)
+
+**Unit:** Cel/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
+
+**Description:** Description of the heating procedure applied.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
+
+**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPR target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>TPO</strong></summary>
+
+**Description:** Temperature-programmed oxidation for coke quantification and reoxidation characterization.
+
+**CURIE:** [`CHMO:0002907`](http://purl.obolibrary.org/obo/CHMO_0002907)
+
+**Schema Reference:** [TPO](./elements/TPO.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>oxidizing gas composition</strong> (Optional, Multivalued)</summary>
+
+**Description:** Composition of oxidising gas used in TPO (e.g. 5% O2/Ar).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:oxidizing_gas_composition`](https://w3id.org/nfdi4cat/catcore/oxidizing_gas_composition)
+
+**Schema Reference:** [oxidizing_gas_composition](./elements/oxidizing_gas_composition.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20oxidizing_gas_composition target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>minimum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum (start) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:minimum_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_temperature)
+
+**Schema Reference:** [minimum_temperature](./elements/minimum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>maximum temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum (final) temperature in a temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_temperature)
+
+**Schema Reference:** [maximum_temperature](./elements/maximum_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Rate at which temperature is increased during a process.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
+
+**Schema Reference:** [heating_rate](./elements/heating_rate.md)
+
+**Unit:** Cel/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
+
+**Description:** Description of the heating procedure applied.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
+
+**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPO target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>BET</strong></summary>
+
+**Description:** Brunauer-Emmett-Teller analysis for specific surface area and pore size distribution.
+
+**CURIE:** [`catcore:BET`](https://w3id.org/nfdi4cat/catcore/BET)
+
+**Schema Reference:** [BET](./elements/BET.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>adsorbate gas</strong> (Optional, Multivalued)</summary>
+
+**Description:** Adsorbate gas used in BET surface area measurement (e.g. N2, Ar).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:adsorbate_gas`](https://w3id.org/nfdi4cat/catcore/adsorbate_gas)
+
+**Schema Reference:** [adsorbate_gas](./elements/adsorbate_gas.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorbate_gas target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>degassing temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature at which sample is degassed before BET measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:degassing_temperature`](https://w3id.org/nfdi4cat/catcore/degassing_temperature)
+
+**Schema Reference:** [degassing_temperature](./elements/degassing_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20degassing_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>measurement temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature at which BET adsorption isotherm is measured (e.g. 77 K for N2).
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:measurement_temperature`](https://w3id.org/nfdi4cat/catcore/measurement_temperature)
+
+**Schema Reference:** [measurement_temperature](./elements/measurement_temperature.md)
+
+**Unit:** K
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>pore size distribution method</strong> (Optional, Multivalued)</summary>
+
+**Description:** Method used for pore size distribution calculation (e.g. BJH, DFT, HK).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:pore_size_distribution_method`](https://w3id.org/nfdi4cat/catcore/pore_size_distribution_method)
+
+**Schema Reference:** [pore_size_distribution_method](./elements/pore_size_distribution_method.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pore_size_distribution_method target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>sample mass</strong> (Optional, Multivalued)</summary>
+
+**Description:** Mass of the sample used in a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:sample_mass`](https://w3id.org/nfdi4cat/catcore/sample_mass)
+
+**Schema Reference:** [sample_mass](./elements/sample_mass.md)
+
+**Unit:** mg
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20BET target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
 <summary><strong>ICPAES</strong></summary>
 
-**Description:** Inductively-coupled plasma atomic emission spectroscopy
+**Description:** Inductively coupled plasma atomic emission spectroscopy for bulk elemental composition.
 
 **CURIE:** [`CHMO:0000267`](http://purl.obolibrary.org/obo/CHMO_0000267)
 
@@ -1508,7 +2569,7 @@ test description
 <details markdown="1">
 <summary><strong>element analyzed</strong> (Optional, Multivalued)</summary>
 
-**Description:** Chemical element being analyzed
+**Description:** Chemical element analysed (e.g. Fe, Cu, Pt).
 
 **Data Type:** string
 
@@ -1527,7 +2588,7 @@ test description
 <details markdown="1">
 <summary><strong>calibration method</strong> (Optional, Multivalued)</summary>
 
-**Description:** Calibration method used
+**Description:** Calibration method applied during a measurement.
 
 **Data Type:** string
 
@@ -1546,7 +2607,7 @@ test description
 <details markdown="1">
 <summary><strong>detection limit</strong> (Optional, Multivalued)</summary>
 
-**Description:** Detection limit
+**Description:** Detection limit of the analytical method.
 
 **Data Type:** float
 
@@ -1565,7 +2626,7 @@ test description
 <details markdown="1">
 <summary><strong>matrix effect correction</strong> (Optional, Multivalued)</summary>
 
-**Description:** Matrix effect correction method
+**Description:** Method used to correct for matrix effects in ICP-AES.
 
 **Data Type:** string
 
@@ -1588,618 +2649,9 @@ test description
     </p></details>
 
 <details markdown="1">
-<summary><strong>ScanningElectronMicroscopy</strong></summary>
-
-**Description:** Scanning electron microscopy
-
-**CURIE:** [`voc4cat:0000075`](https://w3id.org/nfdi4cat/voc4cat_0000075)
-
-**Schema Reference:** [ScanningElectronMicroscopy](./elements/ScanningElectronMicroscopy.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>gun type</strong> (Optional, Multivalued)</summary>
-
-**Description:** Type of electron gun
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:gun_type`](https://w3id.org/nfdi4cat/catcore/gun_type)
-
-**Schema Reference:** [gun_type](./elements/gun_type.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gun_type target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>acceleration voltage</strong> (Optional, Multivalued)</summary>
-
-**Description:** Acceleration voltage
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:acceleration_voltage`](https://w3id.org/nfdi4cat/catcore/acceleration_voltage)
-
-**Schema Reference:** [acceleration_voltage](./elements/acceleration_voltage.md)
-
-**Unit:** kV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acceleration_voltage target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>image resolution</strong> (Optional, Multivalued)</summary>
-
-**Description:** Image resolution
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:image_resolution`](https://w3id.org/nfdi4cat/catcore/image_resolution)
-
-**Schema Reference:** [image_resolution](./elements/image_resolution.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20image_resolution target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>field emitter</strong> (Optional, Multivalued)</summary>
-
-**Description:** Field emitter type
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:field_emitter`](https://w3id.org/nfdi4cat/catcore/field_emitter)
-
-**Schema Reference:** [field_emitter](./elements/field_emitter.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20field_emitter target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ScanningElectronMicroscopy target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>Thermogravimetry</strong></summary>
-
-**Description:** Thermogravimetry
-
-**CURIE:** [`CHMO:0000690`](http://purl.obolibrary.org/obo/CHMO_0000690)
-
-**Schema Reference:** [Thermogravimetry](./elements/Thermogravimetry.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Operation mode of the instrument
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
-
-**Schema Reference:** [operation_mode](./elements/operation_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20operation_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
-
-**Description:** Atmospheric conditions
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
-
-**Schema Reference:** [atmosphere](./elements/atmosphere.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>initial temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Initial temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`NCIT:C164644`](http://purl.obolibrary.org/obo/NCIT_C164644)
-
-**Schema Reference:** [initial_temperature](./elements/initial_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20initial_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>final temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Final temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`NCIT:C164644`](http://purl.obolibrary.org/obo/NCIT_C164644)
-
-**Schema Reference:** [final_temperature](./elements/final_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20final_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating rate
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
-
-**Schema Reference:** [heating_rate](./elements/heating_rate.md)
-
-**Unit:** Cel/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating procedure used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
-
-**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample mass</strong> (Optional, Multivalued)</summary>
-
-**Description:** Mass of sample
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0007038`](https://w3id.org/nfdi4cat/voc4cat_0007038)
-
-**Schema Reference:** [sample_mass](./elements/sample_mass.md)
-
-**Unit:** mg
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20Thermogravimetry target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>XPS</strong></summary>
-
-**Description:** X-ray photoelectron spectroscopy
-
-**CURIE:** [`CHMO:0000404`](http://purl.obolibrary.org/obo/CHMO_0000404)
-
-**Schema Reference:** [XPS](./elements/XPS.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
-
-**Description:** X-ray source used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
-
-**Schema Reference:** [xray_source](./elements/xray_source.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>total acquisition time</strong> (Optional, Multivalued)</summary>
-
-**Description:** Total acquisition time
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:total_acquisition_time`](https://w3id.org/nfdi4cat/catcore/total_acquisition_time)
-
-**Schema Reference:** [total_acquisition_time](./elements/total_acquisition_time.md)
-
-**Unit:** s
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20total_acquisition_time target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
-
-**Description:** Number of scans performed
-
-**Data Type:** integer
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0003051`](http://purl.allotrope.org/ontologies/result#AFR_0003051)
-
-**Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>spot size</strong> (Optional, Multivalued)</summary>
-
-**Description:** Spot size for analysis
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:spot_size`](https://w3id.org/nfdi4cat/catcore/spot_size)
-
-**Schema Reference:** [spot_size](./elements/spot_size.md)
-
-**Unit:** mm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20spot_size target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>lense mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Lens mode setting
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0000108`](https://w3id.org/nfdi4cat/voc4cat_0000108)
-
-**Schema Reference:** [lense_mode](./elements/lense_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lense_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>minimum energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum energy value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:minimum_energy`](https://w3id.org/nfdi4cat/catcore/minimum_energy)
-
-**Schema Reference:** [minimum_energy](./elements/minimum_energy.md)
-
-**Unit:** eV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>maximum energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum energy value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:maximum_energy`](https://w3id.org/nfdi4cat/catcore/maximum_energy)
-
-**Schema Reference:** [maximum_energy](./elements/maximum_energy.md)
-
-**Unit:** eV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>step size</strong> (Optional, Multivalued)</summary>
-
-**Description:** Step size for measurements
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0000950`](http://purl.allotrope.org/ontologies/result#AFR_0000950)
-
-**Schema Reference:** [step_size](./elements/step_size.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>pass energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Pass energy setting
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:pass_energy`](https://w3id.org/nfdi4cat/catcore/pass_energy)
-
-**Schema Reference:** [pass_energy](./elements/pass_energy.md)
-
-**Unit:** eV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pass_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>charge compensation</strong> (Optional, Multivalued)</summary>
-
-**Description:** Charge compensation method
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:charge_compensation`](https://w3id.org/nfdi4cat/catcore/charge_compensation)
-
-**Schema Reference:** [charge_compensation](./elements/charge_compensation.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20charge_compensation target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
-
-**Description:** Atmospheric conditions
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
-
-**Schema Reference:** [atmosphere](./elements/atmosphere.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20XPS target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>BET</strong></summary>
-
-**Description:** Brunauer-Emmett-Teller surface area analysis
-
-**CURIE:** [`catcore:BET`](https://w3id.org/nfdi4cat/catcore/BET)
-
-**Schema Reference:** [BET](./elements/BET.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>adsorbate gas</strong> (Optional, Multivalued)</summary>
-
-**Description:** Adsorbate gas used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:adsorbate_gas`](https://w3id.org/nfdi4cat/catcore/adsorbate_gas)
-
-**Schema Reference:** [adsorbate_gas](./elements/adsorbate_gas.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorbate_gas target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>degassing temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Degassing temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:degassing_temperature`](https://w3id.org/nfdi4cat/catcore/degassing_temperature)
-
-**Schema Reference:** [degassing_temperature](./elements/degassing_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20degassing_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>measurement temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Measurement temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:measurement_temperature`](https://w3id.org/nfdi4cat/catcore/measurement_temperature)
-
-**Schema Reference:** [measurement_temperature](./elements/measurement_temperature.md)
-
-**Unit:** K
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20measurement_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>pore size distribution method</strong> (Optional, Multivalued)</summary>
-
-**Description:** Method for pore size distribution analysis
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:pore_size_distribution_method`](https://w3id.org/nfdi4cat/catcore/pore_size_distribution_method)
-
-**Schema Reference:** [pore_size_distribution_method](./elements/pore_size_distribution_method.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20pore_size_distribution_method target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample mass</strong> (Optional, Multivalued)</summary>
-
-**Description:** Mass of sample
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0007038`](https://w3id.org/nfdi4cat/voc4cat_0007038)
-
-**Schema Reference:** [sample_mass](./elements/sample_mass.md)
-
-**Unit:** mg
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_mass target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20BET target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
 <summary><strong>ElementalAnalysis</strong></summary>
 
-**Description:** Elemental analysis
+**Description:** Combustion elemental analysis (CHNS/O) for carbon, hydrogen, nitrogen, sulfur content.
 
 **CURIE:** [`CHMO:0001075`](http://purl.obolibrary.org/obo/CHMO_0001075)
 
@@ -2210,7 +2662,7 @@ test description
 <details markdown="1">
 <summary><strong>elements analyzed</strong> (Optional, Multivalued)</summary>
 
-**Description:** Elements analyzed
+**Description:** List of elements analysed by combustion elemental analysis (e.g. C, H, N, S).
 
 **Data Type:** string
 
@@ -2229,7 +2681,7 @@ test description
 <details markdown="1">
 <summary><strong>combustion temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Combustion temperature
+**Description:** Combustion furnace temperature for elemental analysis.
 
 **Data Type:** float
 
@@ -2250,7 +2702,7 @@ test description
 <details markdown="1">
 <summary><strong>carrier gas</strong> (Optional, Multivalued)</summary>
 
-**Description:** Carrier gas used
+**Description:** Carrier gas used in a process (e.g. in GC analysis or ALD deposition).
 
 **Data Type:** string
 
@@ -2275,7 +2727,7 @@ test description
 <details markdown="1">
 <summary><strong>UVVisSpectroscopy</strong></summary>
 
-**Description:** Ultraviolet-visible spectroscopy
+**Description:** UV-Vis spectroscopy for electronic transitions, band gap, and concentration determination.
 
 **CURIE:** [`voc4cat:0000079`](https://w3id.org/nfdi4cat/voc4cat_0000079)
 
@@ -2286,7 +2738,7 @@ test description
 <details markdown="1">
 <summary><strong>minimum wavelength</strong> (Optional, Multivalued)</summary>
 
-**Description:** Minimum wavelength
+**Description:** Minimum wavelength of the UV-Vis scan range.
 
 **Data Type:** float
 
@@ -2307,7 +2759,7 @@ test description
 <details markdown="1">
 <summary><strong>maximum wavelength</strong> (Optional, Multivalued)</summary>
 
-**Description:** Maximum wavelength
+**Description:** Maximum wavelength of the UV-Vis scan range.
 
 **Data Type:** float
 
@@ -2328,7 +2780,7 @@ test description
 <details markdown="1">
 <summary><strong>path length</strong> (Optional, Multivalued)</summary>
 
-**Description:** Path length of cell
+**Description:** Optical path length of the measurement cell.
 
 **Data Type:** float
 
@@ -2349,7 +2801,7 @@ test description
 <details markdown="1">
 <summary><strong>solvent</strong> (Optional, Multivalued)</summary>
 
-**Description:** Solvent used
+**Description:** Solvent used in a process or sample preparation.
 
 **Data Type:** string
 
@@ -2368,13 +2820,13 @@ test description
 <details markdown="1">
 <summary><strong>concentration</strong> (Optional, Multivalued)</summary>
 
-**Description:** Concentration of sample
+**Description:** Concentration of a substance in a sample or solution.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`voc4cat:0007244`](https://w3id.org/nfdi4cat/voc4cat_0007244)
+**CURIE:** [`catcore:concentration`](https://w3id.org/nfdi4cat/catcore/concentration)
 
 **Schema Reference:** [concentration](./elements/concentration.md)
 
@@ -2393,109 +2845,52 @@ test description
     </p></details>
 
 <details markdown="1">
-<summary><strong>DRIFTS</strong></summary>
+<summary><strong>PhotoluminescenceSpectroscopy</strong></summary>
 
-**Description:** Diffuse reflectance infrared Fourier transform spectroscopy
+**Description:** Photoluminescence spectroscopy for defect and charge carrier characterization.
 
-**CURIE:** [`CHMO:0000645`](http://purl.obolibrary.org/obo/CHMO_0000645)
+**CURIE:** [`catcore:PhotoluminescenceSpectroscopy`](https://w3id.org/nfdi4cat/catcore/PhotoluminescenceSpectroscopy)
 
-**Schema Reference:** [DRIFTS](./elements/DRIFTS.md)
+**Schema Reference:** [PhotoluminescenceSpectroscopy](./elements/PhotoluminescenceSpectroscopy.md)
 
 **Slots**
 
 <details markdown="1">
-<summary><strong>adsorption gas</strong> (Optional, Multivalued)</summary>
+<summary><strong>emission range</strong> (Optional, Multivalued)</summary>
 
-**Description:** Adsorption gas used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:adsorption_gas`](https://w3id.org/nfdi4cat/catcore/adsorption_gas)
-
-**Schema Reference:** [adsorption_gas](./elements/adsorption_gas.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20adsorption_gas target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
-
-**Description:** Atmospheric conditions
+**Description:** Wavelength range over which emission is detected.
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+**CURIE:** [`catcore:emission_range`](https://w3id.org/nfdi4cat/catcore/emission_range)
 
-**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+**Schema Reference:** [emission_range](./elements/emission_range.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_range target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
+<summary><strong>slit width</strong> (Optional, Multivalued)</summary>
 
-**Description:** Flow rate
+**Description:** Spectrometer entrance or exit slit width.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
+**CURIE:** [`catcore:slit_width`](https://w3id.org/nfdi4cat/catcore/slit_width)
 
-**Schema Reference:** [flow_rate](./elements/flow_rate.md)
+**Schema Reference:** [slit_width](./elements/slit_width.md)
 
-**Unit:** mL/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>diluting reference</strong> (Optional, Multivalued)</summary>
-
-**Description:** Diluting reference material
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:diluting_reference`](https://w3id.org/nfdi4cat/catcore/diluting_reference)
-
-**Schema Reference:** [diluting_reference](./elements/diluting_reference.md)
+**Unit:** nm
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20diluting_reference target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>ratio reference sample</strong> (Optional, Multivalued)</summary>
-
-**Description:** Ratio of reference to sample
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:ratio_reference_sample`](https://w3id.org/nfdi4cat/catcore/ratio_reference_sample)
-
-**Schema Reference:** [ratio_reference_sample](./elements/ratio_reference_sample.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ratio_reference_sample target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20slit_width target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
@@ -2503,7 +2898,7 @@ test description
 <details markdown="1">
 <summary><strong>step size</strong> (Optional, Multivalued)</summary>
 
-**Description:** Step size for measurements
+**Description:** Step size for a scan (angle, wavelength, energy, or potential).
 
 **Data Type:** float
 
@@ -2520,41 +2915,83 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>resolution</strong> (Optional, Multivalued)</summary>
+<summary><strong>integration time</strong> (Optional, Multivalued)</summary>
 
-**Description:** Spectral resolution
+**Description:** Integration or acquisition time per measurement step.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:resolution`](https://w3id.org/nfdi4cat/catcore/resolution)
+**CURIE:** [`catcore:integration_time`](https://w3id.org/nfdi4cat/catcore/integration_time)
 
-**Schema Reference:** [resolution](./elements/resolution.md)
+**Schema Reference:** [integration_time](./elements/integration_time.md)
 
-**Unit:** cm-1
+**Unit:** s
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>background correction method</strong> (Optional, Multivalued)</summary>
+<summary><strong>excitation wavelength</strong> (Optional, Multivalued)</summary>
 
-**Description:** Background correction method used
+**Description:** Excitation wavelength used in photoluminescence measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002479`](http://purl.allotrope.org/ontologies/result#AFR_0002479)
+
+**Schema Reference:** [excitation_wavelength](./elements/excitation_wavelength.md)
+
+**Unit:** nm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>emission wavelength</strong> (Optional, Multivalued)</summary>
+
+**Description:** Emission wavelength detected in photoluminescence measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`NCIT:C204101`](http://purl.obolibrary.org/obo/NCIT_C204101)
+
+**Schema Reference:** [emission_wavelength](./elements/emission_wavelength.md)
+
+**Unit:** nm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>optical filter</strong> (Optional, Multivalued)</summary>
+
+**Description:** Optical filter used in the emission or excitation path.
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:background_correction_method`](https://w3id.org/nfdi4cat/catcore/background_correction_method)
+**CURIE:** [`catcore:optical_filter`](https://w3id.org/nfdi4cat/catcore/optical_filter)
 
-**Schema Reference:** [background_correction_method](./elements/background_correction_method.md)
+**Schema Reference:** [optical_filter](./elements/optical_filter.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20background_correction_method target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
@@ -2562,7 +2999,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -2580,27 +3017,145 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
-<summary><strong>number of scans</strong> (Optional, Multivalued)</summary>
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceSpectroscopy target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
 
-**Description:** Number of scans performed
+<details markdown="1">
+<summary><strong>PhotoluminescenceLifetime</strong></summary>
+
+**Description:** Time-resolved photoluminescence for charge carrier lifetime and recombination dynamics.
+
+**CURIE:** [`catcore:PhotoluminescenceLifetime`](https://w3id.org/nfdi4cat/catcore/PhotoluminescenceLifetime)
+
+**Schema Reference:** [PhotoluminescenceLifetime](./elements/PhotoluminescenceLifetime.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>lifetime fitting model</strong> (Optional, Multivalued)</summary>
+
+**Description:** Mathematical model used for fluorescence lifetime fitting (e.g. mono-exponential, bi-exponential).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:lifetime_fitting_model`](https://w3id.org/nfdi4cat/catcore/lifetime_fitting_model)
+
+**Schema Reference:** [lifetime_fitting_model](./elements/lifetime_fitting_model.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lifetime_fitting_model target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>number of shots</strong> (Optional, Multivalued)</summary>
+
+**Description:** Number of laser shots accumulated per measurement point.
 
 **Data Type:** integer
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0003051`](http://purl.allotrope.org/ontologies/result#AFR_0003051)
+**CURIE:** [`catcore:number_of_shots`](https://w3id.org/nfdi4cat/catcore/number_of_shots)
 
-**Schema Reference:** [number_of_scans](./elements/number_of_scans.md)
+**Schema Reference:** [number_of_shots](./elements/number_of_shots.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_scans target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_shots target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>excitation wavelength</strong> (Optional, Multivalued)</summary>
+
+**Description:** Excitation wavelength used in photoluminescence measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002479`](http://purl.allotrope.org/ontologies/result#AFR_0002479)
+
+**Schema Reference:** [excitation_wavelength](./elements/excitation_wavelength.md)
+
+**Unit:** nm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>emission wavelength</strong> (Optional, Multivalued)</summary>
+
+**Description:** Emission wavelength detected in photoluminescence measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`NCIT:C204101`](http://purl.obolibrary.org/obo/NCIT_C204101)
+
+**Schema Reference:** [emission_wavelength](./elements/emission_wavelength.md)
+
+**Unit:** nm
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>optical filter</strong> (Optional, Multivalued)</summary>
+
+**Description:** Optical filter used in the emission or excitation path.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:optical_filter`](https://w3id.org/nfdi4cat/catcore/optical_filter)
+
+**Schema Reference:** [optical_filter](./elements/optical_filter.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20DRIFTS target="_blank" class="md-button md-button--primary">
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceLifetime target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
       </a>
     </p></details>
@@ -2608,7 +3163,7 @@ test description
 <details markdown="1">
 <summary><strong>CyclicVoltammetry</strong></summary>
 
-**Description:** Cyclic voltammetry
+**Description:** Cyclic voltammetry for electrochemical activity, redox potential, and capacitance characterization.
 
 **CURIE:** [`CHMO:0000025`](http://purl.obolibrary.org/obo/CHMO_0000025)
 
@@ -2619,7 +3174,7 @@ test description
 <details markdown="1">
 <summary><strong>scan rate</strong> (Optional, Multivalued)</summary>
 
-**Description:** Scan rate for voltammetry
+**Description:** Potential scan rate in cyclic voltammetry.
 
 **Data Type:** float
 
@@ -2640,7 +3195,7 @@ test description
 <details markdown="1">
 <summary><strong>minimum potential</strong> (Optional, Multivalued)</summary>
 
-**Description:** Minimum potential
+**Description:** Lower potential limit in cyclic voltammetry.
 
 **Data Type:** float
 
@@ -2661,7 +3216,7 @@ test description
 <details markdown="1">
 <summary><strong>maximum potential</strong> (Optional, Multivalued)</summary>
 
-**Description:** Maximum potential
+**Description:** Upper potential limit in cyclic voltammetry.
 
 **Data Type:** float
 
@@ -2682,7 +3237,7 @@ test description
 <details markdown="1">
 <summary><strong>step size potential</strong> (Optional, Multivalued)</summary>
 
-**Description:** Step size for potential
+**Description:** Potential step size in cyclic voltammetry.
 
 **Data Type:** float
 
@@ -2701,68 +3256,9 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>electrolyte composition</strong> (Optional, Multivalued)</summary>
-
-**Description:** Composition of electrolyte
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:electrolyte_composition`](https://w3id.org/nfdi4cat/catcore/electrolyte_composition)
-
-**Schema Reference:** [electrolyte_composition](./elements/electrolyte_composition.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_composition target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>electrolyte concentration</strong> (Optional, Multivalued)</summary>
-
-**Description:** Concentration of electrolyte
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:electrolyte_concentration`](https://w3id.org/nfdi4cat/catcore/electrolyte_concentration)
-
-**Schema Reference:** [electrolyte_concentration](./elements/electrolyte_concentration.md)
-
-**Unit:** mol/L
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_concentration target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>reference electrode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Reference electrode used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0007204`](https://w3id.org/nfdi4cat/voc4cat_0007204)
-
-**Schema Reference:** [reference_electrode](./elements/reference_electrode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reference_electrode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
 <summary><strong>number of cycles</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of cycles in the process
+**Description:** Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).
 
 **Data Type:** integer
 
@@ -2779,9 +3275,28 @@ test description
 </p></details>
 
 <details markdown="1">
+<summary><strong>reference electrode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Reference electrode used in electrochemical cell (e.g. Ag/AgCl, RHE).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0007204`](https://w3id.org/nfdi4cat/voc4cat_0007204)
+
+**Schema Reference:** [reference_electrode](./elements/reference_electrode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reference_electrode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
 <summary><strong>working electrode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Working electrode used
+**Description:** Working electrode used in electrochemical cell.
 
 **Data Type:** string
 
@@ -2800,7 +3315,7 @@ test description
 <details markdown="1">
 <summary><strong>counter electrode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Counter electrode used
+**Description:** Counter electrode used in electrochemical cell.
 
 **Data Type:** string
 
@@ -2817,9 +3332,49 @@ test description
 </p></details>
 
 <details markdown="1">
+<summary><strong>electrolyte composition</strong> (Optional, Multivalued)</summary>
+
+**Description:** Chemical composition of the electrolyte solution.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:electrolyte_composition`](https://w3id.org/nfdi4cat/catcore/electrolyte_composition)
+
+**Schema Reference:** [electrolyte_composition](./elements/electrolyte_composition.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_composition target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>electrolyte concentration</strong> (Optional, Multivalued)</summary>
+
+**Description:** Concentration of the electrolyte.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:electrolyte_concentration`](https://w3id.org/nfdi4cat/catcore/electrolyte_concentration)
+
+**Schema Reference:** [electrolyte_concentration](./elements/electrolyte_concentration.md)
+
+**Unit:** mol/L
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_concentration target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
 <summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
 
-**Description:** Atmospheric conditions
+**Description:** Gaseous environment or atmospheric conditions during a process.
 
 **Data Type:** string
 
@@ -2838,7 +3393,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -2863,9 +3418,241 @@ test description
     </p></details>
 
 <details markdown="1">
+<summary><strong>ConductivityMeasurement</strong></summary>
+
+**Description:** Electrical conductivity measurement for ionic and electronic transport characterization.
+
+**CURIE:** [`catcore:ConductivityMeasurement`](https://w3id.org/nfdi4cat/catcore/ConductivityMeasurement)
+
+**Schema Reference:** [ConductivityMeasurement](./elements/ConductivityMeasurement.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>electrode configuration</strong> (Optional, Multivalued)</summary>
+
+**Description:** Configuration of electrodes used in conductivity measurement (e.g. 2-probe, 4-probe).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:electrode_configuration`](https://w3id.org/nfdi4cat/catcore/electrode_configuration)
+
+**Schema Reference:** [electrode_configuration](./elements/electrode_configuration.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrode_configuration target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>frequency</strong> (Optional, Multivalued)</summary>
+
+**Description:** Frequency of AC signal applied in impedance or conductivity measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0007239`](https://w3id.org/nfdi4cat/voc4cat_0007239)
+
+**Schema Reference:** [frequency](./elements/frequency.md)
+
+**Unit:** Hz
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20frequency target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>ac dc mode</strong> (Optional, Multivalued)</summary>
+
+**Description:** AC or DC measurement mode used in conductivity measurement.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:ac_dc_mode`](https://w3id.org/nfdi4cat/catcore/ac_dc_mode)
+
+**Schema Reference:** [ac_dc_mode](./elements/ac_dc_mode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ac_dc_mode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>sample geometry</strong> (Optional, Multivalued)</summary>
+
+**Description:** Geometry of the sample used in conductivity measurement (e.g. pellet, thin film).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:sample_geometry`](https://w3id.org/nfdi4cat/catcore/sample_geometry)
+
+**Schema Reference:** [sample_geometry](./elements/sample_geometry.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_geometry target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>reference electrode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Reference electrode used in electrochemical cell (e.g. Ag/AgCl, RHE).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0007204`](https://w3id.org/nfdi4cat/voc4cat_0007204)
+
+**Schema Reference:** [reference_electrode](./elements/reference_electrode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reference_electrode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>working electrode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Working electrode used in electrochemical cell.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0007202`](https://w3id.org/nfdi4cat/voc4cat_0007202)
+
+**Schema Reference:** [working_electrode](./elements/working_electrode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20working_electrode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>counter electrode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Counter electrode used in electrochemical cell.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`voc4cat:0007203`](https://w3id.org/nfdi4cat/voc4cat_0007203)
+
+**Schema Reference:** [counter_electrode](./elements/counter_electrode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counter_electrode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>electrolyte composition</strong> (Optional, Multivalued)</summary>
+
+**Description:** Chemical composition of the electrolyte solution.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:electrolyte_composition`](https://w3id.org/nfdi4cat/catcore/electrolyte_composition)
+
+**Schema Reference:** [electrolyte_composition](./elements/electrolyte_composition.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_composition target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>electrolyte concentration</strong> (Optional, Multivalued)</summary>
+
+**Description:** Concentration of the electrolyte.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:electrolyte_concentration`](https://w3id.org/nfdi4cat/catcore/electrolyte_concentration)
+
+**Schema Reference:** [electrolyte_concentration](./elements/electrolyte_concentration.md)
+
+**Unit:** mol/L
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrolyte_concentration target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gaseous environment or atmospheric conditions during a process.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:atmosphere`](https://w3id.org/nfdi4cat/catcore/atmosphere)
+
+**Schema Reference:** [atmosphere](./elements/atmosphere.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20atmosphere target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ConductivityMeasurement target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
 <summary><strong>DynamicLightScattering</strong></summary>
 
-**Description:** Dynamic light scattering
+**Description:** Dynamic light scattering for hydrodynamic particle size distribution in suspension.
 
 **CURIE:** [`CHMO:0000167`](http://purl.obolibrary.org/obo/CHMO_0000167)
 
@@ -2876,7 +3663,7 @@ test description
 <details markdown="1">
 <summary><strong>solvent</strong> (Optional, Multivalued)</summary>
 
-**Description:** Solvent used
+**Description:** Solvent used in a process or sample preparation.
 
 **Data Type:** string
 
@@ -2895,13 +3682,13 @@ test description
 <details markdown="1">
 <summary><strong>concentration</strong> (Optional, Multivalued)</summary>
 
-**Description:** Concentration of sample
+**Description:** Concentration of a substance in a sample or solution.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`voc4cat:0007244`](https://w3id.org/nfdi4cat/voc4cat_0007244)
+**CURIE:** [`catcore:concentration`](https://w3id.org/nfdi4cat/catcore/concentration)
 
 **Schema Reference:** [concentration](./elements/concentration.md)
 
@@ -2916,7 +3703,7 @@ test description
 <details markdown="1">
 <summary><strong>light wavelength</strong> (Optional, Multivalued)</summary>
 
-**Description:** Light wavelength used
+**Description:** Wavelength of the laser used in DLS measurement.
 
 **Data Type:** float
 
@@ -2937,7 +3724,7 @@ test description
 <details markdown="1">
 <summary><strong>scattering angle</strong> (Optional, Multivalued)</summary>
 
-**Description:** Scattering angle
+**Description:** Scattering angle at which intensity is detected in DLS.
 
 **Data Type:** float
 
@@ -2958,7 +3745,7 @@ test description
 <details markdown="1">
 <summary><strong>refractive index</strong> (Optional, Multivalued)</summary>
 
-**Description:** Refractive index
+**Description:** Refractive index of the solvent used in DLS measurement.
 
 **Data Type:** float
 
@@ -2977,7 +3764,7 @@ test description
 <details markdown="1">
 <summary><strong>temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Temperature during a process or measurement.
 
 **Data Type:** float
 
@@ -2998,7 +3785,7 @@ test description
 <details markdown="1">
 <summary><strong>dispersant</strong> (Optional, Multivalued)</summary>
 
-**Description:** Dispersant used
+**Description:** Dispersant used (e.g. in DLS measurement or flame spray pyrolysis).
 
 **Data Type:** string
 
@@ -3017,7 +3804,7 @@ test description
 <details markdown="1">
 <summary><strong>measurement duration</strong> (Optional, Multivalued)</summary>
 
-**Description:** Duration of measurement
+**Description:** Duration of a single DLS acquisition.
 
 **Data Type:** float
 
@@ -3044,7 +3831,7 @@ test description
 <details markdown="1">
 <summary><strong>ESI MS</strong></summary>
 
-**Description:** Electrospray ionisation mass spectrometry
+**Description:** Electrospray ionisation mass spectrometry for molecular mass and identity determination.
 
 **CURIE:** [`CHMO:0000482`](http://purl.obolibrary.org/obo/CHMO_0000482)
 
@@ -3055,7 +3842,7 @@ test description
 <details markdown="1">
 <summary><strong>operation mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Operation mode of the instrument
+**Description:** Operation mode of an instrument (e.g. transmission, reflection, AC, DC).
 
 **Data Type:** string
 
@@ -3072,47 +3859,9 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>mz minimum</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum m/z value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002652`](http://purl.allotrope.org/ontologies/result#AFR_0002652)
-
-**Schema Reference:** [mz_minimum](./elements/mz_minimum.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>mz maximum</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum m/z value
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002653`](http://purl.allotrope.org/ontologies/result#AFR_0002653)
-
-**Schema Reference:** [mz_maximum](./elements/mz_maximum.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
 <summary><strong>spray voltage</strong> (Optional, Multivalued)</summary>
 
-**Description:** Spray voltage for ionization
+**Description:** Spray voltage applied in electrospray ionisation.
 
 **Data Type:** float
 
@@ -3133,7 +3882,7 @@ test description
 <details markdown="1">
 <summary><strong>capillary temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Capillary temperature
+**Description:** Capillary or desolvation temperature in ESI source.
 
 **Data Type:** float
 
@@ -3154,7 +3903,7 @@ test description
 <details markdown="1">
 <summary><strong>solvent composition</strong> (Optional, Multivalued)</summary>
 
-**Description:** Solvent composition
+**Description:** Solvent composition used for ESI spray solution.
 
 **Data Type:** string
 
@@ -3173,7 +3922,7 @@ test description
 <details markdown="1">
 <summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
 
-**Description:** Flow rate
+**Description:** Flow rate of a fluid or gas.
 
 **Data Type:** float
 
@@ -3194,7 +3943,7 @@ test description
 <details markdown="1">
 <summary><strong>carrier gas</strong> (Optional, Multivalued)</summary>
 
-**Description:** Carrier gas used
+**Description:** Carrier gas used in a process (e.g. in GC analysis or ALD deposition).
 
 **Data Type:** string
 
@@ -3213,13 +3962,13 @@ test description
 <details markdown="1">
 <summary><strong>concentration</strong> (Optional, Multivalued)</summary>
 
-**Description:** Concentration of sample
+**Description:** Concentration of a substance in a sample or solution.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`voc4cat:0007244`](https://w3id.org/nfdi4cat/voc4cat_0007244)
+**CURIE:** [`catcore:concentration`](https://w3id.org/nfdi4cat/catcore/concentration)
 
 **Schema Reference:** [concentration](./elements/concentration.md)
 
@@ -3231,6 +3980,44 @@ test description
   </a>
 </p></details>
 
+<details markdown="1">
+<summary><strong>mz minimum</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum m/z value in the mass scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002652`](http://purl.allotrope.org/ontologies/result#AFR_0002652)
+
+**Schema Reference:** [mz_minimum](./elements/mz_minimum.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>mz maximum</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum m/z value in the mass scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002653`](http://purl.allotrope.org/ontologies/result#AFR_0002653)
+
+**Schema Reference:** [mz_maximum](./elements/mz_maximum.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
 <p>
       <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ESI_MS target="_blank" class="md-button md-button--primary">
         💡 Submit Term Feedback
@@ -3238,342 +4025,245 @@ test description
     </p></details>
 
 <details markdown="1">
-<summary><strong>PhotoluminescenceSpectroscopy</strong></summary>
+<summary><strong>GCMS</strong></summary>
 
-**Description:** Photoluminescence spectroscopy
+**Description:** Gas chromatography-mass spectrometry for volatile compound identification and quantification.
 
-**CURIE:** [`catcore:PhotoluminescenceSpectroscopy`](https://w3id.org/nfdi4cat/catcore/PhotoluminescenceSpectroscopy)
+**CURIE:** [`CHMO:0000497`](http://purl.obolibrary.org/obo/CHMO_0000497)
 
-**Schema Reference:** [PhotoluminescenceSpectroscopy](./elements/PhotoluminescenceSpectroscopy.md)
+**Schema Reference:** [GCMS](./elements/GCMS.md)
 
 **Slots**
 
 <details markdown="1">
-<summary><strong>excitation wavelength</strong> (Optional, Multivalued)</summary>
+<summary><strong>carrier gas</strong> (Optional, Multivalued)</summary>
 
-**Description:** Excitation wavelength
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002479`](http://purl.allotrope.org/ontologies/result#AFR_0002479)
-
-**Schema Reference:** [excitation_wavelength](./elements/excitation_wavelength.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>emission wavelength</strong> (Optional, Multivalued)</summary>
-
-**Description:** Emission wavelength
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`NCIT:C204101`](http://purl.obolibrary.org/obo/NCIT_C204101)
-
-**Schema Reference:** [emission_wavelength](./elements/emission_wavelength.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>optical filter</strong> (Optional, Multivalued)</summary>
-
-**Description:** Optical filter used
+**Description:** Carrier gas used in a process (e.g. in GC analysis or ALD deposition).
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:optical_filter`](https://w3id.org/nfdi4cat/catcore/optical_filter)
+**CURIE:** [`catcore:carrier_gas`](https://w3id.org/nfdi4cat/catcore/carrier_gas)
 
-**Schema Reference:** [optical_filter](./elements/optical_filter.md)
+**Schema Reference:** [carrier_gas](./elements/carrier_gas.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+<summary><strong>carrier gas purity</strong> (Optional, Multivalued)</summary>
 
-**Description:** Temperature
+**Description:** Purity grade of the carrier gas used in GC.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:carrier_gas_purity`](https://w3id.org/nfdi4cat/catcore/carrier_gas_purity)
+
+**Schema Reference:** [carrier_gas_purity](./elements/carrier_gas_purity.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20carrier_gas_purity target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>inlet temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** GC inlet temperature.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+**CURIE:** [`catcore:inlet_temperature`](https://w3id.org/nfdi4cat/catcore/inlet_temperature)
 
-**Schema Reference:** [temperature](./elements/temperature.md)
+**Schema Reference:** [inlet_temperature](./elements/inlet_temperature.md)
 
 **Unit:** Cel
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20inlet_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>emission range</strong> (Optional, Multivalued)</summary>
+<summary><strong>minimum oven temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Emission range measured
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:emission_range`](https://w3id.org/nfdi4cat/catcore/emission_range)
-
-**Schema Reference:** [emission_range](./elements/emission_range.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_range target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>slit width</strong> (Optional, Multivalued)</summary>
-
-**Description:** Slit width setting
+**Description:** Minimum oven temperature in GC temperature programme.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:slit_width`](https://w3id.org/nfdi4cat/catcore/slit_width)
+**CURIE:** [`catcore:minimum_oven_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_oven_temperature)
 
-**Schema Reference:** [slit_width](./elements/slit_width.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20slit_width target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>step size</strong> (Optional, Multivalued)</summary>
-
-**Description:** Step size for measurements
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0000950`](http://purl.allotrope.org/ontologies/result#AFR_0000950)
-
-**Schema Reference:** [step_size](./elements/step_size.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20step_size target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>integration time</strong> (Optional, Multivalued)</summary>
-
-**Description:** Integration time
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001671`](http://purl.allotrope.org/ontologies/result#AFR_0001671)
-
-**Schema Reference:** [integration_time](./elements/integration_time.md)
-
-**Unit:** s
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20integration_time target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceSpectroscopy target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>PhotoluminescenceLifetime</strong></summary>
-
-**Description:** Photoluminescence lifetime measurement
-
-**CURIE:** [`catcore:PhotoluminescenceLifetime`](https://w3id.org/nfdi4cat/catcore/PhotoluminescenceLifetime)
-
-**Schema Reference:** [PhotoluminescenceLifetime](./elements/PhotoluminescenceLifetime.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>excitation wavelength</strong> (Optional, Multivalued)</summary>
-
-**Description:** Excitation wavelength
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002479`](http://purl.allotrope.org/ontologies/result#AFR_0002479)
-
-**Schema Reference:** [excitation_wavelength](./elements/excitation_wavelength.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20excitation_wavelength target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>emission wavelength</strong> (Optional, Multivalued)</summary>
-
-**Description:** Emission wavelength
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`NCIT:C204101`](http://purl.obolibrary.org/obo/NCIT_C204101)
-
-**Schema Reference:** [emission_wavelength](./elements/emission_wavelength.md)
-
-**Unit:** nm
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20emission_wavelength target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>optical filter</strong> (Optional, Multivalued)</summary>
-
-**Description:** Optical filter used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:optical_filter`](https://w3id.org/nfdi4cat/catcore/optical_filter)
-
-**Schema Reference:** [optical_filter](./elements/optical_filter.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20optical_filter target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
-
-**Schema Reference:** [temperature](./elements/temperature.md)
+**Schema Reference:** [minimum_oven_temperature](./elements/minimum_oven_temperature.md)
 
 **Unit:** Cel
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_oven_temperature target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>lifetime fitting model</strong> (Optional, Multivalued)</summary>
+<summary><strong>maximum oven temperature</strong> (Optional, Multivalued)</summary>
 
-**Description:** Lifetime fitting model used
+**Description:** Maximum oven temperature in GC temperature programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:maximum_oven_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_oven_temperature)
+
+**Schema Reference:** [maximum_oven_temperature](./elements/maximum_oven_temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_oven_temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating ramp</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature ramp rate in GC oven programme.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:heating_ramp`](https://w3id.org/nfdi4cat/catcore/heating_ramp)
+
+**Schema Reference:** [heating_ramp](./elements/heating_ramp.md)
+
+**Unit:** Cel/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_ramp target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>heating procedure</strong> (Optional, Multivalued)</summary>
+
+**Description:** Description of the heating procedure applied.
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:lifetime_fitting_model`](https://w3id.org/nfdi4cat/catcore/lifetime_fitting_model)
+**CURIE:** [`catcore:heating_procedure`](https://w3id.org/nfdi4cat/catcore/heating_procedure)
 
-**Schema Reference:** [lifetime_fitting_model](./elements/lifetime_fitting_model.md)
+**Schema Reference:** [heating_procedure](./elements/heating_procedure.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20lifetime_fitting_model target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_procedure target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <details markdown="1">
-<summary><strong>number of shots</strong> (Optional, Multivalued)</summary>
+<summary><strong>acquisition mode</strong> (Optional, Multivalued)</summary>
 
-**Description:** Number of shots for measurement
+**Description:** Mass spectrometer acquisition mode (e.g. full scan, SIM, SRM).
 
-**Data Type:** integer
+**Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`catcore:number_of_shots`](https://w3id.org/nfdi4cat/catcore/number_of_shots)
+**CURIE:** [`catcore:acquisition_mode`](https://w3id.org/nfdi4cat/catcore/acquisition_mode)
 
-**Schema Reference:** [number_of_shots](./elements/number_of_shots.md)
+**Schema Reference:** [acquisition_mode](./elements/acquisition_mode.md)
 
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20number_of_shots target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20acquisition_mode target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
+<details markdown="1">
+<summary><strong>solvent delay</strong> (Optional, Multivalued)</summary>
+
+**Description:** Solvent delay time before MS acquisition begins.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:solvent_delay`](https://w3id.org/nfdi4cat/catcore/solvent_delay)
+
+**Schema Reference:** [solvent_delay](./elements/solvent_delay.md)
+
+**Unit:** min
+
 <p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20PhotoluminescenceLifetime target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20solvent_delay target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
 
 <details markdown="1">
-<summary><strong>SizeExclusionChromatography</strong></summary>
+<summary><strong>trace ion detection</strong> (Optional, Multivalued)</summary>
 
-**Description:** Size-exclusion chromatography
+**Description:** Trace ion detection setting or threshold.
 
-**CURIE:** [`AFP:0000843`](http://purl.allotrope.org/ontologies/process#AFP_0000843)
+**Data Type:** string
 
-**Schema Reference:** [SizeExclusionChromatography](./elements/SizeExclusionChromatography.md)
+**Cardinality:**  Optional, Multivalued
 
-**Slots**
+**CURIE:** [`catcore:trace_ion_detection`](https://w3id.org/nfdi4cat/catcore/trace_ion_detection)
+
+**Schema Reference:** [trace_ion_detection](./elements/trace_ion_detection.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20trace_ion_detection target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>split ratio</strong> (Optional, Multivalued)</summary>
+
+**Description:** Split ratio at the GC injector.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:split_ratio`](https://w3id.org/nfdi4cat/catcore/split_ratio)
+
+**Schema Reference:** [split_ratio](./elements/split_ratio.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20split_ratio target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
 
 <details markdown="1">
 <summary><strong>column type</strong> (Optional, Multivalued)</summary>
 
-**Description:** Type of chromatography column
+**Description:** Type of chromatographic column used.
 
 **Data Type:** string
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0002026`](http://purl.allotrope.org/ontologies/result#AFR_0002026)
+**CURIE:** [`catcore:column_type`](https://w3id.org/nfdi4cat/catcore/column_type)
 
 **Schema Reference:** [column_type](./elements/column_type.md)
 
@@ -3584,30 +4274,9 @@ test description
 </p></details>
 
 <details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
-
-**Schema Reference:** [temperature](./elements/temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
 <summary><strong>eluent</strong> (Optional, Multivalued)</summary>
 
-**Description:** Eluent used
+**Description:** Eluent or mobile phase used in chromatography.
 
 **Data Type:** string
 
@@ -3626,182 +4295,7 @@ test description
 <details markdown="1">
 <summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
 
-**Description:** Flow rate
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
-
-**Schema Reference:** [flow_rate](./elements/flow_rate.md)
-
-**Unit:** mL/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>calibration standard</strong> (Optional, Multivalued)</summary>
-
-**Description:** Calibration standard used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:calibration_standard`](https://w3id.org/nfdi4cat/catcore/calibration_standard)
-
-**Schema Reference:** [calibration_standard](./elements/calibration_standard.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_standard target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>injection volume</strong> (Optional, Multivalued)</summary>
-
-**Description:** Injection volume
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001577`](http://purl.allotrope.org/ontologies/result#AFR_0001577)
-
-**Schema Reference:** [injection_volume](./elements/injection_volume.md)
-
-**Unit:** uL
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SizeExclusionChromatography target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>HPLC MS</strong></summary>
-
-**Description:** High-performance liquid chromatography mass spectrometry
-
-**CURIE:** [`CHMO:0000796`](http://purl.obolibrary.org/obo/CHMO_0000796)
-
-**Schema Reference:** [HPLC_MS](./elements/HPLC_MS.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>column type</strong> (Optional, Multivalued)</summary>
-
-**Description:** Type of chromatography column
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0002026`](http://purl.allotrope.org/ontologies/result#AFR_0002026)
-
-**Schema Reference:** [column_type](./elements/column_type.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>eluent</strong> (Optional, Multivalued)</summary>
-
-**Description:** Eluent used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFRL:0000011`](http://purl.allotrope.org/ontologies/role#AFRL_0000011)
-
-**Schema Reference:** [eluent](./elements/eluent.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>gradient program</strong> (Optional, Multivalued)</summary>
-
-**Description:** Gradient program for elution
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:gradient_program`](https://w3id.org/nfdi4cat/catcore/gradient_program)
-
-**Schema Reference:** [gradient_program](./elements/gradient_program.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gradient_program target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>ionization mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** Ionization mode used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:ionization_mode`](https://w3id.org/nfdi4cat/catcore/ionization_mode)
-
-**Schema Reference:** [ionization_mode](./elements/ionization_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ionization_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
-
-**Schema Reference:** [temperature](./elements/temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
-
-**Description:** Flow rate
+**Description:** Flow rate of a fluid or gas.
 
 **Data Type:** float
 
@@ -3822,13 +4316,13 @@ test description
 <details markdown="1">
 <summary><strong>injection volume</strong> (Optional, Multivalued)</summary>
 
-**Description:** Injection volume
+**Description:** Volume injected in a chromatographic or mass spectrometric experiment.
 
 **Data Type:** float
 
 **Cardinality:**  Optional, Multivalued
 
-**CURIE:** [`AFR:0001577`](http://purl.allotrope.org/ontologies/result#AFR_0001577)
+**CURIE:** [`catcore:injection_volume`](https://w3id.org/nfdi4cat/catcore/injection_volume)
 
 **Schema Reference:** [injection_volume](./elements/injection_volume.md)
 
@@ -3843,7 +4337,7 @@ test description
 <details markdown="1">
 <summary><strong>external standard</strong> (Optional, Multivalued)</summary>
 
-**Description:** External standard used for calibration
+**Description:** External standard used for quantification or calibration.
 
 **Data Type:** string
 
@@ -3862,7 +4356,414 @@ test description
 <details markdown="1">
 <summary><strong>internal standard</strong> (Optional, Multivalued)</summary>
 
-**Description:** Internal standard used for calibration
+**Description:** Internal standard used for quantification or calibration.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:internal_standard`](https://w3id.org/nfdi4cat/catcore/internal_standard)
+
+**Schema Reference:** [internal_standard](./elements/internal_standard.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>mz minimum</strong> (Optional, Multivalued)</summary>
+
+**Description:** Minimum m/z value in the mass scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002652`](http://purl.allotrope.org/ontologies/result#AFR_0002652)
+
+**Schema Reference:** [mz_minimum](./elements/mz_minimum.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_minimum target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>mz maximum</strong> (Optional, Multivalued)</summary>
+
+**Description:** Maximum m/z value in the mass scan range.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0002653`](http://purl.allotrope.org/ontologies/result#AFR_0002653)
+
+**Schema Reference:** [mz_maximum](./elements/mz_maximum.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20mz_maximum target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20GCMS target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>SizeExclusionChromatography</strong></summary>
+
+**Description:** Size exclusion chromatography for molecular weight distribution determination.
+
+**CURIE:** [`AFP:0000843`](http://purl.allotrope.org/ontologies/process#AFP_0000843)
+
+**Schema Reference:** [SizeExclusionChromatography](./elements/SizeExclusionChromatography.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>calibration standard</strong> (Optional, Multivalued)</summary>
+
+**Description:** Calibration standard used for molecular weight or retention time calibration.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:calibration_standard`](https://w3id.org/nfdi4cat/catcore/calibration_standard)
+
+**Schema Reference:** [calibration_standard](./elements/calibration_standard.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_standard target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>column type</strong> (Optional, Multivalued)</summary>
+
+**Description:** Type of chromatographic column used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:column_type`](https://w3id.org/nfdi4cat/catcore/column_type)
+
+**Schema Reference:** [column_type](./elements/column_type.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>eluent</strong> (Optional, Multivalued)</summary>
+
+**Description:** Eluent or mobile phase used in chromatography.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFRL:0000011`](http://purl.allotrope.org/ontologies/role#AFRL_0000011)
+
+**Schema Reference:** [eluent](./elements/eluent.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Flow rate of a fluid or gas.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
+
+**Schema Reference:** [flow_rate](./elements/flow_rate.md)
+
+**Unit:** mL/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>injection volume</strong> (Optional, Multivalued)</summary>
+
+**Description:** Volume injected in a chromatographic or mass spectrometric experiment.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:injection_volume`](https://w3id.org/nfdi4cat/catcore/injection_volume)
+
+**Schema Reference:** [injection_volume](./elements/injection_volume.md)
+
+**Unit:** uL
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>external standard</strong> (Optional, Multivalued)</summary>
+
+**Description:** External standard used for quantification or calibration.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:external_standard`](https://w3id.org/nfdi4cat/catcore/external_standard)
+
+**Schema Reference:** [external_standard](./elements/external_standard.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>internal standard</strong> (Optional, Multivalued)</summary>
+
+**Description:** Internal standard used for quantification or calibration.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:internal_standard`](https://w3id.org/nfdi4cat/catcore/internal_standard)
+
+**Schema Reference:** [internal_standard](./elements/internal_standard.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20internal_standard target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<p>
+      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SizeExclusionChromatography target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p></details>
+
+<details markdown="1">
+<summary><strong>HPLC MS</strong></summary>
+
+**Description:** High-performance liquid chromatography-mass spectrometry for compound identification and quantification.
+
+**CURIE:** [`CHMO:0000796`](http://purl.obolibrary.org/obo/CHMO_0000796)
+
+**Schema Reference:** [HPLC_MS](./elements/HPLC_MS.md)
+
+**Slots**
+
+<details markdown="1">
+<summary><strong>gradient program</strong> (Optional, Multivalued)</summary>
+
+**Description:** Gradient elution programme used in HPLC-MS.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:gradient_program`](https://w3id.org/nfdi4cat/catcore/gradient_program)
+
+**Schema Reference:** [gradient_program](./elements/gradient_program.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20gradient_program target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>ionization mode</strong> (Optional, Multivalued)</summary>
+
+**Description:** Ionisation mode used in HPLC-MS (e.g. positive, negative, APCI, ESI).
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:ionization_mode`](https://w3id.org/nfdi4cat/catcore/ionization_mode)
+
+**Schema Reference:** [ionization_mode](./elements/ionization_mode.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ionization_mode target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
+
+**Description:** Temperature during a process or measurement.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
+
+**Schema Reference:** [temperature](./elements/temperature.md)
+
+**Unit:** Cel
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>column type</strong> (Optional, Multivalued)</summary>
+
+**Description:** Type of chromatographic column used.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:column_type`](https://w3id.org/nfdi4cat/catcore/column_type)
+
+**Schema Reference:** [column_type](./elements/column_type.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20column_type target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>eluent</strong> (Optional, Multivalued)</summary>
+
+**Description:** Eluent or mobile phase used in chromatography.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`AFRL:0000011`](http://purl.allotrope.org/ontologies/role#AFRL_0000011)
+
+**Schema Reference:** [eluent](./elements/eluent.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20eluent target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>flow rate</strong> (Optional, Multivalued)</summary>
+
+**Description:** Flow rate of a fluid or gas.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:flow_rate`](https://w3id.org/nfdi4cat/catcore/flow_rate)
+
+**Schema Reference:** [flow_rate](./elements/flow_rate.md)
+
+**Unit:** mL/min
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20flow_rate target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>injection volume</strong> (Optional, Multivalued)</summary>
+
+**Description:** Volume injected in a chromatographic or mass spectrometric experiment.
+
+**Data Type:** float
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:injection_volume`](https://w3id.org/nfdi4cat/catcore/injection_volume)
+
+**Schema Reference:** [injection_volume](./elements/injection_volume.md)
+
+**Unit:** uL
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20injection_volume target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>external standard</strong> (Optional, Multivalued)</summary>
+
+**Description:** External standard used for quantification or calibration.
+
+**Data Type:** string
+
+**Cardinality:**  Optional, Multivalued
+
+**CURIE:** [`catcore:external_standard`](https://w3id.org/nfdi4cat/catcore/external_standard)
+
+**Schema Reference:** [external_standard](./elements/external_standard.md)
+
+<p>
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20external_standard target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p></details>
+
+<details markdown="1">
+<summary><strong>internal standard</strong> (Optional, Multivalued)</summary>
+
+**Description:** Internal standard used for quantification or calibration.
 
 **Data Type:** string
 
@@ -3884,579 +4785,14 @@ test description
       </a>
     </p></details>
 
-<details markdown="1">
-<summary><strong>SingleCrystalXRD</strong></summary>
-
-**Description:** Single crystal X-ray diffraction
-
-**CURIE:** [`CHMO:0000852`](http://purl.obolibrary.org/obo/CHMO_0000852)
-
-**Schema Reference:** [SingleCrystalXRD](./elements/SingleCrystalXRD.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>xray source</strong> (Optional, Multivalued)</summary>
-
-**Description:** X-ray source used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`OBI:0001138`](http://purl.obolibrary.org/obo/OBI_0001138)
-
-**Schema Reference:** [xray_source](./elements/xray_source.md)
-
 <p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20xray_source target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
-
-**Schema Reference:** [temperature](./elements/temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20SingleCrystalXRD target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>EDX</strong></summary>
-
-**Description:** Energy-dispersive X-ray emission spectroscopy
-
-**CURIE:** [`CHMO:0000309`](http://purl.obolibrary.org/obo/CHMO_0000309)
-
-**Schema Reference:** [EDX](./elements/EDX.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>primary energy</strong> (Optional, Multivalued)</summary>
-
-**Description:** Primary energy of electron beam
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:primary_energy`](https://w3id.org/nfdi4cat/catcore/primary_energy)
-
-**Schema Reference:** [primary_energy](./elements/primary_energy.md)
-
-**Unit:** keV
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20primary_energy target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>counting time</strong> (Optional, Multivalued)</summary>
-
-**Description:** Counting time for detection
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:counting_time`](https://w3id.org/nfdi4cat/catcore/counting_time)
-
-**Schema Reference:** [counting_time](./elements/counting_time.md)
-
-**Unit:** s
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20counting_time target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>resolution</strong> (Optional, Multivalued)</summary>
-
-**Description:** Spectral resolution
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:resolution`](https://w3id.org/nfdi4cat/catcore/resolution)
-
-**Schema Reference:** [resolution](./elements/resolution.md)
-
-**Unit:** cm-1
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20resolution target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>calibration method</strong> (Optional, Multivalued)</summary>
-
-**Description:** Calibration method used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:calibration_method`](https://w3id.org/nfdi4cat/catcore/calibration_method)
-
-**Schema Reference:** [calibration_method](./elements/calibration_method.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20calibration_method target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20EDX target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>TPO</strong></summary>
-
-**Description:** Temperature-programmed oxidation
-
-**CURIE:** [`CHMO:0002907`](http://purl.obolibrary.org/obo/CHMO_0002907)
-
-**Schema Reference:** [TPO](./elements/TPO.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>oxidizing gas composition</strong> (Optional, Multivalued)</summary>
-
-**Description:** Composition of oxidizing gas
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:oxidizing_gas_composition`](https://w3id.org/nfdi4cat/catcore/oxidizing_gas_composition)
-
-**Schema Reference:** [oxidizing_gas_composition](./elements/oxidizing_gas_composition.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20oxidizing_gas_composition target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating rate
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
-
-**Schema Reference:** [heating_rate](./elements/heating_rate.md)
-
-**Unit:** Cel/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>minimum temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:minimum_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_temperature)
-
-**Schema Reference:** [minimum_temperature](./elements/minimum_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>maximum temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:maximum_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_temperature)
-
-**Schema Reference:** [maximum_temperature](./elements/maximum_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPO target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>TPR</strong></summary>
-
-**Description:** Temperature-programmed reduction
-
-**CURIE:** [`CHMO:0002908`](http://purl.obolibrary.org/obo/CHMO_0002908)
-
-**Schema Reference:** [TPR](./elements/TPR.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>reducing gas composition</strong> (Optional, Multivalued)</summary>
-
-**Description:** Composition of reducing gas
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:reducing_gas_composition`](https://w3id.org/nfdi4cat/catcore/reducing_gas_composition)
-
-**Schema Reference:** [reducing_gas_composition](./elements/reducing_gas_composition.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20reducing_gas_composition target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>heating rate</strong> (Optional, Multivalued)</summary>
-
-**Description:** Heating rate
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:heating_rate`](https://w3id.org/nfdi4cat/catcore/heating_rate)
-
-**Schema Reference:** [heating_rate](./elements/heating_rate.md)
-
-**Unit:** Cel/min
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20heating_rate target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>minimum temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Minimum temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:minimum_temperature`](https://w3id.org/nfdi4cat/catcore/minimum_temperature)
-
-**Schema Reference:** [minimum_temperature](./elements/minimum_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20minimum_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>maximum temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Maximum temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:maximum_temperature`](https://w3id.org/nfdi4cat/catcore/maximum_temperature)
-
-**Schema Reference:** [maximum_temperature](./elements/maximum_temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20maximum_temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20TPR target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<details markdown="1">
-<summary><strong>ConductivityMeasurement</strong></summary>
-
-**Description:** Conductivity measurement
-
-**CURIE:** [`catcore:ConductivityMeasurement`](https://w3id.org/nfdi4cat/catcore/ConductivityMeasurement)
-
-**Schema Reference:** [ConductivityMeasurement](./elements/ConductivityMeasurement.md)
-
-**Slots**
-
-<details markdown="1">
-<summary><strong>temperature</strong> (Optional, Multivalued)</summary>
-
-**Description:** Temperature
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0001584`](http://purl.allotrope.org/ontologies/result#AFR_0001584)
-
-**Schema Reference:** [temperature](./elements/temperature.md)
-
-**Unit:** Cel
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20temperature target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>electrode configuration</strong> (Optional, Multivalued)</summary>
-
-**Description:** Configuration of electrodes
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:electrode_configuration`](https://w3id.org/nfdi4cat/catcore/electrode_configuration)
-
-**Schema Reference:** [electrode_configuration](./elements/electrode_configuration.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20electrode_configuration target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>frequency</strong> (Optional, Multivalued)</summary>
-
-**Description:** Frequency of measurement
-
-**Data Type:** float
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0007239`](https://w3id.org/nfdi4cat/voc4cat_0007239)
-
-**Schema Reference:** [frequency](./elements/frequency.md)
-
-**Unit:** Hz
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20frequency target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>ac dc mode</strong> (Optional, Multivalued)</summary>
-
-**Description:** AC or DC measurement mode
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:ac_dc_mode`](https://w3id.org/nfdi4cat/catcore/ac_dc_mode)
-
-**Schema Reference:** [ac_dc_mode](./elements/ac_dc_mode.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ac_dc_mode target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample geometry</strong> (Optional, Multivalued)</summary>
-
-**Description:** Geometry of the sample
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:sample_geometry`](https://w3id.org/nfdi4cat/catcore/sample_geometry)
-
-**Schema Reference:** [sample_geometry](./elements/sample_geometry.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_geometry target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<p>
-      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ConductivityMeasurement target="_blank" class="md-button md-button--primary">
-        💡 Submit Term Feedback
-      </a>
-    </p></details>
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20characterization_technique target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample state</strong> (Optional, Multivalued)</summary>
-
-**Description:** State of the sample
-
-**Data Type:** SampleStateEnum
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:sample_state`](https://w3id.org/nfdi4cat/catcore/sample_state)
-
-**Schema Reference:** [sample_state](./elements/sample_state.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_state target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample description</strong> (Optional, Multivalued)</summary>
-
-**Description:** Description of the sample
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`catcore:sample_description`](https://w3id.org/nfdi4cat/catcore/sample_description)
-
-**Schema Reference:** [sample_description](./elements/sample_description.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_description target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>detector type</strong> (Optional, Multivalued)</summary>
-
-**Description:** Type of detector used
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFR:0000317`](http://purl.allotrope.org/ontologies/result#AFR_0000317)
-
-**Schema Reference:** [detector_type](./elements/detector_type.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20detector_type target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample preparation</strong> (Optional, Multivalued)</summary>
-
-**Description:** Preparation of sample
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`AFP:0001159`](http://purl.allotrope.org/ontologies/process#AFP_0001159)
-
-**Schema Reference:** [sample_preparation](./elements/sample_preparation.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_preparation target="_blank" class="md-button md-button--primary">
-    💡 Submit Term Feedback
-  </a>
-</p></details>
-
-<details markdown="1">
-<summary><strong>sample pretreatment</strong> (Optional, Multivalued)</summary>
-
-**Description:** Pre-treatment of sample
-
-**Data Type:** string
-
-**Cardinality:**  Optional, Multivalued
-
-**CURIE:** [`voc4cat:0000122`](https://w3id.org/nfdi4cat/voc4cat_0000122)
-
-**Schema Reference:** [sample_pretreatment](./elements/sample_pretreatment.md)
-
-<p>
-  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20sample_pretreatment target="_blank" class="md-button md-button--primary">
+  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20realized_plan target="_blank" class="md-button md-button--primary">
     💡 Submit Term Feedback
   </a>
 </p></details>
 
 <iframe
-    src="assets/chart_characterization.html"
+    src="/CatCore/assets/metadata_characterization_hierarchy.html"
     width="100%"
     height= "800vh"
     style="border: 2px solid #5C88DA; background-color: #F0F8FF;
