@@ -1,6 +1,5 @@
 # Reaction
-
-test description
+Catalytic tests are challenging to standardize because they span different time scales and involve diverse experimental setups and analysis methods. Consequently, comprehensive documentation of the experimental procedure, reactor setup and analytical techniques is essential to ensure reproducibility. CoreMeta4Cat addresses these challenges by incorporating key data fields such as reactor design type, operating parameters, and metadata related to product identification and quantification methods. In addition, CoreMeta4Cat provides guidelines on the parameters that should be reported to enable evaluation of catalyst performance.
 
 <details markdown="1"><summary markdown="1"> **Legend** </summary>
 
