@@ -1,10 +1,19 @@
 # Characterization
 
-test description
+The Characterization data class documents experimental techniques used to determine structural, electronic, compositional, and physicochemical properties of catalysts. It captures both measurement parameters and relevant contextual information required for interpretation and comparison.
+
+The class follows a hierarchical structure in which selection of a characterization technique activates technique-specific metadata fields (e.g., radiation source for X-ray diffraction or solvent for nuclear magnetic resonance spectroscopy). Metadata on sample preparation and pre-treatment are also included, as these factors directly influence measurement outcomes.
 
 **CURIE:** [`OBI:0000070`](OBI:0000070)
 
-<details markdown="1"><summary markdown="1"> **Legend** </summary>
+<iframe
+    src="/CatCore/assets/metadata_characterization_hierarchy.html"
+    width="100%"
+    height= "470vh"
+    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
+    "
+    allowfullscreen
+></iframe><details markdown="1"><summary markdown="1"> **Legend** </summary>
 
 - **Description:**A short description for Comprehension purposes
 
@@ -23,7 +32,7 @@ test description
 </details>
 ## Slots
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>sample state</strong> (Optional, Multivalued)</summary>
 
 **Description:** Physical state of the sample during characterization.
@@ -42,7 +51,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>sample description</strong> (Optional, Multivalued)</summary>
 
 **Description:** Free-text description of the sample used in this characterization.
@@ -61,7 +70,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>sample preparation</strong> (Optional, Multivalued)</summary>
 
 **Description:** Sample preparation steps applied immediately before measurement.
@@ -80,7 +89,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>sample pretreatment</strong> (Optional, Multivalued)</summary>
 
 **Description:** Pre-treatment applied to the sample before a process or measurement.
@@ -99,7 +108,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>detector type</strong> (Optional, Multivalued)</summary>
 
 **Description:** Type of detector used in the measurement.
@@ -118,7 +127,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>realized plan</strong> (Required)</summary>
 
 **Description:** The CharacterizationTechnique (protocol) realized in this Characterization.
@@ -131,7 +140,7 @@ test description
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>CharacterizationTechnique</strong></summary>
 
 **Abstract Class**
@@ -4791,11 +4800,3 @@ this subprofile.
   </a>
 </p></details>
 
-<iframe
-    src="/CatCore/assets/metadata_characterization_hierarchy.html"
-    width="100%"
-    height= "800vh"
-    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
-    "
-    allowfullscreen
-></iframe>

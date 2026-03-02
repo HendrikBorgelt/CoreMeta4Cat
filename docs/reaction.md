@@ -1,10 +1,19 @@
 # Reaction
 
-test description
+The Reaction data class defines metadata required to document catalytic testing procedures, reactor configurations, operating conditions, and analytical methods. It provides structured descriptors necessary to contextualize catalytic performance data.
+
+Core fields include reactor design type, operational parameters, and product identification and quantification methods. The class also specifies metadata required to report and evaluate catalyst performance metrics, enabling structured comparison across experimental studies.
 
 **CURIE:** [`SIO:010345`](SIO:010345)
 
-<details markdown="1"><summary markdown="1"> **Legend** </summary>
+<iframe
+    src="/CatCore/assets/metadata_reaction_hierarchy.html"
+    width="100%"
+    height= "470vh"
+    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
+    "
+    allowfullscreen
+></iframe><details markdown="1"><summary markdown="1"> **Legend** </summary>
 
 - **Description:**A short description for Comprehension purposes
 
@@ -23,7 +32,7 @@ test description
 </details>
 ## Slots
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>catalyst quantity</strong> (Required, Multivalued)</summary>
 
 **Description:** Mass of catalyst loaded into the reactor.
@@ -44,7 +53,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>reactant</strong> (Required, Multivalued)</summary>
 
 **Description:** Reactant(s) used in the reaction. Provide compound name, CAS number,
@@ -64,7 +73,7 @@ or SMILES. For feeds, include composition and flow rate where known.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>catalyst type</strong> (Recommended, Multivalued)</summary>
 
 **Description:** Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
@@ -84,7 +93,7 @@ For heterogeneous catalysts, use voc4cat terms where available.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>reactor temperature range</strong> (Optional, Multivalued)</summary>
 
 **Description:** Temperature range used in the reactor during the reaction, expressed
@@ -104,7 +113,7 @@ as a string range (e.g. "200–400 °C") or a single set-point.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>atmosphere</strong> (Optional, Multivalued)</summary>
 
 **Description:** Gaseous environment or atmospheric conditions during a process.
@@ -123,7 +132,7 @@ as a string range (e.g. "200–400 °C") or a single set-point.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>experiment pressure</strong> (Optional, Multivalued)</summary>
 
 **Description:** Total pressure in the reactor during the experiment.
@@ -144,7 +153,7 @@ as a string range (e.g. "200–400 °C") or a single set-point.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>feed composition range</strong> (Optional, Multivalued)</summary>
 
 **Description:** Feed gas or liquid composition range studied (e.g. "1–10 vol% CO in N2").
@@ -164,7 +173,7 @@ Record as a string; for individual component concentrations use reactant.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>experiment duration</strong> (Optional, Multivalued)</summary>
 
 **Description:** Total duration of the experiment or measurement run.
@@ -185,7 +194,7 @@ Record as a string; for individual component concentrations use reactant.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>carried out by</strong> (Required, Multivalued)</summary>
 
 **Description:** The reactor in which the Reaction takes place, provided as a
@@ -199,7 +208,7 @@ ReactorDesignType (Device) instance.
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>ReactorDesignType</strong></summary>
 
 **Abstract Class**
@@ -416,7 +425,7 @@ suspended in an upward-flowing gas or liquid stream.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>product identification method</strong> (Required, Multivalued)</summary>
 
 **Description:** The analytical method used to identify and/or quantify reaction products.
@@ -432,7 +441,7 @@ ProductIdentificationMethod is retained for backward compatibility.
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>ProductIdentificationMethod</strong></summary>
 
 **Abstract Class**
@@ -461,11 +470,3 @@ it can participate in the realized_plan slot if needed.
   </a>
 </p></details>
 
-<iframe
-    src="/CatCore/assets/metadata_reaction_hierarchy.html"
-    width="100%"
-    height= "800vh"
-    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
-    "
-    allowfullscreen
-></iframe>

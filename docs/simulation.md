@@ -1,10 +1,19 @@
 # Simulation
 
-test description
+The Simulation data class captures metadata describing theoretical and computational studies in catalysis. It documents methodological background, computational settings, and modeling approaches required to interpret simulation results.
+
+Computational approaches are organized under the parent field simulation method, which includes techniques such as density functional theory, molecular dynamics, microkinetic modeling, and Monte Carlo simulations. Selection of a specific method activates the corresponding method-specific metadata fields necessary to describe model setup and computational parameters.
 
 **CURIE:** [`NCIT:C48936`](NCIT:C48936)
 
-<details markdown="1"><summary markdown="1"> **Legend** </summary>
+<iframe
+    src="/CatCore/assets/metadata_simulation_hierarchy.html"
+    width="100%"
+    height= "470vh"
+    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
+    "
+    allowfullscreen
+></iframe><details markdown="1"><summary markdown="1"> **Legend** </summary>
 
 - **Description:**A short description for Comprehension purposes
 
@@ -23,7 +32,7 @@ test description
 </details>
 ## Slots
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>software package</strong> (Required, Multivalued)</summary>
 
 **Description:** Software package or code used for the simulation (e.g. VASP, Quantum ESPRESSO,
@@ -43,7 +52,7 @@ LAMMPS, CP2K, ORCA, Zacros). Include version number where possible.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>calculated property</strong> (Required, Multivalued)</summary>
 
 **Description:** A property computed by this Simulation, provided as a CalculatedProperty
@@ -59,7 +68,7 @@ instance. Multiple properties may be computed in a single simulation run.
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>CalculatedProperty</strong></summary>
 
 **Abstract Class**
@@ -2051,7 +2060,7 @@ geometry optimisation (e.g. energy < 1e-5 eV, forces < 0.02 eV/Å).
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>realized plan</strong> (Required, Multivalued)</summary>
 
 **Description:** The SimulationMethod (protocol) realized in this Simulation.
@@ -2064,7 +2073,7 @@ geometry optimisation (e.g. energy < 1e-5 eV, forces < 0.02 eV/Å).
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>SimulationMethod</strong></summary>
 
 **Abstract Class**
@@ -2650,11 +2659,3 @@ Kawasaki, heat-bath algorithm).
   </a>
 </p></details>
 
-<iframe
-    src="/CatCore/assets/metadata_simulation_hierarchy.html"
-    width="100%"
-    height= "800vh"
-    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
-    "
-    allowfullscreen
-></iframe>

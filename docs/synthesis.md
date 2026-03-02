@@ -1,10 +1,20 @@
 # Synthesis
 
-test description
+The Synthesis data class captures metadata required to document catalyst preparation procedures in a structured and reproducible manner. It defines the minimum information necessary to describe synthesis routes and their relevant parameters.
+
+Metadata are organized hierarchically based on the selected synthesis method. Method-specific child fields are activated depending on the preparation approach (e.g., co-precipitation requiring fields such as precipitating agent, synthesis pH, aging time, and aging temperature). In addition, method-independent fields—such as precursor identity, precursor quantity, and storage conditions—are included to ensure consistent documentation across synthesis strategies.
+
 
 **CURIE:** [`OBI:0000070`](OBI:0000070)
 
-<details markdown="1"><summary markdown="1"> **Legend** </summary>
+<iframe
+    src="/CatCore/assets/metadata_synthesis_hierarchy.html"
+    width="100%"
+    height= "470vh"
+    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
+    "
+    allowfullscreen
+></iframe><details markdown="1"><summary markdown="1"> **Legend** </summary>
 
 - **Description:**A short description for Comprehension purposes
 
@@ -23,7 +33,7 @@ test description
 </details>
 ## Slots
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>nominal composition</strong> (Required, Multivalued)</summary>
 
 **Description:** Nominal elemental or chemical composition of the catalyst (e.g. 5wt% Pt/Al2O3).
@@ -42,7 +52,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>catalyst measured properties</strong> (Required, Multivalued)</summary>
 
 **Description:** Key measured properties of the resulting catalyst
@@ -62,7 +72,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>storage conditions</strong> (Recommended, Multivalued)</summary>
 
 **Description:** Conditions under which the catalyst is stored (e.g. inert atmosphere, 4°C).
@@ -81,7 +91,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>support</strong> (Optional, Multivalued)</summary>
 
 **Description:** Support material on which the active phase is deposited (e.g. Al2O3, SiO2).
@@ -100,7 +110,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>solvent</strong> (Optional, Multivalued)</summary>
 
 **Description:** Solvent used in a process or sample preparation.
@@ -119,7 +129,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>sample pretreatment</strong> (Optional, Multivalued)</summary>
 
 **Description:** Pre-treatment applied to the sample before a process or measurement.
@@ -138,7 +148,7 @@ test description
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>realized plan</strong> (Required)</summary>
 
 **Description:** The PreparationMethod (protocol) realized in this Synthesis.
@@ -151,7 +161,7 @@ test description
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>PreparationMethod</strong></summary>
 
 **Abstract Class**
@@ -3943,7 +3953,7 @@ a perovskite oxide surface by reduction/oxidation cycling.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>had output entity</strong> (Recommended, Multivalued)</summary>
 
 **Description:** The CatalystSample produced by this Synthesis.
@@ -3956,7 +3966,7 @@ a perovskite oxide surface by reduction/oxidation cycling.
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>CatalystSample</strong></summary>
 
 **Description:** A MaterialSample that is the product of a catalyst Synthesis.
@@ -3979,7 +3989,7 @@ is expressed via rdf_type using a voc4cat term.
   </a>
 </p></details>
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>had input entity</strong> (Required, Multivalued)</summary>
 
 **Description:** The Precursor(s) consumed during this Synthesis.
@@ -3992,7 +4002,7 @@ is expressed via rdf_type using a voc4cat term.
 
 **Data Type Class Details:**
 
-<details markdown="1">
+<details markdown="1" open>
 <summary><strong>Precursor</strong></summary>
 
 **Description:** A MaterialSample that serves as input material in a catalyst Synthesis.
@@ -4037,11 +4047,3 @@ Precursors are consumed or transformed during the preparation process.
   </a>
 </p></details>
 
-<iframe
-    src="/CatCore/assets/metadata_synthesis_hierarchy.html"
-    width="100%"
-    height= "800vh"
-    style="border: 2px solid #5C88DA; background-color: #F0F8FF;
-    "
-    allowfullscreen
-></iframe>
