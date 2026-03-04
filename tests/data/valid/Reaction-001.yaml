@@ -26,6 +26,3 @@ experiment_duration:
 carried_out_by:
   - id: "catcore:REACTOR_001_fixedbed"
     title: "quartz fixed bed reactor, 6 mm inner diameter"
-
-product_identification_method:
-  - title: "online GC-MS analysis of reactor effluent"
