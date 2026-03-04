@@ -17,9 +17,9 @@ description: |-
       DFTSettingsMixin       (energy_cutoff, convergence_criteria, k_point_mesh)
 
   Alignment to DCAT-AP-PLUS:
-    Simulation        → is_a: DataGeneratingActivity  (prov:Activity)
-    SimulationMethod  → is_a: Plan                    (prov:Plan / OBI:0000272)
-    CalculatedProperty → is_a: QualitativeAttribute   (output property descriptor)
+    Simulation        --> is_a: DataGeneratingActivity  (prov:Activity)
+    SimulationMethod  --> is_a: Plan                    (prov:Plan / OBI:0000272)
+    CalculatedProperty --> is_a: QualitativeAttribute   (output property descriptor)
 
   The specific simulation type is expressed via rdf_type on Simulation using an
   ontology term (e.g. catcore:DFT, NCIT:C18097 for MD), following DCAT-AP-PLUS
@@ -28,7 +28,7 @@ description: |-
   The simulation software is linked via carried_out_by as a Software agent.
 
   CalculatedProperty design decision:
-  ─────────────────────────────────────
+  -------------------------------------
   In DCAT-AP-PLUS, calculated/measured properties are modelled as
   QualitativeAttribute instances linked from the activity or entity.
   CalculatedProperty and its subclasses follow this pattern: they are
@@ -787,7 +787,7 @@ slots:
 
   dielectric_tensor:
     description: |-
-      Components of the static and/or high-frequency dielectric tensor ε_ij,
+      Components of the static and/or high-frequency dielectric tensor epsilon_ij,
       computed from DFPT.
     range: string
     slot_uri: catcore:dielectric_tensor
@@ -894,7 +894,7 @@ slots:
   grain_boundary_plane:
     description: |-
       Crystallographic plane of the grain boundary, expressed using
-      Miller indices (e.g. "Σ5 (310)[001]").
+      Miller indices (e.g. "Sigma5 (310)[001]").
     range: string
     slot_uri: catcore:grain_boundary_plane
     multivalued: true
@@ -950,7 +950,7 @@ slots:
   smearing_method:
     description: |-
       Electronic smearing scheme and width used in the SCF calculation
-      (e.g. Methfessel-Paxton order 1 with σ=0.2 eV, Gaussian with σ=0.05 eV).
+      (e.g. Methfessel-Paxton order 1 with sigma=0.2 eV, Gaussian with sigma=0.05 eV).
     range: string
     slot_uri: catcore:smearing_method
     multivalued: true
@@ -966,7 +966,7 @@ slots:
   band_path:
     description: |-
       High-symmetry k-path through the Brillouin zone used to plot the
-      band structure (e.g. "Γ-X-M-Γ-R" for cubic, following SeeK-path convention).
+      band structure (e.g. "Gamma-X-M-Gamma-R" for cubic, following SeeK-path convention).
     range: string
     slot_uri: catcore:band_path
     multivalued: true
@@ -984,7 +984,7 @@ slots:
   polarization_direction:
     description: |-
       Crystallographic direction of the spontaneous electric polarization
-      (e.g. "[001]" for tetragonal BaTiO₃).
+      (e.g. "[001]" for tetragonal BaTiO_3).
     range: string
     slot_uri: catcore:polarization_direction
     multivalued: true

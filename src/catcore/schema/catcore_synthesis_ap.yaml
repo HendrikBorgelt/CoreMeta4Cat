@@ -15,11 +15,11 @@ description: |-
       DryingMixin, CalcinationMixin, PrecipitationMixin, ThermalSynthesisMixin
 
   Alignment to DCAT-AP-PLUS:
-    Synthesis          → is_a: DataGeneratingActivity  (prov:Activity)
-    Precursor          → is_a: MaterialSample           (OBI:0000747, EvaluatedEntity)
-    CatalystSample     → is_a: MaterialSample           (OBI:0000747, EvaluatedEntity)
-    PreparationMethod  → is_a: Plan                     (prov:Plan)
-    Concrete methods   → is_a: PreparationMethod        (Plan subclasses)
+    Synthesis          --> is_a: DataGeneratingActivity  (prov:Activity)
+    Precursor          --> is_a: MaterialSample           (OBI:0000747, EvaluatedEntity)
+    CatalystSample     --> is_a: MaterialSample           (OBI:0000747, EvaluatedEntity)
+    PreparationMethod  --> is_a: Plan                     (prov:Plan)
+    Concrete methods   --> is_a: PreparationMethod        (Plan subclasses)
 
 license: CC-BY-4.0
 version: 1.0.0

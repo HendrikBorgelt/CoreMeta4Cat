@@ -19,11 +19,11 @@ description: |-
 
   Import hierarchy:
     catcore_common.yaml  (this file)
-      └── chem_dcat_ap   (chemistry layer)
-            └── chemical_reaction_ap
-                  └── chemical_entities_ap
-                        └── material_entities_ap
-                              └── dcat_ap_plus  (DCAT-AP-PLUS base)
+      +-- chem_dcat_ap   (chemistry layer)
+            +-- chemical_reaction_ap
+                  +-- chemical_entities_ap
+                        +-- material_entities_ap
+                              +-- dcat_ap_plus  (DCAT-AP-PLUS base)
 
 license: CC-BY-4.0
 version: 1.0.0

@@ -1,5 +1,5 @@
 # Auto generated from catcore.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-04T00:07:08
+# Generation date: 2026-03-04T09:35:08
 # Schema: catcore-metadata
 #
 # id: https://w3id.org/nfdi4cat/catcore
@@ -20,22 +20,22 @@
 #   - The four CatCore pillars are modelled as DCAT-AP-PLUS Activity subclasses,
 #     following the same pattern as NMRSpectroscopy (is_a: DataGeneratingActivity):
 #
-#       Synthesis      → is_a: DataGeneratingActivity
+#       Synthesis      --> is_a: DataGeneratingActivity
 #                        Produces a catalyst (MaterialSample) as had_output_entity.
 #                        The PreparationMethod (protocol) is linked via realized_plan.
 #
-#       Characterization → is_a: DataGeneratingActivity
+#       Characterization --> is_a: DataGeneratingActivity
 #                          Produces measurement data about a catalyst or reaction.
 #                          The catalyst/sample is the evaluated_entity.
 #                          The CharacterizationTechnique is linked via realized_plan.
 #
-#       Reaction       → is_a: EvaluatedActivity
+#       Reaction       --> is_a: EvaluatedActivity
 #                        The catalytic process being studied, NOT a data-generating
 #                        activity itself. Characterization datasets are about this.
 #                        Analogous to the reaction being observed in a reaction
 #                        monitoring dataset.
 #
-#       Simulation     → is_a: DataGeneratingActivity
+#       Simulation     --> is_a: DataGeneratingActivity
 #                        Generates computational data about a catalyst or reaction.
 #                        The SimulationMethod (protocol) is linked via realized_plan.
 #                        The simulation software is carried_out_by: Software.
@@ -54,16 +54,16 @@
 #
 #   Full import hierarchy:
 #     catcore.yaml  (this file — aggregator + CatalysisDataset entry point)
-#       └── catcore_common.yaml         (shared slots, enums)
-#             └── chem_dcat_ap          (SubstanceSample, ChemicalSubstance, …)
-#                   └── chemical_reaction_ap
-#                         └── chemical_entities_ap
-#                               └── material_entities_ap
-#                                     └── dcat_ap_plus  (DCAT-AP-PLUS base)
-#       ├── catcore_synthesis_ap         (Step 3 — Synthesis, PreparationMethod, mixins)
-#       ├── catcore_characterization_ap  (Step 4 — Characterization, 24 techniques, mixins)
-#       ├── catcore_reaction_ap          (Step 5 — Reaction, 8 ReactorDesignTypes)
-#       └── catcore_simulation_ap        (Step 6 — Simulation, 4 methods, 12 properties, mixins)
+#       +-- catcore_common.yaml         (shared slots, enums)
+#             +-- chem_dcat_ap          (SubstanceSample, ChemicalSubstance, …)
+#                   +-- chemical_reaction_ap
+#                         +-- chemical_entities_ap
+#                               +-- material_entities_ap
+#                                     +-- dcat_ap_plus  (DCAT-AP-PLUS base)
+#       +-- catcore_synthesis_ap         (Step 3 — Synthesis, PreparationMethod, mixins)
+#       +-- catcore_characterization_ap  (Step 4 — Characterization, 24 techniques, mixins)
+#       +-- catcore_reaction_ap          (Step 5 — Reaction, 8 ReactorDesignTypes)
+#       +-- catcore_simulation_ap        (Step 6 — Simulation, 4 methods, 12 properties, mixins)
 # license: CC-BY-4.0
 
 import dataclasses

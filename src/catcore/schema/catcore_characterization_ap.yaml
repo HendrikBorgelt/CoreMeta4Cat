@@ -17,9 +17,9 @@ description: |-
       PhotoluminescenceMixin, ElectrochemistryMixin
 
   Alignment to DCAT-AP-PLUS:
-    Characterization        → is_a: DataGeneratingActivity  (prov:Activity)
-    CharacterizationTechnique → is_a: Plan                  (prov:Plan)
-    Concrete techniques     → is_a: CharacterizationTechnique (Plan subclasses)
+    Characterization        --> is_a: DataGeneratingActivity  (prov:Activity)
+    CharacterizationTechnique --> is_a: Plan                  (prov:Plan)
+    Concrete techniques     --> is_a: CharacterizationTechnique (Plan subclasses)
 
   The specific analytical technique type is expressed via rdf_type on the
   Characterization activity using a CHMO or voc4cat term (DCAT-AP-PLUS Pattern 3),
@@ -50,7 +50,7 @@ imports:
   - catcore_common   # shared slots (atmosphere, temperature, equipment, sample_mass, …) + enums
 
 # ==================== MIXINS ====================
-# Pure slot containers. Each targets a slot group shared by ≥2 techniques.
+# Pure slot containers. Each targets a slot group shared by >=2 techniques.
 # No class_uri — mixins generate no node shapes of their own.
 
 classes:
@@ -608,7 +608,7 @@ slots:
   # ---- X-ray source / optics (XRaySourceMixin) ----
 
   xray_source:
-    description: X-ray source used (e.g. Cu Kα, Mo Kα, synchrotron).
+    description: X-ray source used (e.g. Cu K-alpha, Mo K-alpha, synchrotron).
     range: string
     slot_uri: OBI:0001138
     multivalued: true
@@ -768,7 +768,7 @@ slots:
   # ---- PowderXRD-specific ----
 
   minimum_2theta:
-    description: Minimum 2θ angle in the diffraction scan.
+    description: Minimum 2theta angle in the diffraction scan.
     range: float
     slot_uri: catcore:minimum_2theta
     multivalued: true
@@ -776,7 +776,7 @@ slots:
       ucum_code: deg
 
   maximum_2theta:
-    description: Maximum 2θ angle in the diffraction scan.
+    description: Maximum 2theta angle in the diffraction scan.
     range: float
     slot_uri: catcore:maximum_2theta
     multivalued: true

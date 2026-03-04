@@ -13,9 +13,9 @@ description: |-
     CharacterizationTechnique instance from catcore_characterization_ap
 
   Alignment to DCAT-AP-PLUS:
-    Reaction          → is_a: EvaluatedActivity  (the process being studied,
+    Reaction          --> is_a: EvaluatedActivity  (the process being studied,
                         NOT the data-generating process)
-    ReactorDesignType → is_a: Device             (the AgenticEntity carrying out
+    ReactorDesignType --> is_a: Device             (the AgenticEntity carrying out
                         the Reaction via carried_out_by)
 
   The Reaction is NOT a DataGeneratingActivity. It is the catalytic process
@@ -24,7 +24,7 @@ description: |-
   will carry both was_generated_by: Characterization and is_about_activity: Reaction.
 
   OperationParameters design decision:
-  ─────────────────────────────────────
+  -------------------------------------
   The original CatCore model wraps operation parameters in a nested class.
   In this modularised form they are flattened as direct slots on Reaction,
   consistent with how preparation method parameters are handled on
@@ -32,7 +32,7 @@ description: |-
   an unnecessary wrapper object while preserving all the same information.
 
   ProductIdentificationMethod design decision:
-  ─────────────────────────────────────────────
+  ---------------------------------------------
   The source defines ProductIdentificationMethod as an abstract class with
   no concrete subclasses — it is a forward reference to analytical techniques.
   Users should link a CharacterizationTechnique instance (defined in
