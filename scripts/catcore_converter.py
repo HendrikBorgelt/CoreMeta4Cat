@@ -2,15 +2,15 @@ import yaml
 from pathlib import Path
 from typing import List, Set, Optional
 
-# catcore.yaml is loaded FIRST so its generic stubs (range: Plan, range: AgenticEntity)
+# coremeta4cat.yaml is loaded FIRST so its generic stubs (range: Plan, range: AgenticEntity)
 # are overwritten by the specific ranges in the subprofile modules.
 MODULE_FILES = [
-    "catcore.yaml",           # load first: generic stubs get overwritten by subprofiles
-    "catcore_common.yaml",
-    "catcore_synthesis_ap.yaml",
-    "catcore_characterization_ap.yaml",
-    "catcore_reaction_ap.yaml",
-    "catcore_simulation_ap.yaml",
+    "coremeta4cat.yaml",           # load first: generic stubs get overwritten by subprofiles
+    "coremeta4cat_common.yaml",
+    "coremeta4cat_synthesis_ap.yaml",
+    "coremeta4cat_characterization_ap.yaml",
+    "coremeta4cat_reaction_ap.yaml",
+    "coremeta4cat_simulation_ap.yaml",
 ]
 
 
@@ -31,7 +31,7 @@ def merge_schemas(modules: List[dict]) -> dict:
     """
     Merge all module dicts into one flat schema.
     Later modules win on key collision, so subprofile modules (loaded last)
-    correctly override the generic stubs in catcore.yaml (loaded first).
+    correctly override the generic stubs in coremeta4cat.yaml (loaded first).
     """
     merged: dict = {"prefixes": {}, "classes": {}, "slots": {}, "enums": {}}
 
@@ -201,7 +201,7 @@ def get_slot_cardinality(schema: dict, class_name: str,
     required    = usage.get("required",    slot_details.get("required",    False))
     recommended = usage.get("recommended", slot_details.get("recommended", False))
     multivalued = usage.get("multivalued", slot_details.get("multivalued", False))
-    parts = ["Required" if required else ("Recommended" if recommended else "Optional")]
+    parts = ["Mandatory" if required else ("Recommended" if recommended else "Optional")]
     if multivalued:
         parts.append("Multivalued")
     return ", ".join(parts)
@@ -225,14 +225,15 @@ def format_class_markdown(schema: dict, class_name: str, level: int = 3,
     class_uri   = class_def.get("class_uri", "")
     is_abstract = class_def.get("abstract", False)
 
-    md  = '<details markdown="1">\n'
+    open_attr = " open" if level == 3 else ""
+    md  = f'<details markdown="1"{open_attr}>\n'
     md += f'<summary><strong>{snake_to_readable(class_name)}</strong></summary>\n\n'
     if is_abstract:
         md += "**Abstract Class**\n\n"
     md += f"**Description:** {description}\n\n"
     if class_uri:
         md += f"**CURIE:** [`{class_uri}`]({expand_curie(schema, class_uri)})\n\n"
-    md += f"**Schema Reference:** [{class_name}](./elements/{class_name}.md)\n\n"
+    md += f"**Schema Reference:** [{class_name}](./elements/classes/{class_name}.md)\n\n"
 
     slots = get_all_class_slots(schema, class_name)
     if slots:
@@ -242,7 +243,7 @@ def format_class_markdown(schema: dict, class_name: str, level: int = 3,
             md += format_slot_markdown(schema, slot_name, slot_details, level + 2,
                                        processed_classes.copy(), class_name)
 
-    md += (f"<p>\n      <a href=https://github.com/HendrikBorgelt/CatCore/issues/new"
+    md += (f"<p>\n      <a href=https://github.com/nfdi4cat/CoreMeta4Cat/issues/new"
            f"?template=term_improvement.yaml&title=Term%20Feedback:%20{class_name}"
            f' target="_blank" class="md-button md-button--primary">\n'
            f"        💡 Submit Term Feedback\n      </a>\n    </p>")
@@ -266,14 +267,15 @@ def format_slot_markdown(schema: dict, slot_name: str, slot_details: dict,
         cardinality = f" ({get_slot_cardinality(schema, parent_class, slot_name, slot_details)})"
         striped     = cardinality.replace("(", "").replace(")", "")
 
-    md  = '<details markdown="1">\n'
+    open_attr = " open" if level == 3 else ""
+    md  = f'<details markdown="1"{open_attr}>\n'
     md += f"<summary><strong>{snake_to_readable(slot_name)}</strong>{cardinality}</summary>\n\n"
     md += f"**Description:** {description}\n\n"
     md += f"**Data Type:** {range_type}\n\n"
     md += f"**Cardinality:** {striped}\n\n"
     if slot_uri:
         md += f"**CURIE:** [`{slot_uri}`]({expand_curie(schema, slot_uri)})\n\n"
-    md += f"**Schema Reference:** [{slot_name}](./elements/{slot_name}.md)\n\n"
+    md += f"**Schema Reference:** [{slot_name}](./elements/slots/{slot_name}.md)\n\n"
     if unit and unit.get("ucum_code"):
         md += f"**Unit:** {unit['ucum_code']}\n\n"
 
@@ -289,13 +291,12 @@ def format_slot_markdown(schema: dict, slot_name: str, slot_details: dict,
                     md += format_class_markdown(schema, subclass, level + 1,
                                                 processed_classes, None)
 
-    md += (f"<p>\n  <a href=https://github.com/HendrikBorgelt/CatCore/issues/new"
+    md += (f"<p>\n  <a href=https://github.com/nfdi4cat/CoreMeta4Cat/issues/new"
            f"?template=term_improvement.yaml&title=Term%20Feedback:%20{slot_name}"
            f' target="_blank" class="md-button md-button--primary">\n'
            f"    💡 Submit Term Feedback\n  </a>\n</p>")
     md += "</details>\n\n"
     return md
-
 
 LEGEND = """\
 <details markdown="1"><summary markdown="1"> **Legend** </summary>
@@ -316,6 +317,24 @@ LEGEND = """\
 
 </details>"""
 
+# ── Per-class introductory text shown below the page title ────────────────────
+# Edit these strings to replace the placeholder "test description" sections.
+CLASS_DESCRIPTIONS: dict = {
+    "Synthesis":        """The Synthesis data class captures metadata required to document catalyst preparation procedures in a structured and reproducible manner. It defines the minimum information necessary to describe synthesis routes and their relevant parameters.
+
+Metadata are organized hierarchically based on the selected synthesis method. Method-specific child fields are activated depending on the preparation approach (e.g., co-precipitation requiring fields such as precipitating agent, synthesis pH, aging time, and aging temperature). In addition, method-independent fields—such as precursor identity, precursor quantity, and storage conditions—are included to ensure consistent documentation across synthesis strategies.
+""",
+    "Characterization": """The Characterization data class documents experimental techniques used to determine structural, electronic, compositional, and physicochemical properties of catalysts. It captures both measurement parameters and relevant contextual information required for interpretation and comparison.
+
+The class follows a hierarchical structure in which selection of a characterization technique activates technique-specific metadata fields (e.g., radiation source for X-ray diffraction or solvent for nuclear magnetic resonance spectroscopy). Metadata on sample preparation and pre-treatment are also included, as these factors directly influence measurement outcomes.""",
+    "Reaction":         """The Reaction data class defines metadata required to document catalytic testing procedures, reactor configurations, operating conditions, and analytical methods. It provides structured descriptors necessary to contextualize catalytic performance data.
+
+Core fields include reactor design type, operational parameters, and product identification and quantification methods. The class also specifies metadata required to report and evaluate catalyst performance metrics, enabling structured comparison across experimental studies.""",
+    "Simulation":       """The Simulation data class captures metadata describing theoretical and computational studies in catalysis. It documents methodological background, computational settings, and modeling approaches required to interpret simulation results.
+
+Computational approaches are organized under the parent field simulation method, which includes techniques such as density functional theory, molecular dynamics, microkinetic modeling, and Monte Carlo simulations. Selection of a specific method activates the corresponding method-specific metadata fields necessary to describe model setup and computational parameters.""",
+}
+
 
 def generate_markdown_for_main_class(schema: dict, main_class: str, output_file: str):
     classes        = schema.get("classes", {})
@@ -323,11 +342,20 @@ def generate_markdown_for_main_class(schema: dict, main_class: str, output_file:
     class_uri      = main_class_def.get("class_uri", "")
     is_abstract    = main_class_def.get("abstract", False)
 
-    md  = f"# {snake_to_readable(main_class)}\n\ntest description\n\n"
+    description = CLASS_DESCRIPTIONS.get(main_class, "test description")
+    md  = f"# {snake_to_readable(main_class)}\n\n{description}\n\n"
+
+
+
     if is_abstract:
         md += "**Abstract Class**\n\n"
     if class_uri:
         md += f"**CURIE:** [`{class_uri}`]({class_uri})\n\n"
+
+    md += (f'<iframe\n    src="/CoreMeta4Cat/assets/metadata_{main_class.lower()}_hierarchy.html"\n'
+           f'    width="100%"\n    height= "470vh"\n'
+           f'    style="border: 2px solid #5C88DA; background-color: #F0F8FF;\n    "\n'
+           f'    allowfullscreen\n></iframe>')
 
     # Slots section: direct/mixin slots first, then class-ranged slot_usage entries
     direct_slots    = get_all_class_slots(schema, main_class)
@@ -344,14 +372,10 @@ def generate_markdown_for_main_class(schema: dict, main_class: str, output_file:
             md += format_slot_markdown(schema, slot_name, synthetic,
                                        3, processed.copy(), main_class)
 
-    md += (f'<iframe\n    src="/CatCore/assets/metadata_{main_class.lower()}_hierarchy.html"\n'
-           f'    width="100%"\n    height= "800vh"\n'
-           f'    style="border: 2px solid #5C88DA; background-color: #F0F8FF;\n    "\n'
-           f'    allowfullscreen\n></iframe>')
-
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(md)
     print(f"  ✓ {output_file}")
+
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -359,7 +383,7 @@ def generate_markdown_for_main_class(schema: dict, main_class: str, output_file:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def main(schema_dir: str, output_dir: str = "."):
-    print(f"\nLoading CatCore modules from: {schema_dir}")
+    print(f"\nLoading CoreMeta4Cat modules from: {schema_dir}")
     schema = load_merged_schema(schema_dir)
 
     output_path = Path(output_dir)
@@ -381,8 +405,7 @@ def main(schema_dir: str, output_dir: str = "."):
 
 if __name__ == "__main__":
     # ── Edit these two paths to match your local setup ──────────────────────
-    schema_dir = "./schema"
-    output_dir = "./docs"
+    schema_dir = "../src/coremeta4cat/schema"
+    output_dir = "../docs"
     # ────────────────────────────────────────────────────────────────────────
     main(schema_dir, output_dir)
-
