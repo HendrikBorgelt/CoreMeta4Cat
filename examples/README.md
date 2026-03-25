@@ -1,4 +1,4 @@
-# Examples of using CatCore
+# Examples of using CoreMeta4Cat
 
 This folder contains examples using the datamodel.
 
