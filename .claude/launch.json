@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "MkDocs docs server",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "mkdocs", "serve"],
+      "port": 8000
+    },
+    {
+      "name": "MkDocs docs server (regenerate first)",
+      "runtimeExecutable": "just",
+      "runtimeArgs": ["testdoc"],
+      "port": 8000
+    },
+    {
+      "name": "Draft preview",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "python", "-m", "http.server", "3456", "--directory", ".claude/preview"],
+      "port": 3456
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README.md — Draft Preview</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #656d76;
+      --link: #0969da;
+      --accent: #0550ae;
+      --code-bg: #f6f8fa;
+      --badge-bg: #ddf4ff;
+      --badge-border: #54aeff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      padding: 2rem 1rem;
+    }
+    .wrapper { max-width: 860px; margin: 0 auto; }
+    .draft-banner {
+      background: #fff8c5;
+      border: 1px solid #d4a72c;
+      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #633c01;
+    }
+    .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 2rem; }
+    .tab {
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      user-select: none;
+    }
+    .tab.active { color: var(--text); font-weight: 600; border-bottom-color: #fd8c73; }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── markdown rendering ── */
+    h1 { font-size: 2em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; margin: 1.5rem 0 1rem; }
+    h2 { font-size: 1.5em; border-bottom: 1px solid var(--border); padding-bottom: 0.2em; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.2em; margin: 1.5rem 0 0.6rem; }
+    p { margin: 0.6rem 0; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    blockquote {
+      border-left: 4px solid var(--border);
+      padding: 0.4rem 1rem;
+      color: var(--muted);
+      background: var(--surface);
+      border-radius: 0 4px 4px 0;
+      margin: 1rem 0;
+    }
+    blockquote strong { color: var(--text); }
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15em 0.4em;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+    pre code { background: none; border: none; padding: 0; font-size: 0.88em; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th { background: var(--surface); font-weight: 600; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.8rem; text-align: left; font-size: 0.95em; }
+    tr:nth-child(even) td { background: var(--surface); }
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0 1.2rem; }
+    .badge {
+      display: inline-flex; align-items: center;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      border-radius: 20px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      gap: 0.3rem;
+    }
+    .badge.green { background: #dafbe1; border-color: #4ac26b; color: #1a7f37; }
+    .badge.gray  { background: #f6f8fa; border-color: #d0d7de; color: #57606a; }
+    .new-tag {
+      display: inline-block;
+      background: #dafbe1; border: 1px solid #4ac26b;
+      border-radius: 4px; padding: 0 0.4rem;
+      font-size: 0.75rem; color: #1a7f37; font-weight: 600;
+      vertical-align: middle; margin-left: 0.4rem;
+    }
+    .changed-tag {
+      display: inline-block;
+      background: #fff8c5; border: 1px solid #d4a72c;
+      border-radius: 4px; padding: 0 0.4rem;
+      font-size: 0.75rem; color: #633c01; font-weight: 600;
+      vertical-align: middle; margin-left: 0.4rem;
+    }
+    .diff-note { font-size: 0.8rem; color: var(--muted); margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="draft-banner">
+    <strong>Draft preview</strong> — proposed changes for discussion. Nothing has been written to disk yet.
+    <span class="new-tag">NEW</span> = new content &nbsp;|&nbsp; <span class="changed-tag">CHANGED</span> = existing content updated
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="show('readme')">README.md</div>
+    <div class="tab" onclick="show('contributing')">CONTRIBUTING.md</div>
+    <div class="tab" onclick="show('docs-contributing')">docs/contributing.md <span class="new-tag">NEW</span></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════ README ══ -->
+  <div id="readme" class="page active">
+
+    <div class="badges">
+      <span class="badge green">✓ Build and test</span>
+      <span class="badge green">✓ Deploy docs <span class="new-tag">NEW</span></span>
+      <span class="badge gray">linkml-project-copier</span>
+    </div>
+
+    <h1>CoreMeta4Cat</h1>
+
+    <p>
+      <strong>CoreMeta4Cat</strong> is a community-driven metadata standard for catalysis research,
+      developed under <a href="#">NFDI4Cat</a>. It defines the minimum information required to describe,
+      share, and discover catalysis datasets in a FAIR-compliant way — Findable, Accessible,
+      Interoperable, and Reusable.
+    </p>
+    <p>
+      CoreMeta4Cat extends <a href="#">DCAT-AP+</a> and <a href="#">ChemDCAT-AP</a>,
+      adding catalysis-specific metadata fields on top of their shared data model. Terminology is
+      drawn from <a href="#">Voc4Cat</a>, NFDI4Cat's controlled vocabulary for catalysis.
+      Fields are classified as Mandatory, Recommended, or Optional.
+      <span class="changed-tag">CHANGED</span>
+    </p>
+
+    <blockquote>
+      <strong>Documentation:</strong>
+      <a href="#">nfdi4cat.github.io/CoreMeta4Cat</a>
+      <span class="new-tag">NEW</span>
+    </blockquote>
+
+    <hr>
+
+    <h2>Schema architecture <span class="new-tag">NEW</span></h2>
+    <p>CoreMeta4Cat is implemented as a modular <a href="#">LinkML</a> schema:</p>
+    <pre><code>coremeta4cat.yaml              ← top-level aggregator + CatalysisDataset
+  └── coremeta4cat_common.yaml          ← shared slots and enumerations
+        ├── coremeta4cat_synthesis_ap.yaml       ← Synthesis + preparation methods
+        ├── coremeta4cat_characterization_ap.yaml ← Characterization + techniques
+        ├── coremeta4cat_reaction_ap.yaml        ← Reaction + reactor types
+        └── coremeta4cat_simulation_ap.yaml      ← Simulation + methods</code></pre>
+    <p>
+      The schema generates Python datamodels, OWL ontology, JSON-LD, and TypeScript representations
+      automatically. Explore the four data classes in the documentation:
+      <a href="#">Synthesis</a> ·
+      <a href="#">Characterization</a> ·
+      <a href="#">Reaction</a> ·
+      <a href="#">Simulation</a>
+    </p>
+
+    <hr>
+
+    <h2>Vocabulary reference workbook <span class="changed-tag">CHANGED</span></h2>
+    <p>
+      A structured Excel overview of all metadata fields (grouped by data class, colour-coded by
+      M/R/O) is available at
+      <a href="#"><code>docs/assets/coremeta4cat_vocabulary.xlsx</code></a>.
+      This file is generated automatically from the schema — the schema is the authoritative source.
+    </p>
+
+    <hr>
+
+    <h2>Repository structure <span class="changed-tag">CHANGED</span></h2>
+    <pre><code>src/coremeta4cat/
+  schema/       ← LinkML schema modules (edit these)
+  datamodel/    ← generated Python datamodels (do not edit)
+scripts/
+  generate_schema_docs.py  ← builds the interactive docs pages from schema
+  generate_charts.py       ← builds sunburst hierarchy charts from schema
+  schema_to_excel.py       ← exports schema → vocabulary workbook
+  excel_to_schema.py       ← compares workbook against schema
+docs/           ← MkDocs documentation source
+tests/
+  data/valid/   ← example YAML records used as unit tests
+project/        ← generated artifacts (OWL, JSON-LD, TypeScript) — do not edit</code></pre>
+
+    <hr>
+
+    <h2>Developer tooling <span class="changed-tag">CHANGED</span></h2>
+    <table>
+      <tr><th>Tool</th><th>Purpose</th></tr>
+      <tr><td><a href="#">uv</a></td><td>Dependency management and virtual environments</td></tr>
+      <tr><td><a href="#">just</a></td><td>Command runner — run <code>just</code> to list all available recipes</td></tr>
+      <tr><td><a href="#">LinkML</a></td><td>Schema language and code generation</td></tr>
+      <tr><td><a href="#">pre-commit</a></td><td>Linting, formatting, and datamodel regeneration on commit</td></tr>
+      <tr><td><a href="#">MkDocs Material</a></td><td>Documentation site</td></tr>
+    </table>
+    <p>Key <code>just</code> commands:</p>
+    <pre><code>just install         # install all dependencies
+just test            # run schema validation + pytest + example tests
+just gen-schema-docs # regenerate interactive documentation pages
+just gen-charts      # regenerate sunburst hierarchy charts
+just schema-to-excel # export schema to vocabulary workbook
+just gen-doc         # regenerate MkDocs element pages
+just site            # regenerate everything locally</code></pre>
+
+    <hr>
+
+    <h2>Contributing <span class="new-tag">NEW</span></h2>
+    <p>
+      We welcome contributions of all kinds — from term feedback and bug reports to schema
+      extensions and documentation improvements.
+    </p>
+    <p>
+      See <a href="#">CONTRIBUTING.md</a> for developer guidelines, or visit the
+      <a href="#">documentation</a> for a beginner-friendly introduction.
+    </p>
+
+    <hr>
+
+    <h2>Credits</h2>
+    <p>
+      Built on the <a href="#">linkml-project-copier</a> template
+      (<a href="#">doi:10.5281/zenodo.15163584</a>).
+    </p>
+
+    <div class="diff-note">
+      Lines removed: stale "parallel Excel development" sentence · old <code>src/catcore</code> paths ·
+      broken docs URL · old Excel filename reference.
+    </div>
+
+  </div><!-- /readme -->
+
+  <!-- ══════════════════════════════════════════════ CONTRIBUTING ══ -->
+  <div id="contributing" class="page">
+
+    <h1>Contributing to CoreMeta4Cat</h1>
+    <p>👋 First of all: Thank you for taking the time to contribute!</p>
+    <p>
+      These guidelines are not strict rules — use your best judgment, and feel free to propose
+      changes in a pull request.
+    </p>
+
+    <h2>Table of contents</h2>
+    <ul>
+      <li><a href="#">Code of Conduct</a></li>
+      <li><a href="#">Ways to contribute</a></li>
+      <li><a href="#">Developer setup</a> <span class="new-tag">NEW</span></li>
+      <li><a href="#">Best practices</a></li>
+      <li><a href="#">Understanding LinkML</a></li>
+      <li><a href="#">Modeling best practice</a></li>
+    </ul>
+
+    <h2>Code of Conduct</h2>
+    <p>Please read our <a href="#">Code of Conduct</a> before contributing.</p>
+
+    <h2>Ways to contribute</h2>
+    <h3>Report a problem or request a change</h3>
+    <p>Use the <a href="#">Issue Tracker</a> for bug reports and new schema element requests.</p>
+    <h3>Ask a question</h3>
+    <p>Use the <a href="#">Discussions forum</a> for general questions. <span class="changed-tag">CHANGED</span> (link was missing)</p>
+    <h3>Submit a pull request</h3>
+    <p>
+      For beginner-friendly contribution guidance, see the
+      <a href="#">documentation contributing page</a>. <span class="new-tag">NEW</span>
+    </p>
+
+    <h2>Developer setup <span class="new-tag">NEW</span></h2>
+    <pre><code># Prerequisites: uv (https://docs.astral.sh/uv/) and just (https://github.com/casey/just)
+
+git clone https://github.com/nfdi4cat/CoreMeta4Cat.git
+cd CoreMeta4Cat
+uv sync --group dev    # install all dependencies
+pre-commit install     # install git hooks
+just test              # verify everything works</code></pre>
+
+    <h3>After changing the schema <span class="new-tag">NEW</span></h3>
+    <p>If you edit any file in <code>src/coremeta4cat/schema/</code>, run:</p>
+    <pre><code>just gen-python           # regenerate Python datamodels (also runs via pre-commit)
+just gen-schema-docs      # regenerate interactive documentation pages
+just gen-charts           # regenerate sunburst hierarchy charts
+just test                 # confirm nothing is broken</code></pre>
+
+    <h2>Best practices</h2>
+    <h3>GitHub workflow</h3>
+    <ul>
+      <li>Issues should be focused and actionable</li>
+      <li>PRs should be atomic and reference an issue (<code>fixes #123</code>)</li>
+      <li>Never work directly on <code>main</code> — always use a feature branch</li>
+      <li>PRs that do not pass GitHub Actions should never be merged</li>
+    </ul>
+    <p><em>(full list unchanged from current CONTRIBUTING.md)</em></p>
+
+    <h2>Understanding LinkML</h2>
+    <p><em>(unchanged — links to linkml.io overview, tutorial, schemas, FAQ)</em></p>
+
+    <h2>Modeling best practice</h2>
+    <p><em>(unchanged — naming conventions, documentation, examples, enums, reuse)</em></p>
+
+    <div class="diff-note">
+      Bugs fixed: broken <code>[[about-issues]]</code> link · <code>src/data</code> → <code>tests/data/</code> ·
+      added missing <code>[discussions]</code> URL.
+    </div>
+
+  </div><!-- /contributing -->
+
+  <!-- ══════════════════════════════════════════ DOCS CONTRIBUTING ══ -->
+  <div id="docs-contributing" class="page">
+
+    <h1>How to contribute to CoreMeta4Cat</h1>
+    <p>
+      CoreMeta4Cat is a community-driven standard — your feedback and knowledge directly
+      shape what gets included. Here are the most common ways to get involved, no coding required.
+    </p>
+
+    <h2>Give feedback on a term</h2>
+    <p>
+      Every field on the schema documentation pages has a
+      <strong>Submit Term Feedback</strong> button. Click it to open a pre-filled GitHub issue
+      where you can suggest a change, report an error, or ask a question about that specific field.
+      You'll need a free GitHub account.
+    </p>
+
+    <h2>Report a problem or suggest a new field</h2>
+    <p>
+      Use the <a href="#">GitHub Issue Tracker</a>. When opening an issue, try to include:
+    </p>
+    <ul>
+      <li>Which data class the field belongs to (Synthesis, Characterization, Reaction, Simulation)</li>
+      <li>What the field should be called and what it means</li>
+      <li>Why it is needed — a concrete example from your research helps a lot</li>
+      <li>Whether it should be Mandatory, Recommended, or Optional, and why</li>
+    </ul>
+
+    <h2>Ask a question</h2>
+    <p>
+      Not sure whether a field exists, or how to annotate something? Use the
+      <a href="#">GitHub Discussions forum</a> — no issue required.
+    </p>
+
+    <h2>Understanding the vocabulary workbook</h2>
+    <p>
+      Download the <a href="#">vocabulary reference workbook</a> for a structured overview of all
+      fields. The workbook has an <strong>Introduction</strong> sheet explaining how to read it,
+      and a <strong>Legend</strong> sheet explaining the colour coding.
+      The schema is the authoritative source — the workbook is generated from it.
+    </p>
+
+    <h2>Contribute code or schema changes</h2>
+    <p>
+      If you want to contribute a schema change yourself (add a class, slot, or enum),
+      please first open an issue to discuss the change. Then follow the developer guidelines
+      in <a href="#">CONTRIBUTING.md</a> on GitHub.
+    </p>
+
+  </div><!-- /docs-contributing -->
+
+</div><!-- /wrapper -->
+<script>
+  function show(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
