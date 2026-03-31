@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://HendrikBorgelt.github.io/CoreMeta4Cat/reaction/">
       
       
-        <link rel="prev" href="../coremeta4cat-users/">
+        <link rel="prev" href="../characterization/">
       
       
-        <link rel="next" href="../characterization/">
+        <link rel="next" href="../simulation/">
       
       
         
@@ -436,6 +436,62 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../characterization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characterization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -525,62 +581,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../characterization/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Characterization
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../synthesis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Synthesis
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../simulation/" class="md-nav__link">
         
   
@@ -651,6 +651,33 @@
     
   
     About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
   
 
     
@@ -871,6 +898,38 @@ Record as a string; for individual component concentrations use reactant.</p>
 </p>
 </details>
 <details open="open">
+<summary><strong>product identification method</strong> (Mandatory, Multivalued)</summary>
+<p><strong>Description:</strong> The analytical method used to identify and/or quantify reaction products.
+Should reference a CharacterizationTechnique instance (e.g. GCMS, HPLC_MS).
+The abstract stub ProductIdentificationMethod is retained for backward compatibility.</p>
+<p><strong>Data Type:</strong> ProductIdentificationMethod</p>
+<p><strong>Cardinality:</strong>  Mandatory, Multivalued</p>
+<p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/coremeta4cat/product_identification_method"><code>coremeta4cat:product_identification_method</code></a></p>
+<p><strong>Schema Reference:</strong> <a href="../elements/slots/product_identification_method/">product_identification_method</a></p>
+<p><strong>Data Type Class Details:</strong></p>
+<details open="open">
+<summary><strong>ProductIdentificationMethod</strong></summary>
+<p><strong>Description:</strong> Abstract Plan representing the method used to identify and quantify reaction
+products. In practice, users should reference a concrete CharacterizationTechnique
+subclass from coremeta4cat_characterization_ap (e.g. GCMS, HPLC_MS, NMRSpectroscopy).</p>
+<p>This abstract class is retained for backward compatibility with the original
+CoreMeta4Cat monolith. It is a subclass of Plan (prov:Plan / OBI:0000272) so that
+it can participate in the realized_plan slot if needed.</p>
+<p><strong>CURIE:</strong> <a href="http://purl.obolibrary.org/obo/OBI_0000272"><code>OBI:0000272</code></a></p>
+<p><strong>Schema Reference:</strong> <a href="../elements/classes/ProductIdentificationMethod/">ProductIdentificationMethod</a></p>
+<p>
+      <a href=https://github.com/nfdi4cat/CoreMeta4Cat/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20ProductIdentificationMethod target="_blank" class="md-button md-button--primary">
+        💡 Submit Term Feedback
+      </a>
+    </p>
+</details>
+<p>
+  <a href=https://github.com/nfdi4cat/CoreMeta4Cat/issues/new?template=term_improvement.yaml&title=Term%20Feedback:%20product_identification_method target="_blank" class="md-button md-button--primary">
+    💡 Submit Term Feedback
+  </a>
+</p>
+</details>
+<details open="open">
 <summary><strong>carried out by</strong> (Mandatory, Multivalued)</summary>
 <p><strong>Description:</strong> The reactor in which the Reaction takes place, provided as a
 ReactorDesignType (Device) instance.</p>
@@ -1045,11 +1104,11 @@ HPLC_MS object from coremeta4cat_characterization_ap). The abstract stub
 ProductIdentificationMethod is retained for backward compatibility.</p>
 <p><strong>Data Type:</strong> ProductIdentificationMethod</p>
 <p><strong>Cardinality:</strong>  Mandatory, Multivalued</p>
+<p><strong>CURIE:</strong> <a href="https://w3id.org/nfdi4cat/coremeta4cat/product_identification_method"><code>coremeta4cat:product_identification_method</code></a></p>
 <p><strong>Schema Reference:</strong> <a href="../elements/slots/product_identification_method/">product_identification_method</a></p>
 <p><strong>Data Type Class Details:</strong></p>
 <details open="open">
 <summary><strong>ProductIdentificationMethod</strong></summary>
-<p><strong>Abstract Class</strong></p>
 <p><strong>Description:</strong> Abstract Plan representing the method used to identify and quantify reaction
 products. In practice, users should reference a concrete CharacterizationTechnique
 subclass from coremeta4cat_characterization_ap (e.g. GCMS, HPLC_MS, NMRSpectroscopy).</p>
