@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://HendrikBorgelt.github.io/CoreMeta4Cat/elements/slots/mixing_rate/">
+        <link rel="canonical" href="https://HendrikBorgelt.github.io/CoreMeta4Cat/elements/slots/catalyst_support/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: mixing_rate - CoreMeta4Cat</title>
+        <title>Slot: catalyst_support - CoreMeta4Cat</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-mixing_rate" class="md-skip">
+        <a href="#slot-catalyst_support" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: mixing_rate
+              Slot: catalyst_support
             
           </span>
         </div>
@@ -746,10 +746,10 @@
   
 
 
-<h1 id="slot-mixing_rate">Slot: mixing_rate</h1>
-<p><em>Stirring rate during mixing of synthesis components.</em></p>
-<p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/mixing_rate">coremeta4cat:mixing_rate</a>
-Alias: mixing_rate</p>
+<h1 id="slot-catalyst_support">Slot: catalyst_support</h1>
+<p><em>Support material on which the active phase is deposited (e.g. Al2O3, SiO2).</em></p>
+<p>URI: <a href="https://w3id.org/nfdi4cat/voc4cat_0008104">VOC4CAT:0008104</a>
+Alias: catalyst_support</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -763,18 +763,8 @@ Alias: mixing_rate</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/CoPrecipitation/">CoPrecipitation</a></td>
-<td>Catalyst preparation by co-precipitation: precursor salts are<br>simultaneously precipitated from solution by a precipitating agent.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/PrecipitationMixin/">PrecipitationMixin</a></td>
-<td>Mixin providing precipitation and wet-chemistry step parameters. Used by<br>preparation methods based on precipitation from solution<br>(CoPrecipitation, DepositionPrecipitation).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/DepositionPrecipitation/">DepositionPrecipitation</a></td>
-<td>Catalyst preparation by deposition-precipitation: the active phase<br>is precipitated directly onto the support surface.</td>
+<td><a href="../../classes/Synthesis/">Synthesis</a></td>
+<td>A DataGeneratingActivity in which a catalyst is prepared.<br><br>The preparation protocol is linked via realized_plan using a<br>PreparationMethod instance. Input materials (Precursors) are linked via<br>had_input_entity. The resulting catalyst (CatalystSample) is linked via<br>had_output_entity.<br><br>The type of synthesis is further specified via rdf_type using an ontology<br>term (e.g. a VOC4CAT preparation method term), following DCAT-AP-PLUS<br>Pattern 3.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -782,7 +772,7 @@ Alias: mixing_rate</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/Float/">Float</a></p>
+<p>Range: <a href="../../types/String/">String</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -804,28 +794,27 @@ Alias: mixing_rate</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>coremeta4cat:mixing_rate</td>
+<td>VOC4CAT:0008104</td>
 </tr>
 <tr>
 <td>native</td>
-<td>coremeta4cat:mixing_rate</td>
+<td>coremeta4cat:catalyst_support</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mixing_rate</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stirring rate during mixing of synthesis components.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_support</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Support material on which the active phase is deposited (e.g. Al2O3,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">SiO2).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:mixing_rate</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mixing_rate</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008104</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_support</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrecipitationMixin</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Synthesis</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">unit</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rpm</span>
 </code></pre></div>
 </details>
 

@@ -959,7 +959,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Synthesis/">Synthesis</a></td>
-<td>A DataGeneratingActivity in which a catalyst is prepared.<br><br>The preparation protocol is linked via realized_plan using a<br>PreparationMethod instance. Input materials (Precursors) are linked via<br>had_input_entity. The resulting catalyst (CatalystSample) is linked via<br>had_output_entity.<br><br>The type of synthesis is further specified via rdf_type using an ontology<br>term (e.g. a voc4cat preparation method term), following DCAT-AP-PLUS<br>Pattern 3.</td>
+<td>A DataGeneratingActivity in which a catalyst is prepared.<br><br>The preparation protocol is linked via realized_plan using a<br>PreparationMethod instance. Input materials (Precursors) are linked via<br>had_input_entity. The resulting catalyst (CatalystSample) is linked via<br>had_output_entity.<br><br>The type of synthesis is further specified via rdf_type using an ontology<br>term (e.g. a VOC4CAT preparation method term), following DCAT-AP-PLUS<br>Pattern 3.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
@@ -1147,7 +1147,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/CatalystSample/">CatalystSample</a></td>
-<td>A MaterialSample that is the product of a catalyst Synthesis.<br>The specific type of catalyst (e.g. heterogeneous, supported metal)<br>is expressed via rdf_type using a voc4cat term.</td>
+<td>A MaterialSample that is the product of a catalyst Synthesis.<br>The specific type of catalyst (e.g. heterogeneous, supported metal)<br>is expressed via rdf_type using a VOC4CAT term.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Precursor/">Precursor</a></td>
@@ -1871,6 +1871,10 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/catalyst_quantity/">catalyst_quantity</a></td>
 <td>Mass of catalyst loaded into the reactor.</td>
+</tr>
+<tr>
+<td><a href="../slots/catalyst_support/">catalyst_support</a></td>
+<td>Support material on which the active phase is deposited (e.g. Al2O3, SiO2).</td>
 </tr>
 <tr>
 <td><a href="../slots/catalyst_type/">catalyst_type</a></td>
@@ -2693,10 +2697,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Device used for mixing (e.g. magnetic stirrer, vortex mixer).</td>
 </tr>
 <tr>
-<td><a href="../slots/mixing_rate/">mixing_rate</a></td>
-<td>Stirring rate during mixing of synthesis components.</td>
-</tr>
-<tr>
 <td><a href="../slots/mixing_temperature/">mixing_temperature</a></td>
 <td>Temperature during mixing.</td>
 </tr>
@@ -3197,6 +3197,10 @@ slots and enums) and the four subprofile modules.</p>
 <td>Duration of stirring or agitation.</td>
 </tr>
 <tr>
+<td><a href="../slots/stirring_rate/">stirring_rate</a></td>
+<td>Stirring rate during mixing of synthesis components.</td>
+</tr>
+<tr>
 <td><a href="../slots/stirring_speed/">stirring_speed</a></td>
 <td>Rotational speed of stirring or agitation.</td>
 </tr>
@@ -3215,10 +3219,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/substrate/">substrate</a></td>
 <td>Substrate material on which the ALD film is deposited.</td>
-</tr>
-<tr>
-<td><a href="../slots/support/">support</a></td>
-<td>Support material on which the active phase is deposited (e.g. Al2O3, SiO2).</td>
 </tr>
 <tr>
 <td><a href="../slots/surface_coverage/">surface_coverage</a></td>

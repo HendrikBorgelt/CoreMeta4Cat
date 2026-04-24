@@ -413,7 +413,7 @@
 <p><em>had_output_entity.</em></p>
 <p>__</p>
 <p><em>The type of synthesis is further specified via rdf_type using an ontology</em></p>
-<p><em>term (e.g. a voc4cat preparation method term), following DCAT-AP-PLUS</em></p>
+<p><em>term (e.g. a VOC4CAT preparation method term), following DCAT-AP-PLUS</em></p>
 <p><em>Pattern 3.</em></p>
 <p>URI: <a href="http://purl.obolibrary.org/obo/OBI_0000070">OBI:0000070</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -434,6 +434,8 @@
 
 
       Synthesis : catalyst_measured_properties
+
+      Synthesis : catalyst_support
 
       Synthesis : description
 
@@ -590,8 +592,6 @@
 
       Synthesis : storage_conditions
 
-      Synthesis : support
-
       Synthesis : title
 
       Synthesis : type
@@ -647,7 +647,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../../slots/support/">support</a></td>
+<td><a href="../../slots/catalyst_support/">catalyst_support</a></td>
 <td>* <br/> <a href="../../types/String/">String</a></td>
 <td>Support material on which the active phase is deposited (e.g. Al2O3, SiO2).</td>
 <td>direct</td>
@@ -817,7 +817,7 @@
 
 <span class="w">  </span><span class="s">The</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">synthesis</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">further</span><span class="nv"> </span><span class="s">specified</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">rdf_type</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">ontology</span>
 
-<span class="w">  </span><span class="s">term</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">voc4cat</span><span class="nv"> </span><span class="s">preparation</span><span class="nv"> </span><span class="s">method</span><span class="nv"> </span><span class="s">term),</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">DCAT-AP-PLUS</span>
+<span class="w">  </span><span class="s">term</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">VOC4CAT</span><span class="nv"> </span><span class="s">preparation</span><span class="nv"> </span><span class="s">method</span><span class="nv"> </span><span class="s">term),</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">DCAT-AP-PLUS</span>
 
 <span class="w">  </span><span class="s">Pattern</span><span class="nv"> </span><span class="s">3.'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
@@ -826,7 +826,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nominal_composition</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_measured_properties</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage_conditions</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">support</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_support</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">solvent</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample_pretreatment</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
@@ -878,7 +878,7 @@
 
 <span class="w">  </span><span class="s">The</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">synthesis</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">further</span><span class="nv"> </span><span class="s">specified</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">rdf_type</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">ontology</span>
 
-<span class="w">  </span><span class="s">term</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">voc4cat</span><span class="nv"> </span><span class="s">preparation</span><span class="nv"> </span><span class="s">method</span><span class="nv"> </span><span class="s">term),</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">DCAT-AP-PLUS</span>
+<span class="w">  </span><span class="s">term</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">VOC4CAT</span><span class="nv"> </span><span class="s">preparation</span><span class="nv"> </span><span class="s">method</span><span class="nv"> </span><span class="s">term),</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">DCAT-AP-PLUS</span>
 
 <span class="w">  </span><span class="s">Pattern</span><span class="nv"> </span><span class="s">3.'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
@@ -948,7 +948,7 @@
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">4°C).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:storage_conditions</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008105</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage_conditions</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Synthesis</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -956,14 +956,14 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">recommended</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">support</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">support</span>
+<span class="w">  </span><span class="nt">catalyst_support</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_support</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Support material on which the active phase is deposited (e.g. Al2O3,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">SiO2).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:support</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">support</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008104</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">catalyst_support</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Synthesis</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Synthesis</span>

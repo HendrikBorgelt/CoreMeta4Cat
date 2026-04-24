@@ -407,7 +407,7 @@
 <h1 id="class-coprecipitation">Class: CoPrecipitation</h1>
 <p><em>Catalyst preparation by co-precipitation: precursor salts are</em></p>
 <p><em>simultaneously precipitated from solution by a precipitating agent.</em></p>
-<p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/CoPrecipitation">coremeta4cat:CoPrecipitation</a></p>
+<p>URI: <a href="https://w3id.org/nfdi4cat/voc4cat_0007795">VOC4CAT:0007795</a></p>
 <pre class="mermaid"><code> classDiagram
     class CoPrecipitation
     click CoPrecipitation href "../../classes/CoPrecipitation/"
@@ -448,8 +448,6 @@
 
       CoPrecipitation : filtration
 
-      CoPrecipitation : mixing_rate
-
       CoPrecipitation : mixing_temperature
 
       CoPrecipitation : mixing_time
@@ -474,6 +472,8 @@
         click DefinedTerm href "../../classes/DefinedTerm/"
 
 
+
+      CoPrecipitation : stirring_rate
 
       CoPrecipitation : synthesis_ph
 
@@ -532,7 +532,7 @@
 <td><a href="../PrecipitationMixin/">PrecipitationMixin</a></td>
 </tr>
 <tr>
-<td><a href="../../slots/mixing_rate/">mixing_rate</a></td>
+<td><a href="../../slots/stirring_rate/">stirring_rate</a></td>
 <td>* <br/> <a href="../../types/Float/">Float</a></td>
 <td>Stirring rate during mixing of synthesis components.</td>
 <td><a href="../PrecipitationMixin/">PrecipitationMixin</a></td>
@@ -687,7 +687,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>coremeta4cat:CoPrecipitation</td>
+<td>VOC4CAT:0007795</td>
 </tr>
 <tr>
 <td>native</td>
@@ -709,7 +709,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrecipitationMixin</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DryingMixin</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CalcinationMixin</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:CoPrecipitation</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0007795</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
@@ -730,7 +730,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chemical agent used to induce precipitation (e.g. NaOH, NH3).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:precipitating_agent</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008203</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">precipitating_agent</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -763,13 +763,13 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrecipitationMixin</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">mixing_rate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mixing_rate</span>
+<span class="w">  </span><span class="nt">stirring_rate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stirring_rate</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stirring rate during mixing of synthesis components.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:mixing_rate</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mixing_rate</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008114</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stirring_rate</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrecipitationMixin</span>
@@ -861,7 +861,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration of the aging step.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:aging_time</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008204</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aging_time</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -888,7 +888,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature applied during drying.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:drying_temperature</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008207</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">drying_temperature</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -902,7 +902,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Duration of the drying step.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:drying_time</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008206</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">drying_time</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -916,7 +916,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atmosphere maintained during drying (e.g. air, N2).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:drying_atmosphere</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0008208</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">drying_atmosphere</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoPrecipitation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -1149,7 +1149,7 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
 <span class="w">    </span><span class="nt">recommended</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:CoPrecipitation</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0007795</span>
 </code></pre></div>
 </details>
 </article>
