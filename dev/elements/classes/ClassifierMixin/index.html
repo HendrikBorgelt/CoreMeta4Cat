@@ -415,6 +415,10 @@
 <pre class="mermaid"><code> classDiagram
     class ClassifierMixin
     click ClassifierMixin href "../../classes/ClassifierMixin/"
+      ClassifierMixin &lt;|-- CatalysisDataset
+        click CatalysisDataset href "../../classes/CatalysisDataset/"
+      ClassifierMixin &lt;|-- QuantitativeRange
+        click QuantitativeRange href "../../classes/QuantitativeRange/"
       ClassifierMixin &lt;|-- Activity
         click Activity href "../../classes/Activity/"
       ClassifierMixin &lt;|-- AgenticEntity
@@ -489,6 +493,14 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../CatalysisDataset/">CatalysisDataset</a></td>
+<td>A dcat:Dataset that contains research data in the field of catalysis.<br/><br/>The catalysis research field is expressed via rdf_type using a voc4cat<br/>term from CatalysisResearchFieldEnum (following DCAT-AP-PLUS Pattern 3).<br/>For example, a dataset from heterogeneous catalysis research would carry:<br/>  rdf_type:<br/>    id: VOC4CAT:0007001<br/>    title: "heterogeneous catalysis"<br/><br/>The four CoreMeta4Cat minimum information pillars are linked via the slots<br/>below, each pointing to the corresponding DataGeneratingActivity or<br/>EvaluatedActivity subclass defined in the CoreMeta4Cat subprofile modules.</td>
+</tr>
+<tr>
+<td><a href="../QuantitativeRange/">QuantitativeRange</a></td>
+<td>A quantitative property expressed as a range between a lower and upper bound,<br/>sharing a common unit. Used where an experiment operates over a range of<br/>conditions (e.g. a temperature sweep, a feed concentration window).<br/><br/>Aligned to qudt:Quantity (as in the DCAT-AP-PLUS QuantitativeAttribute pattern)<br/>but with min_value / max_value instead of a single value to represent an<br/>interval rather than a point value. Provide the shared unit as a QUDT DefinedTerm.</td>
+</tr>
 <tr>
 <td><a href="../Activity/">Activity</a></td>
 <td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>

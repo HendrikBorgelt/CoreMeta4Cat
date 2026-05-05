@@ -767,6 +767,11 @@ Alias: acceleration_voltage</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="../../classes/ScanningElectronMicroscopy/">ScanningElectronMicroscopy</a></td>
+<td>SEM for surface morphology and particle size/shape imaging.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../../classes/ElectronMicroscopyMixin/">ElectronMicroscopyMixin</a></td>
 <td>Mixin providing electron gun and image parameters shared by electron<br>microscopy techniques (TransmissionElectronMicroscopy,<br>ScanningElectronMicroscopy).</td>
 <td>no</td>
@@ -776,17 +781,12 @@ Alias: acceleration_voltage</p>
 <td>TEM for atomic-resolution imaging and diffraction of catalyst particles.</td>
 <td>no</td>
 </tr>
-<tr>
-<td><a href="../../classes/ScanningElectronMicroscopy/">ScanningElectronMicroscopy</a></td>
-<td>SEM for surface morphology and particle size/shape imaging.</td>
-<td>no</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/Float/">Float</a></p>
+<p>Range: <a href="../../classes/ElectricPotential/">ElectricPotential</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -826,10 +826,10 @@ Alias: acceleration_voltage</p>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">acceleration_voltage</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ElectronMicroscopyMixin</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ElectricPotential</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">unit</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kV</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

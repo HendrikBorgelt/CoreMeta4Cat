@@ -752,7 +752,7 @@
 
 <h1 id="slot-k_point_mesh">Slot: k_point_mesh</h1>
 <p><em>Monkhorst-Pack k-point mesh used for Brillouin zone sampling</em></p>
-<p><em>(e.g. "4×4×1" for a surface slab, "8×8×8" for a bulk cell).</em></p>
+<p><em>(e.g. "4x4x1" for a surface slab, "8x8x8" for a bulk cell).</em></p>
 <p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/k_point_mesh">coremeta4cat:k_point_mesh</a>
 Alias: k_point_mesh</p>
 <!-- no inheritance hierarchy -->
@@ -768,13 +768,13 @@ Alias: k_point_mesh</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/ElectronicStructure/">ElectronicStructure</a></td>
-<td>Electronic band structure and density of states, characterising the<br>electronic properties of a catalyst relevant to activity descriptors<br>(d-band centre, band gap, Fermi energy).</td>
+<td><a href="../../classes/DielectricTensors/">DielectricTensors</a></td>
+<td>Dielectric tensor computed from density functional perturbation theory (DFPT).<br>Characterises the optical and static dielectric response of a material.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/DielectricTensors/">DielectricTensors</a></td>
-<td>Dielectric tensor computed from density functional perturbation theory (DFPT).<br>Characterises the optical and static dielectric response of a material.</td>
+<td><a href="../../classes/EquationsOfState/">EquationsOfState</a></td>
+<td>Equation of state relating energy (or enthalpy) to volume, fitted to a<br>parametric model (e.g. Birch-Murnaghan). Used to extract equilibrium<br>volume, bulk modulus, and its pressure derivative.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -783,13 +783,13 @@ Alias: k_point_mesh</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/BandGap/">BandGap</a></td>
-<td>Electronic band gap and its character (direct/indirect), with optional<br>many-body (GW) or excitonic corrections. Critical for photocatalyst<br>and semiconductor catalyst screening.</td>
+<td><a href="../../classes/ElectronicStructure/">ElectronicStructure</a></td>
+<td>Electronic band structure and density of states, characterising the<br>electronic properties of a catalyst relevant to activity descriptors<br>(d-band centre, band gap, Fermi energy).</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/EquationsOfState/">EquationsOfState</a></td>
-<td>Equation of state relating energy (or enthalpy) to volume, fitted to a<br>parametric model (e.g. Birch-Murnaghan). Used to extract equilibrium<br>volume, bulk modulus, and its pressure derivative.</td>
+<td><a href="../../classes/BandGap/">BandGap</a></td>
+<td>Electronic band gap and its character (direct/indirect), with optional<br>many-body (GW) or excitonic corrections. Critical for photocatalyst<br>and semiconductor catalyst screening.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -832,7 +832,7 @@ Alias: k_point_mesh</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k_point_mesh</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Monkhorst-Pack</span><span class="nv"> </span><span class="s">k-point</span><span class="nv"> </span><span class="s">mesh</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Brillouin</span><span class="nv"> </span><span class="s">zone</span><span class="nv"> </span><span class="s">sampling</span>
 
-<span class="w">  </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">&quot;4×4×1&quot;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">surface</span><span class="nv"> </span><span class="s">slab,</span><span class="nv"> </span><span class="s">&quot;8×8×8&quot;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">bulk</span><span class="nv"> </span><span class="s">cell).&#39;</span>
+<span class="w">  </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">&quot;4x4x1&quot;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">surface</span><span class="nv"> </span><span class="s">slab,</span><span class="nv"> </span><span class="s">&quot;8x8x8&quot;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">bulk</span><span class="nv"> </span><span class="s">cell).&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:k_point_mesh</span>

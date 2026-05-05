@@ -751,8 +751,9 @@
 
 
 <h1 id="slot-reactor_temperature_range">Slot: reactor_temperature_range</h1>
-<p><em>Temperature range used in the reactor during the reaction, expressed</em></p>
-<p><em>as a string range (e.g. "200–400 °C") or a single set-point.</em></p>
+<p><em>Temperature range in the reactor during the reaction, provided as a</em></p>
+<p><em>QuantitativeRange with min_value and max_value (unit_code: "Cel").</em></p>
+<p><em>For a single set-point, set min_value equal to max_value.</em></p>
 <p>URI: <a href="https://w3id.org/nfdi4cat/voc4cat_0007032">VOC4CAT:0007032</a>
 Alias: reactor_temperature_range</p>
 <!-- no inheritance hierarchy -->
@@ -768,8 +769,8 @@ Alias: reactor_temperature_range</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Reaction/">Reaction</a></td>
-<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a ReactorDesignType (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
+<td><a href="../../classes/CatalyticReaction/">CatalyticReaction</a></td>
+<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a Reactor (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -777,7 +778,7 @@ Alias: reactor_temperature_range</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/String/">String</a></p>
+<p>Range: <a href="../../classes/QuantitativeRange/">QuantitativeRange</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -810,17 +811,21 @@ Alias: reactor_temperature_range</p>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reactor_temperature_range</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Temperature</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reactor</span><span class="nv"> </span><span class="s">during</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reaction,</span><span class="nv"> </span><span class="s">expressed</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Temperature</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reactor</span><span class="nv"> </span><span class="s">during</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reaction,</span><span class="nv"> </span><span class="s">provided</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span>
 
-<span class="w">  </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">&quot;200–400</span><span class="nv"> </span><span class="s">°C&quot;)</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">single</span><span class="nv"> </span><span class="s">set-point.&#39;</span>
+<span class="w">  </span><span class="s">QuantitativeRange</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">min_value</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">max_value</span><span class="nv"> </span><span class="s">(unit_code:</span><span class="nv"> </span><span class="s">&quot;Cel&quot;).</span>
+
+<span class="w">  </span><span class="s">For</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">single</span><span class="nv"> </span><span class="s">set-point,</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">min_value</span><span class="nv"> </span><span class="s">equal</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">max_value.&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0007032</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reactor_temperature_range</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reaction</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalyticReaction</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

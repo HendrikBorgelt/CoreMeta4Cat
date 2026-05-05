@@ -689,23 +689,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema Source
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -751,8 +734,7 @@
 
 
 <h1 id="slot-has_quantity_type">Slot: has_quantity_type</h1>
-<p><em>The type of quality that is quantifiable according to the QUDT ontology.</em></p>
-<p>URI: <a href="http://qudt.org/schema/qudt/hasQuantityKind">qudt:hasQuantityKind</a>
+<p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/slot/has_quantity_type">coremeta4cat:slot/has_quantity_type</a>
 Alias: has_quantity_type</p>
 <!-- no inheritance hierarchy -->
 
@@ -767,6 +749,86 @@ Alias: has_quantity_type</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="../../classes/PowerQuantity/">PowerQuantity</a></td>
+<td>Rate of energy transfer per unit time (e.g. laser power in mW).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/QuantitativeAttribute/">QuantitativeAttribute</a></td>
+<td>A quantifiable piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/LengthQuantity/">LengthQuantity</a></td>
+<td>A quantitative measure of length or spatial dimension (nm, mm, cm).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/MolarMass/">MolarMass</a></td>
+<td>A Mass (physical quality) that quantifies the mass of a homogeneous ChemicalSubstance containing 6.02 x 10^23 atoms or molecules.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Duration/">Duration</a></td>
+<td>A quantitative measure of elapsed time (duration of a process step).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/AngularVelocity/">AngularVelocity</a></td>
+<td>Rate of rotational motion, typically expressed in revolutions per minute.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Yield/">Yield</a></td>
+<td>A dimensionless physical quantity describing the fraction of a product B that is formed from a reactant A taking into account the stoichiometry. If A fully reacts to B without side-reactions, the yield of product B is 1 (or 100 %).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/ElectricPotential/">ElectricPotential</a></td>
+<td>A quantitative measure of electric potential difference or voltage.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/EnergyQuantity/">EnergyQuantity</a></td>
+<td>A quantitative measure of energy (eV, keV, kJ/mol, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Volume/">Volume</a></td>
+<td>A measure of regions in three-dimensional space.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Wavenumber/">Wavenumber</a></td>
+<td>Reciprocal of wavelength; number of wave cycles per unit length (cm^-1).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/PHValue/">PHValue</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Mass/">Mass</a></td>
+<td>The strength of a body's gravitational attraction to other bodies.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Pressure/">Pressure</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Concentration/">Concentration</a></td>
+<td>A QuantitativeAttribute of a ChemicalSubstance that represents the amount of a constituent divided by the volume of the mixture.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/MolarEquivalent/">MolarEquivalent</a></td>
+<td>A dimensionless ratio that quantifies the stoichiometric proportion of a chemical substance relative to a reference substance in a chemical reaction.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../../classes/AmountOfSubstance/">AmountOfSubstance</a></td>
 <td>The total amount of substance used in a ChemicalReaction.</td>
 <td>no</td>
@@ -777,28 +839,13 @@ Alias: has_quantity_type</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/MolarMass/">MolarMass</a></td>
-<td>A Mass (physical quality) that quantifies the mass of a homogeneous ChemicalSubstance containing 6.02 x 10^23 atoms or molecules.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Mass/">Mass</a></td>
-<td>The strength of a body's gravitational attraction to other bodies.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Yield/">Yield</a></td>
-<td>A dimensionless physical quantity describing the fraction of a product B that is formed from a reactant A taking into account the stoichiometry. If A fully reacts to B without side-reactions, the yield of product B is 1 (or 100 %).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Volume/">Volume</a></td>
-<td>A measure of regions in three-dimensional space.</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../../classes/Density/">Density</a></td>
 <td>A measure of the mass per unit volume of a substance.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/QuantitativeRange/">QuantitativeRange</a></td>
+<td>A quantitative property expressed as a range between a lower and upper bound,<br>sharing a common unit. Used where an experiment operates over a range of<br>conditions (e.g. a temperature sweep, a feed concentration window).<br><br>Aligned to qudt:Quantity (as in the DCAT-AP-PLUS QuantitativeAttribute pattern)<br>but with min_value / max_value instead of a single value to represent an<br>interval rather than a point value. Provide the shared unit as a QUDT DefinedTerm.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -807,46 +854,32 @@ Alias: has_quantity_type</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/MolarEquivalent/">MolarEquivalent</a></td>
-<td>A dimensionless ratio that quantifies the stoichiometric proportion of a chemical substance relative to a reference substance in a chemical reaction.</td>
+<td><a href="../../classes/HeatingRate/">HeatingRate</a></td>
+<td>Rate of temperature change per unit time during a thermal ramp.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/PHValue/">PHValue</a></td>
-<td></td>
+<td><a href="../../classes/MassToChargeRatio/">MassToChargeRatio</a></td>
+<td>Ratio of mass to electric charge (m/z) in mass spectrometry.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/Pressure/">Pressure</a></td>
-<td></td>
+<td><a href="../../classes/PlaneAngle/">PlaneAngle</a></td>
+<td>A quantitative measure of a plane angle (e.g. scattering angle in degrees).</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/QuantitativeAttribute/">QuantitativeAttribute</a></td>
-<td>A quantifiable piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Concentration/">Concentration</a></td>
-<td>A QuantitativeAttribute of a ChemicalSubstance that represents the amount of a constituent divided by the volume of the mixture.</td>
+<td><a href="../../classes/VolumeFlowRate/">VolumeFlowRate</a></td>
+<td>Volume of fluid passing a given point per unit time.</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../../classes/DefinedTerm/">DefinedTerm</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../../types/String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/nfdi4cat/coremeta4cat</li>
-</ul>
 <h2 id="mappings">Mappings</h2>
 <table>
 <thead>
@@ -858,7 +891,7 @@ Alias: has_quantity_type</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>qudt:hasQuantityKind</td>
+<td>coremeta4cat:has_quantity_type</td>
 </tr>
 <tr>
 <td>native</td>
@@ -869,22 +902,11 @@ Alias: has_quantity_type</p>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantity_type</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The type of quality that is quantifiable according to the QUDT ontology.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:hasQuantityKind</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantity_type</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
-<span class="nt">bindings</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QUDTQuantityKindEnum</span>
-<span class="w">  </span><span class="nt">obligation_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RECOMMENDED</span>
-<span class="w">  </span><span class="nt">binds_value_of</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Binds the type of a quantifiable attribute to a QUDT Quantity Kind</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">instance from the QUDT Quantity Kind vocabulary.</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
 </details>
 

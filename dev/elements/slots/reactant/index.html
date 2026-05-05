@@ -751,8 +751,9 @@
 
 
 <h1 id="slot-reactant">Slot: reactant</h1>
-<p><em>Reactant(s) used in the reaction. Provide compound name, CAS number,</em></p>
-<p><em>or SMILES. For feeds, include composition and flow rate where known.</em></p>
+<p><em>Reactant(s) or feed chemicals used in the reaction. Provide a ChemicalEntity</em></p>
+<p><em>instance with inchikey, smiles, or iupac_name. For feed mixtures, list each</em></p>
+<p><em>component as a separate ChemicalEntity and record composition via has_concentration.</em></p>
 <p>URI: <a href="https://w3id.org/nfdi4cat/voc4cat_0000101">VOC4CAT:0000101</a>
 Alias: reactant</p>
 <!-- no inheritance hierarchy -->
@@ -768,8 +769,8 @@ Alias: reactant</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Reaction/">Reaction</a></td>
-<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a ReactorDesignType (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
+<td><a href="../../classes/CatalyticReaction/">CatalyticReaction</a></td>
+<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a Reactor (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -777,7 +778,7 @@ Alias: reactant</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/String/">String</a></p>
+<p>Range: <a href="../../classes/ChemicalEntity/">ChemicalEntity</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -813,18 +814,22 @@ Alias: reactant</p>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reactant</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Reactant(s)</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reaction.</span><span class="nv"> </span><span class="s">Provide</span><span class="nv"> </span><span class="s">compound</span><span class="nv"> </span><span class="s">name,</span><span class="nv"> </span><span class="s">CAS</span><span class="nv"> </span><span class="s">number,</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Reactant(s)</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">feed</span><span class="nv"> </span><span class="s">chemicals</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">reaction.</span><span class="nv"> </span><span class="s">Provide</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ChemicalEntity</span>
 
-<span class="w">  </span><span class="s">or</span><span class="nv"> </span><span class="s">SMILES.</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">feeds,</span><span class="nv"> </span><span class="s">include</span><span class="nv"> </span><span class="s">composition</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">flow</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">where</span><span class="nv"> </span><span class="s">known.&#39;</span>
+<span class="w">  </span><span class="s">instance</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">inchikey,</span><span class="nv"> </span><span class="s">smiles,</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">iupac_name.</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">feed</span><span class="nv"> </span><span class="s">mixtures,</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">each</span>
+
+<span class="w">  </span><span class="s">component</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">ChemicalEntity</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">composition</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">has_concentration.&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0000101</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reactant</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reaction</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalyticReaction</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChemicalEntity</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

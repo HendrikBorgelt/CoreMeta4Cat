@@ -425,6 +425,16 @@
         click ClassifierMixin href "../../classes/ClassifierMixin/"
 
 
+      QualitativeAttribute &lt;|-- Atmosphere
+        click Atmosphere href "../../classes/Atmosphere/"
+      QualitativeAttribute &lt;|-- HeatingProcedure
+        click HeatingProcedure href "../../classes/HeatingProcedure/"
+      QualitativeAttribute &lt;|-- SamplePretreatment
+        click SamplePretreatment href "../../classes/SamplePretreatment/"
+      QualitativeAttribute &lt;|-- VesselType
+        click VesselType href "../../classes/VesselType/"
+      QualitativeAttribute &lt;|-- OperationMode
+        click OperationMode href "../../classes/OperationMode/"
       QualitativeAttribute &lt;|-- InChIKey
         click InChIKey href "../../classes/InChIKey/"
       QualitativeAttribute &lt;|-- InChi
@@ -472,6 +482,11 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>QualitativeAttribute</strong> [ <a href="../ClassifierMixin/">ClassifierMixin</a>]<ul>
+<li><a href="../Atmosphere/">Atmosphere</a></li>
+<li><a href="../HeatingProcedure/">HeatingProcedure</a></li>
+<li><a href="../SamplePretreatment/">SamplePretreatment</a></li>
+<li><a href="../VesselType/">VesselType</a></li>
+<li><a href="../OperationMode/">OperationMode</a></li>
 <li><a href="../InChIKey/">InChIKey</a></li>
 <li><a href="../InChi/">InChi</a></li>
 <li><a href="../MolecularFormula/">MolecularFormula</a></li>
@@ -560,13 +575,13 @@
 <td><a href="./">QualitativeAttribute</a></td>
 </tr>
 <tr>
-<td><a href="../Reaction/">Reaction</a></td>
+<td><a href="../CatalyticReaction/">CatalyticReaction</a></td>
 <td><a href="../../slots/has_qualitative_attribute/">has_qualitative_attribute</a></td>
 <td>range</td>
 <td><a href="./">QualitativeAttribute</a></td>
 </tr>
 <tr>
-<td><a href="../ReactorDesignType/">ReactorDesignType</a></td>
+<td><a href="../ChemicalReactor/">ChemicalReactor</a></td>
 <td><a href="../../slots/has_qualitative_attribute/">has_qualitative_attribute</a></td>
 <td>range</td>
 <td><a href="./">QualitativeAttribute</a></td>
@@ -849,6 +864,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QualitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
@@ -897,6 +913,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QualitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>

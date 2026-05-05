@@ -751,8 +751,9 @@
 
 
 <h1 id="slot-feed_composition_range">Slot: feed_composition_range</h1>
-<p><em>Feed gas or liquid composition range studied (e.g. "1–10 vol% CO in N2").</em></p>
-<p><em>Record as a string; for individual component concentrations use reactant.</em></p>
+<p><em>Feed composition range studied, provided as a QuantitativeRange.</em></p>
+<p><em>Express concentration bounds in an appropriate unit (e.g. "mol/L", "%" for</em></p>
+<p><em>vol% or mol%). For fixed-composition experiments use reactant.has_concentration.</em></p>
 <p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/feed_composition_range">coremeta4cat:feed_composition_range</a>
 Alias: feed_composition_range</p>
 <!-- no inheritance hierarchy -->
@@ -768,8 +769,8 @@ Alias: feed_composition_range</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Reaction/">Reaction</a></td>
-<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a ReactorDesignType (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
+<td><a href="../../classes/CatalyticReaction/">CatalyticReaction</a></td>
+<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a Reactor (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -777,7 +778,7 @@ Alias: feed_composition_range</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/String/">String</a></p>
+<p>Range: <a href="../../classes/QuantitativeRange/">QuantitativeRange</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -810,18 +811,21 @@ Alias: feed_composition_range</p>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feed_composition_range</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Feed</span><span class="nv"> </span><span class="s">gas</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">liquid</span><span class="nv"> </span><span class="s">composition</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">studied</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">&quot;1–10</span><span class="nv"> </span><span class="s">vol%</span><span class="nv"> </span><span class="s">CO</span><span class="nv"> </span><span class="s">in</span>
-<span class="w">  </span><span class="s">N2&quot;).</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Feed</span><span class="nv"> </span><span class="s">composition</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">studied,</span><span class="nv"> </span><span class="s">provided</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">QuantitativeRange.</span>
 
-<span class="w">  </span><span class="s">Record</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">string;</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">individual</span><span class="nv"> </span><span class="s">component</span><span class="nv"> </span><span class="s">concentrations</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">reactant.&#39;</span>
+<span class="w">  </span><span class="s">Express</span><span class="nv"> </span><span class="s">concentration</span><span class="nv"> </span><span class="s">bounds</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">appropriate</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">&quot;mol/L&quot;,</span><span class="nv"> </span><span class="s">&quot;%&quot;</span><span class="nv"> </span><span class="s">for</span>
+
+<span class="w">  </span><span class="s">vol%</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">mol%).</span><span class="nv"> </span><span class="s">For</span><span class="nv"> </span><span class="s">fixed-composition</span><span class="nv"> </span><span class="s">experiments</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">reactant.has_concentration.&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:feed_composition_range</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feed_composition_range</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reaction</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalyticReaction</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

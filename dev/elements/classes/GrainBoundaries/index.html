@@ -509,7 +509,7 @@
 <tr>
 <td><a href="../../slots/simulation_cell_size/">simulation_cell_size</a></td>
 <td>* <br/> <a href="../../types/String/">String</a></td>
-<td>Dimensions of the simulation cell used to model the grain boundary<br/>(e.g. "10×10×30 nm").</td>
+<td>Dimensions of the simulation cell used to model the grain boundary<br/>(e.g. "10x10x30 nm").</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -539,7 +539,7 @@
 <tr>
 <td><a href="../../slots/crystal_structure/">crystal_structure</a></td>
 <td>* <br> <a href="../../types/String/">String</a></br></td>
-<td>Crystal structure of the simulated material, including space group and<br/>lattice parameters (e.g. "Fm-3m, a=3.92 Å for Pt").</td>
+<td>Crystal structure of the simulated material, including space group and<br/>lattice parameters (e.g. "Fm-3m, a=3.92 A for Pt").</td>
 <td><a href="../MaterialDescriptorMixin/">MaterialDescriptorMixin</a></td>
 </tr>
 <tr>
@@ -682,7 +682,7 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simulation_cell_size</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Dimensions</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">simulation</span><span class="nv"> </span><span class="s">cell</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">grain</span><span class="nv"> </span><span class="s">boundary</span>
 
-<span class="w">      </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">"10×10×30</span><span class="nv"> </span><span class="s">nm").'</span>
+<span class="w">      </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">"10x10x30</span><span class="nv"> </span><span class="s">nm").'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:simulation_cell_size</span>
@@ -751,7 +751,7 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Crystal</span><span class="nv"> </span><span class="s">structure</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">simulated</span><span class="nv"> </span><span class="s">material,</span><span class="nv"> </span><span class="s">including</span><span class="nv"> </span><span class="s">space</span><span class="nv"> </span><span class="s">group</span>
 <span class="w">      </span><span class="s">and</span>
 
-<span class="w">      </span><span class="s">lattice</span><span class="nv"> </span><span class="s">parameters</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">"Fm-3m,</span><span class="nv"> </span><span class="s">a=3.92</span><span class="nv"> </span><span class="s">Å</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Pt").'</span>
+<span class="w">      </span><span class="s">lattice</span><span class="nv"> </span><span class="s">parameters</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">"Fm-3m,</span><span class="nv"> </span><span class="s">a=3.92</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Pt").'</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIO:001100</span>
@@ -771,6 +771,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GrainBoundaries</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
@@ -819,6 +820,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GrainBoundaries</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>

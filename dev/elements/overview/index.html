@@ -920,7 +920,7 @@ slots and enums) and the four subprofile modules.</p>
                                   +-- dcat_ap_plus  (DCAT-AP-PLUS base)
     +-- coremeta4cat_synthesis_ap         (Step 3 — Synthesis, PreparationMethod, mixins)
     +-- coremeta4cat_characterization_ap  (Step 4 — Characterization, 24 techniques, mixins)
-    +-- coremeta4cat_reaction_ap          (Step 5 — Reaction, 8 ReactorDesignTypes)
+    +-- coremeta4cat_reaction_ap          (Step 5 — Reaction, 8 Reactor subclasses)
     +-- coremeta4cat_simulation_ap        (Step 6 — Simulation, 4 methods, 12 properties, mixins)</p>
 <p>URI: https://w3id.org/nfdi4cat/coremeta4cat</p>
 <p>Name: coremeta4cat-metadata</p>
@@ -970,12 +970,12 @@ slots and enums) and the four subprofile modules.</p>
 <td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/ChemicalReaction/">ChemicalReaction</a></td>
-<td>A process that leads to the transformation of one set of chemical substances to another and that is the subject matter of a DataGeneratingActivity.</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/CatalyticReaction/">CatalyticReaction</a></td>
+<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a Reactor (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Reaction/">Reaction</a></td>
-<td>An EvaluatedActivity representing the catalytic reaction being studied.<br><br>Reaction is NOT a DataGeneratingActivity — it is the catalytic process<br>being observed, not the process that generates the dataset. A CatalysisDataset<br>is linked to the Reaction it is about via is_about_activity.<br><br>For operando experiments (e.g. in-situ XRD during a reaction), the dataset<br>carries both:<br>  was_generated_by: Characterization  (the measurement producing data)<br>  is_about_activity: Reaction         (the catalytic process being monitored)<br><br>The reactor is linked via carried_out_by as a ReactorDesignType (Device).<br>Reactants are linked via had_input_entity. The type of catalytic reaction<br>(e.g. ammonia synthesis, CO oxidation) is expressed via rdf_type using a<br>voc4cat or ChemO term.</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/ChemicalReaction/">ChemicalReaction</a></td>
+<td>A process that leads to the transformation of one set of chemical substances to another and that is the subject matter of a DataGeneratingActivity.</td>
 </tr>
 <tr>
 <td><a href="../classes/Agent/">Agent</a></td>
@@ -994,12 +994,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Reactor/">Reactor</a></td>
-<td>A reactor is a container for controlling a biological or chemical reaction or process.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/ReactorDesignType/">ReactorDesignType</a></td>
-<td>Abstract Device representing the type of reactor used in a catalytic experiment.<br>Concrete subclasses specify the reactor geometry and operating mode.<br>Linked from Reaction via carried_out_by.</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/ChemicalReactor/">ChemicalReactor</a></td>
+<td>Abstract Device subclass representing a catalytic reactor vessel.<br><br>Reactor is more specific than the general Device (AgenticEntity): it restricts<br>carried_out_by on Reaction to dedicated reactor equipment. This semantic<br>distinction separates analytical instruments (Device) from reaction vessels<br>(Reactor) in the carried_out_by relationship.<br><br>Concrete subclasses (FixedBedReactor, CSTR, PlugFlowReactor, …) specify<br>reactor geometry and operating mode.<br>Linked from Reaction via carried_out_by (restricted to range: Reactor).</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Autoclave/">Autoclave</a></td>
@@ -1032,6 +1028,10 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/SlurryReactor/">SlurryReactor</a></td>
 <td>Slurry reactor — a three-phase reactor in which catalyst particles are<br>suspended in a liquid phase through which gas is bubbled.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Reactor/">Reactor</a></td>
+<td>A reactor is a container for controlling a biological or chemical reaction or process.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/DissolvingSubstance/">DissolvingSubstance</a></td>
@@ -1426,6 +1426,14 @@ slots and enums) and the four subprofile modules.</p>
 <td>A piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Atmosphere/">Atmosphere</a></td>
+<td>A qualitative descriptor of the gaseous environment or atmospheric<br>conditions during a process (e.g. "air", "N2", "5% H2/Ar").</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/CalcinationGaseousEnvironment/">CalcinationGaseousEnvironment</a></td>
+<td>The specific gaseous environment maintained during a calcination step<br>(e.g. "air", "N2", "10% O2/N2").</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/CalculatedProperty/">CalculatedProperty</a></td>
 <td>Abstract QualitativeAttribute representing a property computed by a<br>Simulation. Concrete subclasses carry the property-specific output<br>values and the computational settings used to produce them.<br>Linked from Simulation via the calculated_property slot.</td>
 </tr>
@@ -1478,6 +1486,10 @@ slots and enums) and the four subprofile modules.</p>
 <td>Thermodynamic stability of a material or phase, characterised by formation<br>energy, convex hull distance, and competing phases. Used to screen catalyst<br>stability and predict synthesis feasibility.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/HeatingProcedure/">HeatingProcedure</a></td>
+<td>A qualitative descriptor of the thermal programme or heating procedure<br>applied (e.g. "isothermal", "ramp 5 °C/min to 500 °C, dwell 2 h").</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/InChi/">InChi</a></td>
 <td>A structure descriptor which conforms to the InChI format specification.</td>
 </tr>
@@ -1494,8 +1506,20 @@ slots and enums) and the four subprofile modules.</p>
 <td>A structure descriptor which identifies each constituent element by its chemical symbol and indicates the number of atoms of each element found in each discrete molecule of that compound.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/OperationMode/">OperationMode</a></td>
+<td>A qualitative descriptor of the operation mode of an instrument or<br>process (e.g. "transmission", "reflection", "AC", "DC", "full-scan").</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/SamplePretreatment/">SamplePretreatment</a></td>
+<td>A qualitative descriptor of the pre-treatment applied to a sample<br>before a process or measurement (e.g. "reduction at 300 °C", "outgassing").</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/SMILES/">SMILES</a></td>
 <td>A structure descriptor that denotes a molecular structure as a graph and conforms to the SMILES format specification.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/VesselType/">VesselType</a></td>
+<td>A qualitative descriptor of the type of reaction or synthesis vessel<br>used (e.g. "autoclave", "round-bottom flask", "Schlenk tube").</td>
 </tr>
 <tr>
 <td><a href="../classes/QuantitativeAttribute/">QuantitativeAttribute</a></td>
@@ -1506,6 +1530,10 @@ slots and enums) and the four subprofile modules.</p>
 <td>The total amount of substance used in a ChemicalReaction.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/AngularVelocity/">AngularVelocity</a></td>
+<td>Rate of rotational motion, typically expressed in revolutions per minute.</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Concentration/">Concentration</a></td>
 <td>A QuantitativeAttribute of a ChemicalSubstance that represents the amount of a constituent divided by the volume of the mixture.</td>
 </tr>
@@ -1514,12 +1542,36 @@ slots and enums) and the four subprofile modules.</p>
 <td>A measure of the mass per unit volume of a substance.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Duration/">Duration</a></td>
+<td>A quantitative measure of elapsed time (duration of a process step).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/ElectricPotential/">ElectricPotential</a></td>
+<td>A quantitative measure of electric potential difference or voltage.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/EnergyQuantity/">EnergyQuantity</a></td>
+<td>A quantitative measure of energy (eV, keV, kJ/mol, etc.).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/HeatingRate/">HeatingRate</a></td>
+<td>Rate of temperature change per unit time during a thermal ramp.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/LengthQuantity/">LengthQuantity</a></td>
+<td>A quantitative measure of length or spatial dimension (nm, mm, cm).</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Mass/">Mass</a></td>
 <td>The strength of a body's gravitational attraction to other bodies.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/MolarMass/">MolarMass</a></td>
 <td>A Mass (physical quality) that quantifies the mass of a homogeneous ChemicalSubstance containing 6.02 x 10^23 atoms or molecules.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/MassToChargeRatio/">MassToChargeRatio</a></td>
+<td>Ratio of mass to electric charge (m/z) in mass spectrometry.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/MolarEquivalent/">MolarEquivalent</a></td>
@@ -1534,6 +1586,14 @@ slots and enums) and the four subprofile modules.</p>
 <td></td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/PlaneAngle/">PlaneAngle</a></td>
+<td>A quantitative measure of a plane angle (e.g. scattering angle in degrees).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/PowerQuantity/">PowerQuantity</a></td>
+<td>Rate of energy transfer per unit time (e.g. laser power in mW).</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Pressure/">Pressure</a></td>
 <td></td>
 </tr>
@@ -1546,8 +1606,20 @@ slots and enums) and the four subprofile modules.</p>
 <td>A measure of regions in three-dimensional space.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/VolumeFlowRate/">VolumeFlowRate</a></td>
+<td>Volume of fluid passing a given point per unit time.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Wavenumber/">Wavenumber</a></td>
+<td>Reciprocal of wavelength; number of wave cycles per unit length (cm^-1).</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../classes/Yield/">Yield</a></td>
 <td>A dimensionless physical quantity describing the fraction of a product B that is formed from a reactant A taking into account the stoichiometry. If A fully reacts to B without side-reactions, the yield of product B is 1 (or 100 %).</td>
+</tr>
+<tr>
+<td><a href="../classes/QuantitativeRange/">QuantitativeRange</a></td>
+<td>A quantitative property expressed as a range between a lower and upper bound,<br>sharing a common unit. Used where an experiment operates over a range of<br>conditions (e.g. a temperature sweep, a feed concentration window).<br><br>Aligned to qudt:Quantity (as in the DCAT-AP-PLUS QuantitativeAttribute pattern)<br>but with min_value / max_value instead of a single value to represent an<br>interval rather than a point value. Provide the shared unit as a QUDT DefinedTerm.</td>
 </tr>
 <tr>
 <td><a href="../classes/Relationship/">Relationship</a></td>
@@ -1721,14 +1793,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Probe gas adsorbed during in-situ DRIFTS measurement.</td>
 </tr>
 <tr>
-<td><a href="../slots/aging_temperature/">aging_temperature</a></td>
-<td>Temperature during aging of the precipitate or gel.</td>
-</tr>
-<tr>
-<td><a href="../slots/aging_time/">aging_time</a></td>
-<td>Duration of the aging step.</td>
-</tr>
-<tr>
 <td><a href="../slots/algorithm/">algorithm</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
 </tr>
@@ -1743,10 +1807,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/application_profile/">application_profile</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
-</tr>
-<tr>
-<td><a href="../slots/atmosphere/">atmosphere</a></td>
-<td>Gaseous environment or atmospheric conditions during a process.</td>
 </tr>
 <tr>
 <td><a href="../slots/availability/">availability</a></td>
@@ -1807,30 +1867,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/byte_size/">byte_size</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_dwelling_time/">calcination_dwelling_time</a></td>
-<td>Time held at the final calcination temperature.</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_final_temperature/">calcination_final_temperature</a></td>
-<td>Final (target) temperature for calcination.</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_gas_flow_rate/">calcination_gas_flow_rate</a></td>
-<td>Gas flow rate maintained during calcination.</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_gaseous_environment/">calcination_gaseous_environment</a></td>
-<td>Gaseous environment maintained during calcination (e.g. air, H2/N2).</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_heating_rate/">calcination_heating_rate</a></td>
-<td>Heating rate during calcination.</td>
-</tr>
-<tr>
-<td><a href="../slots/calcination_initial_temperature/">calcination_initial_temperature</a></td>
-<td>Initial temperature for calcination.</td>
 </tr>
 <tr>
 <td><a href="../slots/calculated_property/">calculated_property</a></td>
@@ -1933,10 +1969,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>This slot is described in more detail within the class in which it is used.</td>
 </tr>
 <tr>
-<td><a href="../slots/concentration/">concentration</a></td>
-<td>Concentration of a substance in a sample or solution.</td>
-</tr>
-<tr>
 <td><a href="../slots/conforms_to/">conforms_to</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
 </tr>
@@ -1946,7 +1978,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/convergence_criteria/">convergence_criteria</a></td>
-<td>Convergence thresholds applied during self-consistent field (SCF) and/or<br>geometry optimisation (e.g. energy &lt; 1e-5 eV, forces &lt; 0.02 eV/Å).</td>
+<td>Convergence thresholds applied during self-consistent field (SCF) and/or<br>geometry optimisation (e.g. energy &lt; 1e-5 eV, forces &lt; 0.02 eV/A).</td>
 </tr>
 <tr>
 <td><a href="../slots/cooling_rate/">cooling_rate</a></td>
@@ -1966,7 +1998,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/crystal_structure/">crystal_structure</a></td>
-<td>Crystal structure of the simulated material, including space group and<br>lattice parameters (e.g. "Fm-3m, a=3.92 Å for Pt").</td>
+<td>Crystal structure of the simulated material, including space group and<br>lattice parameters (e.g. "Fm-3m, a=3.92 A for Pt").</td>
 </tr>
 <tr>
 <td><a href="../slots/crystal_symmetry/">crystal_symmetry</a></td>
@@ -2045,20 +2077,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Drying method used for the gel (e.g. supercritical drying, freeze drying).</td>
 </tr>
 <tr>
-<td><a href="../slots/drying_atmosphere/">drying_atmosphere</a></td>
-<td>Atmosphere maintained during drying (e.g. air, N2).</td>
-</tr>
-<tr>
 <td><a href="../slots/drying_device/">drying_device</a></td>
 <td>Device used for drying (e.g. oven, rotary evaporator).</td>
-</tr>
-<tr>
-<td><a href="../slots/drying_temperature/">drying_temperature</a></td>
-<td>Temperature applied during drying.</td>
-</tr>
-<tr>
-<td><a href="../slots/drying_time/">drying_time</a></td>
-<td>Duration of the drying step.</td>
 </tr>
 <tr>
 <td><a href="../slots/elastic_tensor/">elastic_tensor</a></td>
@@ -2133,10 +2153,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Number of MC steps used for equilibration before data collection begins.</td>
 </tr>
 <tr>
-<td><a href="../slots/equipment/">equipment</a></td>
-<td>Equipment or instrument used in a process.</td>
-</tr>
-<tr>
 <td><a href="../slots/evaluated_activity/">evaluated_activity</a></td>
 <td>The slot to specify the Activity about which the DataGeneratingActivity produced information.</td>
 </tr>
@@ -2165,10 +2181,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Excitonic correction (from Bethe-Salpeter equation) applied to the<br>optical band gap.</td>
 </tr>
 <tr>
-<td><a href="../slots/experiment_duration/">experiment_duration</a></td>
-<td>Total duration of the experiment or measurement run.</td>
-</tr>
-<tr>
 <td><a href="../slots/experiment_pressure/">experiment_pressure</a></td>
 <td>Total pressure in the reactor during the experiment.</td>
 </tr>
@@ -2186,7 +2198,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/feed_composition_range/">feed_composition_range</a></td>
-<td>Feed gas or liquid composition range studied (e.g. "1–10 vol% CO in N2").<br>Record as a string; for individual component concentrations use reactant.</td>
+<td>Feed composition range studied, provided as a QuantitativeRange.<br>Express concentration bounds in an appropriate unit (e.g. "mol/L", "%" for<br>vol% or mol%). For fixed-composition experiments use reactant.has_concentration.</td>
 </tr>
 <tr>
 <td><a href="../slots/fermi_energy/">fermi_energy</a></td>
@@ -2235,10 +2247,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/flame_type/">flame_type</a></td>
 <td>Type of flame used in FSP (e.g. methane/oxygen, H2/O2).</td>
-</tr>
-<tr>
-<td><a href="../slots/flow_rate/">flow_rate</a></td>
-<td>Flow rate of a fluid or gas.</td>
 </tr>
 <tr>
 <td><a href="../slots/force_constant_method/">force_constant_method</a></td>
@@ -2337,8 +2345,44 @@ slots and enums) and the four subprofile modules.</p>
 <td>This slot is described in more detail within the class in which it is used.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_aging_duration/">has_aging_duration</a></td>
+<td>Duration of the aging step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_aging_temperature/">has_aging_temperature</a></td>
+<td>Temperature maintained during the aging step.</td>
+</tr>
+<tr>
 <td><a href="../slots/has_amount/">has_amount</a></td>
 <td>The slot to provide the AmountConcentration of a ChemicalSubstance.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_angular_velocity/">has_angular_velocity</a></td>
+<td>Rotational speed of stirring, mixing, or sample spinning.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_atmosphere/">has_atmosphere</a></td>
+<td>Gaseous environment or atmospheric conditions during a process.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_calcination_atmosphere/">has_calcination_atmosphere</a></td>
+<td>Gaseous environment maintained during the calcination step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_calcination_dwelling_time/">has_calcination_dwelling_time</a></td>
+<td>Time held at the final calcination temperature.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_calcination_gas_flow_rate/">has_calcination_gas_flow_rate</a></td>
+<td>Gas flow rate maintained during calcination.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_calcination_heating_rate/">has_calcination_heating_rate</a></td>
+<td>Temperature ramp rate during the calcination step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_calcination_temperature_range/">has_calcination_temperature_range</a></td>
+<td>Temperature range of the calcination programme (initial -&gt; final temperature),<br>provided as a QuantitativeRange. Unit: Degree Celsius.</td>
 </tr>
 <tr>
 <td><a href="../slots/has_concentration/">has_concentration</a></td>
@@ -2353,12 +2397,76 @@ slots and enums) and the four subprofile modules.</p>
 <td>The slot to provide the Density of a MaterialEntity.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_drying_atmosphere/">has_drying_atmosphere</a></td>
+<td>Atmosphere maintained during the drying step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_drying_duration/">has_drying_duration</a></td>
+<td>Duration of the drying step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_drying_temperature/">has_drying_temperature</a></td>
+<td>Temperature applied during the drying step.</td>
+</tr>
+<tr>
 <td><a href="../slots/has_duration/">has_duration</a></td>
 <td>A slot to provide the duration of a ChemicalReaction.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_electric_potential/">has_electric_potential</a></td>
+<td>Electric potential (voltage) applied to a beam or electrode.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_energy/">has_energy</a></td>
+<td>Energy of a particle, photon, or beam.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_energy_range/">has_energy_range</a></td>
+<td>Energy scan range (minimum -&gt; maximum) as a QuantitativeRange.<br>Provide unit as a QUDT term (e.g. eV, keV).</td>
+</tr>
+<tr>
+<td><a href="../slots/has_experiment_duration/">has_experiment_duration</a></td>
+<td>Total duration of the experiment or measurement run.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_flow_rate/">has_flow_rate</a></td>
+<td>Volumetric flow rate of a gas or liquid.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_heating_procedure/">has_heating_procedure</a></td>
+<td>Heating procedure or thermal programme applied.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_heating_rate/">has_heating_rate</a></td>
+<td>Temperature ramp rate during a heating or cooling step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_injection_volume/">has_injection_volume</a></td>
+<td>Volume injected in a chromatographic or mass spectrometric analysis.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_integration_time/">has_integration_time</a></td>
+<td>Integration or acquisition time per measurement step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_length/">has_length</a></td>
+<td>A length or spatial dimension measurement.</td>
+</tr>
+<tr>
 <td><a href="../slots/has_mass/">has_mass</a></td>
 <td>The slot to provide the Mass of a MaterialEntity.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_mixing_duration/">has_mixing_duration</a></td>
+<td>Duration of the mixing step.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_mixing_speed/">has_mixing_speed</a></td>
+<td>Rotational speed during mixing of synthesis components.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_mixing_temperature/">has_mixing_temperature</a></td>
+<td>Temperature maintained during mixing.</td>
 </tr>
 <tr>
 <td><a href="../slots/has_molar_equivalent/">has_molar_equivalent</a></td>
@@ -2367,6 +2475,18 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/has_molar_mass/">has_molar_mass</a></td>
 <td>The slot to provide the MolarMass of a ChemicalEntity.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_mz_quantity/">has_mz_quantity</a></td>
+<td>Mass-to-charge ratio in mass spectrometric measurements.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_mz_range/">has_mz_range</a></td>
+<td>Mass-to-charge ratio scan range (minimum -&gt; maximum m/z) as a QuantitativeRange.<br>The unit for m/z is dimensionless (Thomson); set unit to the appropriate QUDT term.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_operation_mode/">has_operation_mode</a></td>
+<td>Operation mode of an instrument or process.</td>
 </tr>
 <tr>
 <td><a href="../slots/has_part/">has_part</a></td>
@@ -2385,8 +2505,16 @@ slots and enums) and the four subprofile modules.</p>
 <td>The slot to specify the physical state of a MaterialEntity.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_plane_angle/">has_plane_angle</a></td>
+<td>A plane angle measurement (e.g. scattering angle in degrees).</td>
+</tr>
+<tr>
 <td><a href="../slots/has_policy/">has_policy</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_power/">has_power</a></td>
+<td>Power (energy per unit time) of a light source or beam.</td>
 </tr>
 <tr>
 <td><a href="../slots/has_pressure/">has_pressure</a></td>
@@ -2402,39 +2530,71 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/has_quantity_type/">has_quantity_type</a></td>
-<td>The type of quality that is quantifiable according to the QUDT ontology.</td>
+<td>QUDT QuantityKind term for the kind of quantity this range describes<br>(e.g. id: http://qudt.org/vocab/quantitykind/Temperature, title: "Temperature").</td>
 </tr>
 <tr>
 <td><a href="../slots/has_reaction_step/">has_reaction_step</a></td>
 <td>A slot to specify a step (part) of a ChemicalReaction that is itself a ChemicalReaction.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_sample_mass/">has_sample_mass</a></td>
+<td>Mass of the sample used in a process or measurement.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_sample_pretreatment/">has_sample_pretreatment</a></td>
+<td>Pre-treatment applied to the sample before a process or measurement.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_stirring_duration/">has_stirring_duration</a></td>
+<td>Duration of stirring or agitation.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_stirring_speed/">has_stirring_speed</a></td>
+<td>Rotational speed of stirring or agitation.</td>
+</tr>
+<tr>
 <td><a href="../slots/has_temperature/">has_temperature</a></td>
 <td>The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_temperature_range/">has_temperature_range</a></td>
+<td>Temperature programme range (start -&gt; final temperature) as a QuantitativeRange.<br>Provide unit as a QUDT term (e.g. Degree Celsius, Kelvin).</td>
+</tr>
+<tr>
+<td><a href="../slots/has_two_theta_range/">has_two_theta_range</a></td>
+<td>2theta diffraction scan range (minimum -&gt; maximum 2theta angle) as a QuantitativeRange.<br>Provide unit as a QUDT term (e.g. Degree).</td>
 </tr>
 <tr>
 <td><a href="../slots/has_version/">has_version</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
 </tr>
 <tr>
+<td><a href="../slots/has_vessel_type/">has_vessel_type</a></td>
+<td>Type of reaction or synthesis vessel used.</td>
+</tr>
+<tr>
 <td><a href="../slots/has_volume/">has_volume</a></td>
 <td>The slot to provide the Volume of a MaterialEntity.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_wavelength/">has_wavelength</a></td>
+<td>Wavelength of electromagnetic radiation.</td>
+</tr>
+<tr>
+<td><a href="../slots/has_wavenumber_quantity/">has_wavenumber_quantity</a></td>
+<td>Wavenumber of radiation in spectroscopic measurements (cm^-1).</td>
+</tr>
+<tr>
+<td><a href="../slots/has_wavenumber_range/">has_wavenumber_range</a></td>
+<td>Infrared wavenumber scan range (minimum -&gt; maximum cm^-1) as a QuantitativeRange.<br>Provide unit as a QUDT term (e.g. ReciprocalCentimetre).</td>
 </tr>
 <tr>
 <td><a href="../slots/has_yield/">has_yield</a></td>
 <td>A slot to provide the percentage of how much of the ChemicalProduct was produced by a ChemicalReaction.</td>
 </tr>
 <tr>
-<td><a href="../slots/heating_procedure/">heating_procedure</a></td>
-<td>Description of the heating procedure applied.</td>
-</tr>
-<tr>
 <td><a href="../slots/heating_ramp/">heating_ramp</a></td>
 <td>Temperature ramp rate in GC oven programme.</td>
-</tr>
-<tr>
-<td><a href="../slots/heating_rate/">heating_rate</a></td>
-<td>Rate at which temperature is increased during a process.</td>
 </tr>
 <tr>
 <td><a href="../slots/homepage/">homepage</a></td>
@@ -2489,20 +2649,12 @@ slots and enums) and the four subprofile modules.</p>
 <td>Initial temperature at the start of a thermal analysis run.</td>
 </tr>
 <tr>
-<td><a href="../slots/injection_volume/">injection_volume</a></td>
-<td>Volume injected in a chromatographic or mass spectrometric experiment.</td>
-</tr>
-<tr>
 <td><a href="../slots/inlet_system/">inlet_system</a></td>
 <td>Configuration of the precursor inlet system.</td>
 </tr>
 <tr>
 <td><a href="../slots/inlet_temperature/">inlet_temperature</a></td>
 <td>GC inlet temperature.</td>
-</tr>
-<tr>
-<td><a href="../slots/integration_time/">integration_time</a></td>
-<td>Integration or acquisition time per measurement step.</td>
 </tr>
 <tr>
 <td><a href="../slots/interaction_potential/">interaction_potential</a></td>
@@ -2546,7 +2698,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/k_point_mesh/">k_point_mesh</a></td>
-<td>Monkhorst-Pack k-point mesh used for Brillouin zone sampling<br>(e.g. "4×4×1" for a surface slab, "8×8×8" for a bulk cell).</td>
+<td>Monkhorst-Pack k-point mesh used for Brillouin zone sampling<br>(e.g. "4x4x1" for a surface slab, "8x8x8" for a bulk cell).</td>
 </tr>
 <tr>
 <td><a href="../slots/keyword/">keyword</a></td>
@@ -2554,7 +2706,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/kq_point_mesh/">kq_point_mesh</a></td>
-<td>k/q-point mesh for phonon Brillouin zone sampling (e.g. "8×8×8").<br>Distinct from the electronic k-point mesh.</td>
+<td>k/q-point mesh for phonon Brillouin zone sampling (e.g. "8x8x8").<br>Distinct from the electronic k-point mesh.</td>
 </tr>
 <tr>
 <td><a href="../slots/landing_page/">landing_page</a></td>
@@ -2566,7 +2718,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/lattice_size_type/">lattice_size_type</a></td>
-<td>Lattice geometry and dimensions used in lattice-based MC (e.g.<br>"100×100 square lattice", "hexagonal 50×50").</td>
+<td>Lattice geometry and dimensions used in lattice-based MC (e.g.<br>"100x100 square lattice", "hexagonal 50x50").</td>
 </tr>
 <tr>
 <td><a href="../slots/lense_mode/">lense_mode</a></td>
@@ -2609,12 +2761,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Method used to correct for matrix effects in ICP-AES.</td>
 </tr>
 <tr>
-<td><a href="../slots/maximum_2theta/">maximum_2theta</a></td>
-<td>Maximum 2theta angle in the diffraction scan.</td>
-</tr>
-<tr>
-<td><a href="../slots/maximum_energy/">maximum_energy</a></td>
-<td>Maximum energy of the scan range.</td>
+<td><a href="../slots/max_value/">max_value</a></td>
+<td>Upper bound of the range.</td>
 </tr>
 <tr>
 <td><a href="../slots/maximum_oven_temperature/">maximum_oven_temperature</a></td>
@@ -2625,16 +2773,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Upper potential limit in cyclic voltammetry.</td>
 </tr>
 <tr>
-<td><a href="../slots/maximum_temperature/">maximum_temperature</a></td>
-<td>Maximum (final) temperature in a temperature programme.</td>
-</tr>
-<tr>
 <td><a href="../slots/maximum_wavelength/">maximum_wavelength</a></td>
 <td>Maximum wavelength of the UV-Vis scan range.</td>
-</tr>
-<tr>
-<td><a href="../slots/maximum_wavenumber/">maximum_wavenumber</a></td>
-<td>Maximum wavenumber of the IR scan range.</td>
 </tr>
 <tr>
 <td><a href="../slots/measurement_duration/">measurement_duration</a></td>
@@ -2665,12 +2805,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Rotational speed during milling.</td>
 </tr>
 <tr>
-<td><a href="../slots/minimum_2theta/">minimum_2theta</a></td>
-<td>Minimum 2theta angle in the diffraction scan.</td>
-</tr>
-<tr>
-<td><a href="../slots/minimum_energy/">minimum_energy</a></td>
-<td>Minimum energy of the scan range.</td>
+<td><a href="../slots/min_value/">min_value</a></td>
+<td>Lower bound of the range.</td>
 </tr>
 <tr>
 <td><a href="../slots/minimum_oven_temperature/">minimum_oven_temperature</a></td>
@@ -2681,16 +2817,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Lower potential limit in cyclic voltammetry.</td>
 </tr>
 <tr>
-<td><a href="../slots/minimum_temperature/">minimum_temperature</a></td>
-<td>Minimum (start) temperature in a temperature programme.</td>
-</tr>
-<tr>
 <td><a href="../slots/minimum_wavelength/">minimum_wavelength</a></td>
 <td>Minimum wavelength of the UV-Vis scan range.</td>
-</tr>
-<tr>
-<td><a href="../slots/minimum_wavenumber/">minimum_wavenumber</a></td>
-<td>Minimum wavenumber of the IR scan range.</td>
 </tr>
 <tr>
 <td><a href="../slots/misorientation_angle/">misorientation_angle</a></td>
@@ -2699,14 +2827,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/mixing_device/">mixing_device</a></td>
 <td>Device used for mixing (e.g. magnetic stirrer, vortex mixer).</td>
-</tr>
-<tr>
-<td><a href="../slots/mixing_temperature/">mixing_temperature</a></td>
-<td>Temperature during mixing.</td>
-</tr>
-<tr>
-<td><a href="../slots/mixing_time/">mixing_time</a></td>
-<td>Duration of the mixing step.</td>
 </tr>
 <tr>
 <td><a href="../slots/modification_date/">modification_date</a></td>
@@ -2719,14 +2839,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/monochromator/">monochromator</a></td>
 <td>Monochromator type or configuration used.</td>
-</tr>
-<tr>
-<td><a href="../slots/mz_maximum/">mz_maximum</a></td>
-<td>Maximum m/z value in the mass scan range.</td>
-</tr>
-<tr>
-<td><a href="../slots/mz_minimum/">mz_minimum</a></td>
-<td>Minimum m/z value in the mass scan range.</td>
 </tr>
 <tr>
 <td><a href="../slots/name/">name</a></td>
@@ -2781,10 +2893,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>The slot to specify the Surrounding in which an Activity took place.</td>
 </tr>
 <tr>
-<td><a href="../slots/operation_mode/">operation_mode</a></td>
-<td>Operation mode of an instrument (e.g. transmission, reflection, AC, DC).</td>
-</tr>
-<tr>
 <td><a href="../slots/optical_filter/">optical_filter</a></td>
 <td>Optical filter used in the emission or excitation path.</td>
 </tr>
@@ -2822,7 +2930,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/ph_range/">ph_range</a></td>
-<td>pH range covered in the Pourbaix stability diagram (e.g. "0–14").</td>
+<td>pH range covered in the Pourbaix stability diagram (e.g. "0-14").</td>
 </tr>
 <tr>
 <td><a href="../slots/phase_diagram_type/">phase_diagram_type</a></td>
@@ -2830,7 +2938,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/piezoelectric_tensor/">piezoelectric_tensor</a></td>
-<td>Components of the piezoelectric tensor e_ij (C/m²) or d_ij (pC/N),<br>describing the coupling between stress and electric polarization.</td>
+<td>Components of the piezoelectric tensor e_ij (C/m2) or d_ij (pC/N),<br>describing the coupling between stress and electric polarization.</td>
 </tr>
 <tr>
 <td><a href="../slots/plasma_type/">plasma_type</a></td>
@@ -2869,10 +2977,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Chemical agent used to induce precipitation (e.g. NaOH, NH3).</td>
 </tr>
 <tr>
-<td><a href="../slots/precipitating_concentration/">precipitating_concentration</a></td>
-<td>Concentration of the precipitating agent.</td>
-</tr>
-<tr>
 <td><a href="../slots/precipitation_agent/">precipitation_agent</a></td>
 <td>Agent used to induce precipitation in molecular synthesis.</td>
 </tr>
@@ -2883,10 +2987,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/preferred_label/">preferred_label</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
-</tr>
-<tr>
-<td><a href="../slots/pressure/">pressure</a></td>
-<td>Total pressure used in microkinetic or Monte Carlo simulation.</td>
 </tr>
 <tr>
 <td><a href="../slots/pressure_derivative/">pressure_derivative</a></td>
@@ -2950,7 +3050,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/reactant/">reactant</a></td>
-<td>Reactant(s) used in the reaction. Provide compound name, CAS number,<br>or SMILES. For feeds, include composition and flow rate where known.</td>
+<td>Reactant(s) or feed chemicals used in the reaction. Provide a ChemicalEntity<br>instance with inchikey, smiles, or iupac_name. For feed mixtures, list each<br>component as a separate ChemicalEntity and record composition via has_concentration.</td>
 </tr>
 <tr>
 <td><a href="../slots/reaction_vessel/">reaction_vessel</a></td>
@@ -2958,7 +3058,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/reactor_temperature_range/">reactor_temperature_range</a></td>
-<td>Temperature range used in the reactor during the reaction, expressed<br>as a string range (e.g. "200–400 °C") or a single set-point.</td>
+<td>Temperature range in the reactor during the reaction, provided as a<br>QuantitativeRange with min_value and max_value (unit_code: "Cel").<br>For a single set-point, set min_value equal to max_value.</td>
 </tr>
 <tr>
 <td><a href="../slots/realized_plan/">realized_plan</a></td>
@@ -3021,16 +3121,8 @@ slots and enums) and the four subprofile modules.</p>
 <td>Geometry of the sample used in conductivity measurement (e.g. pellet, thin film).</td>
 </tr>
 <tr>
-<td><a href="../slots/sample_mass/">sample_mass</a></td>
-<td>Mass of the sample used in a process or measurement.</td>
-</tr>
-<tr>
 <td><a href="../slots/sample_preparation/">sample_preparation</a></td>
 <td>Sample preparation steps applied immediately before measurement.</td>
-</tr>
-<tr>
-<td><a href="../slots/sample_pretreatment/">sample_pretreatment</a></td>
-<td>Pre-treatment applied to the sample before a process or measurement.</td>
 </tr>
 <tr>
 <td><a href="../slots/sample_spinning_speed/">sample_spinning_speed</a></td>
@@ -3070,7 +3162,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/simulation_cell_size/">simulation_cell_size</a></td>
-<td>Dimensions of the simulation cell used to model the grain boundary<br>(e.g. "10×10×30 nm").</td>
+<td>Dimensions of the simulation cell used to model the grain boundary<br>(e.g. "10x10x30 nm").</td>
 </tr>
 <tr>
 <td><a href="../slots/simulation_time/">simulation_time</a></td>
@@ -3197,18 +3289,6 @@ slots and enums) and the four subprofile modules.</p>
 <td>Type of stirrer used (e.g. magnetic, mechanical, none).</td>
 </tr>
 <tr>
-<td><a href="../slots/stirring_duration/">stirring_duration</a></td>
-<td>Duration of stirring or agitation.</td>
-</tr>
-<tr>
-<td><a href="../slots/stirring_rate/">stirring_rate</a></td>
-<td>Stirring rate during mixing of synthesis components.</td>
-</tr>
-<tr>
-<td><a href="../slots/stirring_speed/">stirring_speed</a></td>
-<td>Rotational speed of stirring or agitation.</td>
-</tr>
-<tr>
 <td><a href="../slots/storage_conditions/">storage_conditions</a></td>
 <td>Conditions under which the catalyst is stored (e.g. inert atmosphere, 4°C).</td>
 </tr>
@@ -3249,20 +3329,12 @@ slots and enums) and the four subprofile modules.</p>
 <td>Total duration of the synthesis step.</td>
 </tr>
 <tr>
-<td><a href="../slots/synthesis_ph/">synthesis_ph</a></td>
-<td>pH value maintained or targeted during synthesis.</td>
-</tr>
-<tr>
 <td><a href="../slots/synthesis_pressure/">synthesis_pressure</a></td>
 <td>Pressure applied during synthesis (e.g. in autoclave or plasma reactor).</td>
 </tr>
 <tr>
 <td><a href="../slots/synthesis_temperature/">synthesis_temperature</a></td>
 <td>Temperature applied during the synthesis step.</td>
-</tr>
-<tr>
-<td><a href="../slots/temperature/">temperature</a></td>
-<td>Temperature during a process or measurement.</td>
 </tr>
 <tr>
 <td><a href="../slots/temperature_dependence/">temperature_dependence</a></td>
@@ -3310,7 +3382,7 @@ slots and enums) and the four subprofile modules.</p>
 </tr>
 <tr>
 <td><a href="../slots/unit/">unit</a></td>
-<td></td>
+<td>Unit shared by both bounds, as a QUDT unit term<br>(e.g. id: http://qudt.org/vocab/unit/DegreeCelsius, title: "Degree Celsius").</td>
 </tr>
 <tr>
 <td><a href="../slots/used_catalyst/">used_catalyst</a></td>
@@ -3347,10 +3419,6 @@ slots and enums) and the four subprofile modules.</p>
 <tr>
 <td><a href="../slots/version_notes/">version_notes</a></td>
 <td>This slot is described in more detail within the class in which it is used.</td>
-</tr>
-<tr>
-<td><a href="../slots/vessel_type/">vessel_type</a></td>
-<td>Type of reaction or synthesis vessel used.</td>
 </tr>
 <tr>
 <td><a href="../slots/vessel_volume/">vessel_volume</a></td>

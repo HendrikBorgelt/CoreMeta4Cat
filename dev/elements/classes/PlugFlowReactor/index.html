@@ -413,8 +413,8 @@
 <pre class="mermaid"><code> classDiagram
     class PlugFlowReactor
     click PlugFlowReactor href "../../classes/PlugFlowReactor/"
-      ReactorDesignType &lt;|-- PlugFlowReactor
-        click ReactorDesignType href "../../classes/ReactorDesignType/"
+      ChemicalReactor &lt;|-- PlugFlowReactor
+        click ChemicalReactor href "../../classes/ChemicalReactor/"
 
       PlugFlowReactor : description
 
@@ -505,7 +505,7 @@
 <ul>
 <li><a href="../AgenticEntity/">AgenticEntity</a> [ <a href="../ClassifierMixin/">ClassifierMixin</a>]<ul>
 <li><a href="../Device/">Device</a><ul>
-<li><a href="../ReactorDesignType/">ReactorDesignType</a><ul>
+<li><a href="../ChemicalReactor/">ChemicalReactor</a><ul>
 <li><strong>PlugFlowReactor</strong></li>
 </ul>
 </li>
@@ -620,7 +620,7 @@
 
 <span class="w">  </span><span class="s">varies</span><span class="nv"> </span><span class="s">along</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">axis</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">axial</span><span class="nv"> </span><span class="s">mixing.'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReactorDesignType</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChemicalReactor</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOC4CAT:0007102</span>
 </code></pre></div>
 </details>
@@ -631,7 +631,7 @@
 
 <span class="w">  </span><span class="s">varies</span><span class="nv"> </span><span class="s">along</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">axis</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">axial</span><span class="nv"> </span><span class="s">mixing.'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReactorDesignType</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChemicalReactor</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
@@ -665,6 +665,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PlugFlowReactor</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
@@ -713,6 +714,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PlugFlowReactor</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>

@@ -767,13 +767,13 @@ Alias: deposition_temperature</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/AtomicLayerDeposition/">AtomicLayerDeposition</a></td>
-<td>Catalyst preparation by atomic layer deposition (ALD): sequential<br>self-limiting surface reactions deposit a conformal thin film<br>of active phase onto a substrate.</td>
+<td><a href="../../classes/DepositionPrecipitation/">DepositionPrecipitation</a></td>
+<td>Catalyst preparation by deposition-precipitation: the active phase<br>is precipitated directly onto the support surface.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/DepositionPrecipitation/">DepositionPrecipitation</a></td>
-<td>Catalyst preparation by deposition-precipitation: the active phase<br>is precipitated directly onto the support surface.</td>
+<td><a href="../../classes/AtomicLayerDeposition/">AtomicLayerDeposition</a></td>
+<td>Catalyst preparation by atomic layer deposition (ALD): sequential<br>self-limiting surface reactions deposit a conformal thin film<br>of active phase onto a substrate.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -781,7 +781,7 @@ Alias: deposition_temperature</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/Float/">Float</a></p>
+<p>Range: <a href="../../classes/Temperature/">Temperature</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -822,10 +822,10 @@ Alias: deposition_temperature</p>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AtomicLayerDeposition</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DepositionPrecipitation</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">unit</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cel</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

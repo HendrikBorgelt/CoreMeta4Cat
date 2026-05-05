@@ -767,11 +767,6 @@ Alias: excitation_wavelength</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/PhotoluminescenceLifetime/">PhotoluminescenceLifetime</a></td>
-<td>Time-resolved photoluminescence for charge carrier lifetime and recombination dynamics.</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../../classes/PhotoluminescenceMixin/">PhotoluminescenceMixin</a></td>
 <td>Mixin providing optical excitation/emission parameters shared by<br>photoluminescence techniques (PhotoluminescenceSpectroscopy,<br>PhotoluminescenceLifetime).</td>
 <td>no</td>
@@ -781,12 +776,17 @@ Alias: excitation_wavelength</p>
 <td>Photoluminescence spectroscopy for defect and charge carrier characterization.</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../../classes/PhotoluminescenceLifetime/">PhotoluminescenceLifetime</a></td>
+<td>Time-resolved photoluminescence for charge carrier lifetime and recombination dynamics.</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../../types/Float/">Float</a></p>
+<p>Range: <a href="../../classes/LengthQuantity/">LengthQuantity</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -826,10 +826,10 @@ Alias: excitation_wavelength</p>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">excitation_wavelength</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PhotoluminescenceMixin</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LengthQuantity</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">unit</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nm</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

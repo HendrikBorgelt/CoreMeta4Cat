@@ -425,6 +425,28 @@
         click ClassifierMixin href "../../classes/ClassifierMixin/"
 
 
+      QuantitativeAttribute &lt;|-- Duration
+        click Duration href "../../classes/Duration/"
+      QuantitativeAttribute &lt;|-- VolumeFlowRate
+        click VolumeFlowRate href "../../classes/VolumeFlowRate/"
+      QuantitativeAttribute &lt;|-- HeatingRate
+        click HeatingRate href "../../classes/HeatingRate/"
+      QuantitativeAttribute &lt;|-- AngularVelocity
+        click AngularVelocity href "../../classes/AngularVelocity/"
+      QuantitativeAttribute &lt;|-- EnergyQuantity
+        click EnergyQuantity href "../../classes/EnergyQuantity/"
+      QuantitativeAttribute &lt;|-- ElectricPotential
+        click ElectricPotential href "../../classes/ElectricPotential/"
+      QuantitativeAttribute &lt;|-- PowerQuantity
+        click PowerQuantity href "../../classes/PowerQuantity/"
+      QuantitativeAttribute &lt;|-- LengthQuantity
+        click LengthQuantity href "../../classes/LengthQuantity/"
+      QuantitativeAttribute &lt;|-- PlaneAngle
+        click PlaneAngle href "../../classes/PlaneAngle/"
+      QuantitativeAttribute &lt;|-- Wavenumber
+        click Wavenumber href "../../classes/Wavenumber/"
+      QuantitativeAttribute &lt;|-- MassToChargeRatio
+        click MassToChargeRatio href "../../classes/MassToChargeRatio/"
       QuantitativeAttribute &lt;|-- Concentration
         click Concentration href "../../classes/Concentration/"
       QuantitativeAttribute &lt;|-- AmountOfSubstance
@@ -504,6 +526,17 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>QuantitativeAttribute</strong> [ <a href="../ClassifierMixin/">ClassifierMixin</a>]<ul>
+<li><a href="../Duration/">Duration</a></li>
+<li><a href="../VolumeFlowRate/">VolumeFlowRate</a></li>
+<li><a href="../HeatingRate/">HeatingRate</a></li>
+<li><a href="../AngularVelocity/">AngularVelocity</a></li>
+<li><a href="../EnergyQuantity/">EnergyQuantity</a></li>
+<li><a href="../ElectricPotential/">ElectricPotential</a></li>
+<li><a href="../PowerQuantity/">PowerQuantity</a></li>
+<li><a href="../LengthQuantity/">LengthQuantity</a></li>
+<li><a href="../PlaneAngle/">PlaneAngle</a></li>
+<li><a href="../Wavenumber/">Wavenumber</a></li>
+<li><a href="../MassToChargeRatio/">MassToChargeRatio</a></li>
 <li><a href="../Concentration/">Concentration</a></li>
 <li><a href="../AmountOfSubstance/">AmountOfSubstance</a></li>
 <li><a href="../PHValue/">PHValue</a></li>
@@ -609,13 +642,13 @@
 <td><a href="./">QuantitativeAttribute</a></td>
 </tr>
 <tr>
-<td><a href="../Reaction/">Reaction</a></td>
+<td><a href="../CatalyticReaction/">CatalyticReaction</a></td>
 <td><a href="../../slots/has_quantitative_attribute/">has_quantitative_attribute</a></td>
 <td>range</td>
 <td><a href="./">QuantitativeAttribute</a></td>
 </tr>
 <tr>
-<td><a href="../ReactorDesignType/">ReactorDesignType</a></td>
+<td><a href="../ChemicalReactor/">ChemicalReactor</a></td>
 <td><a href="../../slots/has_quantitative_attribute/">has_quantitative_attribute</a></td>
 <td>range</td>
 <td><a href="./">QuantitativeAttribute</a></td>
@@ -877,9 +910,9 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantity_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The type of quality that is quantifiable according to the QUDT ontology.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:hasQuantityKind</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
 <span class="w">    </span><span class="nt">bindings</span><span class="p">:</span>
@@ -892,9 +925,9 @@
 <span class="w">  </span><span class="nt">unit</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:unit</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
 <span class="w">    </span><span class="nt">bindings</span><span class="p">:</span>
@@ -927,11 +960,11 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantity_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The type of quality that is quantifiable according to the QUDT ontology.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:hasQuantityKind</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantity_type</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
 <span class="w">    </span><span class="nt">bindings</span><span class="p">:</span>
@@ -944,11 +977,11 @@
 <span class="w">  </span><span class="nt">unit</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:unit</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefinedTerm</span>
 <span class="w">    </span><span class="nt">bindings</span><span class="p">:</span>
@@ -967,6 +1000,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
@@ -1015,6 +1049,7 @@
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeRange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
