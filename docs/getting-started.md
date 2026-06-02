@@ -47,15 +47,17 @@ To help you understand which terms exist and how they relate to each other, Core
   </a>
 </div>
 
-The workbook has five sheets:
+The workbook has seven sheets:
 
 | Sheet | What it shows |
 |---|---|
-| **CatCore** | The minimal global field set — catalyst type, support, metal, metal loading, additive, reaction type — with the Voc4Cat term for each |
-| **Catalysts synthesis precise** | The full hierarchy of synthesis fields, organised by synthesis step (solvation, mixing, milling, pH adjustment, filtration, crystallisation, washing, dilution, impregnation, drying, calcination, sieving, pelleting), with the corresponding Voc4Cat CURIE shown in each column header |
-| **Characterization FF** | Method parameter fields for 10+ characterisation techniques (PXRD, XAS, FTIR, Raman, GC-MS, …), showing which ontology terms apply to which measurement parameters |
-| **Characterization results** | The result fields that should be reported for each of the 25 techniques currently in CoreMeta4Cat, with the relevant ontology term for each result type |
-| **Cat test** | The full hierarchy of reaction / catalytic test fields — reactor type, operation mode, reactants, solvent, products, analysis — with Voc4Cat CURIEs |
+| **Introduction** | Project overview and guidance — what CoreMeta4Cat is, how to read the workbook, and a summary of all sheets. |
+| **Legend** | Explanation of colour coding (Mandatory / Recommended / Optional) and the meaning of each column. |
+| **CoreMeta4Cat** | The minimal cross-cutting fields that apply to every catalysis dataset, regardless of data class (based on `CatalysisDataset`). |
+| **Synthesis** | Metadata fields for catalyst preparation and synthesis experiments. |
+| **Characterization** | Metadata fields for analytical characterisation of catalysts. |
+| **Reaction** | Metadata fields for catalytic reaction testing and performance evaluation. |
+| **Simulation** | Metadata fields for computational and theoretical catalysis studies. |
 
 Use this workbook to find the right term for a concept you want to annotate, and to understand how fields nest within each other (e.g. which parameters belong under a calcination step versus a drying step).
 
