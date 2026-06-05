@@ -1,49 +1,89 @@
 # .github/workflows/excel_inbox.yaml
 #
-# Excel Inbox — PR validation
-# ============================
-# Triggered when a pull request adds or modifies a file inside inbox/.
+# Excel Inbox — PR validation and cleanup
+# =========================================
+# Triggered when a pull request to main is created or updated and touches
+# the inbox/ folder.
 #
-# This workflow only validates — it never pushes anything back to the branch.
-# That keeps it safe for both same-repo and fork PRs.
+# Uses pull_request_target so the workflow runs in the base repo's context
+# and can push back to the PR branch — including forks.
+#
+# Security note: this is safe because the workflow never executes any
+# contributor-controlled code. It only opens the xlsx file with openpyxl
+# and runs scripts checked out from main (not from the PR).
+# See: https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/
 #
 # Contributor flow:
 #   1. Download docs/assets/coremeta4cat_vocabulary.xlsx.
-#   2. Edit it locally.
-#   3. Open a PR placing the file at inbox/coremeta4cat_vocabulary.xlsx.
-#   4. This workflow validates the file and posts a comment with the result.
-#   5. On merge to main, the update_excel workflow regenerates
-#      docs/assets/coremeta4cat_vocabulary.xlsx from the schema automatically.
+#   2. Edit it, open a PR with the file at inbox/coremeta4cat_vocabulary.xlsx.
+#   3. This workflow validates the file, posts a comment with the result,
+#      and on success removes the inbox file from the PR branch so that
+#      docs/assets/ is cleanly regenerated from the schema on merge.
+#   4. On merge to main, update_excel.yaml regenerates
+#      docs/assets/coremeta4cat_vocabulary.xlsx from the schema.
 #
-# Note: the inbox file is NOT promoted to docs/assets/ here.
-# The ground truth is always the schema; the Excel is derived output.
-# If the contributor's edits require schema changes, those should be made to
-# the YAML source files and the workbook will be regenerated on merge.
+# Note: the Excel is derived output — the schema YAML is the ground truth.
+# If the contributor's edits require schema changes, those should be made
+# to the YAML source files and included in the same PR.
 ---
 name: Excel inbox validation
 
 on:  # yamllint disable-line rule:truthy
-  pull_request:
+  pull_request_target:
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
     paths:
       - "inbox/**"
+  workflow_dispatch:
 
 env:
   FORCE_COLOR: "1"
   INBOX_FILE: "inbox/coremeta4cat_vocabulary.xlsx"
 
-permissions:
-  pull-requests: write   # needed to post the summary comment
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
 
 jobs:
   validate-inbox:
+    name: Validate inbox Excel and clean up
+    if: ${{ !github.event.pull_request.merged }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: write       # to commit cleanup back to the PR branch
+      pull-requests: write  # to post the summary comment
 
     steps:
 
-      - name: Check out repository
+      - name: Check out PR branch (fork-safe)
         uses: actions/checkout@v6.0.3
-        # No ref override — uses the PR merge commit, works for forks too.
         with:
+          # Check out the fork's branch so we can push back to it.
+          # Using pull_request_target + explicit head repo is the standard
+          # pattern for safe write-back to fork PRs.
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Check out main branch scripts into _main_branch/
+        # Always run our own scripts from main, never from the PR.
+        # This is the key security boundary for pull_request_target.
+        uses: actions/checkout@v6.0.3
+        with:
+          ref: main
+          path: _main_branch
+          sparse-checkout: |
+            scripts/
+            src/
+            pyproject.toml
+            uv.lock
+          fetch-depth: 1
           persist-credentials: false
 
       - name: Install uv
@@ -53,8 +93,9 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
 
-      - name: Install project
+      - name: Install project from main branch
         run: uv sync --dev
+        working-directory: _main_branch
 
       - name: Install just
         run: uv tool install rust-just
@@ -119,12 +160,15 @@ jobs:
 
           print("Workbook structure OK.")
           PYEOF
+        working-directory: _main_branch
 
       - name: Run round-trip diff (excel-to-schema)
         if: steps.inbox_check.outputs.present == 'true'
         id: roundtrip
         run: |
-          OUTPUT=$(uv run python scripts/excel_to_schema.py "${{ env.INBOX_FILE }}" 2>&1)
+          # Path to inbox file is relative to the repo root, one level up from _main_branch/
+          OUTPUT=$(uv run python scripts/excel_to_schema.py \
+            "../${{ env.INBOX_FILE }}" 2>&1)
           echo "$OUTPUT"
 
           {
@@ -138,6 +182,7 @@ jobs:
           else
             echo "status=diff" >> "$GITHUB_OUTPUT"
           fi
+        working-directory: _main_branch
 
       - name: Post PR comment
         if: steps.inbox_check.outputs.present == 'true'
@@ -152,8 +197,18 @@ jobs:
               ? "Excel inbox — round-trip validation **passed**"
               : "Excel inbox — round-trip validation **failed**";
             const advice = status === "ok"
-              ? "The workbook is aligned with the schema. Once this PR is merged, `docs/assets/coremeta4cat_vocabulary.xlsx` will be regenerated automatically from the schema."
+              ? "The workbook is aligned with the schema. The inbox file will be removed from this PR automatically. Once merged, `docs/assets/coremeta4cat_vocabulary.xlsx` will be regenerated from the schema."
               : "Differences were found between the inbox workbook and the schema.\n\nIf your changes require additions to the schema, please update the YAML source files and include those changes in this PR. The workbook is derived output — the schema is the ground truth.";
+
+            // Avoid duplicate comments on re-runs
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c =>
+              c.user.type === "Bot" && c.body.includes("Excel inbox")
+            );
 
             const body = [
               `## ${icon} ${title}`,
@@ -168,12 +223,21 @@ jobs:
               advice,
             ].join("\n");
 
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo:  context.repo.repo,
-              issue_number: context.issue.number,
-              body,
-            });
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
 
       - name: Fail if round-trip has differences
         if: >
@@ -182,3 +246,14 @@ jobs:
         run: |
           echo "::error::Round-trip validation failed. See the PR comment for details."
           exit 1
+
+      - name: Remove inbox file from PR branch
+        if: >
+          steps.inbox_check.outputs.present == 'true' &&
+          steps.roundtrip.outputs.status == 'ok'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git rm "${{ env.INBOX_FILE }}"
+          git commit -m "ci: remove validated inbox Excel (will be regenerated from schema on merge)"
+          git push
