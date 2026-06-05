@@ -1,0 +1,184 @@
+# .github/workflows/excel_inbox.yaml
+#
+# Excel Inbox — PR validation
+# ============================
+# Triggered when a pull request adds or modifies a file inside inbox/.
+#
+# This workflow only validates — it never pushes anything back to the branch.
+# That keeps it safe for both same-repo and fork PRs.
+#
+# Contributor flow:
+#   1. Download docs/assets/coremeta4cat_vocabulary.xlsx.
+#   2. Edit it locally.
+#   3. Open a PR placing the file at inbox/coremeta4cat_vocabulary.xlsx.
+#   4. This workflow validates the file and posts a comment with the result.
+#   5. On merge to main, the update_excel workflow regenerates
+#      docs/assets/coremeta4cat_vocabulary.xlsx from the schema automatically.
+#
+# Note: the inbox file is NOT promoted to docs/assets/ here.
+# The ground truth is always the schema; the Excel is derived output.
+# If the contributor's edits require schema changes, those should be made to
+# the YAML source files and the workbook will be regenerated on merge.
+---
+name: Excel inbox validation
+
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+    paths:
+      - "inbox/**"
+
+env:
+  FORCE_COLOR: "1"
+  INBOX_FILE: "inbox/coremeta4cat_vocabulary.xlsx"
+
+permissions:
+  pull-requests: write   # needed to post the summary comment
+
+jobs:
+  validate-inbox:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v6.0.3
+        # No ref override — uses the PR merge commit, works for forks too.
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.2.0
+        with:
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install project
+        run: uv sync --dev
+
+      - name: Install just
+        run: uv tool install rust-just
+
+      - name: Check inbox file exists
+        id: inbox_check
+        run: |
+          if [ -f "${{ env.INBOX_FILE }}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+            echo "Inbox file found: ${{ env.INBOX_FILE }}"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No inbox file found at ${{ env.INBOX_FILE }} — nothing to validate."
+          fi
+
+      - name: Validate workbook structure
+        if: steps.inbox_check.outputs.present == 'true'
+        id: validate_structure
+        run: |
+          uv run python - <<'PYEOF'
+          import sys
+          import openpyxl
+
+          path = "${{ env.INBOX_FILE }}"
+          expected_sheets = {
+              "Introduction", "Legend", "CoreMeta4Cat",
+              "Synthesis", "Characterization", "Reaction", "Simulation",
+          }
+          expected_headers = [
+              "label", "type", "domain", "M / R / O",
+              "range", "uri", "description",
+          ]
+          data_sheets = ["Synthesis", "Characterization", "Reaction", "Simulation"]
+
+          errors = []
+
+          try:
+              wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+          except Exception as e:
+              print(f"::error::Cannot open workbook: {e}")
+              sys.exit(1)
+
+          missing = expected_sheets - set(wb.sheetnames)
+          if missing:
+              errors.append(f"Missing sheets: {', '.join(sorted(missing))}")
+
+          for sheet_name in data_sheets:
+              if sheet_name not in wb.sheetnames:
+                  continue
+              ws = wb[sheet_name]
+              header = [cell.value for cell in next(ws.iter_rows(max_row=1))]
+              if header != expected_headers:
+                  errors.append(
+                      f"Sheet '{sheet_name}' header mismatch.\n"
+                      f"  Expected: {expected_headers}\n  Got:      {header}"
+                  )
+
+          if errors:
+              for e in errors:
+                  print(f"::error::{e}")
+              sys.exit(1)
+
+          print("Workbook structure OK.")
+          PYEOF
+
+      - name: Run round-trip diff (excel-to-schema)
+        if: steps.inbox_check.outputs.present == 'true'
+        id: roundtrip
+        run: |
+          OUTPUT=$(uv run python scripts/excel_to_schema.py "${{ env.INBOX_FILE }}" 2>&1)
+          echo "$OUTPUT"
+
+          {
+            echo "roundtrip_output<<EOF"
+            echo "$OUTPUT"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+          if echo "$OUTPUT" | grep -q "OK Schema and workbook are fully aligned"; then
+            echo "status=ok" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=diff" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post PR comment
+        if: steps.inbox_check.outputs.present == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const status = "${{ steps.roundtrip.outputs.status }}";
+            const output = process.env.roundtrip_output || "(no output)";
+            const icon  = status === "ok" ? "✅" : "❌";
+            const title = status === "ok"
+              ? "Excel inbox — round-trip validation **passed**"
+              : "Excel inbox — round-trip validation **failed**";
+            const advice = status === "ok"
+              ? "The workbook is aligned with the schema. Once this PR is merged, `docs/assets/coremeta4cat_vocabulary.xlsx` will be regenerated automatically from the schema."
+              : "Differences were found between the inbox workbook and the schema.\n\nIf your changes require additions to the schema, please update the YAML source files and include those changes in this PR. The workbook is derived output — the schema is the ground truth.";
+
+            const body = [
+              `## ${icon} ${title}`,
+              "",
+              "<details><summary>Full diff output</summary>",
+              "",
+              "```",
+              output,
+              "```",
+              "</details>",
+              "",
+              advice,
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
+
+      - name: Fail if round-trip has differences
+        if: >
+          steps.inbox_check.outputs.present == 'true' &&
+          steps.roundtrip.outputs.status != 'ok'
+        run: |
+          echo "::error::Round-trip validation failed. See the PR comment for details."
+          exit 1
