@@ -62,6 +62,7 @@ jobs:
         run: just schema-to-excel
 
       - name: Open PR for updated workbook (if changed)
+        id: create_pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,4 +77,11 @@ jobs:
             This PR was opened automatically by the `update-excel` workflow and only
             touches `docs/assets/coremeta4cat_vocabulary.xlsx`.
           labels: automated
-          auto-merge: merge
+
+      - name: Enable auto-merge on the PR (if one was created)
+        if: steps.create_pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge --auto --merge \
+            "${{ steps.create_pr.outputs.pull-request-number }}"
