@@ -55,6 +55,8 @@ jobs:
 
       - name: Build documentation
         run: |
+          just gen-charts
+          just gen-schema-docs
           just gen-doc
           uv run mkdocs build -d site
           touch site/.nojekyll
