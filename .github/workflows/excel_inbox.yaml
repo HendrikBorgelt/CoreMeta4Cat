@@ -132,7 +132,9 @@ jobs:
           echo "$OUTPUT"
 
           # Save to file for the finish job's PR comment.
-          printf '%s' "$OUTPUT" > /tmp/apply_output.md
+          # printf '%s\n' ensures a trailing newline so GITHUB_ENV delimiter
+          # parsing in the finish job always finds its closing marker on its own line.
+          printf '%s\n' "$OUTPUT" > /tmp/apply_output.md
 
           case "$EXIT_CODE" in
             0) echo "status=ok"       >> "$GITHUB_OUTPUT" ;;
@@ -307,10 +309,14 @@ jobs:
       - name: Load apply output into environment
         run: |
           if [ -f /tmp/apply-output/apply_output.md ]; then
+            # Use a random delimiter so the content can never accidentally contain it.
+            # The explicit leading \n before the delimiter ensures it lands on its own
+            # line even when the file was written without a trailing newline.
+            DELIM="$(openssl rand -hex 16)"
             {
-              echo "apply_output<<APPLY_EOF"
+              printf 'apply_output<<%s\n' "$DELIM"
               cat /tmp/apply-output/apply_output.md
-              echo "APPLY_EOF"
+              printf '\n%s\n' "$DELIM"
             } >> "$GITHUB_ENV"
           fi
 
