@@ -13,13 +13,16 @@ Sheet order:
   7. Simulation
 
 Columns (sheets 3-7):
-  label      human-readable slot or class name
-  type       "slot" or "class"
-  domain     the slot or class this entry belongs to (empty for top-level entries)
-  M / R / O  Mandatory / Recommended / Optional classification
-  range      LinkML range type
-  uri        ontology CURIE for the term
-  description  documentation string
+  label          human-readable slot or class name
+  type           "slot" or "class"
+  domain         the slot or class this entry belongs to (empty for top-level entries)
+  M / R / O      Mandatory / Recommended / Optional classification
+  range          LinkML range type
+  multivalued    "Yes" if the field accepts a list of values (empty = single value)
+  inlined as list  "Yes" if linked records are stored inline as an ordered list
+  unit           UCUM code for the unit of measurement (empty if not applicable)
+  uri            ontology CURIE for the term
+  description    documentation string
 
 Output:
   docs/assets/coremeta4cat_vocabulary.xlsx  (overwrites the file in place)
@@ -80,6 +83,9 @@ HEADERS = [
     "domain",
     "M / R / O",
     "range",
+    "multivalued",
+    "inlined as list",
+    "unit",
     "uri",
     "description",
 ]
@@ -204,6 +210,9 @@ def build_intro_sheet(wb: openpyxl.Workbook) -> None:
     _row(r, "domain", "The slot or class this entry belongs to. Empty means it is a top-level entry of the data class."); r += 1
     _row(r, "M / R / O", "Whether the field is Mandatory (must be reported), Recommended (strongly encouraged), or Optional. See the Legend sheet for colour coding."); r += 1
     _row(r, "range", "The expected value type — a primitive (string, float, integer) or a class name that expands into its own set of fields."); r += 1
+    _row(r, "multivalued", "'Yes' if the field accepts a list of values; empty means a single value. Most fields are single-valued."); r += 1
+    _row(r, "inlined as list", "'Yes' if linked sub-records are stored directly inside the parent as an ordered list. Empty if not applicable. See Legend for details."); r += 1
+    _row(r, "unit", "Unit of measurement expressed as a UCUM code (e.g. 'Cel', 'cm', 'mol/L'). Empty if the field has no unit."); r += 1
     _row(r, "uri", "The CURIE (Compact URI) linking this field to a term in an established ontology (e.g. Voc4Cat, CHMO, OBI)."); r += 1
     _row(r, "description", "Documentation string from the schema explaining the purpose of the field."); r += 1
 
@@ -283,6 +292,12 @@ def build_legend_sheet(wb: openpyxl.Workbook) -> None:
              "M = Mandatory, R = Recommended, O = Optional. Derived from the 'required' and 'recommended' attributes in the LinkML schema."); r += 1
     _col_row(r, "range",
              "The expected value type. Primitives (string, float, integer, boolean, uri) are leaf values. A class name means the field expands into a structured sub-record defined by the named class."); r += 1
+    _col_row(r, "multivalued",
+             "'Yes' means a list of values is expected for this field (e.g. several reactants). Empty means a single value only. Class rows leave this empty — it is a property of slots."); r += 1
+    _col_row(r, "inlined as list",
+             "'Yes' means linked sub-records are stored directly inside the parent record as an ordered list, rather than as separate entries referenced by identifier. Empty = not inlined. Relevant only when the range is a class type."); r += 1
+    _col_row(r, "unit",
+             "Unit of measurement for numeric fields, expressed as a UCUM code (e.g. 'Cel' for Celsius, 'cm' for centimetres, 'mol/L' for molarity). Empty if the field has no unit."); r += 1
     _col_row(r, "uri",
              "CURIE (Compact URI) linking this field or class to a term in an established ontology. Click the linked term in the schema documentation for the full URI."); r += 1
     _col_row(r, "description",
@@ -323,7 +338,10 @@ def build_catcore_sheet(wb: openpyxl.Workbook, schema: dict) -> None:
         rng  = su_def.get("range", "")
         uri  = su_def.get("slot_uri", "") or (classes.get(rng, {}).get("class_uri", "") if rng else "")
         desc = su_def.get("description", "")
-        rows.append((snake_to_readable(su_name), "slot", "", mro, rng, uri, desc))
+        multivalued     = "Yes" if su_def.get("multivalued",     False) else ""
+        inlined_as_list = "Yes" if su_def.get("inlined_as_list", False) else ""
+        unit            = (su_def.get("unit") or {}).get("ucum_code", "")
+        rows.append((snake_to_readable(su_name), "slot", "", mro, rng, multivalued, inlined_as_list, unit, uri, desc))
 
     seen: set = set()
     for row in rows:
@@ -358,49 +376,55 @@ def _collect_rows(
     for slot_name in direct_slots:
         mro = _slot_mro(schema, context_class if depth == 0 else class_name, slot_name)
         slot_def = get_slot_details(schema, slot_name)
-        range_type = slot_def.get("range", "string")
+        range_type      = slot_def.get("range", "string")
+        multivalued     = "Yes" if slot_def.get("multivalued",     False) else ""
+        inlined_as_list = "Yes" if slot_def.get("inlined_as_list", False) else ""
+        unit            = (slot_def.get("unit") or {}).get("ucum_code", "")
         uri  = slot_def.get("slot_uri", "")
         desc = slot_def.get("description", "")
         label = snake_to_readable(slot_name)
-        rows.append((label, "slot", parent_label, mro, range_type, uri, desc))
+        rows.append((label, "slot", parent_label, mro, range_type, multivalued, inlined_as_list, unit, uri, desc))
 
         if range_type and range_type in classes and not is_mixin(schema, range_type):
             class_def   = classes[range_type]
             class_label = snake_to_readable(range_type)
             class_uri   = class_def.get("class_uri", "")
             class_desc  = class_def.get("description", "")
-            rows.append((class_label, "class", label, mro, "", class_uri, class_desc))
+            rows.append((class_label, "class", label, mro, "", "", "", "", class_uri, class_desc))
             _collect_rows(schema, range_type, class_label, context_class, seen, rows, depth + 1)
             for sub in get_subclasses(schema, range_type):
                 sub_def   = classes.get(sub, {})
                 sub_label = snake_to_readable(sub)
                 sub_uri   = sub_def.get("class_uri", "")
                 sub_desc  = sub_def.get("description", "")
-                rows.append((sub_label, "class", class_label, mro, "", sub_uri, sub_desc))
+                rows.append((sub_label, "class", class_label, mro, "", "", "", "", sub_uri, sub_desc))
                 _collect_rows(schema, sub, sub_label, context_class, seen | {range_type}, rows, depth + 2)
 
     for su_name, synthetic in get_class_ranged_slot_usage(schema, class_name):
         if su_name in direct_slots:
             continue
-        rng  = synthetic.get("range", "")
-        mro  = _slot_mro(schema, class_name, su_name)
-        uri  = synthetic.get("slot_uri", "")
-        desc = synthetic.get("description", "")
+        rng             = synthetic.get("range", "")
+        mro             = _slot_mro(schema, class_name, su_name)
+        multivalued     = "Yes" if synthetic.get("multivalued",     False) else ""
+        inlined_as_list = "Yes" if synthetic.get("inlined_as_list", False) else ""
+        unit            = (synthetic.get("unit") or {}).get("ucum_code", "")
+        uri             = synthetic.get("slot_uri", "")
+        desc            = synthetic.get("description", "")
         su_label = snake_to_readable(su_name)
-        rows.append((su_label, "slot", parent_label, mro, rng, uri, desc))
+        rows.append((su_label, "slot", parent_label, mro, rng, multivalued, inlined_as_list, unit, uri, desc))
         if rng and rng in classes and not is_mixin(schema, rng):
             class_def   = classes[rng]
             class_label = snake_to_readable(rng)
             class_uri   = class_def.get("class_uri", "")
             class_desc  = class_def.get("description", "")
-            rows.append((class_label, "class", su_label, mro, "", class_uri, class_desc))
+            rows.append((class_label, "class", su_label, mro, "", "", "", "", class_uri, class_desc))
             _collect_rows(schema, rng, class_label, class_name, seen, rows, depth + 1)
             for sub in get_subclasses(schema, rng):
                 sub_def   = classes.get(sub, {})
                 sub_label = snake_to_readable(sub)
                 sub_uri   = sub_def.get("class_uri", "")
                 sub_desc  = sub_def.get("description", "")
-                rows.append((sub_label, "class", class_label, mro, "", sub_uri, sub_desc))
+                rows.append((sub_label, "class", class_label, mro, "", "", "", "", sub_uri, sub_desc))
                 _collect_rows(schema, sub, sub_label, class_name, seen | {rng}, rows, depth + 2)
 
 

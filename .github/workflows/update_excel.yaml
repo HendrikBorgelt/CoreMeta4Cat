@@ -4,7 +4,11 @@
 # ========================
 # Runs after every push to main (i.e. after a PR is merged).
 # Regenerates docs/assets/coremeta4cat_vocabulary.xlsx from the current
-# schema and commits it back if anything changed.
+# schema and opens an auto-PR if the file changed.
+#
+# A direct push to main is intentionally avoided: the repo requires all
+# changes to go through a pull request. create-pull-request pushes to a
+# short-lived branch and opens the PR on our behalf instead.
 #
 # This is the only place that writes the workbook — keeping write access
 # out of PR workflows entirely, which avoids fork permission issues.
@@ -24,7 +28,8 @@ env:
   FORCE_COLOR: "1"
 
 permissions:
-  contents: write   # needed to commit the regenerated workbook
+  contents: write        # needed to push the auto-PR branch
+  pull-requests: write   # needed to open the pull request
 
 jobs:
   update-excel:
@@ -56,14 +61,27 @@ jobs:
       - name: Regenerate Excel vocabulary from schema
         run: just schema-to-excel
 
-      - name: Commit updated workbook if changed
+      - name: Open PR for updated workbook (if changed)
+        id: create_pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: docs/assets/coremeta4cat_vocabulary.xlsx
+          commit-message: "chore: regenerate vocabulary workbook from schema"
+          branch: chore/update-excel-vocabulary
+          delete-branch: true
+          title: "chore: regenerate vocabulary workbook from schema"
+          body: |
+            Automated update of the Excel vocabulary workbook following a schema change.
+
+            This PR was opened automatically by the `update-excel` workflow and only
+            touches `docs/assets/coremeta4cat_vocabulary.xlsx`.
+          labels: automated
+
+      - name: Enable auto-merge on the PR (if one was created)
+        if: steps.create_pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/assets/coremeta4cat_vocabulary.xlsx
-          if git diff --cached --quiet; then
-            echo "Workbook unchanged — nothing to commit."
-          else
-            git commit -m "chore: regenerate vocabulary workbook from schema [skip ci]"
-            git push
-          fi
+          gh pr merge --auto --merge \
+            "${{ steps.create_pr.outputs.pull-request-number }}"
