@@ -166,7 +166,7 @@ classes:
 
   Precursor:
     is_a: MaterialSample
-    class_uri: CHEBI:52717   # precursor
+    class_uri: VOC4CAT:0007794 # precursor
     description: |-
       A MaterialSample that serves as input material in a catalyst Synthesis.
       Precursors are consumed or transformed during the preparation process.
@@ -176,6 +176,7 @@ classes:
       precursor_quantity:
         required: true
 
+        slot_uri: VOC4CAT:0008118
   CatalystSample:
     is_a: MaterialSample
     class_uri: OBI:0000747   # specimen — reuses MaterialSample class_uri; specific catalyst type via rdf_type
@@ -194,7 +195,7 @@ classes:
 
   PreparationMethod:
     is_a: Plan
-    class_uri: OBI:0000272   # protocol
+    class_uri: VOC4CAT:0007016 # protocol
     abstract: true
     description: |-
       An abstract Plan describing the protocol used to prepare a catalyst.
@@ -530,7 +531,7 @@ slots:
 
   has_aging_duration:
     is_a: has_duration
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0008204
     range: Duration
     description: Duration of the aging step.
 
@@ -624,7 +625,7 @@ slots:
   stirrer_type:
     description: Type of stirrer used (e.g. magnetic, mechanical, none).
     range: string
-    slot_uri: coremeta4cat:stirrer_type
+    slot_uri: VOC4CAT:0008113
     multivalued: true
 
   cooling_rate:
@@ -858,7 +859,7 @@ slots:
   precipitation_agent:
     description: Agent used to induce precipitation in molecular synthesis.
     range: string
-    slot_uri: coremeta4cat:precipitation_agent
+    slot_uri: VOC4CAT:0008203
     multivalued: true
 
   crystallisation_duration:
