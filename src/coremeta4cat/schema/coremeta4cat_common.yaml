@@ -101,7 +101,7 @@ classes:
 
   Duration:
     is_a: QuantitativeAttribute
-    class_uri: qudt:Quantity
+    class_uri: VOC4CAT:0008120
     description: A quantitative measure of elapsed time (duration of a process step).
     close_mappings:
     - PATO:0001309
@@ -115,7 +115,7 @@ classes:
 
   HeatingRate:
     is_a: QuantitativeAttribute
-    class_uri: qudt:Quantity
+    class_uri: VOC4CAT:0008116
     description: Rate of temperature change per unit time during a thermal ramp.
 
   AngularVelocity:
@@ -296,13 +296,13 @@ slots:
 
   has_drying_temperature:
     is_a: has_temperature
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0008207
     range: Temperature
     description: Temperature applied during the drying step.
 
   has_drying_duration:
     is_a: has_duration
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0008206
     range: Duration
     description: Duration of the drying step.
 
@@ -319,7 +319,7 @@ slots:
 
   has_calcination_dwelling_time:
     is_a: has_duration
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0000060
     range: Duration
     description: Time held at the final calcination temperature.
 
@@ -331,7 +331,7 @@ slots:
 
   has_calcination_gas_flow_rate:
     is_a: has_flow_rate
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0000056
     range: VolumeFlowRate
     description: Gas flow rate maintained during calcination.
 
@@ -377,7 +377,7 @@ slots:
 
   has_atmosphere:
     is_a: has_qualitative_attribute
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0007809
     range: Atmosphere
     description: Gaseous environment or atmospheric conditions during a process.
     multivalued: true
@@ -385,7 +385,7 @@ slots:
 
   has_drying_atmosphere:
     is_a: has_atmosphere
-    slot_uri: SIO:000008
+    slot_uri: VOC4CAT:0008208
     range: Atmosphere
     description: Atmosphere maintained during the drying step.
     multivalued: true
@@ -465,7 +465,7 @@ slots:
   drying_device:
     description: Device used for drying (e.g. oven, rotary evaporator).
     range: string
-    slot_uri: coremeta4cat:drying_device
+    slot_uri: VOC4CAT:0008122
     multivalued: true
 
   # ---- Measurement / analytical slots ----
