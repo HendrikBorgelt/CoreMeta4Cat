@@ -208,7 +208,7 @@ jobs:
           persist-credentials: false
 
       - name: Download modified schema
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: modified-schema
           path: src/coremeta4cat/schema/
@@ -293,14 +293,14 @@ jobs:
       # ── Artifact download ─────────────────────────────────────────────────────
 
       - name: Download apply output
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: apply-output
           path: /tmp/apply-output/
 
       - name: Download modified schema (for round-trip check and commit)
         if: needs.apply-inbox.outputs.apply_status != 'errors'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: modified-schema
           path: _main_branch/src/coremeta4cat/schema/
