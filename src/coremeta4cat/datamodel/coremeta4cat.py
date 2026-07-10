@@ -1,5 +1,5 @@
 # Auto generated from coremeta4cat.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-07T18:27:07
+# Generation date: 2026-07-10T12:52:59
 # Schema: coremeta4cat-metadata
 #
 # id: https://w3id.org/nfdi4cat/coremeta4cat
@@ -369,6 +369,50 @@ class ReactorId(DeviceId):
 
 
 class MaterialEntityId(EntityId):
+    pass
+
+
+class CatalystTypeId(MaterialEntityId):
+    pass
+
+
+class HeterogeneousCatalystId(CatalystTypeId):
+    pass
+
+
+class HomogeneousCatalystId(CatalystTypeId):
+    pass
+
+
+class BioCatalystId(CatalystTypeId):
+    pass
+
+
+class ElectroCatalystId(CatalystTypeId):
+    pass
+
+
+class ThinFilmCatalystId(CatalystTypeId):
+    pass
+
+
+class BulkCatalystId(CatalystTypeId):
+    pass
+
+
+class PowerderedCatalystId(CatalystTypeId):
+    pass
+
+
+class DepositedSampleCatalystId(CatalystTypeId):
+    pass
+
+
+class PhotoCatalystId(CatalystTypeId):
+    pass
+
+
+class SupportedCatalsytId(CatalystTypeId):
     pass
 
 
@@ -2746,7 +2790,7 @@ class CatalyticReaction(EvaluatedActivity):
     reactant: Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]] = empty_dict()
     product_identification_method: Union[Union[dict, "ProductIdentificationMethod"], list[Union[dict, "ProductIdentificationMethod"]]] = None
     carried_out_by: Union[dict[Union[str, ChemicalReactorId], Union[dict, ChemicalReactor]], list[Union[dict, ChemicalReactor]]] = empty_dict()
-    catalyst_type: Optional[Union[str, list[str]]] = empty_list()
+    has_catalyst_type: Optional[Union[Union[str, CatalystTypeId], list[Union[str, CatalystTypeId]]]] = empty_list()
     reactor_temperature_range: Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]] = empty_list()
     has_atmosphere: Optional[Union[Union[dict, "Atmosphere"], list[Union[dict, "Atmosphere"]]]] = empty_list()
     experiment_pressure: Optional[Union[Union[dict, "Pressure"], list[Union[dict, "Pressure"]]]] = empty_list()
@@ -2781,9 +2825,9 @@ class CatalyticReaction(EvaluatedActivity):
             self.MissingRequiredField("carried_out_by")
         self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=ChemicalReactor, key_name="id", keyed=True)
 
-        if not isinstance(self.catalyst_type, list):
-            self.catalyst_type = [self.catalyst_type] if self.catalyst_type is not None else []
-        self.catalyst_type = [v if isinstance(v, str) else str(v) for v in self.catalyst_type]
+        if not isinstance(self.has_catalyst_type, list):
+            self.has_catalyst_type = [self.has_catalyst_type] if self.has_catalyst_type is not None else []
+        self.has_catalyst_type = [v if isinstance(v, CatalystTypeId) else CatalystTypeId(v) for v in self.has_catalyst_type]
 
         if not isinstance(self.reactor_temperature_range, list):
             self.reactor_temperature_range = [self.reactor_temperature_range] if self.reactor_temperature_range is not None else []
@@ -2964,8 +3008,8 @@ class PreparationMethod(Plan):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = OBI["0000272"]
-    class_class_curie: ClassVar[str] = "OBI:0000272"
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007016"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007016"
     class_name: ClassVar[str] = "PreparationMethod"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PreparationMethod
 
@@ -6576,8 +6620,8 @@ class Duration(QuantitativeAttribute):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = QUDT["Quantity"]
-    class_class_curie: ClassVar[str] = "qudt:Quantity"
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0008120"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0008120"
     class_name: ClassVar[str] = "Duration"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Duration
 
@@ -6606,8 +6650,8 @@ class HeatingRate(QuantitativeAttribute):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = QUDT["Quantity"]
-    class_class_curie: ClassVar[str] = "qudt:Quantity"
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0008116"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0008116"
     class_name: ClassVar[str] = "HeatingRate"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HeatingRate
 
@@ -6730,6 +6774,97 @@ class MassToChargeRatio(QuantitativeAttribute):
     class_class_curie: ClassVar[str] = "qudt:Quantity"
     class_name: ClassVar[str] = "MassToChargeRatio"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.MassToChargeRatio
+
+    value: float = None
+    has_quantity_type: Union[str, DefinedTermId] = None
+
+@dataclass(repr=False)
+class ReactorPerformanceMeasures(QuantitativeAttribute):
+    """
+    A measure to quantify how fast and selective a chemical converison occurs in a reactor. A chemical conversion may
+    include multiples reactions.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["005001"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:005001"
+    class_name: ClassVar[str] = "ReactorPerformanceMeasures"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ReactorPerformanceMeasures
+
+    value: float = None
+    has_quantity_type: Union[str, DefinedTermId] = None
+    has_yield: Optional[Union[Union[dict, "Yield"], list[Union[dict, "Yield"]]]] = empty_list()
+    has_conversion: Optional[Union[Union[dict, "Conversion"], list[Union[dict, "Conversion"]]]] = empty_list()
+    has_space_time_yield: Optional[Union[Union[dict, "SpaceTimeYield"], list[Union[dict, "SpaceTimeYield"]]]] = empty_list()
+    has_selectivity: Optional[Union[Union[dict, "Selectivity"], list[Union[dict, "Selectivity"]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.has_yield, list):
+            self.has_yield = [self.has_yield] if self.has_yield is not None else []
+        self.has_yield = [v if isinstance(v, Yield) else Yield(**as_dict(v)) for v in self.has_yield]
+
+        if not isinstance(self.has_conversion, list):
+            self.has_conversion = [self.has_conversion] if self.has_conversion is not None else []
+        self.has_conversion = [v if isinstance(v, Conversion) else Conversion(**as_dict(v)) for v in self.has_conversion]
+
+        if not isinstance(self.has_space_time_yield, list):
+            self.has_space_time_yield = [self.has_space_time_yield] if self.has_space_time_yield is not None else []
+        self.has_space_time_yield = [v if isinstance(v, SpaceTimeYield) else SpaceTimeYield(**as_dict(v)) for v in self.has_space_time_yield]
+
+        if not isinstance(self.has_selectivity, list):
+            self.has_selectivity = [self.has_selectivity] if self.has_selectivity is not None else []
+        self.has_selectivity = [v if isinstance(v, Selectivity) else Selectivity(**as_dict(v)) for v in self.has_selectivity]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Conversion(QuantitativeAttribute):
+    """
+    A dimensionless physical quantity describing the fraction of a reactant that reacts in a chemical conversion. If a
+    reactant is consumed completely its conversion is 1 (or 100 %).
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0005004"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0005004"
+    class_name: ClassVar[str] = "Conversion"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Conversion
+
+    value: float = None
+    has_quantity_type: Union[str, DefinedTermId] = None
+
+@dataclass(repr=False)
+class SpaceTimeYield(QuantitativeAttribute):
+    """
+    A physical quantity that describes the amount of product produced per unit of time and unit of producing entity.
+    The producing entity is for example the volume of a chemical reactor or in catalysis the mass or volume or moles
+    of catalyst. Example unit: kg{product} / (hour * cubicmeter{catalyst})
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0005006"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0005006"
+    class_name: ClassVar[str] = "SpaceTimeYield"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SpaceTimeYield
+
+    value: float = None
+    has_quantity_type: Union[str, DefinedTermId] = None
+
+@dataclass(repr=False)
+class Selectivity(QuantitativeAttribute):
+    """
+    A dimensionless physical quantity describing how effective a reactant is converted to the desired product in a
+    chemical conversion. It is calculated as the ratio between the amount of the desired product and the amount of the
+    desired product that could have been formed if all reactants were converted to the desired product. The
+    selectivity is 1 (or 100 %) if no other than the desired product is formed.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000125"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000125"
+    class_name: ClassVar[str] = "Selectivity"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Selectivity
 
     value: float = None
     has_quantity_type: Union[str, DefinedTermId] = None
@@ -8144,6 +8279,264 @@ class MaterialEntity(Entity):
 
 
 @dataclass(repr=False)
+class CatalystType(MaterialEntity):
+    """
+    Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
+    For heterogeneous catalysts, use voc4cat terms where available.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007014"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007014"
+    class_name: ClassVar[str] = "CatalystType"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CatalystType
+
+    id: Union[str, CatalystTypeId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CatalystTypeId):
+            self.id = CatalystTypeId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HeterogeneousCatalyst(CatalystType):
+    """
+    A substance that increases the rate of a chemical reaction that is in a different phase than the reagents.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007003"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007003"
+    class_name: ClassVar[str] = "HeterogeneousCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HeterogeneousCatalyst
+
+    id: Union[str, HeterogeneousCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, HeterogeneousCatalystId):
+            self.id = HeterogeneousCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class HomogeneousCatalyst(CatalystType):
+    """
+    A substance that increses the rate of a chemical reaction that is in the same phase as the reagents.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["HomogeneousCatalyst"]
+    class_class_curie: ClassVar[str] = "coremeta4cat:HomogeneousCatalyst"
+    class_name: ClassVar[str] = "HomogeneousCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HomogeneousCatalyst
+
+    id: Union[str, HomogeneousCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, HomogeneousCatalystId):
+            self.id = HomogeneousCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class BioCatalyst(CatalystType):
+    """
+    An enzyme or cell that catalyzes a biocatalytic reaction. Subclass of Catalyst (AgenticEntity). The physical form
+    in which it is applied is described by an associated BiocatalystPreparation.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["BioCatalyst"]
+    class_class_curie: ClassVar[str] = "coremeta4cat:BioCatalyst"
+    class_name: ClassVar[str] = "BioCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BioCatalyst
+
+    id: Union[str, BioCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BioCatalystId):
+            self.id = BioCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ElectroCatalyst(CatalystType):
+    """
+    The characteristics of a material or substance that determine how it interacts or responds to a magnetic field.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000255"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000255"
+    class_name: ClassVar[str] = "ElectroCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ElectroCatalyst
+
+    id: Union[str, ElectroCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ElectroCatalystId):
+            self.id = ElectroCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ThinFilmCatalyst(CatalystType):
+    """
+    A catalyst introduced to the reaction chamber in the form of a thin film. To form a thin film, a (powdered)
+    catalyst is deposited on a substrate (e.g., glass or metal) using an appropriate deposition technique.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000019"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000019"
+    class_name: ClassVar[str] = "ThinFilmCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ThinFilmCatalyst
+
+    id: Union[str, ThinFilmCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ThinFilmCatalystId):
+            self.id = ThinFilmCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class BulkCatalyst(CatalystType):
+    """
+    A catalyst that consists mainly of the active ingredient or phase.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007015"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007015"
+    class_name: ClassVar[str] = "BulkCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BulkCatalyst
+
+    id: Union[str, BulkCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BulkCatalystId):
+            self.id = BulkCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class PowerderedCatalyst(CatalystType):
+    """
+    A catalyst introduced to the reaction chamber in the form of a powder.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000017"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000017"
+    class_name: ClassVar[str] = "PowerderedCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PowerderedCatalyst
+
+    id: Union[str, PowerderedCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PowerderedCatalystId):
+            self.id = PowerderedCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class DepositedSampleCatalyst(CatalystType):
+    """
+    A thin film of the catalyst deposited on an appropriate for the application substrate.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000038"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000038"
+    class_name: ClassVar[str] = "DepositedSampleCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.DepositedSampleCatalyst
+
+    id: Union[str, DepositedSampleCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DepositedSampleCatalystId):
+            self.id = DepositedSampleCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class PhotoCatalyst(CatalystType):
+    """
+    A material that absorbs photons (light) of appropriate energy and initiates or accelerates a photochemical
+    reaction, while it regenerates itself after each reaction cycle.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000002"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000002"
+    class_name: ClassVar[str] = "PhotoCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PhotoCatalyst
+
+    id: Union[str, PhotoCatalystId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PhotoCatalystId):
+            self.id = PhotoCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class SupportedCatalsyt(CatalystType):
+    """
+    A catalyst where the active material is usually the minority phase and fixed on a high surface area, relatively
+    inert solid.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007034"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007034"
+    class_name: ClassVar[str] = "SupportedCatalsyt"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SupportedCatalsyt
+
+    id: Union[str, SupportedCatalsytId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SupportedCatalsytId):
+            self.id = SupportedCatalsytId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class StartingMaterial(MaterialEntity):
     """
     A ChemicalSubstance with that has a starting material role in a synthesis.
@@ -8443,8 +8836,8 @@ class Precursor(MaterialSample):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = CHEBI["52717"]
-    class_class_curie: ClassVar[str] = "CHEBI:52717"
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007794"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007794"
     class_name: ClassVar[str] = "Precursor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Precursor
 
@@ -8985,22 +9378,31 @@ slots.has_wavenumber_quantity = Slot(uri=SIO['000008'], name="has_wavenumber_qua
 slots.has_mz_quantity = Slot(uri=SIO['000008'], name="has_mz_quantity", curie=SIO.curie('000008'),
                    model_uri=COREMETA4CAT.has_mz_quantity, domain=None, range=Optional[Union[Union[dict, MassToChargeRatio], list[Union[dict, MassToChargeRatio]]]])
 
-slots.has_drying_temperature = Slot(uri=SIO['000008'], name="has_drying_temperature", curie=SIO.curie('000008'),
+slots.has_conversion = Slot(uri=SIO['000008'], name="has_conversion", curie=SIO.curie('000008'),
+                   model_uri=COREMETA4CAT.has_conversion, domain=None, range=Optional[Union[Union[dict, Conversion], list[Union[dict, Conversion]]]])
+
+slots.has_space_time_yield = Slot(uri=SIO['000008'], name="has_space_time_yield", curie=SIO.curie('000008'),
+                   model_uri=COREMETA4CAT.has_space_time_yield, domain=None, range=Optional[Union[Union[dict, SpaceTimeYield], list[Union[dict, SpaceTimeYield]]]])
+
+slots.has_selectivity = Slot(uri=SIO['000008'], name="has_selectivity", curie=SIO.curie('000008'),
+                   model_uri=COREMETA4CAT.has_selectivity, domain=None, range=Optional[Union[Union[dict, Selectivity], list[Union[dict, Selectivity]]]])
+
+slots.has_drying_temperature = Slot(uri=VOC4CAT['0008207'], name="has_drying_temperature", curie=VOC4CAT.curie('0008207'),
                    model_uri=COREMETA4CAT.has_drying_temperature, domain=None, range=Optional[Union[Union[dict, Temperature], list[Union[dict, Temperature]]]])
 
-slots.has_drying_duration = Slot(uri=SIO['000008'], name="has_drying_duration", curie=SIO.curie('000008'),
+slots.has_drying_duration = Slot(uri=VOC4CAT['0008206'], name="has_drying_duration", curie=VOC4CAT.curie('0008206'),
                    model_uri=COREMETA4CAT.has_drying_duration, domain=None, range=Optional[Union[dict, Duration]])
 
 slots.has_calcination_temperature_range = Slot(uri=COREMETA4CAT.hasCalcinationTemperatureRange, name="has_calcination_temperature_range", curie=COREMETA4CAT.curie('hasCalcinationTemperatureRange'),
                    model_uri=COREMETA4CAT.has_calcination_temperature_range, domain=None, range=Optional[Union[dict, QuantitativeRange]])
 
-slots.has_calcination_dwelling_time = Slot(uri=SIO['000008'], name="has_calcination_dwelling_time", curie=SIO.curie('000008'),
+slots.has_calcination_dwelling_time = Slot(uri=VOC4CAT['0000060'], name="has_calcination_dwelling_time", curie=VOC4CAT.curie('0000060'),
                    model_uri=COREMETA4CAT.has_calcination_dwelling_time, domain=None, range=Optional[Union[dict, Duration]])
 
 slots.has_calcination_heating_rate = Slot(uri=VOC4CAT['0008116'], name="has_calcination_heating_rate", curie=VOC4CAT.curie('0008116'),
                    model_uri=COREMETA4CAT.has_calcination_heating_rate, domain=None, range=Optional[Union[Union[dict, HeatingRate], list[Union[dict, HeatingRate]]]])
 
-slots.has_calcination_gas_flow_rate = Slot(uri=SIO['000008'], name="has_calcination_gas_flow_rate", curie=SIO.curie('000008'),
+slots.has_calcination_gas_flow_rate = Slot(uri=VOC4CAT['0000056'], name="has_calcination_gas_flow_rate", curie=VOC4CAT.curie('0000056'),
                    model_uri=COREMETA4CAT.has_calcination_gas_flow_rate, domain=None, range=Optional[Union[Union[dict, VolumeFlowRate], list[Union[dict, VolumeFlowRate]]]])
 
 slots.has_stirring_speed = Slot(uri=SIO['000008'], name="has_stirring_speed", curie=SIO.curie('000008'),
@@ -9021,10 +9423,10 @@ slots.has_injection_volume = Slot(uri=SIO['000008'], name="has_injection_volume"
 slots.has_integration_time = Slot(uri=SIO['000008'], name="has_integration_time", curie=SIO.curie('000008'),
                    model_uri=COREMETA4CAT.has_integration_time, domain=None, range=Optional[Union[dict, Duration]])
 
-slots.has_atmosphere = Slot(uri=SIO['000008'], name="has_atmosphere", curie=SIO.curie('000008'),
+slots.has_atmosphere = Slot(uri=VOC4CAT['0007809'], name="has_atmosphere", curie=VOC4CAT.curie('0007809'),
                    model_uri=COREMETA4CAT.has_atmosphere, domain=None, range=Optional[Union[Union[dict, Atmosphere], list[Union[dict, Atmosphere]]]])
 
-slots.has_drying_atmosphere = Slot(uri=SIO['000008'], name="has_drying_atmosphere", curie=SIO.curie('000008'),
+slots.has_drying_atmosphere = Slot(uri=VOC4CAT['0008208'], name="has_drying_atmosphere", curie=VOC4CAT.curie('0008208'),
                    model_uri=COREMETA4CAT.has_drying_atmosphere, domain=None, range=Optional[Union[Union[dict, Atmosphere], list[Union[dict, Atmosphere]]]])
 
 slots.has_calcination_atmosphere = Slot(uri=SIO['000008'], name="has_calcination_atmosphere", curie=SIO.curie('000008'),
@@ -9051,7 +9453,7 @@ slots.carrier_gas = Slot(uri=COREMETA4CAT.carrier_gas, name="carrier_gas", curie
 slots.dispersant = Slot(uri=COREMETA4CAT.dispersant, name="dispersant", curie=COREMETA4CAT.curie('dispersant'),
                    model_uri=COREMETA4CAT.dispersant, domain=None, range=Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]]])
 
-slots.drying_device = Slot(uri=COREMETA4CAT.drying_device, name="drying_device", curie=COREMETA4CAT.curie('drying_device'),
+slots.drying_device = Slot(uri=VOC4CAT['0008122'], name="drying_device", curie=VOC4CAT.curie('0008122'),
                    model_uri=COREMETA4CAT.drying_device, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.step_size = Slot(uri=AFR['0000950'], name="step_size", curie=AFR.curie('0000950'),
@@ -9123,7 +9525,7 @@ slots.has_mixing_temperature = Slot(uri=VOC4CAT['0008127'], name="has_mixing_tem
 slots.has_aging_temperature = Slot(uri=VOC4CAT['0008131'], name="has_aging_temperature", curie=VOC4CAT.curie('0008131'),
                    model_uri=COREMETA4CAT.has_aging_temperature, domain=None, range=Optional[Union[Union[dict, Temperature], list[Union[dict, Temperature]]]])
 
-slots.has_aging_duration = Slot(uri=SIO['000008'], name="has_aging_duration", curie=SIO.curie('000008'),
+slots.has_aging_duration = Slot(uri=VOC4CAT['0008204'], name="has_aging_duration", curie=VOC4CAT.curie('0008204'),
                    model_uri=COREMETA4CAT.has_aging_duration, domain=None, range=Optional[Union[dict, Duration]])
 
 slots.order_of_addition = Slot(uri=VOC4CAT['0008128'], name="order_of_addition", curie=VOC4CAT.curie('0008128'),
@@ -9162,7 +9564,7 @@ slots.surfactant_template = Slot(uri=COREMETA4CAT.surfactant_template, name="sur
 slots.filling_volume = Slot(uri=COREMETA4CAT.filling_volume, name="filling_volume", curie=COREMETA4CAT.curie('filling_volume'),
                    model_uri=COREMETA4CAT.filling_volume, domain=None, range=Optional[Union[float, list[float]]])
 
-slots.stirrer_type = Slot(uri=COREMETA4CAT.stirrer_type, name="stirrer_type", curie=COREMETA4CAT.curie('stirrer_type'),
+slots.stirrer_type = Slot(uri=VOC4CAT['0008113'], name="stirrer_type", curie=VOC4CAT.curie('0008113'),
                    model_uri=COREMETA4CAT.stirrer_type, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.cooling_rate = Slot(uri=COREMETA4CAT.cooling_rate, name="cooling_rate", curie=COREMETA4CAT.curie('cooling_rate'),
@@ -9258,7 +9660,7 @@ slots.mixing_device = Slot(uri=COREMETA4CAT.mixing_device, name="mixing_device",
 slots.crystallisation_solvents = Slot(uri=COREMETA4CAT.crystallisation_solvents, name="crystallisation_solvents", curie=COREMETA4CAT.curie('crystallisation_solvents'),
                    model_uri=COREMETA4CAT.crystallisation_solvents, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.precipitation_agent = Slot(uri=COREMETA4CAT.precipitation_agent, name="precipitation_agent", curie=COREMETA4CAT.curie('precipitation_agent'),
+slots.precipitation_agent = Slot(uri=VOC4CAT['0008203'], name="precipitation_agent", curie=VOC4CAT.curie('0008203'),
                    model_uri=COREMETA4CAT.precipitation_agent, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.crystallisation_duration = Slot(uri=COREMETA4CAT.crystallisation_duration, name="crystallisation_duration", curie=COREMETA4CAT.curie('crystallisation_duration'),
@@ -9564,8 +9966,8 @@ slots.catalyst_quantity = Slot(uri=COREMETA4CAT.catalyst_quantity, name="catalys
 slots.reactant = Slot(uri=VOC4CAT['0000101'], name="reactant", curie=VOC4CAT.curie('0000101'),
                    model_uri=COREMETA4CAT.reactant, domain=None, range=Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]])
 
-slots.catalyst_type = Slot(uri=VOC4CAT['0007014'], name="catalyst_type", curie=VOC4CAT.curie('0007014'),
-                   model_uri=COREMETA4CAT.catalyst_type, domain=None, range=Optional[Union[str, list[str]]])
+slots.has_catalyst_type = Slot(uri=VOC4CAT['0007014'], name="has_catalyst_type", curie=VOC4CAT.curie('0007014'),
+                   model_uri=COREMETA4CAT.has_catalyst_type, domain=None, range=Optional[Union[Union[str, CatalystTypeId], list[Union[str, CatalystTypeId]]]])
 
 slots.reactor_temperature_range = Slot(uri=VOC4CAT['0007032'], name="reactor_temperature_range", curie=VOC4CAT.curie('0007032'),
                    model_uri=COREMETA4CAT.reactor_temperature_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])
@@ -10263,7 +10665,7 @@ slots.Synthesis_storage_conditions = Slot(uri=VOC4CAT['0008105'], name="Synthesi
 slots.Synthesis_carried_out_by = Slot(uri=PROV.wasAssociatedWith, name="Synthesis_carried_out_by", curie=PROV.curie('wasAssociatedWith'),
                    model_uri=COREMETA4CAT.Synthesis_carried_out_by, domain=Synthesis, range=Optional[Union[dict[Union[str, DeviceId], Union[dict, "Device"]], list[Union[dict, "Device"]]]])
 
-slots.Precursor_precursor_quantity = Slot(uri=COREMETA4CAT.precursor_quantity, name="Precursor_precursor_quantity", curie=COREMETA4CAT.curie('precursor_quantity'),
+slots.Precursor_precursor_quantity = Slot(uri=VOC4CAT['0008118'], name="Precursor_precursor_quantity", curie=VOC4CAT.curie('0008118'),
                    model_uri=COREMETA4CAT.Precursor_precursor_quantity, domain=Precursor, range=Union[Union[dict, "Mass"], list[Union[dict, "Mass"]]])
 
 slots.CatalystSample_derived_from = Slot(uri=PROV.wasDerivedFrom, name="CatalystSample_derived_from", curie=PROV.curie('wasDerivedFrom'),
