@@ -984,9 +984,10 @@ slots:
     - SIO:000008
     is_a: has_angular_velocity
     slot_uri: SIO:000008
-    owner: MolecularSynthesis
+    owner: CSTR
     domain_of:
     - MolecularSynthesis
+    - CSTR
     range: AngularVelocity
     recommended: true
     multivalued: true
@@ -1072,6 +1073,209 @@ slots:
     - RamanSpectroscopy
     - PhotoluminescenceSpectroscopy
     range: Duration
+    inlined: true
+    inlined_as_list: true
+  has_cathode:
+    name: has_cathode
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_cathode
+    description: The electrode where reduction occurs in an electrochemical cell.
+      It is the negative electrode in an electrolytic cell, while it is the positive
+      electrode in a galvanic cell.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0007254
+    is_a: carried_out_by
+    slot_uri: VOC4CAT:0007254
+    owner: ElectrochemicalReactor
+    domain_of:
+    - ElectrochemicalReactor
+    range: string
+    recommended: true
+    multivalued: true
+    inlined_as_list: true
+  has_anode:
+    name: has_anode
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_anode
+    description: The electrode where oxidation occurs in an electrochemical cell.
+      It is the positive electrode in an electrolytic cell, while it is the negative
+      electrode in a galvanic cell.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0007255
+    is_a: carried_out_by
+    slot_uri: VOC4CAT:0007255
+    owner: ElectrochemicalReactor
+    domain_of:
+    - ElectrochemicalReactor
+    range: string
+    recommended: true
+    multivalued: true
+    inlined_as_list: true
+  has_cell_operating_mode:
+    name: has_cell_operating_mode
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_cell_operating_mode
+    description: The functional mode of an electrochemical cell based on the direction
+      of energy conversion, specifiying wheter the system generates electrical energy
+      from spontaneous reactions or consumes energy to drive non-spontaneous reactions.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - SIO:000008
+    is_a: has_qualitative_attribute
+    slot_uri: SIO:000008
+    owner: ElectrochemicalReactor
+    domain_of:
+    - ElectrochemicalReactor
+    range: string
+    recommended: true
+    multivalued: true
+    inlined_as_list: true
+  has_active_area:
+    name: has_active_area
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_active_area
+    description: In contrast to substrate area, the actual area of a sample or electrode
+      which is active.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - SIO:000008
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    owner: ElectrochemicalReactor
+    domain_of:
+    - ElectrochemicalReactor
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_faradaic_current:
+    name: has_faradaic_current
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_faradaic_current
+    description: The current that is flowing through an electrochemical cell and is
+      causing (or is caused by) chemical reactions (charge transfer) occurring at
+      the electrode surfaces.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - SIO:000008
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    owner: ElectrochemicalReactor
+    domain_of:
+    - ElectrochemicalReactor
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_stirrer_type:
+    name: has_stirrer_type
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_stirrer_type
+    description: The category of mechanical or magnetic agitation device used to ensure
+      homogeneous mixing within a reaction system or mixing vessel, such as a magnetic
+      stirrer or an overhead mechanical (steel shaft) stirrer.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0008113
+    is_a: has_qualitative_attribute
+    slot_uri: VOC4CAT:0008113
+    owner: CSTR
+    domain_of:
+    - CSTR
+    range: string
+    recommended: true
+    multivalued: true
+    inlined: false
+    inlined_as_list: false
+  has_stirrer_diameter:
+    name: has_stirrer_diameter
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_stirrer_diameter
+    description: The effective diameter of the stirrer. Typically expressed as the
+      distance across the rotating blade or mixing head from one tip to the opposite
+      tip.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0008115
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008115
+    owner: CSTR
+    domain_of:
+    - CSTR
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_catalyst_particle_size:
+    name: has_catalyst_particle_size
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_catalyst_particle_size
+    description: A measure of the characteristic linear dimension of a particle in
+      a sample, typically reported as diameter, equivalent diameter, or another size
+      metric determined by an appropriate measurement method.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0008212
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008212
+    owner: FixedBedReactor
+    domain_of:
+    - FixedBedReactor
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_catalyst_bed_volume:
+    name: has_catalyst_bed_volume
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_catalyst_bed_volume
+    description: The bulk volume taken up by the catalyst and potential diluent in
+      a fixed bed reactor.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0007021
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0007021
+    owner: FixedBedReactor
+    domain_of:
+    - FixedBedReactor
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_catalyst_dilution_material:
+    name: has_catalyst_dilution_material
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_catalyst_dilution_material
+    description: An inert solid mixed with catalyst particles in a fixed bed to modify
+      bed properties (e.g., improve heat transfer, hydrodynamics or isothermicity)
+      without participating in the reaction.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0008218
+    is_a: has_qualitative_attribute
+    slot_uri: VOC4CAT:0008218
+    owner: FixedBedReactor
+    domain_of:
+    - FixedBedReactor
+    range: QualitativeAttribute
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: false
+  has_catalyst_bed_height:
+    name: has_catalyst_bed_height
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_catalyst_bed_height
+    description: The axial length of the packed catalyst section in a reactor, measured
+      along the direction of flow between the defined bed boundaries.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/common/
+    mappings:
+    - VOC4CAT:0008217
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008217
+    owner: FixedBedReactor
+    domain_of:
+    - FixedBedReactor
+    range: QuantitativeAttribute
+    recommended: true
+    multivalued: true
     inlined: true
     inlined_as_list: true
   has_atmosphere:
@@ -3845,9 +4049,6 @@ slots:
     mappings:
     - coremeta4cat:product_identification_method
     slot_uri: coremeta4cat:product_identification_method
-    owner: CatalyticReaction
-    domain_of:
-    - CatalyticReaction
     range: ProductIdentificationMethod
     required: true
     multivalued: true
@@ -7019,6 +7220,7 @@ slots:
     slot_uri: SIO:000008
     owner: MaterialisticMixin
     domain_of:
+    - CSTR
     - MaterialisticMixin
     range: Volume
     recommended: true
@@ -13677,10 +13879,10 @@ classes:
     - experiment_pressure
     - feed_composition_range
     - has_experiment_duration
-    - CatalyticReaction_product_identification_method
     - CatalyticReaction_rdf_type
     - CatalyticReaction_carried_out_by
     - CatalyticReaction_had_input_entity
+    - CatalyticReaction_product_identification_method
     slot_usage:
       rdf_type:
         name: rdf_type
@@ -13794,6 +13996,11 @@ classes:
     - rdf_type
     - Device_has_part
     - Device_other_identifier
+    - has_cathode
+    - has_anode
+    - has_cell_operating_mode
+    - has_active_area
+    - has_faradaic_current
     class_uri: VOC4CAT:0000193
   CSTR:
     name: CSTR
@@ -13815,6 +14022,10 @@ classes:
     - rdf_type
     - Device_has_part
     - Device_other_identifier
+    - has_stirring_speed
+    - has_volume
+    - has_stirrer_type
+    - has_stirrer_diameter
     class_uri: VOC4CAT:0007019
   PlugFlowReactor:
     name: PlugFlowReactor
@@ -13921,6 +14132,10 @@ classes:
     - rdf_type
     - Device_has_part
     - Device_other_identifier
+    - has_catalyst_particle_size
+    - has_catalyst_bed_volume
+    - has_catalyst_dilution_material
+    - has_catalyst_bed_height
     class_uri: coremeta4cat:FixedBedReactor
   FluidizedBedReactor:
     name: FluidizedBedReactor
@@ -14543,6 +14758,34 @@ classes:
     - ClassifierMixin_type
     - rdf_type
     class_uri: VOC4CAT:0000289
+  LiquidPhaseAnalysis:
+    name: LiquidPhaseAnalysis
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/LiquidPhaseAnalysis
+    description: Analysis of the liquid sample from a catalytic test.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOc4CAT:0007813
+    is_a: ProductIdentificationMethod
+    slots:
+    - title
+    - description
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOc4CAT:0007813
+  GasPhaseAnalysis:
+    name: GasPhaseAnalysis
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/GasPhaseAnalysis
+    description: Analysis of the liquid sample from a catalytic test.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0007814
+    is_a: ProductIdentificationMethod
+    slots:
+    - title
+    - description
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0007814
   MaterialDescriptorMixin:
     name: MaterialDescriptorMixin
     definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/MaterialDescriptorMixin
@@ -18592,5 +18835,5 @@ metamodel_version: 1.7.0
 source_file: coremeta4cat.yaml
 source_file_date: '2026-07-10T09:33:48'
 source_file_size: 6791
-generation_date: '2026-07-13T10:06:23'
+generation_date: '2026-07-13T11:37:02'
 

@@ -4013,6 +4013,26 @@ class ElectrochemicalReactor(ChemicalReactor):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000193',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
+    has_cathode: Optional[list[str]] = Field(default=[], description="""The electrode where reduction occurs in an electrochemical cell. It is the negative electrode in an electrolytic cell, while it is the positive electrode in a galvanic cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
+         'is_a': 'carried_out_by',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0007254'} })
+    has_anode: Optional[list[str]] = Field(default=[], description="""The electrode where oxidation occurs in an electrochemical cell. It is the positive electrode in an electrolytic cell, while it is the negative electrode in a galvanic cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
+         'is_a': 'carried_out_by',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0007255'} })
+    has_cell_operating_mode: Optional[list[str]] = Field(default=[], description="""The functional mode of an electrochemical cell based on the direction of energy conversion, specifiying wheter the system generates electrical energy from spontaneous reactions or consumes energy to drive non-spontaneous reactions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
+         'is_a': 'has_qualitative_attribute',
+         'recommended': True,
+         'slot_uri': 'SIO:000008'} })
+    has_active_area: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""In contrast to substrate area, the actual area of a sample or electrode which is active.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'SIO:000008'} })
+    has_faradaic_current: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""The current that is flowing through an electrochemical cell and is causing (or is caused by) chemical reactions (charge transfer) occurring at the electrode surfaces.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'SIO:000008'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Dataset',
@@ -4133,6 +4153,22 @@ class CSTR(ChemicalReactor):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007019',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
+    has_stirring_speed: Optional[list[AngularVelocity]] = Field(default=[], description="""Rotational speed of stirring or agitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis', 'CSTR'],
+         'is_a': 'has_angular_velocity',
+         'recommended': True,
+         'slot_uri': 'SIO:000008'} })
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'SIO:000008'} })
+    has_stirrer_type: Optional[list[str]] = Field(default=[], description="""The category of mechanical or magnetic agitation device used to ensure homogeneous mixing within a reaction system or mixing vessel, such as a magnetic stirrer or an overhead mechanical (steel shaft) stirrer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
+         'is_a': 'has_qualitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0008113'} })
+    has_stirrer_diameter: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""The effective diameter of the stirrer. Typically expressed as the distance across the rotating blade or mixing head from one tip to the opposite tip.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0008115'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Dataset',
@@ -4734,6 +4770,22 @@ class FixedBedReactor(ChemicalReactor):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'coremeta4cat:FixedBedReactor',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
+    has_catalyst_particle_size: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""A measure of the characteristic linear dimension of a particle in a sample, typically reported as diameter, equivalent diameter, or another size metric determined by an appropriate measurement method.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0008212'} })
+    has_catalyst_bed_volume: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""The bulk volume taken up by the catalyst and potential diluent in a fixed bed reactor.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0007021'} })
+    has_catalyst_dilution_material: Optional[list[QualitativeAttribute]] = Field(default=[], description="""An inert solid mixed with catalyst particles in a fixed bed to modify bed properties (e.g., improve heat transfer, hydrodynamics or isothermicity) without participating in the reaction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
+         'is_a': 'has_qualitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0008218'} })
+    has_catalyst_bed_height: Optional[list[QuantitativeAttribute]] = Field(default=[], description="""The axial length of the packed catalyst section in a reactor, measured along the direction of flow between the defined bed boundaries.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
+         'is_a': 'has_quantitative_attribute',
+         'recommended': True,
+         'slot_uri': 'VOC4CAT:0008217'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Dataset',
@@ -5735,10 +5787,6 @@ vol% or mol%). For fixed-composition experiments use reactant.has_concentration.
     has_experiment_duration: Optional[Duration] = Field(default=None, description="""Total duration of the experiment or measurement run.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PowderXRD', 'CatalyticReaction'],
          'is_a': 'has_duration',
          'slot_uri': 'SIO:000008'} })
-    product_identification_method: list[ProductIdentificationMethod] = Field(default=..., description="""The analytical method used to identify and/or quantify reaction products.
-Should reference a CharacterizationTechnique instance (e.g. GCMS, HPLC_MS).
-The abstract stub ProductIdentificationMethod is retained for backward compatibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
-         'slot_uri': 'coremeta4cat:product_identification_method'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Dataset',
@@ -8101,7 +8149,7 @@ class MolecularSynthesis(PreparationMethod, DryingMixin):
     has_stirring_duration: Optional[Duration] = Field(default=None, description="""Duration of stirring or agitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis'],
          'is_a': 'has_duration',
          'slot_uri': 'SIO:000008'} })
-    has_stirring_speed: Optional[list[AngularVelocity]] = Field(default=[], description="""Rotational speed of stirring or agitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis'],
+    has_stirring_speed: Optional[list[AngularVelocity]] = Field(default=[], description="""Rotational speed of stirring or agitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis', 'CSTR'],
          'is_a': 'has_angular_velocity',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -11877,6 +11925,190 @@ class ProductIdentificationMethod(Plan):
     it can participate in the realized_plan slot if needed.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'OBI:0000272',
+         'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
+
+    title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
+                       'Activity',
+                       'AgenticEntity',
+                       'Any',
+                       'Attribution',
+                       'Catalogue',
+                       'CatalogueRecord',
+                       'ChecksumAlgorithm',
+                       'Concept',
+                       'ConceptScheme',
+                       'DataService',
+                       'Dataset',
+                       'DatasetSeries',
+                       'DefinedTerm',
+                       'Distribution',
+                       'Document',
+                       'Entity',
+                       'Frequency',
+                       'Geometry',
+                       'Identifier',
+                       'LegalResource',
+                       'LicenseDocument',
+                       'LinguisticSystem',
+                       'MediaType',
+                       'MediaTypeOrExtent',
+                       'PeriodOfTime',
+                       'Plan',
+                       'Policy',
+                       'ProvenanceStatement',
+                       'QualitativeAttribute',
+                       'QuantitativeAttribute',
+                       'Resource',
+                       'RightsStatement',
+                       'Role',
+                       'Standard',
+                       'SupportiveEntity',
+                       'Surrounding',
+                       'TimeInstant'],
+         'slot_uri': 'dcterms:title'} })
+    description: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
+                       'Activity',
+                       'AgenticEntity',
+                       'Any',
+                       'Attribution',
+                       'Catalogue',
+                       'CatalogueRecord',
+                       'ChecksumAlgorithm',
+                       'Concept',
+                       'ConceptScheme',
+                       'DataService',
+                       'Dataset',
+                       'DatasetSeries',
+                       'Distribution',
+                       'Document',
+                       'Entity',
+                       'Frequency',
+                       'Geometry',
+                       'Identifier',
+                       'LegalResource',
+                       'LicenseDocument',
+                       'LinguisticSystem',
+                       'MediaType',
+                       'MediaTypeOrExtent',
+                       'PeriodOfTime',
+                       'Plan',
+                       'Policy',
+                       'ProvenanceStatement',
+                       'QualitativeAttribute',
+                       'QuantitativeAttribute',
+                       'Resource',
+                       'RightsStatement',
+                       'Role',
+                       'Standard',
+                       'SupportiveEntity',
+                       'Surrounding',
+                       'TimeInstant'],
+         'slot_uri': 'dcterms:description'} })
+    type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
+         'slot_uri': 'dcterms:type'} })
+    rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The slot to specify the ontology class that is instantiated by an entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
+         'in_subset': ['domain_agnostic_core'],
+         'recommended': True,
+         'slot_uri': 'rdf:type'} })
+
+
+class LiquidPhaseAnalysis(ProductIdentificationMethod):
+    """
+    Analysis of the liquid sample from a catalytic test.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOc4CAT:0007813',
+         'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
+
+    title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
+                       'Activity',
+                       'AgenticEntity',
+                       'Any',
+                       'Attribution',
+                       'Catalogue',
+                       'CatalogueRecord',
+                       'ChecksumAlgorithm',
+                       'Concept',
+                       'ConceptScheme',
+                       'DataService',
+                       'Dataset',
+                       'DatasetSeries',
+                       'DefinedTerm',
+                       'Distribution',
+                       'Document',
+                       'Entity',
+                       'Frequency',
+                       'Geometry',
+                       'Identifier',
+                       'LegalResource',
+                       'LicenseDocument',
+                       'LinguisticSystem',
+                       'MediaType',
+                       'MediaTypeOrExtent',
+                       'PeriodOfTime',
+                       'Plan',
+                       'Policy',
+                       'ProvenanceStatement',
+                       'QualitativeAttribute',
+                       'QuantitativeAttribute',
+                       'Resource',
+                       'RightsStatement',
+                       'Role',
+                       'Standard',
+                       'SupportiveEntity',
+                       'Surrounding',
+                       'TimeInstant'],
+         'slot_uri': 'dcterms:title'} })
+    description: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
+                       'Activity',
+                       'AgenticEntity',
+                       'Any',
+                       'Attribution',
+                       'Catalogue',
+                       'CatalogueRecord',
+                       'ChecksumAlgorithm',
+                       'Concept',
+                       'ConceptScheme',
+                       'DataService',
+                       'Dataset',
+                       'DatasetSeries',
+                       'Distribution',
+                       'Document',
+                       'Entity',
+                       'Frequency',
+                       'Geometry',
+                       'Identifier',
+                       'LegalResource',
+                       'LicenseDocument',
+                       'LinguisticSystem',
+                       'MediaType',
+                       'MediaTypeOrExtent',
+                       'PeriodOfTime',
+                       'Plan',
+                       'Policy',
+                       'ProvenanceStatement',
+                       'QualitativeAttribute',
+                       'QuantitativeAttribute',
+                       'Resource',
+                       'RightsStatement',
+                       'Role',
+                       'Standard',
+                       'SupportiveEntity',
+                       'Surrounding',
+                       'TimeInstant'],
+         'slot_uri': 'dcterms:description'} })
+    type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
+         'slot_uri': 'dcterms:type'} })
+    rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The slot to specify the ontology class that is instantiated by an entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
+         'in_subset': ['domain_agnostic_core'],
+         'recommended': True,
+         'slot_uri': 'rdf:type'} })
+
+
+class GasPhaseAnalysis(ProductIdentificationMethod):
+    """
+    Analysis of the liquid sample from a catalytic test.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007814',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -18985,7 +19217,7 @@ class MaterialisticMixin(ConfiguredBaseModel):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19063,7 +19295,7 @@ class ChemicalSubstanceMixin(MaterialisticMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19141,7 +19373,7 @@ class PolymerMixin(ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19206,7 +19438,7 @@ class MaterialEntity(MaterialisticMixin, Entity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19374,7 +19606,7 @@ class CatalystType(MaterialEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19541,7 +19773,7 @@ class HeterogeneousCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19708,7 +19940,7 @@ class HomogeneousCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -19875,7 +20107,7 @@ class BioCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20042,7 +20274,7 @@ class ElectroCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20209,7 +20441,7 @@ class ThinFilmCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20376,7 +20608,7 @@ class BulkCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20543,7 +20775,7 @@ class PowerderedCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20710,7 +20942,7 @@ class DepositedSampleCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -20877,7 +21109,7 @@ class PhotoCatalyst(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21044,7 +21276,7 @@ class SupportedCatalsyt(CatalystType):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21222,7 +21454,7 @@ class MaterialSample(MaterialisticMixin, EvaluatedEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21398,7 +21630,7 @@ class Precursor(MaterialSample):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21578,7 +21810,7 @@ CatalystSample was produced.""", json_schema_extra = { "linkml_meta": {'close_ma
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21772,7 +22004,7 @@ class SubstanceSample(MaterialSample, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -21967,7 +22199,7 @@ class PolymerSample(SubstanceSample, PolymerMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23052,7 +23284,7 @@ class StartingMaterial(MaterialEntity, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23357,7 +23589,7 @@ class DissolvingSubstance(ChemicalSubstanceMixin, AgenticEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23441,7 +23673,7 @@ class Reagent(MaterialEntity, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23632,7 +23864,7 @@ class ChemicalProduct(MaterialEntity, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23937,7 +24169,7 @@ class Catalyst(ChemicalSubstanceMixin, AgenticEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -23995,7 +24227,7 @@ class Reactor(MaterialisticMixin, Device):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
+    has_volume: Optional[list[Volume]] = Field(default=[], description="""The slot to provide the Volume of a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR', 'MaterialisticMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
@@ -27904,6 +28136,8 @@ GCMS.model_rebuild()
 SizeExclusionChromatography.model_rebuild()
 HighPerformanceLiquidChromatographyMassSpectrometry.model_rebuild()
 ProductIdentificationMethod.model_rebuild()
+LiquidPhaseAnalysis.model_rebuild()
+GasPhaseAnalysis.model_rebuild()
 QualitativeAttribute.model_rebuild()
 Atmosphere.model_rebuild()
 CalcinationGaseousEnvironment.model_rebuild()
