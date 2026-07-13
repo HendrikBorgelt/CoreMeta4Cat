@@ -3936,7 +3936,7 @@ slots:
     domain_of:
     - CatalyticReaction
     range: ReactionType
-    required: true
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -14170,25 +14170,13 @@ classes:
     from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
     mappings:
     - VOC4CAT:0007014
-    is_a: MaterialEntity
+    is_a: QualitativeAttribute
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0007014
   HeterogeneousCatalyst:
     name: HeterogeneousCatalyst
@@ -14200,23 +14188,11 @@ classes:
     - VOC4CAT:0007003
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0007003
   HomogeneousCatalyst:
     name: HomogeneousCatalyst
@@ -14228,23 +14204,11 @@ classes:
     - coremeta4cat:HomogeneousCatalyst
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: coremeta4cat:HomogeneousCatalyst
   BioCatalyst:
     name: BioCatalyst
@@ -14257,23 +14221,11 @@ classes:
     - coremeta4cat:BioCatalyst
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: coremeta4cat:BioCatalyst
   ElectroCatalyst:
     name: ElectroCatalyst
@@ -14285,23 +14237,11 @@ classes:
     - VOC4CAT:0000255
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0000255
   ThinFilmCatalyst:
     name: ThinFilmCatalyst
@@ -14314,23 +14254,11 @@ classes:
     - VOC4CAT:0000019
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0000019
   BulkCatalyst:
     name: BulkCatalyst
@@ -14341,23 +14269,11 @@ classes:
     - VOC4CAT:0007015
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0007015
   PowerderedCatalyst:
     name: PowerderedCatalyst
@@ -14368,23 +14284,11 @@ classes:
     - VOC4CAT:0000017
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0000017
   DepositedSampleCatalyst:
     name: DepositedSampleCatalyst
@@ -14396,23 +14300,11 @@ classes:
     - VOC4CAT:0000038
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0000038
   PhotoCatalyst:
     name: PhotoCatalyst
@@ -14425,23 +14317,11 @@ classes:
     - VOC4CAT:0000002
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0000002
   SupportedCatalsyt:
     name: SupportedCatalsyt
@@ -14453,23 +14333,11 @@ classes:
     - VOC4CAT:0007034
     is_a: CatalystType
     slots:
-    - Entity_title
-    - Entity_description
-    - id
-    - Entity_other_identifier
-    - has_qualitative_attribute
-    - has_quantitative_attribute
-    - Entity_part_of
+    - title
+    - description
+    - QualitativeAttribute_value
     - ClassifierMixin_type
     - rdf_type
-    - MaterialEntity_has_part
-    - alternative_label
-    - has_physical_state
-    - has_temperature
-    - has_mass
-    - has_volume
-    - has_density
-    - has_pressure
     class_uri: VOC4CAT:0007034
   ReactorPerformanceMeasures:
     name: ReactorPerformanceMeasures
@@ -14618,9 +14486,9 @@ classes:
     - ClassifierMixin_type
     - rdf_type
     class_uri: VOC4CAT:0000297
-  C-C-CouplingReaction:
-    name: C-C-CouplingReaction
-    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/C-C-CouplingReaction
+  CarbonCouplingReaction:
+    name: CarbonCouplingReaction
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CarbonCouplingReaction
     description: A chemical reaction where a carbon-carbon bond is formed from two
       carbon-containing fragments.
     from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
@@ -14709,9 +14577,9 @@ classes:
     - ClassifierMixin_type
     - rdf_type
     class_uri: VOC4CAT:0000280
-  CO2-Hydrogenation:
-    name: CO2-Hydrogenation
-    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CO2-Hydrogenation
+  CarbonDioxideHydrogenation:
+    name: CarbonDioxideHydrogenation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CarbonDioxideHydrogenation
     description: The reaction of carbon dioxide (CO2) with molecular hydrogen (H2)
       to produce value-added hydrocarbons or alcohols.
     from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
@@ -14741,9 +14609,9 @@ classes:
     - ClassifierMixin_type
     - rdf_type
     class_uri: VOC4CAT:0000261
-  CO-Oxidation:
-    name: CO-Oxidation
-    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CO-Oxidation
+  CarbonMonoxideOxidation:
+    name: CarbonMonoxideOxidation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CarbonMonoxideOxidation
     description: The reaction in which carbon monoxide (CO) is converted to carbon
       dioxide (CO2) through interaction with an oxidizing agent, typically oxygen
       (O2).
@@ -14764,14 +14632,14 @@ classes:
     description: Analysis of the liquid sample from a catalytic test.
     from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
     mappings:
-    - VOc4CAT:0007813
+    - VOC4CAT:0007813
     is_a: ProductIdentificationMethod
     slots:
     - title
     - description
     - ClassifierMixin_type
     - rdf_type
-    class_uri: VOc4CAT:0007813
+    class_uri: VOC4CAT:0007813
   GasPhaseAnalysis:
     name: GasPhaseAnalysis
     definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/GasPhaseAnalysis
@@ -18835,5 +18703,5 @@ metamodel_version: 1.7.0
 source_file: coremeta4cat.yaml
 source_file_date: '2026-07-10T09:33:48'
 source_file_size: 6791
-generation_date: '2026-07-13T11:37:02'
+generation_date: '2026-07-13T13:43:23'
 

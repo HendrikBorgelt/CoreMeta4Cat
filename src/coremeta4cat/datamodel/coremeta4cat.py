@@ -1,5 +1,5 @@
 # Auto generated from coremeta4cat.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-13T11:16:11
+# Generation date: 2026-07-13T13:21:43
 # Schema: coremeta4cat-metadata
 #
 # id: https://w3id.org/nfdi4cat/coremeta4cat
@@ -150,7 +150,6 @@ RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 RXNO = CurieNamespace('RXNO', 'http://purl.obolibrary.org/obo/RXNO_')
 SIO = CurieNamespace('SIO', 'http://semanticscience.org/resource/SIO_')
 VOC4CAT = CurieNamespace('VOC4CAT', 'https://w3id.org/nfdi4cat/voc4cat_')
-VOC4CAT = CurieNamespace('VOc4CAT', 'https://w3id.org/nfdi4cat/voc4cat_')
 ADMS = CurieNamespace('adms', 'http://www.w3.org/ns/adms#')
 CHEMDCATAP = CurieNamespace('chemdcatap', 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/')
 CHEMICAL_ENTITIES_AP = CurieNamespace('chemical_entities_ap', 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/')
@@ -370,50 +369,6 @@ class ReactorId(DeviceId):
 
 
 class MaterialEntityId(EntityId):
-    pass
-
-
-class CatalystTypeId(MaterialEntityId):
-    pass
-
-
-class HeterogeneousCatalystId(CatalystTypeId):
-    pass
-
-
-class HomogeneousCatalystId(CatalystTypeId):
-    pass
-
-
-class BioCatalystId(CatalystTypeId):
-    pass
-
-
-class ElectroCatalystId(CatalystTypeId):
-    pass
-
-
-class ThinFilmCatalystId(CatalystTypeId):
-    pass
-
-
-class BulkCatalystId(CatalystTypeId):
-    pass
-
-
-class PowerderedCatalystId(CatalystTypeId):
-    pass
-
-
-class DepositedSampleCatalystId(CatalystTypeId):
-    pass
-
-
-class PhotoCatalystId(CatalystTypeId):
-    pass
-
-
-class SupportedCatalsytId(CatalystTypeId):
     pass
 
 
@@ -2865,10 +2820,10 @@ class CatalyticReaction(EvaluatedActivity):
     id: Union[str, CatalyticReactionId] = None
     catalyst_quantity: Union[Union[dict, "Mass"], list[Union[dict, "Mass"]]] = None
     reactant: Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]] = empty_dict()
-    has_reaction_type: Union[Union[dict, "ReactionType"], list[Union[dict, "ReactionType"]]] = None
     carried_out_by: Union[dict[Union[str, ChemicalReactorId], Union[dict, ChemicalReactor]], list[Union[dict, ChemicalReactor]]] = empty_dict()
     product_identification_method: Union[Union[dict, "ProductIdentificationMethod"], list[Union[dict, "ProductIdentificationMethod"]]] = None
-    has_catalyst_type: Optional[Union[dict[Union[str, CatalystTypeId], Union[dict, "CatalystType"]], list[Union[dict, "CatalystType"]]]] = empty_dict()
+    has_catalyst_type: Optional[Union[Union[dict, "CatalystType"], list[Union[dict, "CatalystType"]]]] = empty_list()
+    has_reaction_type: Optional[Union[Union[dict, "ReactionType"], list[Union[dict, "ReactionType"]]]] = empty_list()
     reactor_temperature_range: Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]] = empty_list()
     has_atmosphere: Optional[Union[Union[dict, "Atmosphere"], list[Union[dict, "Atmosphere"]]]] = empty_list()
     experiment_pressure: Optional[Union[Union[dict, "Pressure"], list[Union[dict, "Pressure"]]]] = empty_list()
@@ -2893,12 +2848,6 @@ class CatalyticReaction(EvaluatedActivity):
             self.MissingRequiredField("reactant")
         self._normalize_inlined_as_list(slot_name="reactant", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
-        if self._is_empty(self.has_reaction_type):
-            self.MissingRequiredField("has_reaction_type")
-        if not isinstance(self.has_reaction_type, list):
-            self.has_reaction_type = [self.has_reaction_type] if self.has_reaction_type is not None else []
-        self.has_reaction_type = [v if isinstance(v, ReactionType) else ReactionType(**as_dict(v)) for v in self.has_reaction_type]
-
         if self._is_empty(self.carried_out_by):
             self.MissingRequiredField("carried_out_by")
         self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=ChemicalReactor, key_name="id", keyed=True)
@@ -2909,7 +2858,13 @@ class CatalyticReaction(EvaluatedActivity):
             self.product_identification_method = [self.product_identification_method] if self.product_identification_method is not None else []
         self.product_identification_method = [v if isinstance(v, ProductIdentificationMethod) else ProductIdentificationMethod(**as_dict(v)) for v in self.product_identification_method]
 
-        self._normalize_inlined_as_list(slot_name="has_catalyst_type", slot_type=CatalystType, key_name="id", keyed=True)
+        if not isinstance(self.has_catalyst_type, list):
+            self.has_catalyst_type = [self.has_catalyst_type] if self.has_catalyst_type is not None else []
+        self.has_catalyst_type = [v if isinstance(v, CatalystType) else CatalystType(**as_dict(v)) for v in self.has_catalyst_type]
+
+        if not isinstance(self.has_reaction_type, list):
+            self.has_reaction_type = [self.has_reaction_type] if self.has_reaction_type is not None else []
+        self.has_reaction_type = [v if isinstance(v, ReactionType) else ReactionType(**as_dict(v)) for v in self.has_reaction_type]
 
         if not isinstance(self.reactor_temperature_range, list):
             self.reactor_temperature_range = [self.reactor_temperature_range] if self.reactor_temperature_range is not None else []
@@ -5987,6 +5942,165 @@ class OperationMode(QualitativeAttribute):
     value: str = None
 
 @dataclass(repr=False)
+class CatalystType(QualitativeAttribute):
+    """
+    Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
+    For heterogeneous catalysts, use voc4cat terms where available.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007014"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007014"
+    class_name: ClassVar[str] = "CatalystType"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CatalystType
+
+    value: str = None
+
+@dataclass(repr=False)
+class HeterogeneousCatalyst(CatalystType):
+    """
+    A substance that increases the rate of a chemical reaction that is in a different phase than the reagents.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007003"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007003"
+    class_name: ClassVar[str] = "HeterogeneousCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HeterogeneousCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class HomogeneousCatalyst(CatalystType):
+    """
+    A substance that increses the rate of a chemical reaction that is in the same phase as the reagents.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["HomogeneousCatalyst"]
+    class_class_curie: ClassVar[str] = "coremeta4cat:HomogeneousCatalyst"
+    class_name: ClassVar[str] = "HomogeneousCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HomogeneousCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class BioCatalyst(CatalystType):
+    """
+    An enzyme or cell that catalyzes a biocatalytic reaction. Subclass of Catalyst (AgenticEntity). The physical form
+    in which it is applied is described by an associated BiocatalystPreparation.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["BioCatalyst"]
+    class_class_curie: ClassVar[str] = "coremeta4cat:BioCatalyst"
+    class_name: ClassVar[str] = "BioCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BioCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class ElectroCatalyst(CatalystType):
+    """
+    The characteristics of a material or substance that determine how it interacts or responds to a magnetic field.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000255"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000255"
+    class_name: ClassVar[str] = "ElectroCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ElectroCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class ThinFilmCatalyst(CatalystType):
+    """
+    A catalyst introduced to the reaction chamber in the form of a thin film. To form a thin film, a (powdered)
+    catalyst is deposited on a substrate (e.g., glass or metal) using an appropriate deposition technique.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000019"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000019"
+    class_name: ClassVar[str] = "ThinFilmCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ThinFilmCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class BulkCatalyst(CatalystType):
+    """
+    A catalyst that consists mainly of the active ingredient or phase.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007015"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007015"
+    class_name: ClassVar[str] = "BulkCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BulkCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class PowerderedCatalyst(CatalystType):
+    """
+    A catalyst introduced to the reaction chamber in the form of a powder.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000017"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000017"
+    class_name: ClassVar[str] = "PowerderedCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PowerderedCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class DepositedSampleCatalyst(CatalystType):
+    """
+    A thin film of the catalyst deposited on an appropriate for the application substrate.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000038"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000038"
+    class_name: ClassVar[str] = "DepositedSampleCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.DepositedSampleCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class PhotoCatalyst(CatalystType):
+    """
+    A material that absorbs photons (light) of appropriate energy and initiates or accelerates a photochemical
+    reaction, while it regenerates itself after each reaction cycle.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000002"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000002"
+    class_name: ClassVar[str] = "PhotoCatalyst"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PhotoCatalyst
+
+    value: str = None
+
+@dataclass(repr=False)
+class SupportedCatalsyt(CatalystType):
+    """
+    A catalyst where the active material is usually the minority phase and fixed on a high surface area, relatively
+    inert solid.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007034"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007034"
+    class_name: ClassVar[str] = "SupportedCatalsyt"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SupportedCatalsyt
+
+    value: str = None
+
+@dataclass(repr=False)
 class ReactionType(QualitativeAttribute):
     """
     A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction,
@@ -6044,7 +6158,7 @@ class Dehydrogenation(ReactionType):
     value: str = None
 
 @dataclass(repr=False)
-class C-C-CouplingReaction(ReactionType):
+class CarbonCouplingReaction(ReactionType):
     """
     A chemical reaction where a carbon-carbon bond is formed from two carbon-containing fragments.
     """
@@ -6052,8 +6166,8 @@ class C-C-CouplingReaction(ReactionType):
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000223"]
     class_class_curie: ClassVar[str] = "VOC4CAT:0000223"
-    class_name: ClassVar[str] = "C-C-CouplingReaction"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.C-C-CouplingReaction
+    class_name: ClassVar[str] = "CarbonCouplingReaction"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CarbonCouplingReaction
 
     value: str = None
 
@@ -6116,7 +6230,7 @@ class FischerTropschSynthesis(ReactionType):
     value: str = None
 
 @dataclass(repr=False)
-class CO2-Hydrogenation(Hydrogenation):
+class CarbonDioxideHydrogenation(Hydrogenation):
     """
     The reaction of carbon dioxide (CO2) with molecular hydrogen (H2) to produce value-added hydrocarbons or alcohols.
     """
@@ -6124,8 +6238,8 @@ class CO2-Hydrogenation(Hydrogenation):
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000259"]
     class_class_curie: ClassVar[str] = "VOC4CAT:0000259"
-    class_name: ClassVar[str] = "CO2-Hydrogenation"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CO2-Hydrogenation
+    class_name: ClassVar[str] = "CarbonDioxideHydrogenation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CarbonDioxideHydrogenation
 
     value: str = None
 
@@ -6145,7 +6259,7 @@ class SelectiveOxidation(Oxidation):
     value: str = None
 
 @dataclass(repr=False)
-class CO-Oxidation(Oxidation):
+class CarbonMonoxideOxidation(Oxidation):
     """
     The reaction in which carbon monoxide (CO) is converted to carbon dioxide (CO2) through interaction with an
     oxidizing agent, typically oxygen (O2).
@@ -6154,8 +6268,8 @@ class CO-Oxidation(Oxidation):
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000289"]
     class_class_curie: ClassVar[str] = "VOC4CAT:0000289"
-    class_name: ClassVar[str] = "CO-Oxidation"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CO-Oxidation
+    class_name: ClassVar[str] = "CarbonMonoxideOxidation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CarbonMonoxideOxidation
 
     value: str = None
 
@@ -8558,264 +8672,6 @@ class MaterialEntity(Entity):
 
 
 @dataclass(repr=False)
-class CatalystType(MaterialEntity):
-    """
-    Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
-    For heterogeneous catalysts, use voc4cat terms where available.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007014"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007014"
-    class_name: ClassVar[str] = "CatalystType"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CatalystType
-
-    id: Union[str, CatalystTypeId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, CatalystTypeId):
-            self.id = CatalystTypeId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class HeterogeneousCatalyst(CatalystType):
-    """
-    A substance that increases the rate of a chemical reaction that is in a different phase than the reagents.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007003"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007003"
-    class_name: ClassVar[str] = "HeterogeneousCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HeterogeneousCatalyst
-
-    id: Union[str, HeterogeneousCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, HeterogeneousCatalystId):
-            self.id = HeterogeneousCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class HomogeneousCatalyst(CatalystType):
-    """
-    A substance that increses the rate of a chemical reaction that is in the same phase as the reagents.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["HomogeneousCatalyst"]
-    class_class_curie: ClassVar[str] = "coremeta4cat:HomogeneousCatalyst"
-    class_name: ClassVar[str] = "HomogeneousCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.HomogeneousCatalyst
-
-    id: Union[str, HomogeneousCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, HomogeneousCatalystId):
-            self.id = HomogeneousCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class BioCatalyst(CatalystType):
-    """
-    An enzyme or cell that catalyzes a biocatalytic reaction. Subclass of Catalyst (AgenticEntity). The physical form
-    in which it is applied is described by an associated BiocatalystPreparation.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = COREMETA4CAT["BioCatalyst"]
-    class_class_curie: ClassVar[str] = "coremeta4cat:BioCatalyst"
-    class_name: ClassVar[str] = "BioCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BioCatalyst
-
-    id: Union[str, BioCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, BioCatalystId):
-            self.id = BioCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ElectroCatalyst(CatalystType):
-    """
-    The characteristics of a material or substance that determine how it interacts or responds to a magnetic field.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000255"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000255"
-    class_name: ClassVar[str] = "ElectroCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ElectroCatalyst
-
-    id: Union[str, ElectroCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ElectroCatalystId):
-            self.id = ElectroCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ThinFilmCatalyst(CatalystType):
-    """
-    A catalyst introduced to the reaction chamber in the form of a thin film. To form a thin film, a (powdered)
-    catalyst is deposited on a substrate (e.g., glass or metal) using an appropriate deposition technique.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000019"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000019"
-    class_name: ClassVar[str] = "ThinFilmCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ThinFilmCatalyst
-
-    id: Union[str, ThinFilmCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ThinFilmCatalystId):
-            self.id = ThinFilmCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class BulkCatalyst(CatalystType):
-    """
-    A catalyst that consists mainly of the active ingredient or phase.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007015"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007015"
-    class_name: ClassVar[str] = "BulkCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BulkCatalyst
-
-    id: Union[str, BulkCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, BulkCatalystId):
-            self.id = BulkCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class PowerderedCatalyst(CatalystType):
-    """
-    A catalyst introduced to the reaction chamber in the form of a powder.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000017"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000017"
-    class_name: ClassVar[str] = "PowerderedCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PowerderedCatalyst
-
-    id: Union[str, PowerderedCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, PowerderedCatalystId):
-            self.id = PowerderedCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class DepositedSampleCatalyst(CatalystType):
-    """
-    A thin film of the catalyst deposited on an appropriate for the application substrate.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000038"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000038"
-    class_name: ClassVar[str] = "DepositedSampleCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.DepositedSampleCatalyst
-
-    id: Union[str, DepositedSampleCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DepositedSampleCatalystId):
-            self.id = DepositedSampleCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class PhotoCatalyst(CatalystType):
-    """
-    A material that absorbs photons (light) of appropriate energy and initiates or accelerates a photochemical
-    reaction, while it regenerates itself after each reaction cycle.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000002"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000002"
-    class_name: ClassVar[str] = "PhotoCatalyst"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PhotoCatalyst
-
-    id: Union[str, PhotoCatalystId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, PhotoCatalystId):
-            self.id = PhotoCatalystId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class SupportedCatalsyt(CatalystType):
-    """
-    A catalyst where the active material is usually the minority phase and fixed on a high surface area, relatively
-    inert solid.
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007034"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007034"
-    class_name: ClassVar[str] = "SupportedCatalsyt"
-    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SupportedCatalsyt
-
-    id: Union[str, SupportedCatalsytId] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, SupportedCatalsytId):
-            self.id = SupportedCatalsytId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class StartingMaterial(MaterialEntity):
     """
     A ChemicalSubstance with that has a starting material role in a synthesis.
@@ -10279,10 +10135,10 @@ slots.reactant = Slot(uri=VOC4CAT['0000101'], name="reactant", curie=VOC4CAT.cur
                    model_uri=COREMETA4CAT.reactant, domain=None, range=Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]])
 
 slots.has_catalyst_type = Slot(uri=VOC4CAT['0007014'], name="has_catalyst_type", curie=VOC4CAT.curie('0007014'),
-                   model_uri=COREMETA4CAT.has_catalyst_type, domain=None, range=Optional[Union[dict[Union[str, CatalystTypeId], Union[dict, CatalystType]], list[Union[dict, CatalystType]]]])
+                   model_uri=COREMETA4CAT.has_catalyst_type, domain=None, range=Optional[Union[Union[dict, CatalystType], list[Union[dict, CatalystType]]]])
 
 slots.has_reaction_type = Slot(uri=VOC4CAT['0007010'], name="has_reaction_type", curie=VOC4CAT.curie('0007010'),
-                   model_uri=COREMETA4CAT.has_reaction_type, domain=None, range=Union[Union[dict, ReactionType], list[Union[dict, ReactionType]]])
+                   model_uri=COREMETA4CAT.has_reaction_type, domain=None, range=Optional[Union[Union[dict, ReactionType], list[Union[dict, ReactionType]]]])
 
 slots.reactor_temperature_range = Slot(uri=VOC4CAT['0007032'], name="reactor_temperature_range", curie=VOC4CAT.curie('0007032'),
                    model_uri=COREMETA4CAT.reactor_temperature_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])

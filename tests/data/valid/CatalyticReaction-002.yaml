@@ -18,8 +18,8 @@ catalyst_quantity:
   - value: 0.2
     has_quantity_type: http://qudt.org/vocab/quantitykind/Mass
     unit: g
-catalyst_type:
-  - "heterogeneous, supported metal (Ni0 after in situ reduction of NiO/CeO2)"
+has_catalyst_type:
+  - value: "heterogeneous, supported metal (Ni0 after in situ reduction of NiO/CeO2)"
 reactant:
   - id: "https://pubchem.ncbi.nlm.nih.gov/compound/297"
     title: "CH4 (99.995% purity, Linde)"

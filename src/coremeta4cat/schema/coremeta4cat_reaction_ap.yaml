@@ -236,11 +236,11 @@ classes:
     - bed_expansion_height
     - bubble_size_distribution
 
-  # ==================== Catalyst TYPES (MaterialEntity) ====================
-  # CatalystTypes and its subclasses are Material subclasses (MaterialEntity).
+  # ==================== Catalyst TYPES (QualitativeAttribute) ====================
+  # CatalystTypes and its subclasses are Material subclasses (QualitativeAttribute).
 
   CatalystType:
-    is_a: MaterialEntity
+    is_a: QualitativeAttribute
     class_uri: VOC4CAT:0007014
     description: |-
       Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
@@ -424,7 +424,7 @@ classes:
   # ==================== ProductIdentificationMethod (Plan) ====================
   # Subclasses of ProductIdentificationMethod and its subclasses as DataGeneratingActivity.
   LiquidPhaseAnalysis:
-    class_uri: VOc4CAT:0007813
+    class_uri: VOC4CAT:0007813
     is_a: ProductIdentificationMethod
     description: |-
       Analysis of the liquid sample from a catalytic test.
@@ -477,7 +477,7 @@ slots:
       A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction, Cracking.
     range: ReactionType
     slot_uri: VOC4CAT:0007010
-    required: true
+    recommended: true
     multivalued: true
 
   # ---- OperationParameters slots (flattened onto Reaction) ----
