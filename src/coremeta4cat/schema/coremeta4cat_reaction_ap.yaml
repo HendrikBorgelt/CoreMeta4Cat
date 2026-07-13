@@ -403,7 +403,7 @@ classes:
 
   # Further Subclasses for ReactionType-Classes
 
-  CO2-Hydrogenation:
+  CarbonDioxideHydrogenation:
     class_uri: VOC4CAT:0000259
     is_a: Hydrogenation
     description: |-
