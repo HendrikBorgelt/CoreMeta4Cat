@@ -3717,6 +3717,25 @@ slots:
     range: CatalystType
     recommended: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
+  has_reaction_type:
+    name: has_reaction_type
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/has_reaction_type
+    description: A group of chemical reactions with common conditions or reactants,
+      e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0007010
+    slot_uri: VOC4CAT:0007010
+    owner: CatalyticReaction
+    domain_of:
+    - CatalyticReaction
+    range: ReactionType
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   reactor_temperature_range:
     name: reactor_temperature_range
     definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/reactor_temperature_range
@@ -13652,6 +13671,7 @@ classes:
     - catalyst_quantity
     - reactant
     - has_catalyst_type
+    - has_reaction_type
     - reactor_temperature_range
     - has_atmosphere
     - experiment_pressure
@@ -14319,6 +14339,210 @@ classes:
     - ClassifierMixin_type
     - rdf_type
     class_uri: VOC4CAT:0000125
+  ReactionType:
+    name: ReactionType
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/ReactionType
+    description: A group of chemical reactions with common conditions or reactants,
+      e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0007010
+    is_a: QualitativeAttribute
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0007010
+  Hydrogenation:
+    name: Hydrogenation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Hydrogenation
+    description: A chemical reaction of molecular hydrogen (H2) and another chemical
+      species, typically facilitated by a catalyst.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000260
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000260
+  Oxidation:
+    name: Oxidation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Oxidation
+    description: The loss of electrons or an increase in the oxidation state of a
+      species.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000097
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000097
+  Dehydrogenation:
+    name: Dehydrogenation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Dehydrogenation
+    description: A chemical reaction that involves the removal of two or more hydrogen
+      atoms from a molecule.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000297
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000297
+  C-C-CouplingReaction:
+    name: C-C-CouplingReaction
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/C-C-CouplingReaction
+    description: A chemical reaction where a carbon-carbon bond is formed from two
+      carbon-containing fragments.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000223
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000223
+  Hydrodeoxygenation:
+    name: Hydrodeoxygenation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Hydrodeoxygenation
+    description: A catalytic process in which oxygen is removed from oxygenated organic
+      compounds using hydrogen.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000226
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000226
+  OxygenEvolutionReaction:
+    name: OxygenEvolutionReaction
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/OxygenEvolutionReaction
+    description: A chemical reaction of generating molecular oxygen in electrochemistry.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000236
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000236
+  Carbonylation:
+    name: Carbonylation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Carbonylation
+    description: A chemical reaction in which a carbonyl group (C=O) is introduced
+      into a molecule, typically through the addition of carbon monoxide (CO) to a
+      substrate.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000247
+    class_uri: VOC4CAT:0000247
+  Hydroxylation:
+    name: Hydroxylation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/Hydroxylation
+    description: The addition of a hydroxyl group (-OH) to a molecule, typically by
+      replacing a hydrogen atom.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000258
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000258
+  FischerTropschSynthesis:
+    name: FischerTropschSynthesis
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/FischerTropschSynthesis
+    description: "A catalytic chemical reaction in which a mixture of carbon monoxide\
+      \ (CO) and hydrogen (H2), is converted via a chain-growth mechanism into long-chain\
+      \ hydrocarbons (e.g., alkanes, alkenes or alcohols)\u2014typically using iron\
+      \ or cobalt catalysts under moderate to high pressures and temperatures."
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000280
+    is_a: ReactionType
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000280
+  CO2-Hydrogenation:
+    name: CO2-Hydrogenation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CO2-Hydrogenation
+    description: The reaction of carbon dioxide (CO2) with molecular hydrogen (H2)
+      to produce value-added hydrocarbons or alcohols.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000259
+    is_a: Hydrogenation
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000259
+  SelectiveOxidation:
+    name: SelectiveOxidation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/SelectiveOxidation
+    description: The targeted oxidation of a specific bond or functional group in
+      a molecule leaving other sites unaffected, often directed by a catalyst.
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000261
+    is_a: Oxidation
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000261
+  CO-Oxidation:
+    name: CO-Oxidation
+    definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/CO-Oxidation
+    description: The reaction in which carbon monoxide (CO) is converted to carbon
+      dioxide (CO2) through interaction with an oxidizing agent, typically oxygen
+      (O2).
+    from_schema: https://w3id.org/nfdi4cat/coremeta4cat/reaction/
+    mappings:
+    - VOC4CAT:0000289
+    is_a: Oxidation
+    slots:
+    - title
+    - description
+    - QualitativeAttribute_value
+    - ClassifierMixin_type
+    - rdf_type
+    class_uri: VOC4CAT:0000289
   MaterialDescriptorMixin:
     name: MaterialDescriptorMixin
     definition_uri: https://w3id.org/nfdi4cat/coremeta4cat/MaterialDescriptorMixin
@@ -18368,5 +18592,5 @@ metamodel_version: 1.7.0
 source_file: coremeta4cat.yaml
 source_file_date: '2026-07-10T09:33:48'
 source_file_size: 6791
-generation_date: '2026-07-10T13:18:32'
+generation_date: '2026-07-13T10:06:23'
 

@@ -1,5 +1,5 @@
 # Auto generated from coremeta4cat.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-10T12:52:59
+# Generation date: 2026-07-13T09:38:31
 # Schema: coremeta4cat-metadata
 #
 # id: https://w3id.org/nfdi4cat/coremeta4cat
@@ -977,6 +977,19 @@ class ElectrochemistryMixin(YAMLRoot):
         self.has_temperature = [v if isinstance(v, Temperature) else Temperature(**as_dict(v)) for v in self.has_temperature]
 
         super().__post_init__(**kwargs)
+
+
+class Carbonylation(YAMLRoot):
+    """
+    A chemical reaction in which a carbonyl group (C=O) is introduced into a molecule, typically through the addition
+    of carbon monoxide (CO) to a substrate.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000247"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000247"
+    class_name: ClassVar[str] = "Carbonylation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Carbonylation
 
 
 @dataclass(repr=False)
@@ -2788,9 +2801,10 @@ class CatalyticReaction(EvaluatedActivity):
     id: Union[str, CatalyticReactionId] = None
     catalyst_quantity: Union[Union[dict, "Mass"], list[Union[dict, "Mass"]]] = None
     reactant: Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]] = empty_dict()
+    has_reaction_type: Union[Union[dict, "ReactionType"], list[Union[dict, "ReactionType"]]] = None
     product_identification_method: Union[Union[dict, "ProductIdentificationMethod"], list[Union[dict, "ProductIdentificationMethod"]]] = None
     carried_out_by: Union[dict[Union[str, ChemicalReactorId], Union[dict, ChemicalReactor]], list[Union[dict, ChemicalReactor]]] = empty_dict()
-    has_catalyst_type: Optional[Union[Union[str, CatalystTypeId], list[Union[str, CatalystTypeId]]]] = empty_list()
+    has_catalyst_type: Optional[Union[dict[Union[str, CatalystTypeId], Union[dict, "CatalystType"]], list[Union[dict, "CatalystType"]]]] = empty_dict()
     reactor_temperature_range: Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]] = empty_list()
     has_atmosphere: Optional[Union[Union[dict, "Atmosphere"], list[Union[dict, "Atmosphere"]]]] = empty_list()
     experiment_pressure: Optional[Union[Union[dict, "Pressure"], list[Union[dict, "Pressure"]]]] = empty_list()
@@ -2815,6 +2829,12 @@ class CatalyticReaction(EvaluatedActivity):
             self.MissingRequiredField("reactant")
         self._normalize_inlined_as_list(slot_name="reactant", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
+        if self._is_empty(self.has_reaction_type):
+            self.MissingRequiredField("has_reaction_type")
+        if not isinstance(self.has_reaction_type, list):
+            self.has_reaction_type = [self.has_reaction_type] if self.has_reaction_type is not None else []
+        self.has_reaction_type = [v if isinstance(v, ReactionType) else ReactionType(**as_dict(v)) for v in self.has_reaction_type]
+
         if self._is_empty(self.product_identification_method):
             self.MissingRequiredField("product_identification_method")
         if not isinstance(self.product_identification_method, list):
@@ -2825,9 +2845,7 @@ class CatalyticReaction(EvaluatedActivity):
             self.MissingRequiredField("carried_out_by")
         self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=ChemicalReactor, key_name="id", keyed=True)
 
-        if not isinstance(self.has_catalyst_type, list):
-            self.has_catalyst_type = [self.has_catalyst_type] if self.has_catalyst_type is not None else []
-        self.has_catalyst_type = [v if isinstance(v, CatalystTypeId) else CatalystTypeId(v) for v in self.has_catalyst_type]
+        self._normalize_inlined_as_list(slot_name="has_catalyst_type", slot_type=CatalystType, key_name="id", keyed=True)
 
         if not isinstance(self.reactor_temperature_range, list):
             self.reactor_temperature_range = [self.reactor_temperature_range] if self.reactor_temperature_range is not None else []
@@ -5877,6 +5895,179 @@ class OperationMode(QualitativeAttribute):
     class_class_curie: ClassVar[str] = "VOC4CAT:0000108"
     class_name: ClassVar[str] = "OperationMode"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.OperationMode
+
+    value: str = None
+
+@dataclass(repr=False)
+class ReactionType(QualitativeAttribute):
+    """
+    A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction,
+    Cracking.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0007010"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0007010"
+    class_name: ClassVar[str] = "ReactionType"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ReactionType
+
+    value: str = None
+
+@dataclass(repr=False)
+class Hydrogenation(ReactionType):
+    """
+    A chemical reaction of molecular hydrogen (H2) and another chemical species, typically facilitated by a catalyst.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000260"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000260"
+    class_name: ClassVar[str] = "Hydrogenation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Hydrogenation
+
+    value: str = None
+
+@dataclass(repr=False)
+class Oxidation(ReactionType):
+    """
+    The loss of electrons or an increase in the oxidation state of a species.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000097"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000097"
+    class_name: ClassVar[str] = "Oxidation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Oxidation
+
+    value: str = None
+
+@dataclass(repr=False)
+class Dehydrogenation(ReactionType):
+    """
+    A chemical reaction that involves the removal of two or more hydrogen atoms from a molecule.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000297"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000297"
+    class_name: ClassVar[str] = "Dehydrogenation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Dehydrogenation
+
+    value: str = None
+
+@dataclass(repr=False)
+class C-C-CouplingReaction(ReactionType):
+    """
+    A chemical reaction where a carbon-carbon bond is formed from two carbon-containing fragments.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000223"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000223"
+    class_name: ClassVar[str] = "C-C-CouplingReaction"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.C-C-CouplingReaction
+
+    value: str = None
+
+@dataclass(repr=False)
+class Hydrodeoxygenation(ReactionType):
+    """
+    A catalytic process in which oxygen is removed from oxygenated organic compounds using hydrogen.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000226"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000226"
+    class_name: ClassVar[str] = "Hydrodeoxygenation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Hydrodeoxygenation
+
+    value: str = None
+
+@dataclass(repr=False)
+class OxygenEvolutionReaction(ReactionType):
+    """
+    A chemical reaction of generating molecular oxygen in electrochemistry.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000236"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000236"
+    class_name: ClassVar[str] = "OxygenEvolutionReaction"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.OxygenEvolutionReaction
+
+    value: str = None
+
+@dataclass(repr=False)
+class Hydroxylation(ReactionType):
+    """
+    The addition of a hydroxyl group (-OH) to a molecule, typically by replacing a hydrogen atom.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000258"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000258"
+    class_name: ClassVar[str] = "Hydroxylation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Hydroxylation
+
+    value: str = None
+
+@dataclass(repr=False)
+class FischerTropschSynthesis(ReactionType):
+    """
+    A catalytic chemical reaction in which a mixture of carbon monoxide (CO) and hydrogen (H2), is converted via a
+    chain-growth mechanism into long-chain hydrocarbons (e.g., alkanes, alkenes or alcohols)—typically using iron or
+    cobalt catalysts under moderate to high pressures and temperatures.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000280"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000280"
+    class_name: ClassVar[str] = "FischerTropschSynthesis"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.FischerTropschSynthesis
+
+    value: str = None
+
+@dataclass(repr=False)
+class CO2-Hydrogenation(Hydrogenation):
+    """
+    The reaction of carbon dioxide (CO2) with molecular hydrogen (H2) to produce value-added hydrocarbons or alcohols.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000259"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000259"
+    class_name: ClassVar[str] = "CO2-Hydrogenation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CO2-Hydrogenation
+
+    value: str = None
+
+@dataclass(repr=False)
+class SelectiveOxidation(Oxidation):
+    """
+    The targeted oxidation of a specific bond or functional group in a molecule leaving other sites unaffected, often
+    directed by a catalyst.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000261"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000261"
+    class_name: ClassVar[str] = "SelectiveOxidation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SelectiveOxidation
+
+    value: str = None
+
+@dataclass(repr=False)
+class CO-Oxidation(Oxidation):
+    """
+    The reaction in which carbon monoxide (CO) is converted to carbon dioxide (CO2) through interaction with an
+    oxidizing agent, typically oxygen (O2).
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VOC4CAT["0000289"]
+    class_class_curie: ClassVar[str] = "VOC4CAT:0000289"
+    class_name: ClassVar[str] = "CO-Oxidation"
+    class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CO-Oxidation
 
     value: str = None
 
@@ -9967,7 +10158,10 @@ slots.reactant = Slot(uri=VOC4CAT['0000101'], name="reactant", curie=VOC4CAT.cur
                    model_uri=COREMETA4CAT.reactant, domain=None, range=Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]])
 
 slots.has_catalyst_type = Slot(uri=VOC4CAT['0007014'], name="has_catalyst_type", curie=VOC4CAT.curie('0007014'),
-                   model_uri=COREMETA4CAT.has_catalyst_type, domain=None, range=Optional[Union[Union[str, CatalystTypeId], list[Union[str, CatalystTypeId]]]])
+                   model_uri=COREMETA4CAT.has_catalyst_type, domain=None, range=Optional[Union[dict[Union[str, CatalystTypeId], Union[dict, CatalystType]], list[Union[dict, CatalystType]]]])
+
+slots.has_reaction_type = Slot(uri=VOC4CAT['0007010'], name="has_reaction_type", curie=VOC4CAT.curie('0007010'),
+                   model_uri=COREMETA4CAT.has_reaction_type, domain=None, range=Union[Union[dict, ReactionType], list[Union[dict, ReactionType]]])
 
 slots.reactor_temperature_range = Slot(uri=VOC4CAT['0007032'], name="reactor_temperature_range", curie=VOC4CAT.curie('0007032'),
                    model_uri=COREMETA4CAT.reactor_temperature_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])

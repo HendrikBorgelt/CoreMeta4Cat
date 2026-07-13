@@ -86,12 +86,13 @@ classes:
     - catalyst_quantity
     - reactant
     - has_catalyst_type
+    - has_reaction_type
     - reactor_temperature_range
     - has_atmosphere
     - experiment_pressure
     - feed_composition_range
     - has_experiment_duration
-    - product_identification_method
+    - has_product_identification_method
     slot_usage:
       rdf_type:
         description: |-
@@ -322,6 +323,92 @@ classes:
     description: |-
       A dimensionless physical quantity describing how effective a reactant is converted to the desired product in a chemical conversion. It is calculated as the ratio between the amount of the desired product and the amount of the desired product that could have been formed if all reactants were converted to the desired product. The selectivity is 1 (or 100 %) if no other than the desired product is formed.
 
+  # ==================== ReactionType(QualitativeAttribute) ====================
+  # ReactionTypes and its subclasses are QualitativeAttribute.
+
+  ReactionType:
+    class_uri: VOC4CAT:0007010
+    is_a: QualitativeAttribute
+    description: |-
+      A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+
+  Hydrogenation:
+    class_uri: VOC4CAT:0000260
+    is_a: ReactionType
+    description: |-
+      A chemical reaction of molecular hydrogen (H2) and another chemical species, typically facilitated by a catalyst.
+
+  Oxidation:
+    class_uri: VOC4CAT:0000097
+    is_a: ReactionType
+    description: |-
+      The loss of electrons or an increase in the oxidation state of a species.
+
+  Dehydrogenation:
+    class_uri: VOC4CAT:0000297
+    is_a: ReactionType
+    description: |-
+      A chemical reaction that involves the removal of two or more hydrogen atoms from a molecule.
+
+  C-C-CouplingReaction:
+    class_uri: VOC4CAT:0000223
+    is_a: ReactionType
+    description: |-
+      A chemical reaction where a carbon-carbon bond is formed from two carbon-containing fragments.
+
+  Hydrodeoxygenation:
+    class_uri: VOC4CAT:0000226
+    is_a: ReactionType
+    description: |-
+      A catalytic process in which oxygen is removed from oxygenated organic compounds using hydrogen.
+
+  OxygenEvolutionReaction:
+    class_uri: VOC4CAT:0000236
+    is_a: ReactionType
+    description: |-
+      A chemical reaction of generating molecular oxygen in electrochemistry.
+
+  Carbonylation:
+    class_uri: VOC4CAT:0000247
+    is_a:
+    description: |-
+      A chemical reaction in which a carbonyl group (C=O) is introduced into a molecule, typically through the addition of carbon monoxide (CO) to a substrate.
+
+  Hydroxylation:
+    class_uri: VOC4CAT:0000258
+    is_a: ReactionType
+    description: |-
+      The addition of a hydroxyl group (-OH) to a molecule, typically by replacing a hydrogen atom.
+
+  FischerTropschSynthesis:
+    class_uri: VOC4CAT:0000280
+    is_a: ReactionType
+    description: |-
+      A catalytic chemical reaction in which a mixture of carbon monoxide (CO) and hydrogen (H2), is converted via a chain-growth mechanism into long-chain hydrocarbons (e.g., alkanes, alkenes or alcohols)—typically using iron or cobalt catalysts under moderate to high pressures and temperatures.
+
+  # Further Subclasses for ReactionType-Classes
+
+  CO2-Hydrogenation:
+    class_uri: VOC4CAT:0000259
+    is_a: Hydrogenation
+    description: |-
+      The reaction of carbon dioxide (CO2) with molecular hydrogen (H2) to produce value-added hydrocarbons or alcohols.
+
+  SelectiveOxidation:
+    class_uri: VOC4CAT:0000261
+    is_a: Oxidation
+    description: |-
+      The targeted oxidation of a specific bond or functional group in a molecule leaving other sites unaffected, often directed by a catalyst.
+
+  CO-Oxidation:
+    class_uri: VOC4CAT:0000289
+    is_a: Oxidation
+    description: |-
+      The reaction in which carbon monoxide (CO) is converted to carbon dioxide (CO2) through interaction with an oxidizing agent, typically oxygen (O2).
+
+  # ==================== ProductIdentificationMethod (Plan) ====================
+  # Subclasses of ProductIdentificationMethod and its subclasses as DataGeneratingActivity.
+
 
 
 # ==================== SLOTS ====================
@@ -360,6 +447,14 @@ slots:
     recommended: true
     multivalued: true
     inlined_as_list: true
+
+  has_reaction_type:
+    description: |- 
+      A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+    range: ReactionType
+    slot_uri: VOC4CAT:0007010
+    required: true
+    multivalued: true
 
   # ---- OperationParameters slots (flattened onto Reaction) ----
 
