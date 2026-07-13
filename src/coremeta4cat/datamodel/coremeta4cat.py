@@ -1,5 +1,5 @@
 # Auto generated from coremeta4cat.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-13T13:21:43
+# Generation date: 2026-07-13T15:23:09
 # Schema: coremeta4cat-metadata
 #
 # id: https://w3id.org/nfdi4cat/coremeta4cat
@@ -2820,8 +2820,8 @@ class CatalyticReaction(EvaluatedActivity):
     id: Union[str, CatalyticReactionId] = None
     catalyst_quantity: Union[Union[dict, "Mass"], list[Union[dict, "Mass"]]] = None
     reactant: Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]] = empty_dict()
-    carried_out_by: Union[dict[Union[str, ChemicalReactorId], Union[dict, ChemicalReactor]], list[Union[dict, ChemicalReactor]]] = empty_dict()
     product_identification_method: Union[Union[dict, "ProductIdentificationMethod"], list[Union[dict, "ProductIdentificationMethod"]]] = None
+    carried_out_by: Union[dict[Union[str, ChemicalReactorId], Union[dict, ChemicalReactor]], list[Union[dict, ChemicalReactor]]] = empty_dict()
     has_catalyst_type: Optional[Union[Union[dict, "CatalystType"], list[Union[dict, "CatalystType"]]]] = empty_list()
     has_reaction_type: Optional[Union[Union[dict, "ReactionType"], list[Union[dict, "ReactionType"]]]] = empty_list()
     reactor_temperature_range: Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]] = empty_list()
@@ -2848,15 +2848,15 @@ class CatalyticReaction(EvaluatedActivity):
             self.MissingRequiredField("reactant")
         self._normalize_inlined_as_list(slot_name="reactant", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
-        if self._is_empty(self.carried_out_by):
-            self.MissingRequiredField("carried_out_by")
-        self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=ChemicalReactor, key_name="id", keyed=True)
-
         if self._is_empty(self.product_identification_method):
             self.MissingRequiredField("product_identification_method")
         if not isinstance(self.product_identification_method, list):
             self.product_identification_method = [self.product_identification_method] if self.product_identification_method is not None else []
         self.product_identification_method = [v if isinstance(v, ProductIdentificationMethod) else ProductIdentificationMethod(**as_dict(v)) for v in self.product_identification_method]
+
+        if self._is_empty(self.carried_out_by):
+            self.MissingRequiredField("carried_out_by")
+        self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=ChemicalReactor, key_name="id", keyed=True)
 
         if not isinstance(self.has_catalyst_type, list):
             self.has_catalyst_type = [self.has_catalyst_type] if self.has_catalyst_type is not None else []

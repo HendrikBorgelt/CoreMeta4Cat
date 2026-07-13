@@ -4049,6 +4049,9 @@ slots:
     mappings:
     - coremeta4cat:product_identification_method
     slot_uri: coremeta4cat:product_identification_method
+    owner: CatalyticReaction
+    domain_of:
+    - CatalyticReaction
     range: ProductIdentificationMethod
     required: true
     multivalued: true
@@ -13879,10 +13882,10 @@ classes:
     - experiment_pressure
     - feed_composition_range
     - has_experiment_duration
+    - CatalyticReaction_product_identification_method
     - CatalyticReaction_rdf_type
     - CatalyticReaction_carried_out_by
     - CatalyticReaction_had_input_entity
-    - CatalyticReaction_product_identification_method
     slot_usage:
       rdf_type:
         name: rdf_type
@@ -18703,5 +18706,5 @@ metamodel_version: 1.7.0
 source_file: coremeta4cat.yaml
 source_file_date: '2026-07-10T09:33:48'
 source_file_size: 6791
-generation_date: '2026-07-13T13:43:23'
+generation_date: '2026-07-13T14:27:53'
 

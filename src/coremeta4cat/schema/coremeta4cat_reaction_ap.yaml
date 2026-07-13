@@ -92,6 +92,7 @@ classes:
     - experiment_pressure
     - feed_composition_range
     - has_experiment_duration
+    - product_identification_method
     slot_usage:
       rdf_type:
         description: |-

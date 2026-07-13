@@ -5789,6 +5789,10 @@ vol% or mol%). For fixed-composition experiments use reactant.has_concentration.
     has_experiment_duration: Optional[Duration] = Field(default=None, description="""Total duration of the experiment or measurement run.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PowderXRD', 'CatalyticReaction'],
          'is_a': 'has_duration',
          'slot_uri': 'SIO:000008'} })
+    product_identification_method: list[ProductIdentificationMethod] = Field(default=..., description="""The analytical method used to identify and/or quantify reaction products.
+Should reference a CharacterizationTechnique instance (e.g. GCMS, HPLC_MS).
+The abstract stub ProductIdentificationMethod is retained for backward compatibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
+         'slot_uri': 'coremeta4cat:product_identification_method'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Dataset',
