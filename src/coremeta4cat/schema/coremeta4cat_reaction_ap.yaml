@@ -85,7 +85,8 @@ classes:
     slots:
     - catalyst_quantity
     - reactant
-    - catalyst_type
+    - has_catalyst_type
+    - has_reaction_type
     - reactor_temperature_range
     - has_atmosphere
     - experiment_pressure
@@ -165,6 +166,12 @@ classes:
     description: |-
       Electrochemical reactor used in electrocatalytic experiments, including
       H-cells, flow cells, and membrane electrode assemblies.
+    slots:
+      - has_cathode
+      - has_anode
+      - has_cell_operating_mode
+      - has_active_area
+      - has_faradaic_current
 
   CSTR:
     is_a: ChemicalReactor
@@ -172,6 +179,11 @@ classes:
     description: |-
       Continuous stirred tank reactor (CSTR) — a well-mixed, continuous-flow
       reactor operating at steady state.
+    slots:
+    - has_stirring_speed
+    - has_volume
+    - has_stirrer_type
+    - has_stirrer_diameter
 
   PlugFlowReactor:
     is_a: ChemicalReactor
@@ -208,6 +220,11 @@ classes:
     description: |-
       Fixed bed reactor — a tubular reactor packed with a stationary catalyst bed.
       The most common reactor type in heterogeneous catalysis testing.
+    slots:
+      - has_catalyst_particle_size
+      - has_catalyst_bed_volume
+      - has_catalyst_dilution_material
+      - has_catalyst_bed_height
 
   FluidizedBedReactor:
     is_a: ChemicalReactor
@@ -219,6 +236,205 @@ classes:
     - gas_distributor_type
     - bed_expansion_height
     - bubble_size_distribution
+
+  # ==================== Catalyst TYPES (QualitativeAttribute) ====================
+  # CatalystTypes and its subclasses are Material subclasses (QualitativeAttribute).
+
+  CatalystType:
+    is_a: QualitativeAttribute
+    class_uri: VOC4CAT:0007014
+    description: |-
+      Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
+      For heterogeneous catalysts, use voc4cat terms where available.
+
+  HeterogeneousCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0007003
+    description: |-
+      A substance that increases the rate of a chemical reaction that is in a different phase than the reagents.
+
+  HomogeneousCatalyst:
+    is_a: CatalystType
+    class_uri: coremeta4cat:HomogeneousCatalyst
+    description: |-
+      A substance that increses the rate of a chemical reaction that is in the same phase as the reagents.
+
+  BioCatalyst:
+    is_a: CatalystType 
+    class_uri: coremeta4cat:BioCatalyst
+    description: |- 
+      An enzyme or cell that catalyzes a biocatalytic reaction. Subclass of Catalyst (AgenticEntity). The physical form in which it is applied is described by an associated BiocatalystPreparation.
+
+  ElectroCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0000255
+    description: |-
+      The characteristics of a material or substance that determine how it interacts or responds to a magnetic field.
+
+  ThinFilmCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0000019
+    description: |-
+      A catalyst introduced to the reaction chamber in the form of a thin film. To form a thin film, a (powdered) catalyst is deposited on a substrate (e.g., glass or metal) using an appropriate deposition technique.
+
+  BulkCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0007015
+    description: |-
+      A catalyst that consists mainly of the active ingredient or phase.
+
+  PowerderedCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0000017
+    description: |-
+      A catalyst introduced to the reaction chamber in the form of a powder.
+
+  DepositedSampleCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0000038
+    description: |-
+      A thin film of the catalyst deposited on an appropriate for the application substrate.
+
+  PhotoCatalyst:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0000002
+    description: |-
+      A material that absorbs photons (light) of appropriate energy and initiates or accelerates a photochemical reaction, while it regenerates itself after each reaction cycle.
+
+  SupportedCatalsyt:
+    is_a: CatalystType
+    class_uri: VOC4CAT:0007034
+    description: |-
+      A catalyst where the active material is usually the minority phase and fixed on a high surface area, relatively inert solid.
+
+  # ==================== PerformanceDescriptors(MaterialEntity) ====================
+  # PerformanceMeasures for a Reactor/Reactionand its slots are QuantitativeAttributes.
+
+  ReactorPerformanceMeasures:
+    is_a: QuantitativeAttribute
+    class_uri: VOC4CAT:005001
+    description: |-
+      A measure to quantify how fast and selective a chemical converison occurs in a reactor. A chemical conversion may include multiples reactions.
+    slots:
+    - has_yield
+    - has_conversion
+    - has_space_time_yield
+    - has_selectivity
+
+  Conversion:
+    class_uri: VOC4CAT:0005004
+    is_a: QuantitativeAttribute
+    description: |-
+      A dimensionless physical quantity describing the fraction of a reactant that reacts in a chemical conversion. If a reactant is consumed completely its conversion is 1 (or 100 %).
+
+  SpaceTimeYield:
+    class_uri: VOC4CAT:0005006
+    is_a: QuantitativeAttribute
+    description: |-
+     A physical quantity that describes the amount of product produced per unit of time and unit of producing entity. The producing entity is for example the volume of a chemical reactor or in catalysis the mass or volume or moles of catalyst. Example unit: kg{product} / (hour * cubicmeter{catalyst})
+
+  Selectivity:
+    class_uri: VOC4CAT:0000125
+    is_a: QuantitativeAttribute
+    description: |-
+      A dimensionless physical quantity describing how effective a reactant is converted to the desired product in a chemical conversion. It is calculated as the ratio between the amount of the desired product and the amount of the desired product that could have been formed if all reactants were converted to the desired product. The selectivity is 1 (or 100 %) if no other than the desired product is formed.
+
+  # ==================== ReactionType(QualitativeAttribute) ====================
+  # ReactionTypes and its subclasses are QualitativeAttribute.
+
+  ReactionType:
+    class_uri: VOC4CAT:0007010
+    is_a: QualitativeAttribute
+    description: |-
+      A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+
+  Hydrogenation:
+    class_uri: VOC4CAT:0000260
+    is_a: ReactionType
+    description: |-
+      A chemical reaction of molecular hydrogen (H2) and another chemical species, typically facilitated by a catalyst.
+
+  Oxidation:
+    class_uri: VOC4CAT:0000097
+    is_a: ReactionType
+    description: |-
+      The loss of electrons or an increase in the oxidation state of a species.
+
+  Dehydrogenation:
+    class_uri: VOC4CAT:0000297
+    is_a: ReactionType
+    description: |-
+      A chemical reaction that involves the removal of two or more hydrogen atoms from a molecule.
+
+  CarbonCouplingReaction:
+    class_uri: VOC4CAT:0000223
+    is_a: ReactionType
+    description: |-
+      A chemical reaction where a carbon-carbon bond is formed from two carbon-containing fragments.
+
+  Hydrodeoxygenation:
+    class_uri: VOC4CAT:0000226
+    is_a: ReactionType
+    description: |-
+      A catalytic process in which oxygen is removed from oxygenated organic compounds using hydrogen.
+
+  OxygenEvolutionReaction:
+    class_uri: VOC4CAT:0000236
+    is_a: ReactionType
+    description: |-
+      A chemical reaction of generating molecular oxygen in electrochemistry.
+
+  Carbonylation:
+    class_uri: VOC4CAT:0000247
+    is_a:
+    description: |-
+      A chemical reaction in which a carbonyl group (C=O) is introduced into a molecule, typically through the addition of carbon monoxide (CO) to a substrate.
+
+  Hydroxylation:
+    class_uri: VOC4CAT:0000258
+    is_a: ReactionType
+    description: |-
+      The addition of a hydroxyl group (-OH) to a molecule, typically by replacing a hydrogen atom.
+
+  FischerTropschSynthesis:
+    class_uri: VOC4CAT:0000280
+    is_a: ReactionType
+    description: |-
+      A catalytic chemical reaction in which a mixture of carbon monoxide (CO) and hydrogen (H2), is converted via a chain-growth mechanism into long-chain hydrocarbons (e.g., alkanes, alkenes or alcohols)—typically using iron or cobalt catalysts under moderate to high pressures and temperatures.
+
+  # Further Subclasses for ReactionType-Classes
+
+  CarbonDioxideHydrogenation:
+    class_uri: VOC4CAT:0000259
+    is_a: Hydrogenation
+    description: |-
+      The reaction of carbon dioxide (CO2) with molecular hydrogen (H2) to produce value-added hydrocarbons or alcohols.
+
+  SelectiveOxidation:
+    class_uri: VOC4CAT:0000261
+    is_a: Oxidation
+    description: |-
+      The targeted oxidation of a specific bond or functional group in a molecule leaving other sites unaffected, often directed by a catalyst.
+
+  CarbonMonoxideOxidation:
+    class_uri: VOC4CAT:0000289
+    is_a: Oxidation
+    description: |-
+      The reaction in which carbon monoxide (CO) is converted to carbon dioxide (CO2) through interaction with an oxidizing agent, typically oxygen (O2).
+
+  # ==================== ProductIdentificationMethod (Plan) ====================
+  # Subclasses of ProductIdentificationMethod and its subclasses as DataGeneratingActivity.
+  LiquidPhaseAnalysis:
+    class_uri: VOC4CAT:0007813
+    is_a: ProductIdentificationMethod
+    description: |-
+      Analysis of the liquid sample from a catalytic test.
+
+  GasPhaseAnalysis:
+    class_uri: VOC4CAT:0007814
+    is_a: ProductIdentificationMethod
+    description: |-
+      Analysis of the liquid sample from a catalytic test.
 
 # ==================== SLOTS ====================
 # Shared has_X sub-slots (has_experiment_duration, …) and atmosphere
@@ -247,12 +463,21 @@ slots:
     multivalued: true
     inlined_as_list: true
 
-  catalyst_type:
+  has_catalyst_type:
     description: |-
       Type of catalyst used (e.g. heterogeneous, homogeneous, biocatalyst).
       For heterogeneous catalysts, use voc4cat terms where available.
-    range: string
+    range: CatalystType
     slot_uri: VOC4CAT:0007014
+    recommended: true
+    multivalued: true
+    inlined_as_list: true
+
+  has_reaction_type:
+    description: |- 
+      A group of chemical reactions with common conditions or reactants, e.g. Oxidation, Hydrogenation, Reduction, Cracking.
+    range: ReactionType
+    slot_uri: VOC4CAT:0007010
     recommended: true
     multivalued: true
 

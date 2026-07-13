@@ -218,7 +218,7 @@ classes:
 # ==================== QUANTITATIVE ATTRIBUTE SUB-SLOTS ====================
 # Sub-slots of has_quantitative_attribute (from DCAT-AP-PLUS via material_entities_ap).
 # Slots reused from the import chain (material_entities_ap, chemical_entities_ap):
-#   has_temperature, has_mass, has_volume, has_pressure, has_concentration, has_ph_value
+#   has_temperature, has_mass, has_volume, has_pressure, has_concentration, has_ph_value, has_yield
 # The slots below cover quantities not yet defined upstream.
 
 slots:
@@ -290,6 +290,28 @@ slots:
     slot_uri: SIO:000008
     range: MassToChargeRatio
     description: Mass-to-charge ratio in mass spectrometric measurements.
+
+  has_conversion:
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    range: Conversion
+    description: |-
+      A dimensionless physical quantity describing the fraction of a reactant that reacts in a chemical conversion. If a reactant is consumed completely its conversion is 1 (or 100 %).
+
+  has_space_time_yield:
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    range: SpaceTimeYield
+    description: |-
+      A physical quantity that describes the amount of product produced per unit of time and unit of producing entity. The producing entity is for example the volume of a chemical reactor or in catalysis the mass or volume or moles of catalyst. Example unit: kg{product} / (hour * cubicmeter{catalyst})
+
+  has_selectivity:
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    range: Selectivity
+    description: |-
+      A dimensionless physical quantity describing how effective a reactant is converted to the desired product in a chemical conversion. It is calculated as the ratio between the amount of the desired product and the amount of the desired product that could have been formed if all reactants were converted to the desired product. The selectivity is 1 (or 100 %) if no other than the desired product is formed.
+    multivalued: true
 
   # ---- Contextualized sub-slots for drying step ----
   # Used in DryingMixin where both temperature and duration appear together.
@@ -373,6 +395,87 @@ slots:
     range: Duration
     description: Integration or acquisition time per measurement step.
 
+  has_cathode:
+    is_a: carried_out_by
+    slot_uri: VOC4CAT:0007254
+    range: string
+    description: |-
+      The electrode where reduction occurs in an electrochemical cell. It is the negative electrode in an electrolytic cell, while it is the positive electrode in a galvanic cell.
+
+  has_anode:
+    is_a: carried_out_by
+    slot_uri: VOC4CAT:0007255
+    range: string
+    description: |-
+      The electrode where oxidation occurs in an electrochemical cell. It is the positive electrode in an electrolytic cell, while it is the negative electrode in a galvanic cell.
+      
+  has_cell_operating_mode:
+    is_a: has_qualitative_attribute
+    slot_uri: SIO:000008
+    range: string
+    description: |-
+      The functional mode of an electrochemical cell based on the direction of energy conversion, specifiying wheter the system generates electrical energy from spontaneous reactions or consumes energy to drive non-spontaneous reactions.
+
+  has_active_area:
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    range: QuantitativeAttribute
+    description: |-
+      In contrast to substrate area, the actual area of a sample or electrode which is active.
+
+  has_faradaic_current:
+    is_a: has_quantitative_attribute
+    slot_uri: SIO:000008
+    range: QuantitativeAttribute
+    description: |-
+      The current that is flowing through an electrochemical cell and is causing (or is caused by) chemical reactions (charge transfer) occurring at the electrode surfaces.
+
+  has_stirrer_type:
+    is_a: has_qualitative_attribute
+    slot_uri: VOC4CAT:0008113
+    range: string
+    inlined: false
+    inlined_as_list: false
+    description: |-
+      The category of mechanical or magnetic agitation device used to ensure homogeneous mixing within a reaction system or mixing vessel, such as a magnetic stirrer or an overhead mechanical (steel shaft) stirrer.
+
+  has_stirrer_diameter:
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008115
+    range: QuantitativeAttribute
+    description: |-
+      The effective diameter of the stirrer. Typically expressed as the distance across the rotating blade or mixing head from one tip to the opposite tip.
+
+  has_catalyst_particle_size:
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008212
+    range: QuantitativeAttribute
+    description: |-
+      A measure of the characteristic linear dimension of a particle in a sample, typically reported as diameter, equivalent diameter, or another size metric determined by an appropriate measurement method.
+
+  has_catalyst_bed_volume:
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0007021
+    range: QuantitativeAttribute
+    description: |-
+      The bulk volume taken up by the catalyst and potential diluent in a fixed bed reactor.
+
+  has_catalyst_dilution_material:
+    is_a: has_qualitative_attribute
+    slot_uri: VOC4CAT:0008218
+    range: QualitativeAttribute
+    inlined: false
+    inlined_as_list: false
+    description: |-
+      An inert solid mixed with catalyst particles in a fixed bed to modify bed properties (e.g., improve heat transfer, hydrodynamics or isothermicity) without participating in the reaction.
+
+  has_catalyst_bed_height:
+    is_a: has_quantitative_attribute
+    slot_uri: VOC4CAT:0008217
+    range: QuantitativeAttribute
+    description: |-
+      The axial length of the packed catalyst section in a reactor, measured along the direction of flow between the defined bed boundaries.
+    
   # ---- Generic domain has_X slots (QualitativeAttribute) ----
 
   has_atmosphere:

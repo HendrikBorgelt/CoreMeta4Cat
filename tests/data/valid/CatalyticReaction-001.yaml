@@ -23,8 +23,8 @@ reactant:
     title: "CO2 (99.998% purity, 20 vol% in H2)"
   - id: "https://pubchem.ncbi.nlm.nih.gov/compound/783"
     title: "H2 (99.999% purity)"
-catalyst_type:
-  - "heterogeneous, supported metal oxide"
+has_catalyst_type:
+  - value: "heterogeneous, supported metal oxide"
 reactor_temperature_range:
   - min_value: 200
     max_value: 300
