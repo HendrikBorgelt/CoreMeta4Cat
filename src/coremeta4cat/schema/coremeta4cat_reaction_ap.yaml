@@ -365,7 +365,7 @@ classes:
     description: |-
       A chemical reaction that involves the removal of two or more hydrogen atoms from a molecule.
 
-  C-C-CouplingReaction:
+  CarbonCouplingReaction:
     class_uri: VOC4CAT:0000223
     is_a: ReactionType
     description: |-
@@ -415,7 +415,7 @@ classes:
     description: |-
       The targeted oxidation of a specific bond or functional group in a molecule leaving other sites unaffected, often directed by a catalyst.
 
-  CO-Oxidation:
+  CarbonMonoxideOxidation:
     class_uri: VOC4CAT:0000289
     is_a: Oxidation
     description: |-
