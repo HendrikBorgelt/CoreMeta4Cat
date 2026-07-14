@@ -79,6 +79,11 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 1
           persist-credentials: false
+          # actions/checkout@v7 refuses fork checkouts under pull_request_target
+          # by default (anti "pwn request" guard). Safe to opt in here: this
+          # checkout is read-only data (the xlsx is never executed) and every
+          # script that actually runs is checked out from main below.
+          allow-unsafe-pr-checkout: true
 
       - name: Check out main branch into _main_branch/
         # Always run OUR scripts from main — never from the PR.
@@ -268,6 +273,8 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
           persist-credentials: true
+          # See the apply-inbox job for why this opt-in is safe here.
+          allow-unsafe-pr-checkout: true
 
       - name: Check out main branch into _main_branch/
         uses: actions/checkout@v7.0.0
