@@ -91,6 +91,9 @@ prefixes:
   OBI: http://purl.obolibrary.org/obo/OBI_
   SIO: http://semanticscience.org/resource/SIO_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
+  CHMO: http://purl.obolibrary.org/obo/CHMO_
+  ENM: http://purl.enanomapper.org/onto/
+  hdl: https://hdl.handle.net/
 
 default_prefix: coremeta4cat
 default_range: string

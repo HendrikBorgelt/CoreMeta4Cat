@@ -20,7 +20,7 @@ id: "coremeta4cat:REAC_002_DRM_NiCeO2"
 catalyst_quantity:
   - value: 0.2
     has_quantity_type: http://qudt.org/vocab/quantitykind/Mass
-    unit: g
+    unit: https://qudt.org/vocab/unit/GM
 catalyst_type:
   - "heterogeneous_catalysis"
 catalyst_form:
