@@ -46,12 +46,12 @@ The CoreMeta4Cat record groups this into:
 Grouping by reaction type and technique, rather than writing one entry per catalyst, keeps the record's length proportional to how the underlying study is actually organised — 4 pieces instead of 16.
 
 <div style="text-align: center; margin: 1.2em 0;">
-  <a href="assets/examples/CatalysisDataset-2d6m-exeb.yaml"
+  <a href="../assets/examples/CatalysisDataset-2d6m-exeb.yaml"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download YAML
   </a>
-  <a href="assets/examples/CatalysisDataset-2d6m-exeb.json"
+  <a href="../assets/examples/CatalysisDataset-2d6m-exeb.json"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
@@ -77,12 +77,12 @@ The CoreMeta4Cat record groups this into:
 - **4 `CatalyticReaction`s** (`is_about_activity`) — one per substrate/support combination (cinnamyl alcohol × Al₂O₃, cinnamyl alcohol × SiO₂, citral × Al₂O₃, citral × SiO₂).
 
 <div style="text-align: center; margin: 1.2em 0;">
-  <a href="assets/examples/CatalysisDataset-32x1-99x6.yaml"
+  <a href="../assets/examples/CatalysisDataset-32x1-99x6.yaml"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download YAML
   </a>
-  <a href="assets/examples/CatalysisDataset-32x1-99x6.json"
+  <a href="../assets/examples/CatalysisDataset-32x1-99x6.json"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
@@ -108,12 +108,12 @@ The CoreMeta4Cat record groups this into:
 - **3 `CatalyticReaction`s** (`is_about_activity`) — one per reaction type (alkoxycarbonylation, phenoxycarbonylation, aminocarbonylation).
 
 <div style="text-align: center; margin: 1.2em 0;">
-  <a href="assets/examples/CatalysisDataset-arp5-s69r.yaml"
+  <a href="../assets/examples/CatalysisDataset-arp5-s69r.yaml"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download YAML
   </a>
-  <a href="assets/examples/CatalysisDataset-arp5-s69r.json"
+  <a href="../assets/examples/CatalysisDataset-arp5-s69r.json"
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
