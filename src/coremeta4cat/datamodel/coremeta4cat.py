@@ -1,5 +1,5 @@
 # Auto generated from coremeta4cat.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-14T10:36:33
+# Generation date: 2026-07-14T17:05:03
 # Schema: coremeta4cat-metadata
 #
 # id: https://w3id.org/nfdi4cat/coremeta4cat
@@ -168,6 +168,7 @@ DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 ELI = CurieNamespace('eli', 'http://data.europa.eu/eli/ontology#')
 EPOS = CurieNamespace('epos', 'https://www.epos-eu.org/epos-dcat-ap#')
 FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
+HDL = CurieNamespace('hdl', 'https://hdl.handle.net/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 LOCN = CurieNamespace('locn', 'http://www.w3.org/ns/locn#')
 MATERIAL_ENTITIES_AP = CurieNamespace('material_entities_ap', 'https://w3id.org/nfdi-de/dcat-ap-plus/materials/')
@@ -777,7 +778,7 @@ class PrecipitationMixin(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PrecipitationMixin
 
     precipitating_agent: Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]]] = empty_dict()
-    has_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
+    precipitating_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
     has_ph_value: Optional[Union[Union[dict, "PHValue"], list[Union[dict, "PHValue"]]]] = empty_list()
     has_mixing_speed: Optional[Union[Union[dict, "AngularVelocity"], list[Union[dict, "AngularVelocity"]]]] = empty_list()
     has_mixing_duration: Optional[Union[dict, "Duration"]] = None
@@ -791,9 +792,9 @@ class PrecipitationMixin(YAMLRoot):
     def __post_init__(self, *_: str, **kwargs: Any):
         self._normalize_inlined_as_list(slot_name="precipitating_agent", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
-        if not isinstance(self.has_concentration, list):
-            self.has_concentration = [self.has_concentration] if self.has_concentration is not None else []
-        self.has_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.has_concentration]
+        if not isinstance(self.precipitating_concentration, list):
+            self.precipitating_concentration = [self.precipitating_concentration] if self.precipitating_concentration is not None else []
+        self.precipitating_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.precipitating_concentration]
 
         if not isinstance(self.has_ph_value, list):
             self.has_ph_value = [self.has_ph_value] if self.has_ph_value is not None else []
@@ -3845,7 +3846,7 @@ class CoPrecipitation(PreparationMethod):
 
     id: Union[str, CoPrecipitationId] = None
     precipitating_agent: Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]]] = empty_dict()
-    has_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
+    precipitating_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
     has_ph_value: Optional[Union[Union[dict, "PHValue"], list[Union[dict, "PHValue"]]]] = empty_list()
     has_mixing_speed: Optional[Union[Union[dict, "AngularVelocity"], list[Union[dict, "AngularVelocity"]]]] = empty_list()
     has_mixing_duration: Optional[Union[dict, "Duration"]] = None
@@ -3874,9 +3875,9 @@ class CoPrecipitation(PreparationMethod):
 
         self._normalize_inlined_as_list(slot_name="precipitating_agent", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
-        if not isinstance(self.has_concentration, list):
-            self.has_concentration = [self.has_concentration] if self.has_concentration is not None else []
-        self.has_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.has_concentration]
+        if not isinstance(self.precipitating_concentration, list):
+            self.precipitating_concentration = [self.precipitating_concentration] if self.precipitating_concentration is not None else []
+        self.precipitating_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.precipitating_concentration]
 
         if not isinstance(self.has_ph_value, list):
             self.has_ph_value = [self.has_ph_value] if self.has_ph_value is not None else []
@@ -4277,7 +4278,7 @@ class DepositionPrecipitation(PreparationMethod):
     deposition_temperature: Optional[Union[Union[dict, "Temperature"], list[Union[dict, "Temperature"]]]] = empty_list()
     deposition_time: Optional[Union[Union[dict, "Duration"], list[Union[dict, "Duration"]]]] = empty_list()
     precipitating_agent: Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, "ChemicalEntity"]], list[Union[dict, "ChemicalEntity"]]]] = empty_dict()
-    has_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
+    precipitating_concentration: Optional[Union[Union[dict, "Concentration"], list[Union[dict, "Concentration"]]]] = empty_list()
     has_ph_value: Optional[Union[Union[dict, "PHValue"], list[Union[dict, "PHValue"]]]] = empty_list()
     has_mixing_speed: Optional[Union[Union[dict, "AngularVelocity"], list[Union[dict, "AngularVelocity"]]]] = empty_list()
     has_mixing_duration: Optional[Union[dict, "Duration"]] = None
@@ -4314,9 +4315,9 @@ class DepositionPrecipitation(PreparationMethod):
 
         self._normalize_inlined_as_list(slot_name="precipitating_agent", slot_type=ChemicalEntity, key_name="id", keyed=True)
 
-        if not isinstance(self.has_concentration, list):
-            self.has_concentration = [self.has_concentration] if self.has_concentration is not None else []
-        self.has_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.has_concentration]
+        if not isinstance(self.precipitating_concentration, list):
+            self.precipitating_concentration = [self.precipitating_concentration] if self.precipitating_concentration is not None else []
+        self.precipitating_concentration = [v if isinstance(v, Concentration) else Concentration(**as_dict(v)) for v in self.precipitating_concentration]
 
         if not isinstance(self.has_ph_value, list):
             self.has_ph_value = [self.has_ph_value] if self.has_ph_value is not None else []
@@ -9979,7 +9980,7 @@ slots.storage_conditions = Slot(uri=VOC4CAT['0008105'], name="storage_conditions
 slots.catalyst_support = Slot(uri=VOC4CAT['0008104'], name="catalyst_support", curie=VOC4CAT.curie('0008104'),
                    model_uri=COREMETA4CAT.catalyst_support, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.precursor_quantity = Slot(uri=COREMETA4CAT.precursor_quantity, name="precursor_quantity", curie=COREMETA4CAT.curie('precursor_quantity'),
+slots.precursor_quantity = Slot(uri=VOC4CAT['0008118'], name="precursor_quantity", curie=VOC4CAT.curie('0008118'),
                    model_uri=COREMETA4CAT.precursor_quantity, domain=None, range=Optional[Union[Union[dict, Mass], list[Union[dict, Mass]]]])
 
 slots.impregnation_type = Slot(uri=VOC4CAT['0008119'], name="impregnation_type", curie=VOC4CAT.curie('0008119'),
@@ -9993,6 +9994,9 @@ slots.impregnation_temperature = Slot(uri=VOC4CAT['0008121'], name="impregnation
 
 slots.precipitating_agent = Slot(uri=VOC4CAT['0008203'], name="precipitating_agent", curie=VOC4CAT.curie('0008203'),
                    model_uri=COREMETA4CAT.precipitating_agent, domain=None, range=Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]]])
+
+slots.precipitating_concentration = Slot(uri=VOC4CAT['0008125'], name="precipitating_concentration", curie=VOC4CAT.curie('0008125'),
+                   model_uri=COREMETA4CAT.precipitating_concentration, domain=None, range=Optional[Union[Union[dict, Concentration], list[Union[dict, Concentration]]]])
 
 slots.has_mixing_speed = Slot(uri=SIO['000008'], name="has_mixing_speed", curie=SIO.curie('000008'),
                    model_uri=COREMETA4CAT.has_mixing_speed, domain=None, range=Optional[Union[Union[dict, AngularVelocity], list[Union[dict, AngularVelocity]]]])

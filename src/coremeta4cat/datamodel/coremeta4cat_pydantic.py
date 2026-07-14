@@ -97,7 +97,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                     'CatalysisDataset.\n'
                     '  The catalysis research field is expressed via rdf_type '
                     '(ClassifierMixin,\n'
-                    '  Pattern 3) using voc4cat terms â€” analogous to how '
+                    '  Pattern 3) using voc4cat terms — analogous to how '
                     'NMRSpectroscopy uses\n'
                     '  rdf_type: CHMO:0000613 to classify the measurement type.\n'
                     '\n'
@@ -171,24 +171,24 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                     '\n'
                     'Full import hierarchy:\n'
                     '```\n'
-                    '  coremeta4cat.yaml  (this file â€” aggregator + '
+                    '  coremeta4cat.yaml  (this file — aggregator + '
                     'CatalysisDataset entry point)\n'
                     '    +-- coremeta4cat_common.yaml         (shared slots, '
                     'enums)\n'
                     '          +-- chem_dcat_ap          (SubstanceSample, '
-                    'ChemicalSubstance, â€¦)\n'
+                    'ChemicalSubstance, …)\n'
                     '                +-- chemical_reaction_ap\n'
                     '                      +-- chemical_entities_ap\n'
                     '                            +-- material_entities_ap\n'
                     '                                  +-- dcat_ap_plus  '
                     '(DCAT-AP-PLUS base)\n'
-                    '    +-- coremeta4cat_synthesis_ap         (Step 3 â€” '
+                    '    +-- coremeta4cat_synthesis_ap         (Step 3 — '
                     'Synthesis, PreparationMethod, mixins)\n'
-                    '    +-- coremeta4cat_characterization_ap  (Step 4 â€” '
+                    '    +-- coremeta4cat_characterization_ap  (Step 4 — '
                     'Characterization, 24 techniques, mixins)\n'
-                    '    +-- coremeta4cat_reaction_ap          (Step 5 â€” Reaction, '
+                    '    +-- coremeta4cat_reaction_ap          (Step 5 — Reaction, '
                     '8 Reactor subclasses)\n'
-                    '    +-- coremeta4cat_simulation_ap        (Step 6 â€” '
+                    '    +-- coremeta4cat_simulation_ap        (Step 6 — '
                     'Simulation, 4 methods, 12 properties, mixins)\n'
                     '```',
      'id': 'https://w3id.org/nfdi4cat/coremeta4cat',
@@ -220,6 +220,8 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                                  'prefix_reference': 'https://w3id.org/nfdi-de/dcat-ap-plus/'},
                   'dcterms': {'prefix_prefix': 'dcterms',
                               'prefix_reference': 'http://purl.org/dc/terms/'},
+                  'hdl': {'prefix_prefix': 'hdl',
+                          'prefix_reference': 'https://hdl.handle.net/'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'prov': {'prefix_prefix': 'prov',
@@ -238,28 +240,28 @@ following DCAT-AP-PLUS Pattern 3 (Flexible classification).
     """
     heterogeneous_catalysis = "heterogeneous_catalysis"
     """
-    Heterogeneous catalysis â€” catalyst and reactants are in different phases.
+    Heterogeneous catalysis — catalyst and reactants are in different phases.
     """
     homogeneous_catalysis = "homogeneous_catalysis"
     """
-    Homogeneous catalysis â€” catalyst and reactants are in the same phase.
+    Homogeneous catalysis — catalyst and reactants are in the same phase.
     """
     biocatalysis = "biocatalysis"
     """
-    Biocatalysis â€” use of enzymes or whole cells as catalysts.
+    Biocatalysis — use of enzymes or whole cells as catalysts.
     """
     electrocatalysis = "electrocatalysis"
     """
-    Electrocatalysis â€” catalysis of electrochemical reactions.
+    Electrocatalysis — catalysis of electrochemical reactions.
     """
     photocatalysis = "photocatalysis"
     """
-    Photocatalysis â€” catalysis of a chemical reaction through the
+    Photocatalysis — catalysis of a chemical reaction through the
     absorption of sufficient light energy by a photocatalyst.
     """
     hybrid_catalysis = "hybrid_catalysis"
     """
-    Hybrid catalysis â€” combination of two or more catalytic approaches.
+    Hybrid catalysis — combination of two or more catalytic approaches.
     """
     other = "other"
     """
@@ -273,15 +275,15 @@ class ImpregnationTypeEnum(str, Enum):
     """
     wet_impregnation = "wet_impregnation"
     """
-    Wet impregnation â€” excess solution is used to impregnate the support.
+    Wet impregnation — excess solution is used to impregnate the support.
     """
     dry_impregnation = "dry_impregnation"
     """
-    Dry impregnation â€” solution volume equals the pore volume of the support.
+    Dry impregnation — solution volume equals the pore volume of the support.
     """
     incipient_wetness = "incipient_wetness"
     """
-    Incipient wetness impregnation â€” synonym for dry impregnation.
+    Incipient wetness impregnation — synonym for dry impregnation.
     """
     other = "other"
     """
@@ -567,14 +569,10 @@ class PrecipitationMixin(ConfiguredBaseModel):
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0008203'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
-                       'DynamicLightScattering',
-                       'ElectroSprayIonizationMassSpectrometry',
-                       'ChemicalSubstanceMixin'],
-         'is_a': 'has_quantitative_attribute',
+    precipitating_concentration: Optional[list[Concentration]] = Field(default=[], description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
+         'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'SIO:000008'} })
+         'slot_uri': 'VOC4CAT:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=[], description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -2325,7 +2323,7 @@ class Synthesis(CatalysisDataGeneratingActivity):
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
          'slot_uri': 'coremeta4cat:catalyst_measured_properties'} })
-    storage_conditions: Optional[list[str]] = Field(default=[], description="""Conditions under which the catalyst is stored (e.g. inert atmosphere, 4Â°C).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'],
+    storage_conditions: Optional[list[str]] = Field(default=[], description="""Conditions under which the catalyst is stored (e.g. inert atmosphere, 4°C).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0008105'} })
@@ -2519,7 +2517,7 @@ class Characterization(CatalysisDataGeneratingActivity):
 
     The specific technique type is expressed via rdf_type using an ontology
     term (e.g. CHMO:0000158 for powder XRD, CHMO:0000404 for XPS),
-    following DCAT-AP-PLUS Pattern 3 â€” exactly as NMRSpectroscopy uses
+    following DCAT-AP-PLUS Pattern 3 — exactly as NMRSpectroscopy uses
     rdf_type: CHMO:0000613.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'OBI:0000070',
@@ -5134,7 +5132,7 @@ class CatalyticReaction(ChemicalReaction):
     temperature, pressure, yield, reaction steps) from ChemicalReaction and
     adds catalysis-specific operating-condition slots.
 
-    Reaction is NOT a DataGeneratingActivity â€” it is the catalytic process
+    Reaction is NOT a DataGeneratingActivity — it is the catalytic process
     being observed, not the process that generates the dataset. A CatalysisDataset
     is linked to the Reaction it is about via is_about_activity.
 
@@ -5197,7 +5195,27 @@ class CatalyticReaction(ChemicalReaction):
                                                     'an ontology term (e.g. '
                                                     'VOC4CAT:0007010\n'
                                                     'for a specific reaction type, or '
-                                                    'a ChemO/RXNO term).',
+                                                    'a ChemO/RXNO term).\n'
+                                                    '\n'
+                                                    'This is the sole reaction-type '
+                                                    'classification mechanism '
+                                                    '(DCAT-AP-PLUS\n'
+                                                    'Pattern 3) -- deliberately not '
+                                                    'duplicated by a dedicated '
+                                                    'has_reaction_type\n'
+                                                    'slot + ReactionType class '
+                                                    'hierarchy (cf. PR #118, since '
+                                                    'superseded here).\n'
+                                                    'Kept `recommended` rather than '
+                                                    '`required` for the same reason '
+                                                    'as\n'
+                                                    'catalyst_type below: see '
+                                                    'nfdi4cat/CoreMeta4Cat#117 for the '
+                                                    'cardinality\n'
+                                                    'discussion and '
+                                                    'nfdi4cat/CoreMeta4Cat#116 for the '
+                                                    'classification-mechanism\n'
+                                                    'discussion.',
                                      'name': 'rdf_type',
                                      'recommended': True},
                         'used_reactor': {'description': 'The reactor in which the '
@@ -5220,7 +5238,23 @@ class CatalyticReaction(ChemicalReaction):
          'slot_uri': 'coremeta4cat:catalyst_quantity'} })
     catalyst_type: Optional[list[CatalysisResearchFieldEnum]] = Field(default=[], description="""The catalytic regime of the reaction (e.g. heterogeneous, homogeneous,
 biocatalysis, electrocatalysis, photocatalysis). For the physical
-form/presentation of the catalyst itself, use catalyst_form instead.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
+form/presentation of the catalyst itself, use catalyst_form instead.
+
+Deliberately kept `recommended` rather than `required` (see nfdi4cat/
+CoreMeta4Cat#117): classification here can be genuinely disputed or
+not yet covered by CatalysisResearchFieldEnum for a novel catalyst,
+and forcing a value would push researchers into a premature or
+contested classification rather than leaving the field unset until
+consensus/vocabulary catches up. Open for discussion in a follow-up
+issue if a different tradeoff is wanted. See also nfdi4cat/
+CoreMeta4Cat#116 on whether this two-slot design (catalyst_type +
+catalyst_form) or PR #118's CatalystType class hierarchy should be
+the long-term mechanism -- kept as two enums here because the
+VOC4CAT terms show CatalystType conflates the regime axis
+(Heterogeneous/Homogeneous/Bio/Electro/Photo) with the physical-form
+axis (ThinFilm/Bulk/Powdered/DepositedSample/Supported -- identical
+VOC4CAT ids to catalyst_form's permissible values), which are
+independent and often both apply to the same catalyst at once.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
          'recommended': True,
          'slot_uri': 'VOC4CAT:0007014'} })
     catalyst_form: Optional[list[CatalystFormEnum]] = Field(default=[], description="""The physical form or presentation of the catalyst as loaded into the
@@ -5466,7 +5500,15 @@ product_identification_method, ...) when loaded.""", json_schema_extra = { "link
     type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
          'slot_uri': 'dcterms:type'} })
     rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The type of catalytic reaction as an ontology term (e.g. VOC4CAT:0007010
-for a specific reaction type, or a ChemO/RXNO term).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
+for a specific reaction type, or a ChemO/RXNO term).
+
+This is the sole reaction-type classification mechanism (DCAT-AP-PLUS
+Pattern 3) -- deliberately not duplicated by a dedicated has_reaction_type
+slot + ReactionType class hierarchy (cf. PR #118, since superseded here).
+Kept `recommended` rather than `required` for the same reason as
+catalyst_type below: see nfdi4cat/CoreMeta4Cat#117 for the cardinality
+discussion and nfdi4cat/CoreMeta4Cat#116 for the classification-mechanism
+discussion.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
          'in_subset': ['domain_agnostic_core'],
          'recommended': True,
          'slot_uri': 'rdf:type'} })
@@ -6006,7 +6048,7 @@ class CatalysisPlan(Plan):
 class PreparationMethod(CatalysisPlan):
     """
     An abstract Plan describing the protocol used to prepare a catalyst.
-    Concrete subclasses (Impregnation, CoPrecipitation, â€¦) specify the
+    Concrete subclasses (Impregnation, CoPrecipitation, …) specify the
     method-specific parameters. Linked from Synthesis via realized_plan.
 
     The specific preparation method type should additionally be expressed
@@ -6282,14 +6324,10 @@ class CoPrecipitation(PreparationMethod, PrecipitationMixin, CalcinationMixin, D
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0008203'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
-                       'DynamicLightScattering',
-                       'ElectroSprayIonizationMassSpectrometry',
-                       'ChemicalSubstanceMixin'],
-         'is_a': 'has_quantitative_attribute',
+    precipitating_concentration: Optional[list[Concentration]] = Field(default=[], description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
+         'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'SIO:000008'} })
+         'slot_uri': 'VOC4CAT:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=[], description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -7194,14 +7232,10 @@ class DepositionPrecipitation(PreparationMethod, PrecipitationMixin, Calcination
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0008203'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
-                       'DynamicLightScattering',
-                       'ElectroSprayIonizationMassSpectrometry',
-                       'ChemicalSubstanceMixin'],
-         'is_a': 'has_quantitative_attribute',
+    precipitating_concentration: Optional[list[Concentration]] = Field(default=[], description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
+         'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'SIO:000008'} })
+         'slot_uri': 'VOC4CAT:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=[], description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -11054,8 +11088,7 @@ with min_value and max_value (unit_code: \"nm\").""", json_schema_extra = { "lin
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0007246'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -11832,8 +11865,7 @@ class DynamicLightScattering(CharacterizationTechnique):
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'VOC4CAT:0007246'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -12019,8 +12051,7 @@ class ElectroSprayIonizationMassSpectrometry(CharacterizationTechnique, MassRang
          'is_a': 'carried_out_by',
          'recommended': True,
          'slot_uri': 'coremeta4cat:carrier_gas'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -13032,7 +13063,7 @@ class CalcinationGaseousEnvironment(Atmosphere):
 class HeatingProcedure(QualitativeAttribute):
     """
     A qualitative descriptor of the thermal programme or heating procedure
-    applied (e.g. \"isothermal\", \"ramp 5 Â°C/min to 500 Â°C, dwell 2 h\").
+    applied (e.g. \"isothermal\", \"ramp 5 °C/min to 500 °C, dwell 2 h\").
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'coremeta4cat:HeatingProcedure',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
@@ -13128,7 +13159,7 @@ class HeatingProcedure(QualitativeAttribute):
 class SamplePretreatment(QualitativeAttribute):
     """
     A qualitative descriptor of the pre-treatment applied to a sample
-    before a process or measurement (e.g. \"reduction at 300 Â°C\", \"outgassing\").
+    before a process or measurement (e.g. \"reduction at 300 °C\", \"outgassing\").
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000122',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
@@ -18915,7 +18946,7 @@ class ChemicalReactor(Reactor):
     instruments (Device) from reaction vessels (Reactor). ChemicalReactor
     further specializes chemdcat-ap's generic Reactor for catalysis use cases.
 
-    Concrete subclasses (FixedBedReactor, CSTR, PlugFlowReactor, â€¦) specify
+    Concrete subclasses (FixedBedReactor, CSTR, PlugFlowReactor, …) specify
     reactor geometry and operating mode.
     Linked from Reaction via used_reactor (restricted to range: ChemicalReactor).
     """
@@ -19279,7 +19310,7 @@ causing (or is caused by) chemical reactions.""", json_schema_extra = { "linkml_
 
 class CSTR(ChemicalReactor):
     """
-    Continuous stirred tank reactor (CSTR) â€” a well-mixed, continuous-flow
+    Continuous stirred tank reactor (CSTR) — a well-mixed, continuous-flow
     reactor operating at steady state.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007019',
@@ -19474,7 +19505,7 @@ may use different equipment.""", json_schema_extra = { "linkml_meta": {'domain_o
 
 class PlugFlowReactor(ChemicalReactor):
     """
-    Plug flow reactor (PFR) â€” a tubular reactor in which reactant composition
+    Plug flow reactor (PFR) — a tubular reactor in which reactant composition
     varies along the axis with no axial mixing.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007102',
@@ -19659,7 +19690,7 @@ sample, typically reported as diameter or sieve fraction range.""", json_schema_
 
 class Autoclave(ChemicalReactor):
     """
-    Autoclave reactor â€” a sealed pressure vessel for batch reactions at
+    Autoclave reactor — a sealed pressure vessel for batch reactions at
     elevated temperature and/or pressure.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'NCIT:C93052',
@@ -19845,7 +19876,7 @@ start to end of the reaction step.""", json_schema_extra = { "linkml_meta": {'do
 
 class SlurryReactor(ChemicalReactor):
     """
-    Slurry reactor â€” a three-phase reactor in which catalyst particles are
+    Slurry reactor — a three-phase reactor in which catalyst particles are
     suspended in a liquid phase through which gas is bubbled.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'coremeta4cat:SlurryReactor',
@@ -20032,7 +20063,7 @@ in revolutions per unit time.""", json_schema_extra = { "linkml_meta": {'domain_
 
 class Microreactor(ChemicalReactor):
     """
-    Microreactor â€” a miniaturised flow reactor with characteristic dimensions
+    Microreactor — a miniaturised flow reactor with characteristic dimensions
     in the sub-millimetre range, enabling precise thermal control and rapid
     screening.
     """
@@ -20209,7 +20240,7 @@ channels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microreactor'
 
 class FixedBedReactor(ChemicalReactor):
     """
-    Fixed bed reactor â€” a tubular reactor packed with a stationary catalyst bed.
+    Fixed bed reactor — a tubular reactor packed with a stationary catalyst bed.
     The most common reactor type in heterogeneous catalysis testing.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'coremeta4cat:FixedBedReactor',
@@ -20398,7 +20429,7 @@ measured along the direction of flow.""", json_schema_extra = { "linkml_meta": {
 
 class FluidizedBedReactor(ChemicalReactor):
     """
-    Fluidized bed reactor â€” a reactor in which the catalyst particles are
+    Fluidized bed reactor — a reactor in which the catalyst particles are
     suspended in an upward-flowing gas or liquid stream.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'coremeta4cat:FluidizedBedReactor',
@@ -20585,8 +20616,7 @@ class ChemicalSubstanceMixin(MaterialisticMixin):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/',
          'mixin': True})
 
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -20669,8 +20699,7 @@ class DissolvingSubstance(ChemicalSubstanceMixin, AgenticEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -20864,8 +20893,7 @@ class Catalyst(ChemicalSubstanceMixin, AgenticEntity):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -21053,8 +21081,7 @@ class PolymerMixin(ChemicalSubstanceMixin):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/',
          'mixin': True})
 
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -21312,8 +21339,7 @@ class StartingMaterial(MaterialEntity, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -21508,8 +21534,7 @@ class Reagent(MaterialEntity, ChemicalSubstanceMixin):
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
          'slot_uri': 'SIO:000008'} })
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -21699,8 +21724,7 @@ class ChemicalProduct(MaterialEntity, ChemicalSubstanceMixin):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['ChemicalSubstanceMixin']})
 
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -22068,8 +22092,7 @@ class Precursor(MaterialSample):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007794',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/',
          'slot_usage': {'precursor_quantity': {'name': 'precursor_quantity',
-                                               'required': True,
-                                               'slot_uri': 'VOC4CAT:0008118'}}})
+                                               'required': True}}})
 
     precursor_quantity: list[Mass] = Field(default=..., description="""Quantity of precursor used in synthesis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Precursor'],
          'is_a': 'has_mass',
@@ -22430,8 +22453,7 @@ class SubstanceSample(MaterialSample, ChemicalSubstanceMixin):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/',
          'mixins': ['ChemicalSubstanceMixin']})
 
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -22626,8 +22648,7 @@ class PolymerSample(SubstanceSample, PolymerMixin):
          'todos': ['Find a better mapping, as it is currently mapped to same ontology '
                    'class as its parent.']})
 
-    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin',
-                       'UVVisSpectroscopy',
+    has_concentration: Optional[list[Concentration]] = Field(default=[], description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
                        'ChemicalSubstanceMixin'],
@@ -24660,7 +24681,7 @@ class SimulationMethod(CatalysisPlan):
 
 class DFT(SimulationMethod):
     """
-    Density functional theory â€” a quantum mechanical method for calculating
+    Density functional theory — a quantum mechanical method for calculating
     the electronic structure of atoms, molecules, and periodic solids.
     The most widely used ab initio method in computational catalysis.
     """
@@ -24795,7 +24816,7 @@ calculation. Set to true for systems containing magnetic elements.""", json_sche
 
 class MolecularDynamics(SimulationMethod):
     """
-    Molecular dynamics simulation â€” a method for computing the time evolution
+    Molecular dynamics simulation — a method for computing the time evolution
     of a system of interacting particles by integrating the equations of motion.
     Used to study diffusion, reaction kinetics, and thermal properties.
     """
@@ -24924,7 +24945,7 @@ thermodynamic quantities are conserved.""", json_schema_extra = { "linkml_meta":
 
 class Microkinetics(SimulationMethod):
     """
-    Microkinetic modelling â€” a mean-field kinetic approach that integrates
+    Microkinetic modelling — a mean-field kinetic approach that integrates
     elementary reaction steps and their rate constants to predict catalytic
     activity and selectivity under reaction conditions.
     """
@@ -25073,7 +25094,7 @@ stiff ODE solver, steady-state Newton method).""", json_schema_extra = { "linkml
 
 class MonteCarlo(SimulationMethod):
     """
-    Monte Carlo simulation â€” a stochastic method that samples configuration
+    Monte Carlo simulation — a stochastic method that samples configuration
     space using random moves accepted or rejected according to a statistical
     criterion (e.g. Metropolis). Used for adsorption isotherms, phase diagrams,
     and lattice-based kinetics.
