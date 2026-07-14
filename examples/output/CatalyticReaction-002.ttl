@@ -28,9 +28,9 @@ coremeta4cat:REAC_002_DRM_NiCeO2 a coremeta4cat:CatalyticReaction ;
             qudt:unit <https://qudt.org/vocab/unit/GM> ;
             prov:value "0.2"^^xsd:float ] ;
     coremeta4cat:feed_composition_range [ a qudt:Quantity ;
-            dcterms:description "CO2-rich condition: CH4/CO2 = 1:1.5 to suppress carbon deposition" ],
+            dcterms:description "stoichiometric DRM: CH4/CO2 = 1:1 (molar)" ],
         [ a qudt:Quantity ;
-            dcterms:description "stoichiometric DRM: CH4/CO2 = 1:1 (molar)" ] ;
+            dcterms:description "CO2-rich condition: CH4/CO2 = 1:1.5 to suppress carbon deposition" ] ;
     coremeta4cat:product_identification_method coremeta4cat:REAC_002_GC_method ;
     VOC4CAT:0000118 [ a qudt:Quantity ;
             qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Pressure> ;

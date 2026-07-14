@@ -8,14 +8,14 @@ coremeta4cat:SIM_001_DFT_Cu111_CO_ads a "Simulation" ;
     prov:used coremeta4cat:SIM_001_DFT_method,
         coremeta4cat:SLAB_001_Cu111 ;
     coremeta4cat:calculated_property [ a IAO:0000109 ;
-            dcterms:description "C-O bond length of adsorbed CO" ;
-            prov:value "1.157 Ang" ],
-        [ a IAO:0000109 ;
             dcterms:description "Cu-C bond length at hollow adsorption site" ;
             prov:value "2.312 Ang" ],
         [ a IAO:0000109 ;
             dcterms:description "CO adsorption energy on hollow fcc site of Cu(111) relative to gas-phase CO" ;
-            prov:value "-0.67 eV" ] ;
+            prov:value "-0.67 eV" ],
+        [ a IAO:0000109 ;
+            dcterms:description "C-O bond length of adsorbed CO" ;
+            prov:value "1.157 Ang" ] ;
     coremeta4cat:software_package "VASP 6.3.0",
         "VESTA 3.5.8 (structure visualization)" .
 

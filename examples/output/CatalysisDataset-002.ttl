@@ -136,9 +136,9 @@ coremeta4cat:REAC_002_DRM_NiCeO2 a coremeta4cat:CatalyticReaction ;
             qudt:unit <https://qudt.org/vocab/unit/GM> ;
             prov:value "0.2"^^xsd:float ] ;
     coremeta4cat:feed_composition_range [ a qudt:Quantity ;
-            dcterms:description "CO2-rich condition: CH4/CO2 = 1:1.5 to suppress carbon deposition" ],
+            dcterms:description "stoichiometric DRM: CH4/CO2 = 1:1 (molar)" ],
         [ a qudt:Quantity ;
-            dcterms:description "stoichiometric DRM: CH4/CO2 = 1:1 (molar)" ] ;
+            dcterms:description "CO2-rich condition: CH4/CO2 = 1:1.5 to suppress carbon deposition" ] ;
     coremeta4cat:product_identification_method coremeta4cat:REAC_002_GC_method ;
     VOC4CAT:0000118 [ a qudt:Quantity ;
             qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Pressure> ;
@@ -161,8 +161,8 @@ coremeta4cat:SIM_002_MD_Ni_CeO2_111 a "Simulation" ;
     prov:used coremeta4cat:SIM_002_MD_method,
         coremeta4cat:SLAB_002_CeO2_111_Ni13 ;
     coremeta4cat:calculated_property [ a IAO:0000109 ;
-            dcterms:description "first-shell Ni-O coordination distance at Ni cluster / CeO2 interface (peak of Ni-O radial distribution function, production trajectory average)" ;
-            prov:value "3.8 Ang" ],
+            dcterms:description "fraction of Ni atoms in direct contact with CeO2 surface (Ni-O bond order > 0.3) averaged over production trajectory; measures cluster wetting / spreading" ;
+            prov:value "0.42" ],
         [ a IAO:0000109 ;
             dcterms:description "CeO2(111) cleavage surface energy (clean slab without Ni cluster, computed from relaxed DFT-D3 reference at 0 K, used as force field validation benchmark)" ;
             prov:value "1.52 J/m2" ],
@@ -170,8 +170,8 @@ coremeta4cat:SIM_002_MD_Ni_CeO2_111 a "Simulation" ;
             dcterms:description "time-averaged Ni-CeO2 adhesion energy per Ni atom (13-atom cluster) relative to bulk Ni cohesive energy and clean CeO2(111) slab; computed from 800 ps production trajectory" ;
             prov:value "-1.83 eV/atom" ],
         [ a IAO:0000109 ;
-            dcterms:description "fraction of Ni atoms in direct contact with CeO2 surface (Ni-O bond order > 0.3) averaged over production trajectory; measures cluster wetting / spreading" ;
-            prov:value "0.42" ] ;
+            dcterms:description "first-shell Ni-O coordination distance at Ni cluster / CeO2 interface (peak of Ni-O radial distribution function, production trajectory average)" ;
+            prov:value "3.8 Ang" ] ;
     coremeta4cat:software_package "LAMMPS (29 Sep 2021 stable release, OpenMP build)",
         "OVITO 3.7.11 (structure analysis, RDF, CNA, cluster tracking)" .
 

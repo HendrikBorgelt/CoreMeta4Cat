@@ -93,6 +93,14 @@ prefixes:
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   CHMO: http://purl.obolibrary.org/obo/CHMO_
   ENM: http://purl.enanomapper.org/onto/
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  RO: http://purl.obolibrary.org/obo/RO_
+  RXNO: http://purl.obolibrary.org/obo/RXNO_
+  qudt: http://qudt.org/schema/qudt/
+  schema: http://schema.org/
+  skos: http://www.w3.org/2004/02/skos/core#
+  foaf: http://xmlns.com/foaf/0.1/
+  adms: http://www.w3.org/ns/adms#
   hdl: https://hdl.handle.net/
 
 default_prefix: coremeta4cat

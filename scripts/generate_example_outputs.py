@@ -3,12 +3,12 @@ generate_example_outputs.py
 
 Publishes the real-world CatalysisDataset examples (tests/data/valid/
 CatalysisDataset-<dataset-id>.yaml, e.g. -2d6m-exeb.yaml) as downloadable
-.json and .yaml files under docs/assets/examples/, so the "Working with
-Data" documentation page can link to them.
+.json, .yaml, and .ttl (RDF/Turtle) files under docs/assets/examples/, so
+the "Working with Data" documentation page can link to them.
 
 These files are already validated as part of `just test`
 (tests/data/valid/ is the schema's test suite); this script only
-republishes the already-valid YAML in JSON form and copies the YAML
+republishes the already-valid YAML in JSON/RDF form and copies the YAML
 alongside it, it does not re-validate.
 
 Run:
@@ -25,10 +25,16 @@ import shutil
 from pathlib import Path
 
 import yaml
+from linkml_runtime.dumpers import rdflib_dumper
+from linkml_runtime.loaders import yaml_loader
+from linkml_runtime.utils.schemaview import SchemaView
+
+from coremeta4cat.datamodel.coremeta4cat import CatalysisDataset
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_DIR = REPO_ROOT / "tests" / "data" / "valid"
 OUTPUT_DIR = REPO_ROOT / "docs" / "assets" / "examples"
+SCHEMA_PATH = REPO_ROOT / "src" / "coremeta4cat" / "schema" / "coremeta4cat.yaml"
 
 # Real-world dataset examples, identified by the dataset-id suffix in their
 # filename (CatalysisDataset-<suffix>.yaml). Purely-numeric suffixes (001,
@@ -39,6 +45,7 @@ DATASET_ID_PATTERN = re.compile(r"^CatalysisDataset-(.+)\.yaml$")
 
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    schemaview = SchemaView(str(SCHEMA_PATH))
     published = []
     for source_file in sorted(SOURCE_DIR.glob("CatalysisDataset-*.yaml")):
         match = DATASET_ID_PATTERN.match(source_file.name)
@@ -58,9 +65,14 @@ def main() -> None:
             json.dump(data, f, indent=2, ensure_ascii=False)
             f.write("\n")
 
+        ttl_out = OUTPUT_DIR / f"CatalysisDataset-{dataset_id}.ttl"
+        obj = yaml_loader.load(str(source_file), target_class=CatalysisDataset)
+        rdflib_dumper.dump(obj, to_file=str(ttl_out), schemaview=schemaview)
+
         published.append(dataset_id)
         print(f"  OK {yaml_out.relative_to(REPO_ROOT)}")
         print(f"  OK {json_out.relative_to(REPO_ROOT)}")
+        print(f"  OK {ttl_out.relative_to(REPO_ROOT)}")
 
     print(f"\nPublished {len(published)} example dataset(s) to {OUTPUT_DIR.relative_to(REPO_ROOT)}: {', '.join(published)}")
 

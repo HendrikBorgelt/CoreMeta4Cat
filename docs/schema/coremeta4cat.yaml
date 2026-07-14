@@ -110,6 +110,30 @@ prefixes:
   ENM:
     prefix_prefix: ENM
     prefix_reference: http://purl.enanomapper.org/onto/
+  CHEBI:
+    prefix_prefix: CHEBI
+    prefix_reference: http://purl.obolibrary.org/obo/CHEBI_
+  RO:
+    prefix_prefix: RO
+    prefix_reference: http://purl.obolibrary.org/obo/RO_
+  RXNO:
+    prefix_prefix: RXNO
+    prefix_reference: http://purl.obolibrary.org/obo/RXNO_
+  qudt:
+    prefix_prefix: qudt
+    prefix_reference: http://qudt.org/schema/qudt/
+  schema:
+    prefix_prefix: schema
+    prefix_reference: http://schema.org/
+  skos:
+    prefix_prefix: skos
+    prefix_reference: http://www.w3.org/2004/02/skos/core#
+  foaf:
+    prefix_prefix: foaf
+    prefix_reference: http://xmlns.com/foaf/0.1/
+  adms:
+    prefix_prefix: adms
+    prefix_reference: http://www.w3.org/ns/adms#
   hdl:
     prefix_prefix: hdl
     prefix_reference: https://hdl.handle.net/
@@ -19651,7 +19675,7 @@ classes:
     class_uri: qudt:Quantity
 metamodel_version: 1.7.0
 source_file: coremeta4cat.yaml
-source_file_date: '2026-07-14T17:06:19'
-source_file_size: 7560
-generation_date: '2026-07-14T17:12:30'
+source_file_date: '2026-07-14T17:22:30'
+source_file_size: 7882
+generation_date: '2026-07-14T17:23:49'
 

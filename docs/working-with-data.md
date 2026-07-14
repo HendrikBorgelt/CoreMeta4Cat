@@ -56,6 +56,11 @@ Grouping by reaction type and technique, rather than writing one entry per catal
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
   </a>
+  <a href="../assets/examples/CatalysisDataset-2d6m-exeb.ttl"
+     style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
+            border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
+    ⬇ Download RDF
+  </a>
 </div>
 
 ---
@@ -87,6 +92,11 @@ The CoreMeta4Cat record groups this into:
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
   </a>
+  <a href="../assets/examples/CatalysisDataset-32x1-99x6.ttl"
+     style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
+            border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
+    ⬇ Download RDF
+  </a>
 </div>
 
 ---
@@ -117,6 +127,11 @@ The CoreMeta4Cat record groups this into:
      style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
             border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
     ⬇ Download JSON
+  </a>
+  <a href="../assets/examples/CatalysisDataset-arp5-s69r.ttl"
+     style="display: inline-block; padding: 0.6em 1.4em; background: #1976d2; color: white;
+            border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0.3em;">
+    ⬇ Download RDF
   </a>
 </div>
 
