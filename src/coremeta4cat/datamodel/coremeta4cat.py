@@ -133,9 +133,7 @@ version = "1.0.0"
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
 AFP = CurieNamespace('AFP', 'http://purl.allotrope.org/ontologies/process#AFP_')
-AFQ = CurieNamespace('AFQ', 'http://purl.allotrope.org/ontologies/quality#AFQ_')
 AFR = CurieNamespace('AFR', 'http://purl.allotrope.org/ontologies/result#AFR_')
-AFRL = CurieNamespace('AFRL', 'http://purl.allotrope.org/ontologies/role#AFRL_')
 AFX = CurieNamespace('AFX', 'http://purl.allotrope.org/ontologies/property#AFX_')
 APOLLO_SV = CurieNamespace('APOLLO_SV', 'http://purl.obolibrary.org/obo/APOLLO_SV_')
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
@@ -143,7 +141,6 @@ CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
 CHEMINF = CurieNamespace('CHEMINF', 'http://semanticscience.org/resource/CHEMINF_')
 CHMO = CurieNamespace('CHMO', 'http://purl.obolibrary.org/obo/CHMO_')
 EDAM = CurieNamespace('EDAM', 'http://edamontology.org/data_')
-ENM = CurieNamespace('ENM', 'http://purl.enanomapper.org/onto/')
 ENVO = CurieNamespace('ENVO', 'http://purl.obolibrary.org/obo/ENVO_')
 IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
 MOP = CurieNamespace('MOP', 'http://purl.obolibrary.org/obo/MOP_')
@@ -155,17 +152,19 @@ REX = CurieNamespace('REX', 'http://purl.obolibrary.org/obo/REX_')
 RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 RXNO = CurieNamespace('RXNO', 'http://purl.obolibrary.org/obo/RXNO_')
 SIO = CurieNamespace('SIO', 'http://semanticscience.org/resource/SIO_')
-VOC4CAT = CurieNamespace('VOC4CAT', 'https://w3id.org/nfdi4cat/voc4cat_')
 ADMS = CurieNamespace('adms', 'http://www.w3.org/ns/adms#')
+ALLOTROPE_QUALITY = CurieNamespace('allotrope_quality', 'http://purl.allotrope.org/ontologies/quality#AFQ_')
+ALLOTROPE_RESULT = CurieNamespace('allotrope_result', 'http://purl.allotrope.org/ontologies/result#AFR_')
+ALLOTROPE_ROLE = CurieNamespace('allotrope_role', 'http://purl.allotrope.org/ontologies/role#AFRL_')
 CHEMDCATAP = CurieNamespace('chemdcatap', 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/')
 CHEMICAL_ENTITIES_AP = CurieNamespace('chemical_entities_ap', 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/')
 COREMETA4CAT = CurieNamespace('coremeta4cat', 'https://w3id.org/nfdi4cat/coremeta4cat/')
 DCAT = CurieNamespace('dcat', 'http://www.w3.org/ns/dcat#')
 DCATAP = CurieNamespace('dcatap', 'http://data.europa.eu/r5r/')
 DCATAP_PLUS = CurieNamespace('dcatap_plus', 'https://w3id.org/nfdi-de/dcat-ap-plus/')
-DCATAPPLUS = CurieNamespace('dcatapplus', 'https://w3id.org/nfdi-de/dcat-ap-plus/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 ELI = CurieNamespace('eli', 'http://data.europa.eu/eli/ontology#')
+ENM = CurieNamespace('enm', 'http://purl.enanomapper.org/onto/')
 EPOS = CurieNamespace('epos', 'https://www.epos-eu.org/epos-dcat-ap#')
 FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
 HDL = CurieNamespace('hdl', 'https://hdl.handle.net/')
@@ -1648,8 +1647,8 @@ class ClassifierMixin(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCATAPPLUS["ClassifierMixin"]
-    class_class_curie: ClassVar[str] = "dcatapplus:ClassifierMixin"
+    class_class_uri: ClassVar[URIRef] = DCATAP_PLUS["ClassifierMixin"]
+    class_class_curie: ClassVar[str] = "dcatap_plus:ClassifierMixin"
     class_name: ClassVar[str] = "ClassifierMixin"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ClassifierMixin
 
@@ -1769,7 +1768,7 @@ class Synthesis(CatalysisDataGeneratingActivity):
     had_output_entity.
 
     The type of synthesis is further specified via rdf_type using an ontology
-    term (e.g. a VOC4CAT preparation method term), following DCAT-AP-PLUS
+    term (e.g. a voc4cat preparation method term), following DCAT-AP-PLUS
     Pattern 3.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -2336,7 +2335,7 @@ class CatalysisDataset(Dataset):
     term from CatalysisResearchFieldEnum (following DCAT-AP-PLUS Pattern 3).
     For example, a dataset from heterogeneous catalysis research would carry:
     rdf_type:
-    id: VOC4CAT:0007001
+    id: voc4cat:0007001
     title: "heterogeneous catalysis"
 
     The four CoreMeta4Cat minimum information pillars are linked via the slots
@@ -2668,7 +2667,7 @@ class ChemicalReactor(Reactor):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007018"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007018"
+    class_class_curie: ClassVar[str] = "voc4cat:0007018"
     class_name: ClassVar[str] = "ChemicalReactor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ChemicalReactor
 
@@ -2683,7 +2682,7 @@ class ElectrochemicalReactor(ChemicalReactor):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000193"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000193"
+    class_class_curie: ClassVar[str] = "voc4cat:0000193"
     class_name: ClassVar[str] = "ElectrochemicalReactor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ElectrochemicalReactor
 
@@ -2727,7 +2726,7 @@ class CSTR(ChemicalReactor):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007019"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007019"
+    class_class_curie: ClassVar[str] = "voc4cat:0007019"
     class_name: ClassVar[str] = "CSTR"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CSTR
 
@@ -2772,7 +2771,7 @@ class PlugFlowReactor(ChemicalReactor):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007102"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007102"
+    class_class_curie: ClassVar[str] = "voc4cat:0007102"
     class_name: ClassVar[str] = "PlugFlowReactor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PlugFlowReactor
 
@@ -2910,7 +2909,7 @@ class Microreactor(ChemicalReactor):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000234"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000234"
+    class_class_curie: ClassVar[str] = "voc4cat:0000234"
     class_name: ClassVar[str] = "Microreactor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Microreactor
 
@@ -3549,12 +3548,12 @@ class PreparationMethod(CatalysisPlan):
 
     The specific preparation method type should additionally be expressed
     via rdf_type on the Synthesis activity using a voc4cat term
-    (e.g. VOC4CAT:0007016 for preparation method).
+    (e.g. voc4cat:0007016 for preparation method).
     """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007016"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007016"
+    class_class_curie: ClassVar[str] = "voc4cat:0007016"
     class_name: ClassVar[str] = "PreparationMethod"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.PreparationMethod
 
@@ -3569,7 +3568,7 @@ class Impregnation(PreparationMethod):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007028"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007028"
+    class_class_curie: ClassVar[str] = "voc4cat:0007028"
     class_name: ClassVar[str] = "Impregnation"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Impregnation
 
@@ -3642,7 +3641,7 @@ class CoPrecipitation(PreparationMethod):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007795"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007795"
+    class_class_curie: ClassVar[str] = "voc4cat:0007795"
     class_name: ClassVar[str] = "CoPrecipitation"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CoPrecipitation
 
@@ -4242,7 +4241,7 @@ class FlameSprayPyrolysis(PreparationMethod):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007031"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007031"
+    class_class_curie: ClassVar[str] = "voc4cat:0007031"
     class_name: ClassVar[str] = "FlameSprayPyrolysis"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.FlameSprayPyrolysis
 
@@ -4676,7 +4675,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000286"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000286"
+    class_class_curie: ClassVar[str] = "voc4cat:0000286"
     class_name: ClassVar[str] = "XRayAbsorptionSpectroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.XRayAbsorptionSpectroscopy
 
@@ -4980,7 +4979,7 @@ class RamanSpectroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000069"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000069"
+    class_class_curie: ClassVar[str] = "voc4cat:0000069"
     class_name: ClassVar[str] = "RamanSpectroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.RamanSpectroscopy
 
@@ -5037,7 +5036,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000073"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000073"
+    class_class_curie: ClassVar[str] = "voc4cat:0000073"
     class_name: ClassVar[str] = "NMRSpectroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.NMRSpectroscopy
 
@@ -5094,7 +5093,7 @@ class TransmissionElectronMicroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000078"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000078"
+    class_class_curie: ClassVar[str] = "voc4cat:0000078"
     class_name: ClassVar[str] = "TransmissionElectronMicroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.TransmissionElectronMicroscopy
 
@@ -5133,7 +5132,7 @@ class ScanningElectronMicroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000075"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000075"
+    class_class_curie: ClassVar[str] = "voc4cat:0000075"
     class_name: ClassVar[str] = "ScanningElectronMicroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.ScanningElectronMicroscopy
 
@@ -5306,7 +5305,7 @@ class BET(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ENM["0000064"]
-    class_class_curie: ClassVar[str] = "ENM:0000064"
+    class_class_curie: ClassVar[str] = "enm:0000064"
     class_name: ClassVar[str] = "BET"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.BET
 
@@ -5425,7 +5424,7 @@ class UVVisSpectroscopy(CharacterizationTechnique):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000079"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000079"
+    class_class_curie: ClassVar[str] = "voc4cat:0000079"
     class_name: ClassVar[str] = "UVVisSpectroscopy"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.UVVisSpectroscopy
 
@@ -5904,8 +5903,8 @@ class SizeExclusionChromatography(CharacterizationTechnique):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AFP["0000843"]
-    class_class_curie: ClassVar[str] = "AFP:0000843"
+    class_class_uri: ClassVar[URIRef] = ALLOTROPE_QUALITY["0000843"]
+    class_class_curie: ClassVar[str] = "allotrope.quality:0000843"
     class_name: ClassVar[str] = "SizeExclusionChromatography"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SizeExclusionChromatography
 
@@ -6337,7 +6336,7 @@ class CalcinationGaseousEnvironment(Atmosphere):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000055"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000055"
+    class_class_curie: ClassVar[str] = "voc4cat:0000055"
     class_name: ClassVar[str] = "CalcinationGaseousEnvironment"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.CalcinationGaseousEnvironment
 
@@ -6367,7 +6366,7 @@ class SamplePretreatment(QualitativeAttribute):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000122"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000122"
+    class_class_curie: ClassVar[str] = "voc4cat:0000122"
     class_name: ClassVar[str] = "SamplePretreatment"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SamplePretreatment
 
@@ -6397,7 +6396,7 @@ class OperationMode(QualitativeAttribute):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0000108"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0000108"
+    class_class_curie: ClassVar[str] = "voc4cat:0000108"
     class_name: ClassVar[str] = "OperationMode"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.OperationMode
 
@@ -7444,8 +7443,8 @@ class SupportiveEntity(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = DCATAPPLUS["SupportiveEntity"]
-    class_class_curie: ClassVar[str] = "dcatapplus:SupportiveEntity"
+    class_class_uri: ClassVar[URIRef] = DCATAP_PLUS["SupportiveEntity"]
+    class_class_curie: ClassVar[str] = "dcatap_plus:SupportiveEntity"
     class_name: ClassVar[str] = "SupportiveEntity"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.SupportiveEntity
 
@@ -8653,7 +8652,7 @@ class Precursor(MaterialSample):
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = VOC4CAT["0007794"]
-    class_class_curie: ClassVar[str] = "VOC4CAT:0007794"
+    class_class_curie: ClassVar[str] = "voc4cat:0007794"
     class_name: ClassVar[str] = "Precursor"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.Precursor
 
@@ -8678,7 +8677,7 @@ class CatalystSample(MaterialSample):
     """
     A MaterialSample that is the product of a catalyst Synthesis.
     The specific type of catalyst (e.g. heterogeneous, supported metal)
-    is expressed via rdf_type using a VOC4CAT term.
+    is expressed via rdf_type using a voc4cat term.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -8856,8 +8855,8 @@ class MolarMass(Mass):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AFR["0002409"]
-    class_class_curie: ClassVar[str] = "AFR:0002409"
+    class_class_uri: ClassVar[URIRef] = ALLOTROPE_RESULT["0002409"]
+    class_class_curie: ClassVar[str] = "allotrope.result:0002409"
     class_name: ClassVar[str] = "MolarMass"
     class_model_uri: ClassVar[URIRef] = COREMETA4CAT.MolarMass
 
@@ -9298,7 +9297,7 @@ slots.dispersant = Slot(uri=COREMETA4CAT.dispersant, name="dispersant", curie=CO
 slots.drying_device = Slot(uri=VOC4CAT['0008122'], name="drying_device", curie=VOC4CAT.curie('0008122'),
                    model_uri=COREMETA4CAT.drying_device, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.step_size = Slot(uri=AFR['0000950'], name="step_size", curie=AFR.curie('0000950'),
+slots.step_size = Slot(uri=ALLOTROPE_RESULT['0000950'], name="step_size", curie=ALLOTROPE_RESULT.curie('0000950'),
                    model_uri=COREMETA4CAT.step_size, domain=None, range=Optional[Union[float, list[float]]])
 
 slots.resolution = Slot(uri=COREMETA4CAT.resolution, name="resolution", curie=COREMETA4CAT.curie('resolution'),
@@ -9523,10 +9522,10 @@ slots.sample_state = Slot(uri=COREMETA4CAT.sample_state, name="sample_state", cu
 slots.sample_description = Slot(uri=COREMETA4CAT.sample_description, name="sample_description", curie=COREMETA4CAT.curie('sample_description'),
                    model_uri=COREMETA4CAT.sample_description, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.sample_preparation = Slot(uri=AFP['0001159'], name="sample_preparation", curie=AFP.curie('0001159'),
+slots.sample_preparation = Slot(uri=ALLOTROPE_QUALITY['0001159'], name="sample_preparation", curie=ALLOTROPE_QUALITY.curie('0001159'),
                    model_uri=COREMETA4CAT.sample_preparation, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.detector_type = Slot(uri=AFR['0000317'], name="detector_type", curie=AFR.curie('0000317'),
+slots.detector_type = Slot(uri=ALLOTROPE_RESULT['0000317'], name="detector_type", curie=ALLOTROPE_RESULT.curie('0000317'),
                    model_uri=COREMETA4CAT.detector_type, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.xray_source = Slot(uri=OBI['0001138'], name="xray_source", curie=OBI.curie('0001138'),
@@ -9544,7 +9543,7 @@ slots.gun_type = Slot(uri=COREMETA4CAT.gun_type, name="gun_type", curie=COREMETA
 slots.acceleration_voltage = Slot(uri=COREMETA4CAT.acceleration_voltage, name="acceleration_voltage", curie=COREMETA4CAT.curie('acceleration_voltage'),
                    model_uri=COREMETA4CAT.acceleration_voltage, domain=None, range=Optional[Union[Union[dict, ElectricPotential], list[Union[dict, ElectricPotential]]]])
 
-slots.magnification_setting = Slot(uri=AFR['0002226'], name="magnification_setting", curie=AFR.curie('0002226'),
+slots.magnification_setting = Slot(uri=ALLOTROPE_RESULT['0002226'], name="magnification_setting", curie=ALLOTROPE_RESULT.curie('0002226'),
                    model_uri=COREMETA4CAT.magnification_setting, domain=None, range=Optional[Union[float, list[float]]])
 
 slots.has_temperature_range = Slot(uri=COREMETA4CAT.hasTemperatureRange, name="has_temperature_range", curie=COREMETA4CAT.curie('hasTemperatureRange'),
@@ -9559,7 +9558,7 @@ slots.final_temperature = Slot(uri=NCIT.C164644, name="final_temperature", curie
 slots.has_mz_range = Slot(uri=COREMETA4CAT.hasMzRange, name="has_mz_range", curie=COREMETA4CAT.curie('hasMzRange'),
                    model_uri=COREMETA4CAT.has_mz_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])
 
-slots.excitation_wavelength = Slot(uri=AFR['0002479'], name="excitation_wavelength", curie=AFR.curie('0002479'),
+slots.excitation_wavelength = Slot(uri=ALLOTROPE_RESULT['0002479'], name="excitation_wavelength", curie=ALLOTROPE_RESULT.curie('0002479'),
                    model_uri=COREMETA4CAT.excitation_wavelength, domain=None, range=Optional[Union[Union[dict, LengthQuantity], list[Union[dict, LengthQuantity]]]])
 
 slots.emission_wavelength = Slot(uri=NCIT.C204101, name="emission_wavelength", curie=NCIT.curie('C204101'),
@@ -9601,7 +9600,7 @@ slots.beamline_source = Slot(uri=COREMETA4CAT.beamline_source, name="beamline_so
 slots.noise_of_measurement = Slot(uri=COREMETA4CAT.noise_of_measurement, name="noise_of_measurement", curie=COREMETA4CAT.curie('noise_of_measurement'),
                    model_uri=COREMETA4CAT.noise_of_measurement, domain=None, range=Optional[Union[float, list[float]]])
 
-slots.energy_resolution = Slot(uri=AFR['0000950'], name="energy_resolution", curie=AFR.curie('0000950'),
+slots.energy_resolution = Slot(uri=ALLOTROPE_RESULT['0000950'], name="energy_resolution", curie=ALLOTROPE_RESULT.curie('0000950'),
                    model_uri=COREMETA4CAT.energy_resolution, domain=None, range=Optional[Union[Union[dict, EnergyQuantity], list[Union[dict, EnergyQuantity]]]])
 
 slots.total_acquisition_time = Slot(uri=COREMETA4CAT.total_acquisition_time, name="total_acquisition_time", curie=COREMETA4CAT.curie('total_acquisition_time'),
@@ -9628,7 +9627,7 @@ slots.counting_time = Slot(uri=COREMETA4CAT.counting_time, name="counting_time",
 slots.has_wavenumber_range = Slot(uri=COREMETA4CAT.hasWavenumberRange, name="has_wavenumber_range", curie=COREMETA4CAT.curie('hasWavenumberRange'),
                    model_uri=COREMETA4CAT.has_wavenumber_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])
 
-slots.background_correction = Slot(uri=AFP['0003721'], name="background_correction", curie=AFP.curie('0003721'),
+slots.background_correction = Slot(uri=ALLOTROPE_QUALITY['0003721'], name="background_correction", curie=ALLOTROPE_QUALITY.curie('0003721'),
                    model_uri=COREMETA4CAT.background_correction, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.adsorption_gas = Slot(uri=COREMETA4CAT.adsorption_gas, name="adsorption_gas", curie=COREMETA4CAT.curie('adsorption_gas'),
@@ -9643,10 +9642,10 @@ slots.ratio_reference_sample = Slot(uri=COREMETA4CAT.ratio_reference_sample, nam
 slots.background_correction_method = Slot(uri=COREMETA4CAT.background_correction_method, name="background_correction_method", curie=COREMETA4CAT.curie('background_correction_method'),
                    model_uri=COREMETA4CAT.background_correction_method, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.excitation_laser_wavelength = Slot(uri=AFR['0001594'], name="excitation_laser_wavelength", curie=AFR.curie('0001594'),
+slots.excitation_laser_wavelength = Slot(uri=ALLOTROPE_RESULT['0001594'], name="excitation_laser_wavelength", curie=ALLOTROPE_RESULT.curie('0001594'),
                    model_uri=COREMETA4CAT.excitation_laser_wavelength, domain=None, range=Optional[Union[Union[dict, LengthQuantity], list[Union[dict, LengthQuantity]]]])
 
-slots.excitation_laser_power = Slot(uri=AFR['0001595'], name="excitation_laser_power", curie=AFR.curie('0001595'),
+slots.excitation_laser_power = Slot(uri=ALLOTROPE_RESULT['0001595'], name="excitation_laser_power", curie=ALLOTROPE_RESULT.curie('0001595'),
                    model_uri=COREMETA4CAT.excitation_laser_power, domain=None, range=Optional[Union[Union[dict, PowerQuantity], list[Union[dict, PowerQuantity]]]])
 
 slots.filter_or_grating = Slot(uri=COREMETA4CAT.filter_or_grating, name="filter_or_grating", curie=COREMETA4CAT.curie('filter_or_grating'),
@@ -9703,7 +9702,7 @@ slots.matrix_effect_correction = Slot(uri=COREMETA4CAT.matrix_effect_correction,
 slots.wavelength_range = Slot(uri=COREMETA4CAT.wavelength_range, name="wavelength_range", curie=COREMETA4CAT.curie('wavelength_range'),
                    model_uri=COREMETA4CAT.wavelength_range, domain=None, range=Optional[Union[Union[dict, QuantitativeRange], list[Union[dict, QuantitativeRange]]]])
 
-slots.path_length = Slot(uri=AFQ['0000268'], name="path_length", curie=AFQ.curie('0000268'),
+slots.path_length = Slot(uri=ALLOTROPE_QUALITY['0000268'], name="path_length", curie=ALLOTROPE_QUALITY.curie('0000268'),
                    model_uri=COREMETA4CAT.path_length, domain=None, range=Optional[Union[float, list[float]]])
 
 slots.emission_range = Slot(uri=COREMETA4CAT.emission_range, name="emission_range", curie=COREMETA4CAT.curie('emission_range'),
@@ -9784,7 +9783,7 @@ slots.trace_ion_detection = Slot(uri=COREMETA4CAT.trace_ion_detection, name="tra
 slots.split_ratio = Slot(uri=COREMETA4CAT.split_ratio, name="split_ratio", curie=COREMETA4CAT.curie('split_ratio'),
                    model_uri=COREMETA4CAT.split_ratio, domain=None, range=Optional[Union[float, list[float]]])
 
-slots.eluent = Slot(uri=AFRL['0000011'], name="eluent", curie=AFRL.curie('0000011'),
+slots.eluent = Slot(uri=ALLOTROPE_ROLE['0000011'], name="eluent", curie=ALLOTROPE_ROLE.curie('0000011'),
                    model_uri=COREMETA4CAT.eluent, domain=None, range=Optional[Union[dict[Union[str, ChemicalEntityId], Union[dict, ChemicalEntity]], list[Union[dict, ChemicalEntity]]]])
 
 slots.calibration_standard = Slot(uri=COREMETA4CAT.calibration_standard, name="calibration_standard", curie=COREMETA4CAT.curie('calibration_standard'),

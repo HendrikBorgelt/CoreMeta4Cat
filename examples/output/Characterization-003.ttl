@@ -2,14 +2,14 @@
 @prefix SIO: <http://semanticscience.org/resource/SIO_> .
 @prefix coremeta4cat: <https://w3id.org/nfdi4cat/coremeta4cat/> .
 @prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
-@prefix VOC4CAT: <https://w3id.org/nfdi4cat/voc4cat_> .
+@prefix voc4cat: <https://w3id.org/nfdi4cat/voc4cat_> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 coremeta4cat:CAT_002_NiO_CeO2 dcterms:description "15 wt% NiO on CeO2 support, calcined at 500 deg C" ;
 	dcterms:title "NiO/CeO2 dry reforming catalyst (calcined)" ;
 	a prov:Entity .
-coremeta4cat:CHAR_003_XPS_NiO_CeO2 <http://purl.allotrope.org/ontologies/process#AFP_0001159> "lightly pressed into indium foil to obtain flat surface; mounted on sample stub with copper tape; no Ar+ sputtering performed" ;
+coremeta4cat:CHAR_003_XPS_NiO_CeO2 <allotrope.quality:0001159> "lightly pressed into indium foil to obtain flat surface; mounted on sample stub with copper tape; no Ar+ sputtering performed" ;
 	<http://purl.allotrope.org/ontologies/result#AFR_0000317> "128-channel 2D delay-line detector (DLD)" ;
 	SIO:000008 _:c14n0 ;
 	a "Characterization" ;
@@ -24,5 +24,5 @@ coremeta4cat:DEV_003_Thermo_KAlpha_XPS dcterms:title "Thermo Scientific K-Alpha+
 	a prov:Agent .
 coremeta4cat:DEV_004_AlKalpha_source dcterms:title "Al K-alpha monochromatic X-ray source (1486.6 eV, 72 W)" ;
 	a prov:Agent .
-_:c14n0 a VOC4CAT:0000122 ;
+_:c14n0 a voc4cat:0000122 ;
 	prov:value "outgassed in XPS load-lock chamber at < 1e-7 mbar for 12 h before transfer to analysis chamber (< 5e-9 mbar)" .

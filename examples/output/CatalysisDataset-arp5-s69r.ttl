@@ -9,7 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
 @prefix RO: <http://purl.obolibrary.org/obo/RO_> .
-@prefix VOC4CAT: <https://w3id.org/nfdi4cat/voc4cat_> .
+@prefix voc4cat: <https://w3id.org/nfdi4cat/voc4cat_> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
@@ -34,7 +34,7 @@ hdl:21.11165\/4cat\/arp5-s69r dcterms:creator _:c14n0 , _:c14n1 , _:c14n16 , _:c
 	dcterms:publisher _:c14n26 ;
 	dcterms:subject coremeta4cat:CAT_arp5-s69r_all , coremeta4cat:REAC_arp5-s69r_Aminocarbonylation , coremeta4cat:REAC_arp5-s69r_Carbonylation , coremeta4cat:REAC_arp5-s69r_Phenoxycarbonylation ;
 	dcterms:title "Carbonylation catalysis of aryl halides through active-site engineering" , "Repository landing page" ;
-	a rdfs:Resource , dcat:Dataset , VOC4CAT:0007001 ;
+	a rdfs:Resource , dcat:Dataset , voc4cat:0007001 ;
 	adms:identifier _:c14n21 ;
 	dcat:distribution _:c14n8 ;
 	dcat:keyword "Active-site engineering" , "Carbonylation" , "Catalysis" , "Chemistry" , "Heterogeneous catalysis" , "Palladium catalyst" , "Palladium phosphide" ;
@@ -90,7 +90,7 @@ coremeta4cat:CHAR_arp5-s69r_PXRD_method dcterms:description "Transmission geomet
 	a OBI:0000272 .
 coremeta4cat:CHAR_arp5-s69r_STEM dcterms:description "Transmission electron microscopy (HRTEM), scanning TEM (HAADF-STEM), and STEM-EDX elemental mapping of Pd3P/SiO2 (ARNE01), Pd/SiO2 (ARNE02), and a recycled/spent Pd3P/SiO2 sample recovered after catalytic testing (ARNE03), for particle size distribution, chemical composition, and crystal structure. Note: STEM-Meta-2.txt documents the method in detail but no image/data files for this technique are included in the deposited dataset." ;
 	dcterms:title "STEM/TEM imaging and EDX mapping (3 catalyst samples)" ;
-	a "Characterization" , VOC4CAT:0000078 ;
+	a "Characterization" , voc4cat:0000078 ;
 	adms:identifier _:c14n10 ;
 	prov:used coremeta4cat:CAT_arp5-s69r_Pd3P_SiO2_5wt , coremeta4cat:CAT_arp5-s69r_Pd3P_SiO2_5wt_recycled , coremeta4cat:CAT_arp5-s69r_Pd_SiO2_5wt , coremeta4cat:CHAR_arp5-s69r_STEM_method ;
 	prov:wasAssociatedWith coremeta4cat:DEV_arp5-s69r_STEM .
@@ -132,30 +132,30 @@ coremeta4cat:REAC_arp5-s69r_Aminocarbonylation RO:0004009 coremeta4cat:REAC_arp5
 	RXNO:0000425 coremeta4cat:CAT_arp5-s69r_Pd3P_SiO2_5wt ;
 	dcterms:description "Pd-catalyzed aminocarbonylation of iodobenzene with aniline as the nucleophile (in toluene, triethylamine base) to form benzanilide, over Pd3P/SiO2. 3 runs at 100, 120, and 140 C (5 h, CO 10 bar); yield/conversion increased with temperature from 10% to 78%." ;
 	dcterms:title "Aminocarbonylation of iodobenzene over Pd3P/SiO2 (3 runs)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0000247 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0000247 ;
 	adms:identifier _:c14n15 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_arp5-s69r_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_arp5-s69r_Amino_product_id ;
-	VOC4CAT:0000118 _:c14n14 ;
-	VOC4CAT:0007009 "Pd-catalyzed aminocarbonylation of iodobenzene" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n20 .
+	voc4cat:0000118 _:c14n14 ;
+	voc4cat:0007009 "Pd-catalyzed aminocarbonylation of iodobenzene" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n20 .
 coremeta4cat:REAC_arp5-s69r_CO dcterms:title "carbon monoxide" ;
 	a CHEBI:17245 , SIO:010411 .
 coremeta4cat:REAC_arp5-s69r_Carbonylation RO:0004009 coremeta4cat:REAC_arp5-s69r_CO , coremeta4cat:REAC_arp5-s69r_Carbonylation_alcohol , coremeta4cat:REAC_arp5-s69r_Carbonylation_base , coremeta4cat:REAC_arp5-s69r_Carbonylation_substrate ;
 	RXNO:0000425 coremeta4cat:CAT_arp5-s69r_Pd3P_SiO2_5wt , coremeta4cat:CAT_arp5-s69r_Pd_SiO2_5wt ;
 	dcterms:description "Pd-catalyzed alkoxycarbonylation (CO insertion + alcohol trapping) of aryl iodides to form aryl esters, mainly iodobenzene + ethanol -> ethyl benzoate. 24 runs used Pd3P/SiO2 (ARNE01), exploring reaction time (5 min - 3 h, series A), base screening (triethylamine, sodium acetate, potassium hydroxide, potassium carbonate, or no base, series B), temperature-time kinetics grid (60-80 C x 0.5-1 h, series k), and substrate/nucleophile scope (methanol, isopropanol, and aryl iodide substrates bromoiodobenzene/iodotoluene/iodoanisole, series S1-S5). 3 further runs (series C) repeated the time-course on Pd/SiO2 (ARNE02, P-free reference) for comparison. Conversion/yield ranged 7-100% across all 27 runs. Batch reactor, CO 6 bar, ethanol solvent (except S1 methanol, S2 isopropanol)." ;
 	dcterms:title "Alkoxycarbonylation of aryl iodides over Pd3P/SiO2 and Pd/SiO2 (27 runs)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0000247 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0000247 ;
 	adms:identifier _:c14n22 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_arp5-s69r_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_arp5-s69r_Carbonylation_product_id ;
-	VOC4CAT:0000118 _:c14n23 ;
-	VOC4CAT:0007009 "Pd-catalyzed alkoxycarbonylation of aryl iodides" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n18 .
+	voc4cat:0000118 _:c14n23 ;
+	voc4cat:0007009 "Pd-catalyzed alkoxycarbonylation of aryl iodides" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n18 .
 coremeta4cat:REAC_arp5-s69r_Carbonylation_alcohol dcterms:description "Ethanol in most runs (also the reaction solvent); methanol (S1) and isopropanol (S2) in the nucleophile-scope runs." ;
 	dcterms:title "alcohol nucleophile" ;
 	a SIO:010411 .
@@ -179,23 +179,23 @@ coremeta4cat:REAC_arp5-s69r_Phenoxycarbonylation RO:0004009 coremeta4cat:REAC_ar
 	RXNO:0000425 coremeta4cat:CAT_arp5-s69r_Pd3P_SiO2_5wt ;
 	dcterms:description "Pd-catalyzed phenoxycarbonylation of iodobenzene with phenol as the nucleophile (in toluene, triethylamine base) to form phenyl benzoate, over Pd3P/SiO2. Single run: 100 C, 7 h, CO 6 bar, yield/conversion 30%." ;
 	dcterms:title "Phenoxycarbonylation of iodobenzene over Pd3P/SiO2 (1 run)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0000247 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0000247 ;
 	adms:identifier _:c14n19 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_arp5-s69r_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_arp5-s69r_Phenoxy_product_id ;
-	VOC4CAT:0000118 _:c14n11 ;
-	VOC4CAT:0007009 "Pd-catalyzed phenoxycarbonylation of iodobenzene" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n5 .
+	voc4cat:0000118 _:c14n11 ;
+	voc4cat:0007009 "Pd-catalyzed phenoxycarbonylation of iodobenzene" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n5 .
 coremeta4cat:REAC_arp5-s69r_reactor dcterms:description "Batch autoclave, cylindrical stainless steel reaction chamber (25 mL, 25.4 x 50.8 mm ID), overhead stirrer at 1000 rpm, electric heating." ;
 	dcterms:title "Parr 5500 series compact reactor" ;
-	a VOC4CAT:0007018 .
-VOC4CAT:0000078 schema1:name "transmission electron microscopy" ;
+	a voc4cat:0007018 .
+voc4cat:0000078 schema1:name "transmission electron microscopy" ;
 	a schema1:DefinedTerm .
-VOC4CAT:0000247 schema1:name "carbonylation" ;
+voc4cat:0000247 schema1:name "carbonylation" ;
 	a schema1:DefinedTerm .
-VOC4CAT:0007001 schema1:name "heterogeneous catalysis" ;
+voc4cat:0007001 schema1:name "heterogeneous catalysis" ;
 	a schema1:DefinedTerm .
 _:c14n0 a foaf:Agent ;
 	foaf:name "Neyyathala, Arjun" .

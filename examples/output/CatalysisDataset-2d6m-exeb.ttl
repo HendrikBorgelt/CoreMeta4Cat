@@ -9,7 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
 @prefix RO: <http://purl.obolibrary.org/obo/RO_> .
-@prefix VOC4CAT: <https://w3id.org/nfdi4cat/voc4cat_> .
+@prefix voc4cat: <https://w3id.org/nfdi4cat/voc4cat_> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
@@ -32,7 +32,7 @@ hdl:21.11165\/4cat\/2d6m-exeb dcterms:creator _:c14n12 , _:c14n76 , _:c14n82 ;
 	dcterms:publisher _:c14n11 ;
 	dcterms:subject coremeta4cat:CAT_2d6m-exeb_all , coremeta4cat:REAC_2d6m-exeb_CO2_methanation , coremeta4cat:REAC_2d6m-exeb_CO_methanation , coremeta4cat:REAC_2d6m-exeb_mixed_methanation ;
 	dcterms:title "Dataset for Publication: Reaction Kinetics of CO and CO2 Methanation over Nickel" , "Repository landing page" ;
-	a rdfs:Resource , dcat:Dataset , VOC4CAT:0007001 ;
+	a rdfs:Resource , dcat:Dataset , voc4cat:0007001 ;
 	adms:identifier _:c14n22 , _:c14n61 ;
 	dcat:distribution _:c14n2 ;
 	dcat:keyword "CO methanation" , "CO2 methanation" , "Catalysis" , "Chemistry" , "Fixed-bed reactor" , "Heterogeneous catalysis" , "Nickel catalyst" ;
@@ -110,7 +110,7 @@ coremeta4cat:CHAR_2d6m-exeb_GC_method dcterms:description "Analytical protocol f
 	a OBI:0000272 .
 coremeta4cat:CHAR_2d6m-exeb_outlet_gas_analysis dcterms:description "Steady-state outlet gas composition analysis used to determine CO/CO2 conversion for all 16 catalyst screening runs (CO methanation: Exp2, 3, 4, 12; CO2 methanation: Exp7, 8, 9, 13, 14, 15, 16, 17; mixed CO/CO2 methanation: Exp11, 18, 19, 20). Dataset files do not name a specific instrument model; gas chromatography is the standard analytical method for this reaction class and is assumed here." ;
 	dcterms:title "Outlet gas composition analysis (all 16 runs)" ;
-	a "Characterization" , VOC4CAT:0000130 ;
+	a "Characterization" , voc4cat:0000130 ;
 	adms:identifier _:c14n26 ;
 	prov:used coremeta4cat:CAT_2d6m-exeb_all , coremeta4cat:CHAR_2d6m-exeb_GC_method ;
 	prov:wasAssociatedWith coremeta4cat:DEV_2d6m-exeb_GC .
@@ -124,15 +124,15 @@ coremeta4cat:REAC_2d6m-exeb_CO2_methanation RO:0004009 coremeta4cat:REAC_2d6m-ex
 	RXNO:0000425 coremeta4cat:CAT_2d6m-exeb_Exp13 , coremeta4cat:CAT_2d6m-exeb_Exp14 , coremeta4cat:CAT_2d6m-exeb_Exp15 , coremeta4cat:CAT_2d6m-exeb_Exp16 , coremeta4cat:CAT_2d6m-exeb_Exp17 , coremeta4cat:CAT_2d6m-exeb_Exp7 , coremeta4cat:CAT_2d6m-exeb_Exp8 , coremeta4cat:CAT_2d6m-exeb_Exp9 ;
 	dcterms:description "Catalytic CO2 methanation (CO2 + 4H2 -> CH4 + 2H2O) screened over 8 supported Ni catalysts (Al2O3, SiO2, ZrO2, MgAl2O4 supports; 10-40.8 wt% Ni) in cylindrical isothermal fixed-bed reactors (radius 3-10 mm across runs). Steady-state CO2 conversion measured as a function of superficial velocity and temperature. Source runs: Exp7, Exp8, Exp9, Exp13, Exp14, Exp15, Exp16, Exp17 (Ni/Al2O3 x4, Ni/MgAl2O4 x2, Ni/ZrO2, Ni/SiO2). Total pressure ~100-101.3 kPa in all runs except Exp9 (800 kPa, an outlier within this series)." ;
 	dcterms:title "CO2 methanation catalyst screening (8 Ni catalysts)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0007011 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0007011 ;
 	adms:identifier _:c14n47 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_2d6m-exeb_CO2_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_2d6m-exeb_CO2_product_id ;
-	VOC4CAT:0000118 _:c14n0 ;
-	VOC4CAT:0007009 "CO2 methanation" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n78 .
+	voc4cat:0000118 _:c14n0 ;
+	voc4cat:0007009 "CO2 methanation" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n78 .
 coremeta4cat:REAC_2d6m-exeb_CO2_mixed dcterms:title "carbon dioxide" ;
 	SIO:000008 _:c14n86 ;
 	a CHEBI:16526 , SIO:010411 .
@@ -141,7 +141,7 @@ coremeta4cat:REAC_2d6m-exeb_CO2_product_id dcterms:description "CO2 conversion (
 	a OBI:0000272 .
 coremeta4cat:REAC_2d6m-exeb_CO2_reactor dcterms:description "Cylindrical fixed-bed reactors, radius 3-10 mm across the 8 runs, isothermal operation." ;
 	dcterms:title "isothermal cylindrical fixed-bed reactors" ;
-	a VOC4CAT:0007018 .
+	a voc4cat:0007018 .
 coremeta4cat:REAC_2d6m-exeb_CO dcterms:title "carbon monoxide" ;
 	SIO:000008 _:c14n68 ;
 	a CHEBI:17245 , SIO:010411 .
@@ -149,15 +149,15 @@ coremeta4cat:REAC_2d6m-exeb_CO_methanation RO:0004009 coremeta4cat:REAC_2d6m-exe
 	RXNO:0000425 coremeta4cat:CAT_2d6m-exeb_Exp12 , coremeta4cat:CAT_2d6m-exeb_Exp2 , coremeta4cat:CAT_2d6m-exeb_Exp3 , coremeta4cat:CAT_2d6m-exeb_Exp4 ;
 	dcterms:description "Catalytic CO methanation (CO + 3H2 -> CH4 + H2O) screened over 4 supported Ni catalysts (Al2O3, SiO2, ZrO2 supports; 10-20 wt% Ni) in cylindrical isothermal fixed-bed reactors (radius 3-10 mm across runs). Steady-state CO conversion measured as a function of superficial velocity and temperature. Source runs: Exp2, Exp3, Exp4, Exp12 (Ni/Al2O3 x2, Ni/SiO2, Ni/ZrO2). Total pressure ~100-101.3 kPa in all four runs." ;
 	dcterms:title "CO methanation catalyst screening (4 Ni catalysts)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0007010 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0007010 ;
 	adms:identifier _:c14n59 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_2d6m-exeb_CO_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_2d6m-exeb_CO_product_id ;
-	VOC4CAT:0000118 _:c14n38 ;
-	VOC4CAT:0007009 "CO methanation" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n52 .
+	voc4cat:0000118 _:c14n38 ;
+	voc4cat:0007009 "CO methanation" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n52 .
 coremeta4cat:REAC_2d6m-exeb_CO_mixed dcterms:title "carbon monoxide" ;
 	SIO:000008 _:c14n48 ;
 	a CHEBI:17245 , SIO:010411 .
@@ -166,7 +166,7 @@ coremeta4cat:REAC_2d6m-exeb_CO_product_id dcterms:description "CO conversion (di
 	a OBI:0000272 .
 coremeta4cat:REAC_2d6m-exeb_CO_reactor dcterms:description "Cylindrical fixed-bed reactors, radius 3-10 mm across the 4 runs, isothermal operation." ;
 	dcterms:title "isothermal cylindrical fixed-bed reactors" ;
-	a VOC4CAT:0007018 .
+	a voc4cat:0007018 .
 coremeta4cat:REAC_2d6m-exeb_H2 dcterms:title "hydrogen" ;
 	SIO:000008 _:c14n20 ;
 	a CHEBI:18276 , SIO:010411 .
@@ -180,28 +180,28 @@ coremeta4cat:REAC_2d6m-exeb_mixed_methanation RO:0004009 coremeta4cat:REAC_2d6m-
 	RXNO:0000425 coremeta4cat:CAT_2d6m-exeb_Exp11 , coremeta4cat:CAT_2d6m-exeb_Exp18 , coremeta4cat:CAT_2d6m-exeb_Exp19 , coremeta4cat:CAT_2d6m-exeb_Exp20 ;
 	dcterms:description "Catalytic co-methanation of a mixed CO/CO2 feed (CO + 3H2 -> CH4 + H2O; CO2 + 4H2 -> CH4 + 2H2O) screened over 4 supported Ni catalysts (ZrO2, SiO2, TiO2, Al2O3 supports; 5 wt% Ni in all 4) in cylindrical isothermal fixed-bed reactors (radius 3.77-6.5 mm across runs). Steady-state CO and CO2 conversion measured as a function of superficial velocity and temperature. Source runs: Exp11, Exp18, Exp19, Exp20. Total pressure ~100 kPa in all four runs." ;
 	dcterms:title "Mixed CO+CO2 methanation catalyst screening (4 Ni catalysts)" ;
-	a coremeta4cat:CatalyticReaction , VOC4CAT:0007010 ;
+	a coremeta4cat:CatalyticReaction , voc4cat:0007010 ;
 	adms:identifier _:c14n21 ;
 	prov:wasAssociatedWith coremeta4cat:REAC_2d6m-exeb_mixed_reactor ;
-	coremeta4cat:catalyst_form VOC4CAT:0007034 ;
+	coremeta4cat:catalyst_form voc4cat:0007034 ;
 	coremeta4cat:product_identification_method coremeta4cat:REAC_2d6m-exeb_mixed_product_id ;
-	VOC4CAT:0000118 _:c14n9 ;
-	VOC4CAT:0007009 "CO/CO2 co-methanation" ;
-	VOC4CAT:0007014 VOC4CAT:0007001 ;
-	VOC4CAT:0007032 _:c14n31 .
+	voc4cat:0000118 _:c14n9 ;
+	voc4cat:0007009 "CO/CO2 co-methanation" ;
+	voc4cat:0007014 voc4cat:0007001 ;
+	voc4cat:0007032 _:c14n31 .
 coremeta4cat:REAC_2d6m-exeb_mixed_product_id dcterms:description "CO and CO2 conversion (dimensionless, 0-1) calculated from inlet and outlet gas concentrations. Specific analytical instrument not stated in dataset files; gas chromatography is the standard method for this reaction." ;
 	dcterms:title "CO and CO2 conversion from outlet gas composition" ;
 	a OBI:0000272 .
 coremeta4cat:REAC_2d6m-exeb_mixed_reactor dcterms:description "Cylindrical fixed-bed reactors, radius 3.77-6.5 mm across the 4 runs, isothermal operation." ;
 	dcterms:title "isothermal cylindrical fixed-bed reactors" ;
-	a VOC4CAT:0007018 .
-VOC4CAT:0000130 schema1:name "gas chromatography" ;
+	a voc4cat:0007018 .
+voc4cat:0000130 schema1:name "gas chromatography" ;
 	a schema1:DefinedTerm .
-VOC4CAT:0007001 schema1:name "heterogeneous catalysis" ;
+voc4cat:0007001 schema1:name "heterogeneous catalysis" ;
 	a schema1:DefinedTerm .
-VOC4CAT:0007010 schema1:name "CO methanation" ;
+voc4cat:0007010 schema1:name "CO methanation" ;
 	a schema1:DefinedTerm .
-VOC4CAT:0007011 schema1:name "CO2 methanation" ;
+voc4cat:0007011 schema1:name "CO2 methanation" ;
 	a schema1:DefinedTerm .
 _:c14n0 dcterms:description "~100-101.3 kPa in 7 of the 8 runs; Exp9 used 800 kPa (see used_catalyst description)" ;
 	qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Pressure> ;

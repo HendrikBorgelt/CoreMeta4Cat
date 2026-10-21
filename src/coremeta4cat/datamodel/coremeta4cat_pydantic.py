@@ -192,8 +192,6 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                             'prefix_reference': 'http://purl.obolibrary.org/obo/CHEBI_'},
                   'CHMO': {'prefix_prefix': 'CHMO',
                            'prefix_reference': 'http://purl.obolibrary.org/obo/CHMO_'},
-                  'ENM': {'prefix_prefix': 'ENM',
-                          'prefix_reference': 'http://purl.enanomapper.org/onto/'},
                   'IAO': {'prefix_prefix': 'IAO',
                           'prefix_reference': 'http://purl.obolibrary.org/obo/IAO_'},
                   'NCIT': {'prefix_prefix': 'NCIT',
@@ -206,8 +204,6 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                            'prefix_reference': 'http://purl.obolibrary.org/obo/RXNO_'},
                   'SIO': {'prefix_prefix': 'SIO',
                           'prefix_reference': 'http://semanticscience.org/resource/SIO_'},
-                  'VOC4CAT': {'prefix_prefix': 'VOC4CAT',
-                              'prefix_reference': 'https://w3id.org/nfdi4cat/voc4cat_'},
                   'adms': {'prefix_prefix': 'adms',
                            'prefix_reference': 'http://www.w3.org/ns/adms#'},
                   'chemdcatap': {'prefix_prefix': 'chemdcatap',
@@ -216,10 +212,12 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                                    'prefix_reference': 'https://w3id.org/nfdi4cat/coremeta4cat/'},
                   'dcat': {'prefix_prefix': 'dcat',
                            'prefix_reference': 'http://www.w3.org/ns/dcat#'},
-                  'dcatapplus': {'prefix_prefix': 'dcatapplus',
-                                 'prefix_reference': 'https://w3id.org/nfdi-de/dcat-ap-plus/'},
+                  'dcatap_plus': {'prefix_prefix': 'dcatap_plus',
+                                  'prefix_reference': 'https://w3id.org/nfdi-de/dcat-ap-plus/'},
                   'dcterms': {'prefix_prefix': 'dcterms',
                               'prefix_reference': 'http://purl.org/dc/terms/'},
+                  'enm': {'prefix_prefix': 'enm',
+                          'prefix_reference': 'http://purl.enanomapper.org/onto/'},
                   'foaf': {'prefix_prefix': 'foaf',
                            'prefix_reference': 'http://xmlns.com/foaf/0.1/'},
                   'hdl': {'prefix_prefix': 'hdl',
@@ -235,7 +233,9 @@ linkml_meta = LinkMLMeta({'default_prefix': 'coremeta4cat',
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'},
                   'skos': {'prefix_prefix': 'skos',
-                           'prefix_reference': 'http://www.w3.org/2004/02/skos/core#'}},
+                           'prefix_reference': 'http://www.w3.org/2004/02/skos/core#'},
+                  'voc4cat': {'prefix_prefix': 'voc4cat',
+                              'prefix_reference': 'https://w3id.org/nfdi4cat/voc4cat_'}},
      'source_file': 'src/coremeta4cat/schema/coremeta4cat.yaml',
      'title': 'CoreMeta4cat Metadata Reference Model'} )
 
@@ -510,18 +510,18 @@ class DryingMixin(ConfiguredBaseModel):
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
 
 
 class CalcinationMixin(ConfiguredBaseModel):
@@ -541,7 +541,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -549,7 +549,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -557,11 +557,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
 
 
 class PrecipitationMixin(ConfiguredBaseModel):
@@ -576,11 +576,11 @@ class PrecipitationMixin(ConfiguredBaseModel):
     precipitating_agent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Chemical agent used to induce precipitation (e.g. NaOH, NH3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008203'} })
+         'slot_uri': 'voc4cat:0008203'} })
     precipitating_concentration: Optional[list[Concentration]] = Field(default=None, description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008125'} })
+         'slot_uri': 'voc4cat:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=None, description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -591,30 +591,30 @@ class PrecipitationMixin(ConfiguredBaseModel):
          'slot_uri': 'SIO:000008'} })
     has_mixing_duration: Optional[Duration] = Field(default=None, description="""Duration of the mixing step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008126'} })
+         'slot_uri': 'voc4cat:0008126'} })
     has_mixing_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during mixing.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'MolecularSynthesis'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008127'} })
+         'slot_uri': 'voc4cat:0008127'} })
     order_of_addition: Optional[list[str]] = Field(default=None, description="""Order in which reagents or components are combined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008128'} })
+         'slot_uri': 'voc4cat:0008128'} })
     filtration: Optional[list[str]] = Field(default=None, description="""Filtration method used to separate the precipitate (e.g. vacuum filtration).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008129'} })
+         'slot_uri': 'voc4cat:0008129'} })
     purification: Optional[list[str]] = Field(default=None, description="""Purification method applied after synthesis (e.g. washing, dialysis).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008130'} })
+         'slot_uri': 'voc4cat:0008130'} })
     has_aging_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008131'} })
+         'slot_uri': 'voc4cat:0008131'} })
     has_aging_duration: Optional[Duration] = Field(default=None, description="""Duration of the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'SolGel'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008204'} })
+         'slot_uri': 'voc4cat:0008204'} })
 
 
 class ThermalSynthesisMixin(ConfiguredBaseModel):
@@ -630,10 +630,10 @@ class ThermalSynthesisMixin(ConfiguredBaseModel):
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -651,7 +651,7 @@ class ThermalSynthesisMixin(ConfiguredBaseModel):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
 
 
 class XRaySourceMixin(ConfiguredBaseModel):
@@ -708,7 +708,7 @@ class ElectronMicroscopyMixin(ConfiguredBaseModel):
     magnification_setting: Optional[list[float]] = Field(default=None, description="""Magnification setting used for imaging.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectronMicroscopyMixin', 'RamanSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0002226'} })
+         'slot_uri': 'allotrope.result:0002226'} })
 
 
 class TemperatureProgramMixin(ConfiguredBaseModel):
@@ -728,7 +728,7 @@ Provide unit as a QUDT term (e.g. Degree Celsius, Kelvin).""", json_schema_extra
     has_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during a heating or cooling step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_heating_procedure: Optional[list[HeatingProcedure]] = Field(default=None, description="""Heating procedure or thermal programme applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin', 'GCMS'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -750,7 +750,7 @@ class ChromatographyMixin(ConfiguredBaseModel):
     eluent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Eluent or mobile phase used in chromatography.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromatographyMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'AFRL:0000011'} })
+         'slot_uri': 'allotrope.role:0000011'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -799,7 +799,7 @@ class PhotoluminescenceMixin(ConfiguredBaseModel):
     excitation_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Excitation wavelength used in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'AFR:0002479'} })
+         'slot_uri': 'allotrope.result:0002479'} })
     emission_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Emission wavelength detected in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
@@ -843,15 +843,15 @@ class ElectrochemistryMixin(ConfiguredBaseModel):
     reference_electrode: Optional[list[str]] = Field(default=None, description="""Reference electrode used in electrochemical cell (e.g. Ag/AgCl, RHE).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007204'} })
+         'slot_uri': 'voc4cat:0007204'} })
     working_electrode: Optional[list[str]] = Field(default=None, description="""Working electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007202'} })
+         'slot_uri': 'voc4cat:0007202'} })
     counter_electrode: Optional[list[str]] = Field(default=None, description="""Counter electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007203'} })
+         'slot_uri': 'voc4cat:0007203'} })
     electrolyte_composition: Optional[list[str]] = Field(default=None, description="""Chemical composition of the electrolyte solution.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -873,7 +873,7 @@ class ElectrochemistryMixin(ConfiguredBaseModel):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -2278,7 +2278,7 @@ class Synthesis(CatalysisDataGeneratingActivity):
     had_output_entity.
 
     The type of synthesis is further specified via rdf_type using an ontology
-    term (e.g. a VOC4CAT preparation method term), following DCAT-AP-PLUS
+    term (e.g. a voc4cat preparation method term), following DCAT-AP-PLUS
     Pattern 3.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'OBI:0000070',
@@ -2334,18 +2334,18 @@ class Synthesis(CatalysisDataGeneratingActivity):
     storage_conditions: Optional[list[str]] = Field(default=None, description="""Conditions under which the catalyst is stored (e.g. inert atmosphere, 4°C).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008105'} })
+         'slot_uri': 'voc4cat:0008105'} })
     catalyst_support: Optional[list[str]] = Field(default=None, description="""Support material on which the active phase is deposited (e.g. Al2O3, SiO2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008104'} })
+         'slot_uri': 'voc4cat:0008104'} })
     solvent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Solvent used in a process or sample preparation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis',
                        'NMRSpectroscopy',
                        'UVVisSpectroscopy',
                        'DynamicLightScattering'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007246'} })
+         'slot_uri': 'voc4cat:0007246'} })
     has_sample_pretreatment: Optional[list[SamplePretreatment]] = Field(default=None, description="""Pre-treatment applied to the sample before a process or measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis', 'Characterization'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -2554,7 +2554,7 @@ class Characterization(CatalysisDataGeneratingActivity):
                                                     'e.g.\n'
                                                     'CHMO:0000158 (powder XRD), '
                                                     'CHMO:0000404 (XPS), '
-                                                    'VOC4CAT:0000075 (SEM).',
+                                                    'voc4cat:0000075 (SEM).',
                                      'name': 'rdf_type',
                                      'recommended': True},
                         'realized_plan': {'description': 'The '
@@ -2574,7 +2574,7 @@ class Characterization(CatalysisDataGeneratingActivity):
     sample_preparation: Optional[list[str]] = Field(default=None, description="""Sample preparation steps applied immediately before measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFP:0001159'} })
+         'slot_uri': 'allotrope.quality:0001159'} })
     has_sample_pretreatment: Optional[list[SamplePretreatment]] = Field(default=None, description="""Pre-treatment applied to the sample before a process or measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis', 'Characterization'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -2582,7 +2582,7 @@ class Characterization(CatalysisDataGeneratingActivity):
     detector_type: Optional[list[str]] = Field(default=None, description="""Type of detector used in the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Characterization'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000317'} })
+         'slot_uri': 'allotrope.result:0000317'} })
     activity_designator: Literal["Characterization"] = Field(default="Characterization", description="""Internal type designator for CatalysisDataGeneratingActivity subclasses
 (Synthesis, Characterization, Simulation). Only needs to be set by hand
 when nesting one of these inside another object's was_generated_by list
@@ -2741,7 +2741,7 @@ Provide a Device instance (e.g. XRD diffractometer, TEM, NMR spectrometer).""", 
     type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
          'slot_uri': 'dcterms:type'} })
     rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The type of characterization technique as an ontology term, e.g.
-CHMO:0000158 (powder XRD), CHMO:0000404 (XPS), VOC4CAT:0000075 (SEM).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
+CHMO:0000158 (powder XRD), CHMO:0000404 (XPS), voc4cat:0000075 (SEM).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
          'in_subset': ['domain_agnostic_core'],
          'recommended': True,
          'slot_uri': 'rdf:type'} })
@@ -5201,7 +5201,7 @@ class CatalyticReaction(ChemicalReaction):
                                                           'required': True},
                         'rdf_type': {'description': 'The type of catalytic reaction as '
                                                     'an ontology term (e.g. '
-                                                    'VOC4CAT:0007010\n'
+                                                    'voc4cat:0007010\n'
                                                     'for a specific reaction type, or '
                                                     'a ChemO/RXNO term).\n'
                                                     '\n'
@@ -5258,13 +5258,13 @@ issue if a different tradeoff is wanted. See also nfdi4cat/
 CoreMeta4Cat#116 on whether this two-slot design (catalyst_type +
 catalyst_form) or PR #118's CatalystType class hierarchy should be
 the long-term mechanism -- kept as two enums here because the
-VOC4CAT terms show CatalystType conflates the regime axis
+voc4cat terms show CatalystType conflates the regime axis
 (Heterogeneous/Homogeneous/Bio/Electro/Photo) with the physical-form
 axis (ThinFilm/Bulk/Powdered/DepositedSample/Supported -- identical
-VOC4CAT ids to catalyst_form's permissible values), which are
+voc4cat ids to catalyst_form's permissible values), which are
 independent and often both apply to the same catalyst at once.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007014'} })
+         'slot_uri': 'voc4cat:0007014'} })
     catalyst_form: Optional[list[CatalystFormEnum]] = Field(default=None, description="""The physical form or presentation of the catalyst as loaded into the
 reactor (e.g. thin film, bulk, powder, supported). A separate axis
 from catalyst_type (the catalytic regime).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'], 'recommended': True} })
@@ -5272,13 +5272,13 @@ from catalyst_type (the catalytic regime).""", json_schema_extra = { "linkml_met
 (desired) products (e.g. \"ammonia synthesis\", \"Fischer-Tropsch synthesis\").""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007009'} })
+         'slot_uri': 'voc4cat:0007009'} })
     reactor_temperature_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Temperature range in the reactor during the reaction, provided as a
 QuantitativeRange with min_value and max_value (unit_code: \"Cel\").
 For a single set-point, set min_value equal to max_value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007032'} })
+         'slot_uri': 'voc4cat:0007032'} })
     has_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Gaseous environment or atmospheric conditions during a process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin',
                        'MolecularSynthesis',
                        'ElectrochemistryMixin',
@@ -5292,11 +5292,11 @@ For a single set-point, set min_value equal to max_value.""", json_schema_extra 
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     experiment_pressure: Optional[list[Pressure]] = Field(default=None, description="""Total pressure in the reactor during the experiment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
          'is_a': 'has_pressure',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000118'} })
+         'slot_uri': 'voc4cat:0000118'} })
     feed_composition_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Feed composition range studied, provided as a QuantitativeRange.
 Express concentration bounds in an appropriate unit (e.g. \"mol/L\", \"%\" for
 vol% or mol%). For fixed-composition experiments use reactant.has_concentration.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalyticReaction'],
@@ -5507,7 +5507,7 @@ product_identification_method, ...) when loaded.""", json_schema_extra = { "link
          'slot_uri': 'dcterms:isPartOf'} })
     type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
          'slot_uri': 'dcterms:type'} })
-    rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The type of catalytic reaction as an ontology term (e.g. VOC4CAT:0007010
+    rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The type of catalytic reaction as an ontology term (e.g. voc4cat:0007010
 for a specific reaction type, or a ChemO/RXNO term).
 
 This is the sole reaction-type classification mechanism (DCAT-AP-PLUS
@@ -6061,10 +6061,10 @@ class PreparationMethod(CatalysisPlan):
 
     The specific preparation method type should additionally be expressed
     via rdf_type on the Synthesis activity using a voc4cat term
-    (e.g. VOC4CAT:0007016 for preparation method).
+    (e.g. voc4cat:0007016 for preparation method).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
-         'class_uri': 'VOC4CAT:0007016',
+         'class_uri': 'voc4cat:0007016',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/'})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
@@ -6168,33 +6168,33 @@ class Impregnation(PreparationMethod, CalcinationMixin, DryingMixin):
     Catalyst preparation by impregnation: a solution of the active phase
     precursor is brought into contact with the support material.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007028',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007028',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/',
          'mixins': ['DryingMixin', 'CalcinationMixin']})
 
-    impregnation_type: Optional[list[ImpregnationTypeEnum]] = Field(default=None, description="""Type of impregnation used (wet, dry, incipient wetness).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Impregnation'], 'slot_uri': 'VOC4CAT:0008119'} })
+    impregnation_type: Optional[list[ImpregnationTypeEnum]] = Field(default=None, description="""Type of impregnation used (wet, dry, incipient wetness).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Impregnation'], 'slot_uri': 'voc4cat:0008119'} })
     impregnation_duration: Optional[list[Duration]] = Field(default=None, description="""Duration of the impregnation step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Impregnation'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008120'} })
+         'slot_uri': 'voc4cat:0008120'} })
     impregnation_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature during the impregnation step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Impregnation'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008121'} })
+         'slot_uri': 'voc4cat:0008121'} })
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     has_calcination_temperature_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Temperature range of the calcination programme (initial -> final temperature),
 provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_quantitative_attribute',
@@ -6202,7 +6202,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -6210,7 +6210,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -6218,11 +6218,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -6324,18 +6324,18 @@ class CoPrecipitation(PreparationMethod, PrecipitationMixin, CalcinationMixin, D
     Catalyst preparation by co-precipitation: precursor salts are
     simultaneously precipitated from solution by a precipitating agent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007795',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007795',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/',
          'mixins': ['PrecipitationMixin', 'DryingMixin', 'CalcinationMixin']})
 
     precipitating_agent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Chemical agent used to induce precipitation (e.g. NaOH, NH3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008203'} })
+         'slot_uri': 'voc4cat:0008203'} })
     precipitating_concentration: Optional[list[Concentration]] = Field(default=None, description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008125'} })
+         'slot_uri': 'voc4cat:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=None, description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -6346,45 +6346,45 @@ class CoPrecipitation(PreparationMethod, PrecipitationMixin, CalcinationMixin, D
          'slot_uri': 'SIO:000008'} })
     has_mixing_duration: Optional[Duration] = Field(default=None, description="""Duration of the mixing step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008126'} })
+         'slot_uri': 'voc4cat:0008126'} })
     has_mixing_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during mixing.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'MolecularSynthesis'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008127'} })
+         'slot_uri': 'voc4cat:0008127'} })
     order_of_addition: Optional[list[str]] = Field(default=None, description="""Order in which reagents or components are combined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008128'} })
+         'slot_uri': 'voc4cat:0008128'} })
     filtration: Optional[list[str]] = Field(default=None, description="""Filtration method used to separate the precipitate (e.g. vacuum filtration).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008129'} })
+         'slot_uri': 'voc4cat:0008129'} })
     purification: Optional[list[str]] = Field(default=None, description="""Purification method applied after synthesis (e.g. washing, dialysis).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008130'} })
+         'slot_uri': 'voc4cat:0008130'} })
     has_aging_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008131'} })
+         'slot_uri': 'voc4cat:0008131'} })
     has_aging_duration: Optional[Duration] = Field(default=None, description="""Duration of the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'SolGel'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008204'} })
+         'slot_uri': 'voc4cat:0008204'} })
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     has_calcination_temperature_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Temperature range of the calcination programme (initial -> final temperature),
 provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_quantitative_attribute',
@@ -6392,7 +6392,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -6400,7 +6400,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -6408,11 +6408,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -6524,7 +6524,7 @@ class SolGel(PreparationMethod, DryingMixin):
          'slot_uri': 'coremeta4cat:hydrolysis_ratio'} })
     has_aging_duration: Optional[Duration] = Field(default=None, description="""Duration of the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'SolGel'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008204'} })
+         'slot_uri': 'voc4cat:0008204'} })
     drying: Optional[list[str]] = Field(default=None, description="""Drying method used for the gel (e.g. supercritical drying, freeze drying).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SolGel'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -6536,18 +6536,18 @@ class SolGel(PreparationMethod, DryingMixin):
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -6661,7 +6661,7 @@ class Solvothermal(PreparationMethod, ThermalSynthesisMixin):
     stirrer_type: Optional[list[str]] = Field(default=None, description="""Type of stirrer used (e.g. magnetic, mechanical, none).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Solvothermal'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008113'} })
+         'slot_uri': 'voc4cat:0008113'} })
     cooling_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Rate at which the reactor is cooled after synthesis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Solvothermal'],
          'is_a': 'has_heating_rate',
          'recommended': True,
@@ -6669,10 +6669,10 @@ class Solvothermal(PreparationMethod, ThermalSynthesisMixin):
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -6690,7 +6690,7 @@ class Solvothermal(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -6810,14 +6810,14 @@ class PlasmaAssisted(PreparationMethod, ThermalSynthesisMixin):
     synthesis_pressure: Optional[list[Pressure]] = Field(default=None, description="""Pressure applied during synthesis (e.g. in autoclave or plasma reactor).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlasmaAssisted', 'Sublimation'],
          'is_a': 'has_pressure',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000053'} })
+         'slot_uri': 'voc4cat:0000053'} })
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -6835,7 +6835,7 @@ class PlasmaAssisted(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -6964,10 +6964,10 @@ class CombustionSynthesis(PreparationMethod, ThermalSynthesisMixin):
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -6985,7 +6985,7 @@ class CombustionSynthesis(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -7094,7 +7094,7 @@ class AtomicLayerDeposition(PreparationMethod):
     substrate: Optional[list[str]] = Field(default=None, description="""Substrate material on which the ALD film is deposited.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000024'} })
+         'slot_uri': 'voc4cat:0000024'} })
     pulse_time: Optional[list[float]] = Field(default=None, description="""Duration of the precursor pulse in each ALD cycle.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -7103,7 +7103,7 @@ class AtomicLayerDeposition(PreparationMethod):
     purging_duration: Optional[list[float]] = Field(default=None, description="""Duration of the purge step between ALD pulses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000112',
+         'slot_uri': 'voc4cat:0000112',
          'unit': {'ucum_code': 's'}} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
@@ -7112,7 +7112,7 @@ class AtomicLayerDeposition(PreparationMethod):
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     deposition_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature during the deposition step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AtomicLayerDeposition', 'DepositionPrecipitation'],
          'is_a': 'has_temperature',
          'recommended': True,
@@ -7239,11 +7239,11 @@ class DepositionPrecipitation(PreparationMethod, PrecipitationMixin, Calcination
     precipitating_agent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Chemical agent used to induce precipitation (e.g. NaOH, NH3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008203'} })
+         'slot_uri': 'voc4cat:0008203'} })
     precipitating_concentration: Optional[list[Concentration]] = Field(default=None, description="""Concentration of the precipitating agent/solution used to induce precipitation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_concentration',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008125'} })
+         'slot_uri': 'voc4cat:0008125'} })
     has_ph_value: Optional[list[PHValue]] = Field(default=None, description="""The slot to provide the PHValue of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'ChemicalSubstanceMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -7254,45 +7254,45 @@ class DepositionPrecipitation(PreparationMethod, PrecipitationMixin, Calcination
          'slot_uri': 'SIO:000008'} })
     has_mixing_duration: Optional[Duration] = Field(default=None, description="""Duration of the mixing step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008126'} })
+         'slot_uri': 'voc4cat:0008126'} })
     has_mixing_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during mixing.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'MolecularSynthesis'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008127'} })
+         'slot_uri': 'voc4cat:0008127'} })
     order_of_addition: Optional[list[str]] = Field(default=None, description="""Order in which reagents or components are combined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008128'} })
+         'slot_uri': 'voc4cat:0008128'} })
     filtration: Optional[list[str]] = Field(default=None, description="""Filtration method used to separate the precipitate (e.g. vacuum filtration).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008129'} })
+         'slot_uri': 'voc4cat:0008129'} })
     purification: Optional[list[str]] = Field(default=None, description="""Purification method applied after synthesis (e.g. washing, dialysis).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008130'} })
+         'slot_uri': 'voc4cat:0008130'} })
     has_aging_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008131'} })
+         'slot_uri': 'voc4cat:0008131'} })
     has_aging_duration: Optional[Duration] = Field(default=None, description="""Duration of the aging step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'SolGel'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008204'} })
+         'slot_uri': 'voc4cat:0008204'} })
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     has_calcination_temperature_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Temperature range of the calcination programme (initial -> final temperature),
 provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_quantitative_attribute',
@@ -7300,7 +7300,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -7308,7 +7308,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -7316,11 +7316,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -7439,10 +7439,10 @@ class MicrowaveAssisted(PreparationMethod, ThermalSynthesisMixin):
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -7460,7 +7460,7 @@ class MicrowaveAssisted(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -7600,18 +7600,18 @@ class SonochemicalSynthesis(PreparationMethod, CalcinationMixin, DryingMixin):
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     has_calcination_temperature_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Temperature range of the calcination programme (initial -> final temperature),
 provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_quantitative_attribute',
@@ -7619,7 +7619,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -7627,7 +7627,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -7635,11 +7635,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -7741,7 +7741,7 @@ class FlameSprayPyrolysis(PreparationMethod):
     Catalyst preparation by flame spray pyrolysis (FSP): a liquid precursor
     solution is atomised and combusted in a flame to produce nanoparticles.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007031',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007031',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/'})
 
     flame_type: Optional[list[str]] = Field(default=None, description="""Type of flame used in FSP (e.g. methane/oxygen, H2/O2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis'],
@@ -7924,10 +7924,10 @@ class MechanochemicalSynthesis(PreparationMethod, ThermalSynthesisMixin):
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -7945,7 +7945,7 @@ class MechanochemicalSynthesis(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -8054,14 +8054,14 @@ class Sublimation(PreparationMethod, ThermalSynthesisMixin):
     synthesis_pressure: Optional[list[Pressure]] = Field(default=None, description="""Pressure applied during synthesis (e.g. in autoclave or plasma reactor).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlasmaAssisted', 'Sublimation'],
          'is_a': 'has_pressure',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000053'} })
+         'slot_uri': 'voc4cat:0000053'} })
     synthesis_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000051'} })
+         'slot_uri': 'voc4cat:0000051'} })
     synthesis_duration: Optional[list[Duration]] = Field(default=None, description="""Total duration of the synthesis step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000050'} })
+         'slot_uri': 'voc4cat:0000050'} })
     has_vessel_type: Optional[list[VesselType]] = Field(default=None, description="""Type of reaction or synthesis vessel used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThermalSynthesisMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -8079,7 +8079,7 @@ class Sublimation(PreparationMethod, ThermalSynthesisMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -8203,7 +8203,7 @@ class MolecularSynthesis(PreparationMethod, DryingMixin):
     has_mixing_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature maintained during mixing.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrecipitationMixin', 'MolecularSynthesis'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008127'} })
+         'slot_uri': 'voc4cat:0008127'} })
     filtration_device: Optional[list[str]] = Field(default=None, description="""Device used for filtration.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis', 'MolecularSynthesis'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -8219,7 +8219,7 @@ class MolecularSynthesis(PreparationMethod, DryingMixin):
     precipitation_agent: Optional[list[str]] = Field(default=None, description="""Agent used to induce precipitation in molecular synthesis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008203'} })
+         'slot_uri': 'voc4cat:0008203'} })
     crystallisation_duration: Optional[list[float]] = Field(default=None, description="""Duration of the crystallisation step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -8236,7 +8236,7 @@ class MolecularSynthesis(PreparationMethod, DryingMixin):
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     temperature_ramp: Optional[list[float]] = Field(default=None, description="""Temperature ramp rate applied during drying or activation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularSynthesis'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -8255,22 +8255,22 @@ class MolecularSynthesis(PreparationMethod, DryingMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     drying_device: Optional[list[str]] = Field(default=None, description="""Device used for drying (e.g. oven, rotary evaporator).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008122'} })
+         'slot_uri': 'voc4cat:0008122'} })
     has_drying_temperature: Optional[list[Temperature]] = Field(default=None, description="""Temperature applied during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_temperature',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008207'} })
+         'slot_uri': 'voc4cat:0008207'} })
     has_drying_duration: Optional[Duration] = Field(default=None, description="""Duration of the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0008206'} })
+         'slot_uri': 'voc4cat:0008206'} })
     has_drying_atmosphere: Optional[list[Atmosphere]] = Field(default=None, description="""Atmosphere maintained during the drying step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DryingMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008208'} })
+         'slot_uri': 'voc4cat:0008208'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -8383,7 +8383,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
          'slot_uri': 'coremeta4cat:hasCalcinationTemperatureRange'} })
     has_calcination_dwelling_time: Optional[Duration] = Field(default=None, description="""Time held at the final calcination temperature.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_duration',
-         'slot_uri': 'VOC4CAT:0000060'} })
+         'slot_uri': 'voc4cat:0000060'} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
                        'MolecularSynthesis',
@@ -8391,7 +8391,7 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     has_calcination_atmosphere: Optional[list[CalcinationGaseousEnvironment]] = Field(default=None, description="""Gaseous environment maintained during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_atmosphere',
          'recommended': True,
@@ -8399,11 +8399,11 @@ provided as a QuantitativeRange. Unit: Degree Celsius.""", json_schema_extra = {
     has_calcination_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during the calcination step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_calcination_gas_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Gas flow rate maintained during calcination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin'],
          'is_a': 'has_flow_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000056'} })
+         'slot_uri': 'voc4cat:0000056'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -8626,7 +8626,7 @@ Provide unit as a QUDT term (e.g. Degree).""", json_schema_extra = { "linkml_met
                        'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     has_operation_mode: Optional[list[OperationMode]] = Field(default=None, description="""Operation mode of an instrument or process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PowderXRD',
                        'XRayAbsorptionSpectroscopy',
                        'InfraredSpectroscopy',
@@ -8649,7 +8649,7 @@ Provide unit as a QUDT term (e.g. Degree).""", json_schema_extra = { "linkml_met
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -8919,7 +8919,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique, EnergyRangeMixin, XR
     """
     X-ray absorption spectroscopy (XAS/XANES/EXAFS) for electronic and local structure analysis.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000286',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000286',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/',
          'mixins': ['XRaySourceMixin', 'EnergyRangeMixin']})
 
@@ -8943,7 +8943,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique, EnergyRangeMixin, XR
     energy_resolution: Optional[list[EnergyQuantity]] = Field(default=None, description="""Energy resolution of the spectrometer or monochromator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['XRayAbsorptionSpectroscopy'],
          'is_a': 'has_energy',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -8980,7 +8980,7 @@ class XRayAbsorptionSpectroscopy(CharacterizationTechnique, EnergyRangeMixin, XR
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     xray_source: Optional[list[str]] = Field(default=None, description="""X-ray source used (e.g. Cu K-alpha, Mo K-alpha, synchrotron).""", json_schema_extra = { "linkml_meta": {'domain_of': ['XRaySourceMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -9116,7 +9116,7 @@ class XPS(CharacterizationTechnique, EnergyRangeMixin, XRaySourceMixin):
                        'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     pass_energy: Optional[list[EnergyQuantity]] = Field(default=None, description="""Analyser pass energy setting in XPS.""", json_schema_extra = { "linkml_meta": {'domain_of': ['XPS'],
          'is_a': 'has_energy',
          'recommended': True,
@@ -9143,7 +9143,7 @@ class XPS(CharacterizationTechnique, EnergyRangeMixin, XRaySourceMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     xray_source: Optional[list[str]] = Field(default=None, description="""X-ray source used (e.g. Cu K-alpha, Mo K-alpha, synchrotron).""", json_schema_extra = { "linkml_meta": {'domain_of': ['XRaySourceMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -9399,7 +9399,7 @@ Provide unit as a QUDT term (e.g. ReciprocalCentimetre).""", json_schema_extra =
                        'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -9424,7 +9424,7 @@ Provide unit as a QUDT term (e.g. ReciprocalCentimetre).""", json_schema_extra =
     background_correction: Optional[list[str]] = Field(default=None, description="""Background correction method applied to IR spectra.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InfraredSpectroscopy'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFP:0003721'} })
+         'slot_uri': 'allotrope.quality:0003721'} })
     number_of_scans: Optional[list[int]] = Field(default=None, description="""Number of scans or accumulations recorded.""", json_schema_extra = { "linkml_meta": {'domain_of': ['XPS',
                        'InfraredSpectroscopy',
                        'DRIFTS',
@@ -9446,7 +9446,7 @@ Provide unit as a QUDT term (e.g. ReciprocalCentimetre).""", json_schema_extra =
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -9568,7 +9568,7 @@ class DRIFTS(CharacterizationTechnique):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -9596,7 +9596,7 @@ Provide unit as a QUDT term (e.g. ReciprocalCentimetre).""", json_schema_extra =
                        'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     resolution: Optional[list[float]] = Field(default=None, description="""Resolution of a measurement or detector.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EDX', 'DRIFTS'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -9734,21 +9734,21 @@ class RamanSpectroscopy(CharacterizationTechnique):
     """
     Raman spectroscopy for vibrational and structural characterization.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000069',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000069',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/'})
 
     excitation_laser_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Wavelength of excitation laser used in Raman spectroscopy.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'AFR:0001594'} })
+         'slot_uri': 'allotrope.result:0001594'} })
     excitation_laser_power: Optional[list[PowerQuantity]] = Field(default=None, description="""Power of the excitation laser at the sample.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy'],
          'is_a': 'has_power',
          'recommended': True,
-         'slot_uri': 'AFR:0001595'} })
+         'slot_uri': 'allotrope.result:0001595'} })
     magnification_setting: Optional[list[float]] = Field(default=None, description="""Magnification setting used for imaging.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectronMicroscopyMixin', 'RamanSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0002226'} })
+         'slot_uri': 'allotrope.result:0002226'} })
     has_integration_time: Optional[Duration] = Field(default=None, description="""Integration or acquisition time per measurement step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy', 'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_duration',
          'slot_uri': 'SIO:000008'} })
@@ -9773,7 +9773,7 @@ class RamanSpectroscopy(CharacterizationTechnique):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -9902,7 +9902,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
     nmr_dcat_ap profile (MARGARITAS) should be used in combination with
     this subprofile.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000073',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000073',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/'})
 
     nucleus: Optional[list[str]] = Field(default=None, description="""NMR-active nucleus observed (e.g. 1H, 13C, 31P).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NMRSpectroscopy'],
@@ -9915,7 +9915,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
                        'DynamicLightScattering'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007246'} })
+         'slot_uri': 'voc4cat:0007246'} })
     irradiation_frequency: Optional[list[float]] = Field(default=None, description="""Irradiation frequency of the NMR spectrometer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NMRSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
@@ -9971,7 +9971,7 @@ class NMRSpectroscopy(CharacterizationTechnique):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -10072,7 +10072,7 @@ class TransmissionElectronMicroscopy(CharacterizationTechnique, ElectronMicrosco
     """
     TEM for atomic-resolution imaging and diffraction of catalyst particles.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000078',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000078',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/',
          'mixins': ['ElectronMicroscopyMixin']})
 
@@ -10096,7 +10096,7 @@ class TransmissionElectronMicroscopy(CharacterizationTechnique, ElectronMicrosco
     magnification_setting: Optional[list[float]] = Field(default=None, description="""Magnification setting used for imaging.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectronMicroscopyMixin', 'RamanSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0002226'} })
+         'slot_uri': 'allotrope.result:0002226'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -10197,7 +10197,7 @@ class ScanningElectronMicroscopy(CharacterizationTechnique, ElectronMicroscopyMi
     """
     SEM for surface morphology and particle size/shape imaging.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000075',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000075',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/',
          'mixins': ['ElectronMicroscopyMixin']})
 
@@ -10221,7 +10221,7 @@ class ScanningElectronMicroscopy(CharacterizationTechnique, ElectronMicroscopyMi
     magnification_setting: Optional[list[float]] = Field(default=None, description="""Magnification setting used for imaging.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectronMicroscopyMixin', 'RamanSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0002226'} })
+         'slot_uri': 'allotrope.result:0002226'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalysisPlan',
                        'Activity',
                        'AgenticEntity',
@@ -10348,7 +10348,7 @@ class Thermogravimetry(CharacterizationTechnique, TemperatureProgramMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     initial_temperature: Optional[list[Temperature]] = Field(default=None, description="""Initial temperature at the start of a thermal analysis run.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Thermogravimetry'],
          'is_a': 'has_temperature',
          'recommended': True,
@@ -10369,7 +10369,7 @@ Provide unit as a QUDT term (e.g. Degree Celsius, Kelvin).""", json_schema_extra
     has_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during a heating or cooling step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_heating_procedure: Optional[list[HeatingProcedure]] = Field(default=None, description="""Heating procedure or thermal programme applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin', 'GCMS'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -10490,7 +10490,7 @@ Provide unit as a QUDT term (e.g. Degree Celsius, Kelvin).""", json_schema_extra
     has_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during a heating or cooling step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_heating_procedure: Optional[list[HeatingProcedure]] = Field(default=None, description="""Heating procedure or thermal programme applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin', 'GCMS'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -10611,7 +10611,7 @@ Provide unit as a QUDT term (e.g. Degree Celsius, Kelvin).""", json_schema_extra
     has_heating_rate: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate during a heating or cooling step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_heating_procedure: Optional[list[HeatingProcedure]] = Field(default=None, description="""Heating procedure or thermal programme applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin', 'GCMS'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -10716,7 +10716,7 @@ class BET(CharacterizationTechnique):
     """
     Brunauer-Emmett-Teller analysis for specific surface area and pore size distribution.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'ENM:0000064',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'enm:0000064',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/'})
 
     adsorbate_gas: Optional[list[str]] = Field(default=None, description="""Adsorbate gas used in BET surface area measurement (e.g. N2, Ar).""", json_schema_extra = { "linkml_meta": {'domain_of': ['BET'],
@@ -11076,7 +11076,7 @@ class UVVisSpectroscopy(CharacterizationTechnique):
     """
     UV-Vis spectroscopy for electronic transitions, band gap, and concentration determination.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000079',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000079',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/'})
 
     wavelength_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Wavelength range of the UV-Vis scan, provided as a QuantitativeRange
@@ -11087,7 +11087,7 @@ with min_value and max_value (unit_code: \"nm\").""", json_schema_extra = { "lin
     path_length: Optional[list[float]] = Field(default=None, description="""Optical path length of the measurement cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFQ:0000268',
+         'slot_uri': 'allotrope.quality:0000268',
          'unit': {'ucum_code': 'cm'}} })
     solvent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Solvent used in a process or sample preparation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Synthesis',
                        'NMRSpectroscopy',
@@ -11095,7 +11095,7 @@ with min_value and max_value (unit_code: \"nm\").""", json_schema_extra = { "lin
                        'DynamicLightScattering'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007246'} })
+         'slot_uri': 'voc4cat:0007246'} })
     has_concentration: Optional[list[Concentration]] = Field(default=None, description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
@@ -11223,14 +11223,14 @@ class PhotoluminescenceSpectroscopy(CharacterizationTechnique, Photoluminescence
                        'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'AFR:0000950'} })
+         'slot_uri': 'allotrope.result:0000950'} })
     has_integration_time: Optional[Duration] = Field(default=None, description="""Integration or acquisition time per measurement step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RamanSpectroscopy', 'PhotoluminescenceSpectroscopy'],
          'is_a': 'has_duration',
          'slot_uri': 'SIO:000008'} })
     excitation_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Excitation wavelength used in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'AFR:0002479'} })
+         'slot_uri': 'allotrope.result:0002479'} })
     emission_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Emission wavelength detected in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
@@ -11375,7 +11375,7 @@ class PhotoluminescenceLifetime(CharacterizationTechnique, PhotoluminescenceMixi
     excitation_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Excitation wavelength used in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'AFR:0002479'} })
+         'slot_uri': 'allotrope.result:0002479'} })
     emission_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Emission wavelength detected in photoluminescence measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhotoluminescenceMixin'],
          'is_a': 'has_length',
          'recommended': True,
@@ -11512,7 +11512,7 @@ class CyclicVoltammetry(CharacterizationTechnique, ElectrochemistryMixin):
     scan_rate: Optional[list[float]] = Field(default=None, description="""Potential scan rate in cyclic voltammetry.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007213',
+         'slot_uri': 'voc4cat:0007213',
          'unit': {'ucum_code': 'mV/s'}} })
     scan_potential_range: Optional[list[QuantitativeRange]] = Field(default=None, description="""Potential window scanned in cyclic voltammetry, provided as a
 QuantitativeRange with min_value and max_value (unit_code: \"V\").""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyclicVoltammetry'],
@@ -11522,7 +11522,7 @@ QuantitativeRange with min_value and max_value (unit_code: \"V\").""", json_sche
     step_size_potential: Optional[list[float]] = Field(default=None, description="""Potential step size in cyclic voltammetry.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007218',
+         'slot_uri': 'voc4cat:0007218',
          'unit': {'ucum_code': 'mV'}} })
     number_of_cycles: Optional[list[int]] = Field(default=None, description="""Number of repeated cycles in a process (e.g. ALD cycles, impregnation cycles).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalcinationMixin',
                        'AtomicLayerDeposition',
@@ -11531,19 +11531,19 @@ QuantitativeRange with min_value and max_value (unit_code: \"V\").""", json_sche
                        'CyclicVoltammetry'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008123'} })
+         'slot_uri': 'voc4cat:0008123'} })
     reference_electrode: Optional[list[str]] = Field(default=None, description="""Reference electrode used in electrochemical cell (e.g. Ag/AgCl, RHE).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007204'} })
+         'slot_uri': 'voc4cat:0007204'} })
     working_electrode: Optional[list[str]] = Field(default=None, description="""Working electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007202'} })
+         'slot_uri': 'voc4cat:0007202'} })
     counter_electrode: Optional[list[str]] = Field(default=None, description="""Counter electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007203'} })
+         'slot_uri': 'voc4cat:0007203'} })
     electrolyte_composition: Optional[list[str]] = Field(default=None, description="""Chemical composition of the electrolyte solution.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -11565,7 +11565,7 @@ QuantitativeRange with min_value and max_value (unit_code: \"V\").""", json_sche
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -11698,7 +11698,7 @@ class ConductivityMeasurement(CharacterizationTechnique, ElectrochemistryMixin):
     ac_frequency: Optional[list[float]] = Field(default=None, description="""Frequency of AC signal applied in impedance or conductivity measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConductivityMeasurement'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007239',
+         'slot_uri': 'voc4cat:0007239',
          'unit': {'ucum_code': 'Hz'}} })
     ac_dc_mode: Optional[list[str]] = Field(default=None, description="""AC or DC measurement mode used in conductivity measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConductivityMeasurement'],
          'is_a': 'has_qualitative_attribute',
@@ -11711,15 +11711,15 @@ class ConductivityMeasurement(CharacterizationTechnique, ElectrochemistryMixin):
     reference_electrode: Optional[list[str]] = Field(default=None, description="""Reference electrode used in electrochemical cell (e.g. Ag/AgCl, RHE).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007204'} })
+         'slot_uri': 'voc4cat:0007204'} })
     working_electrode: Optional[list[str]] = Field(default=None, description="""Working electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007202'} })
+         'slot_uri': 'voc4cat:0007202'} })
     counter_electrode: Optional[list[str]] = Field(default=None, description="""Counter electrode used in electrochemical cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007203'} })
+         'slot_uri': 'voc4cat:0007203'} })
     electrolyte_composition: Optional[list[str]] = Field(default=None, description="""Chemical composition of the electrolyte solution.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemistryMixin'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -11741,7 +11741,7 @@ class ConductivityMeasurement(CharacterizationTechnique, ElectrochemistryMixin):
                        'CatalyticReaction'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007809'} })
+         'slot_uri': 'voc4cat:0007809'} })
     has_temperature: Optional[list[Temperature]] = Field(default=None, description="""The slot to provide the Temperature of a MaterialEntity or an Activity, whereas the temperature of the Activity is ontologically rooted in the temperature of the material entities that participate in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SonochemicalSynthesis',
                        'PhotoluminescenceMixin',
                        'ElectrochemistryMixin',
@@ -11872,7 +11872,7 @@ class DynamicLightScattering(CharacterizationTechnique):
                        'DynamicLightScattering'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007246'} })
+         'slot_uri': 'voc4cat:0007246'} })
     has_concentration: Optional[list[Concentration]] = Field(default=None, description="""The slot to provide the Concentration of a ChemicalSubstance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UVVisSpectroscopy',
                        'DynamicLightScattering',
                        'ElectroSprayIonizationMassSpectrometry',
@@ -11883,7 +11883,7 @@ class DynamicLightScattering(CharacterizationTechnique):
     light_wavelength: Optional[list[LengthQuantity]] = Field(default=None, description="""Wavelength of the laser used in DLS measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DynamicLightScattering'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000176'} })
+         'slot_uri': 'voc4cat:0000176'} })
     scattering_angle: Optional[list[PlaneAngle]] = Field(default=None, description="""Scattering angle at which intensity is detected in DLS.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DynamicLightScattering'],
          'is_a': 'has_plane_angle',
          'recommended': True,
@@ -12044,7 +12044,7 @@ class ElectroSprayIonizationMassSpectrometry(CharacterizationTechnique, MassRang
     solvent_composition: Optional[list[str]] = Field(default=None, description="""Solvent composition used for ESI spray solution.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectroSprayIonizationMassSpectrometry'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007246'} })
+         'slot_uri': 'voc4cat:0007246'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -12198,7 +12198,7 @@ QuantitativeRange with min_value and max_value (unit_code: \"Cel\").""", json_sc
     heating_ramp: Optional[list[HeatingRate]] = Field(default=None, description="""Temperature ramp rate in GC oven programme.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GCMS'],
          'is_a': 'has_heating_rate',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008116'} })
+         'slot_uri': 'voc4cat:0008116'} })
     has_heating_procedure: Optional[list[HeatingProcedure]] = Field(default=None, description="""Heating procedure or thermal programme applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TemperatureProgramMixin', 'GCMS'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
@@ -12227,7 +12227,7 @@ QuantitativeRange with min_value and max_value (unit_code: \"Cel\").""", json_sc
     eluent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Eluent or mobile phase used in chromatography.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromatographyMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'AFRL:0000011'} })
+         'slot_uri': 'allotrope.role:0000011'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -12352,7 +12352,7 @@ class SizeExclusionChromatography(CharacterizationTechnique, ChromatographyMixin
     """
     Size exclusion chromatography for molecular weight distribution determination.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'AFP:0000843',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'allotrope.quality:0000843',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/characterization/',
          'mixins': ['ChromatographyMixin']})
 
@@ -12388,7 +12388,7 @@ class SizeExclusionChromatography(CharacterizationTechnique, ChromatographyMixin
     eluent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Eluent or mobile phase used in chromatography.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromatographyMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'AFRL:0000011'} })
+         'slot_uri': 'allotrope.role:0000011'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -12548,7 +12548,7 @@ class HighPerformanceLiquidChromatographyMassSpectrometry(CharacterizationTechni
     eluent: Optional[list[ChemicalEntity]] = Field(default=None, description="""Eluent or mobile phase used in chromatography.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromatographyMixin'],
          'is_a': 'carried_out_by',
          'recommended': True,
-         'slot_uri': 'AFRL:0000011'} })
+         'slot_uri': 'allotrope.role:0000011'} })
     has_flow_rate: Optional[list[VolumeFlowRate]] = Field(default=None, description="""Volumetric flow rate of a gas or liquid.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FlameSprayPyrolysis',
                        'ChromatographyMixin',
                        'DRIFTS',
@@ -12977,7 +12977,7 @@ class CalcinationGaseousEnvironment(Atmosphere):
     The specific gaseous environment maintained during a calcination step
     (e.g. \"air\", \"N2\", \"10% O2/N2\").
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000055',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000055',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -13169,7 +13169,7 @@ class SamplePretreatment(QualitativeAttribute):
     A qualitative descriptor of the pre-treatment applied to a sample
     before a process or measurement (e.g. \"reduction at 300 °C\", \"outgassing\").
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000122',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000122',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -13361,7 +13361,7 @@ class OperationMode(QualitativeAttribute):
     A qualitative descriptor of the operation mode of an instrument or
     process (e.g. \"transmission\", \"reflection\", \"AC\", \"DC\", \"full-scan\").
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000108',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000108',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -13799,7 +13799,7 @@ class HeatingRate(QuantitativeAttribute):
     Rate of temperature change per unit time during a thermal ramp.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'qudt:Quantity',
-         'exact_mappings': ['VOC4CAT:0008116'],
+         'exact_mappings': ['voc4cat:0008116'],
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/common/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -15026,7 +15026,7 @@ class Yield(QuantitativeAttribute):
     A dimensionless physical quantity describing the fraction of a product B that is formed from a reactant A taking into account the stoichiometry. If A fully reacts to B without side-reactions, the yield of product B is 1 (or 100 %).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'CHMO:0002855',
-         'exact_mappings': ['VOC4CAT:0005005'],
+         'exact_mappings': ['voc4cat:0005005'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/'})
 
     title: Optional[str] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitativeRange',
@@ -17913,7 +17913,7 @@ class Concentration(QuantitativeAttribute):
          'close_mappings': ['PATO:0000033'],
          'exact_mappings': ['EDAM:2140',
                             'NCIT:C41185',
-                            'VOC4CAT:0007244',
+                            'voc4cat:0007244',
                             'AFR:0002036'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/entity/',
          'narrow_mappings': ['CHMO:0002822']})
@@ -18779,7 +18779,7 @@ class Reactor(MaterialisticMixin, Device):
     A reactor is a container for controlling a biological or chemical reaction or process.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'AFE:0000153',
-         'exact_mappings': ['VOC4CAT:0007017'],
+         'exact_mappings': ['voc4cat:0007017'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['MaterialisticMixin']})
 
@@ -18959,7 +18959,7 @@ class ChemicalReactor(Reactor):
     Linked from Reaction via used_reactor (restricted to range: ChemicalReactor).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
-         'class_uri': 'VOC4CAT:0007018',
+         'class_uri': 'voc4cat:0007018',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     alternative_label: Optional[str] = Field(default=None, description="""The slot to specify an alternative label, name or title for a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
@@ -19127,7 +19127,7 @@ class ElectrochemicalReactor(ChemicalReactor):
     Electrochemical reactor used in electrocatalytic experiments, including
     H-cells, flow cells, and membrane electrode assemblies.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000193',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000193',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     has_cathode: Optional[list[str]] = Field(default=None, description="""The electrode where reduction occurs in an electrochemical cell. It is
@@ -19135,13 +19135,13 @@ the negative electrode in an electrolytic cell, while it is the
 positive electrode in a galvanic cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007254'} })
+         'slot_uri': 'voc4cat:0007254'} })
     has_anode: Optional[list[str]] = Field(default=None, description="""The electrode where oxidation occurs in an electrochemical cell. It is
 the positive electrode in an electrolytic cell, while it is the
 negative electrode in a galvanic cell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007255'} })
+         'slot_uri': 'voc4cat:0007255'} })
     cell_operating_mode: Optional[CellOperatingModeEnum] = Field(default=None, description="""The functional mode of an electrochemical cell based on the direction
 of energy conversion.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
          'recommended': True,
@@ -19150,12 +19150,12 @@ of energy conversion.""", json_schema_extra = { "linkml_meta": {'domain_of': ['E
 electrode which is active.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007258'} })
+         'slot_uri': 'voc4cat:0007258'} })
     faradaic_current: Optional[list[ElectricCurrent]] = Field(default=None, description="""The current that is flowing through an electrochemical cell and is
 causing (or is caused by) chemical reactions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ElectrochemicalReactor'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007259'} })
+         'slot_uri': 'voc4cat:0007259'} })
     alternative_label: Optional[str] = Field(default=None, description="""The slot to specify an alternative label, name or title for a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
          'slot_uri': 'skos:altLabel',
          'todos': ['Should probably rather declared on Entity or in some common '
@@ -19321,28 +19321,28 @@ class CSTR(ChemicalReactor):
     Continuous stirred tank reactor (CSTR) — a well-mixed, continuous-flow
     reactor operating at steady state.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007019',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007019',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     stirring_rate: Optional[list[AngularVelocity]] = Field(default=None, description="""The rate at which the stirrer rotates, typically expressed in
 revolutions per unit time (e.g. revolutions per minute).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
          'is_a': 'has_angular_velocity',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008114'} })
+         'slot_uri': 'voc4cat:0008114'} })
     residence_time: Optional[Duration] = Field(default=None, description="""The average time a unit of fluid spends inside the reactor before
 exiting.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'], 'is_a': 'has_duration', 'recommended': True} })
     reactor_working_volume: Optional[list[Volume]] = Field(default=None, description="""Volume of the reaction chamber, calculated by its dimensions. Volume
 of pipes and valves connected to the reactor is not included.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
          'is_a': 'has_volume',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000153'} })
+         'slot_uri': 'voc4cat:0000153'} })
     reactor_diameter: Optional[list[LengthQuantity]] = Field(default=None, description="""The internal diameter of the reactor vessel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'], 'is_a': 'has_length', 'recommended': True} })
     stirrer_diameter: Optional[list[LengthQuantity]] = Field(default=None, description="""The effective diameter of the stirrer. Typically expressed as the
 distance across the rotating blade or mixing head from one tip to
 the opposite tip.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008115'} })
+         'slot_uri': 'voc4cat:0008115'} })
     reactor_stirrer_type: Optional[list[str]] = Field(default=None, description="""The category of mechanical or magnetic agitation device used in the
 reactor, such as a magnetic stirrer or an overhead mechanical (steel
 shaft) stirrer. Distinct from the synthesis-context stirrer_type slot
@@ -19350,7 +19350,7 @@ shaft) stirrer. Distinct from the synthesis-context stirrer_type slot
 may use different equipment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CSTR'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008113'} })
+         'slot_uri': 'voc4cat:0008113'} })
     alternative_label: Optional[str] = Field(default=None, description="""The slot to specify an alternative label, name or title for a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
          'slot_uri': 'skos:altLabel',
          'todos': ['Should probably rather declared on Entity or in some common '
@@ -19516,7 +19516,7 @@ class PlugFlowReactor(ChemicalReactor):
     Plug flow reactor (PFR) — a tubular reactor in which reactant composition
     varies along the axis with no axial mixing.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007102',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007102',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     tube_length: Optional[list[LengthQuantity]] = Field(default=None, description="""The length of the tubular reaction chamber.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlugFlowReactor'], 'is_a': 'has_length', 'recommended': True} })
@@ -19535,7 +19535,7 @@ downflow, horizontal).""", json_schema_extra = { "linkml_meta": {'domain_of': ['
 sample, typically reported as diameter or sieve fraction range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlugFlowReactor', 'SlurryReactor', 'FixedBedReactor'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008212'} })
+         'slot_uri': 'voc4cat:0008212'} })
     alternative_label: Optional[str] = Field(default=None, description="""The slot to specify an alternative label, name or title for a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
          'slot_uri': 'skos:altLabel',
          'todos': ['Should probably rather declared on Entity or in some common '
@@ -19713,7 +19713,7 @@ stirring, mechanical overhead stirring, rocking, none).""", json_schema_extra = 
 from vessel_material, the material of the outer pressure vessel/shell.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Autoclave'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0000156'} })
+         'slot_uri': 'voc4cat:0000156'} })
     vessel_internal_volume: Optional[list[Volume]] = Field(default=None, description="""The internal (working) volume of the autoclave vessel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Autoclave'], 'is_a': 'has_volume', 'recommended': True} })
     vessel_material: Optional[list[str]] = Field(default=None, description="""Material used for the construction of the outer autoclave vessel/
 pressure shell. Distinct from reaction_chamber_material, the material
@@ -19894,7 +19894,7 @@ class SlurryReactor(ChemicalReactor):
 sample, typically reported as diameter or sieve fraction range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlugFlowReactor', 'SlurryReactor', 'FixedBedReactor'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008212'} })
+         'slot_uri': 'voc4cat:0008212'} })
     gas_liquid_ratio: Optional[list[float]] = Field(default=None, description="""The volumetric ratio of gas to liquid phase in the slurry reactor.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SlurryReactor'],
          'is_a': 'has_quantitative_attribute',
          'recommended': True} })
@@ -20075,7 +20075,7 @@ class Microreactor(ChemicalReactor):
     in the sub-millimetre range, enabling precise thermal control and rapid
     screening.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0000234',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0000234',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/reaction/'})
 
     channel_material: Optional[list[str]] = Field(default=None, description="""Material used for the construction of the microreactor channels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microreactor'],
@@ -20258,23 +20258,23 @@ class FixedBedReactor(ChemicalReactor):
 sample, typically reported as diameter or sieve fraction range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PlugFlowReactor', 'SlurryReactor', 'FixedBedReactor'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008212'} })
+         'slot_uri': 'voc4cat:0008212'} })
     catalyst_bed_diameter: Optional[list[LengthQuantity]] = Field(default=None, description="""The internal diameter of the packed catalyst bed section.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'], 'is_a': 'has_length', 'recommended': True} })
     catalyst_bed_volume: Optional[list[Volume]] = Field(default=None, description="""The bulk volume taken up by the catalyst and potential diluent in a
 fixed bed reactor.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
          'is_a': 'has_volume',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0007021'} })
+         'slot_uri': 'voc4cat:0007021'} })
     catalyst_dilution_material: Optional[list[str]] = Field(default=None, description="""An inert solid mixed with catalyst particles in a fixed bed to modify
 bed properties (e.g. improve heat/mass transfer, dilute activity).""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008218'} })
+         'slot_uri': 'voc4cat:0008218'} })
     catalyst_bed_height: Optional[list[LengthQuantity]] = Field(default=None, description="""The axial length of the packed catalyst section in a reactor,
 measured along the direction of flow.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedBedReactor'],
          'is_a': 'has_length',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008217'} })
+         'slot_uri': 'voc4cat:0008217'} })
     alternative_label: Optional[str] = Field(default=None, description="""The slot to specify an alternative label, name or title for a MaterialEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialisticMixin'],
          'slot_uri': 'skos:altLabel',
          'todos': ['Should probably rather declared on Entity or in some common '
@@ -20699,7 +20699,7 @@ class DissolvingSubstance(ChemicalSubstanceMixin, AgenticEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['solvent'],
          'class_uri': 'SIO:010417',
-         'exact_mappings': ['VOC4CAT:0007246', 'NCIT:C45790'],
+         'exact_mappings': ['voc4cat:0007246', 'NCIT:C45790'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['ChemicalSubstanceMixin']})
 
@@ -20893,7 +20893,7 @@ class Catalyst(ChemicalSubstanceMixin, AgenticEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'SIO:010344',
          'close_mappings': ['CHEBI:35223'],
-         'exact_mappings': ['VOC4CAT:0000194'],
+         'exact_mappings': ['voc4cat:0000194', 'NCIT:C48810'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['ChemicalSubstanceMixin']})
 
@@ -21534,7 +21534,7 @@ class Reagent(MaterialEntity, ChemicalSubstanceMixin):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'SIO:010411',
          'close_mappings': ['OBI:0001879', 'PROCO:0000029'],
-         'exact_mappings': ['NCIT:C802', 'VOC4CAT:0000101'],
+         'exact_mappings': ['NCIT:C802', 'voc4cat:0000101'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['ChemicalSubstanceMixin']})
 
@@ -21729,6 +21729,7 @@ class ChemicalProduct(MaterialEntity, ChemicalSubstanceMixin):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'NCIT:C48810',
          'close_mappings': ['ENVO:2000000'],
+         'exact_mappings': ['voc4cat:0000194'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/chemistry/reaction/',
          'mixins': ['ChemicalSubstanceMixin']})
 
@@ -21918,7 +21919,7 @@ class MaterialSample(MaterialisticMixin, EvaluatedEntity):
     A Sample that was derived from a previous MaterialSample or some other kind of MaterialEntity.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'OBI:0000747',
-         'exact_mappings': ['SIO:001050', 'VOC4CAT:0005056'],
+         'exact_mappings': ['SIO:001050', 'voc4cat:0005056'],
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus/materials/',
          'mixins': ['MaterialisticMixin'],
          'slot_usage': {'derived_from': {'description': 'The slot to specify the '
@@ -22097,7 +22098,7 @@ class Precursor(MaterialSample):
     A MaterialSample that serves as input material in a catalyst Synthesis.
     Precursors are consumed or transformed during the preparation process.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'VOC4CAT:0007794',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'voc4cat:0007794',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/',
          'slot_usage': {'precursor_quantity': {'name': 'precursor_quantity',
                                                'required': True}}})
@@ -22105,7 +22106,7 @@ class Precursor(MaterialSample):
     precursor_quantity: list[Mass] = Field(default=..., description="""Quantity of precursor used in synthesis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Precursor'],
          'is_a': 'has_mass',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0008118'} })
+         'slot_uri': 'voc4cat:0008118'} })
     derived_from: Optional[Entity] = Field(default=None, description="""The slot to specify the MaterialEntity or MaterialSample from which the MaterialSample was created.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['BFO:0000050', 'dcterms:partOf'],
          'domain_of': ['MaterialSample'],
          'exact_mappings': ['SIO:000244'],
@@ -22275,7 +22276,7 @@ class CatalystSample(MaterialSample):
     """
     A MaterialSample that is the product of a catalyst Synthesis.
     The specific type of catalyst (e.g. heterogeneous, supported metal)
-    is expressed via rdf_type using a VOC4CAT term.
+    is expressed via rdf_type using a voc4cat term.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'OBI:0000747',
          'from_schema': 'https://w3id.org/nfdi4cat/coremeta4cat/synthesis/',
@@ -26816,7 +26817,7 @@ class BandGap(CalculatedProperty, DFTSettingsMixin, MaterialDescriptorMixin):
 calculated band gap.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BandGap'],
          'is_a': 'has_qualitative_attribute',
          'recommended': True,
-         'slot_uri': 'VOC4CAT:0005056'} })
+         'slot_uri': 'voc4cat:0005056'} })
     structure_model: Optional[list[str]] = Field(default=None, description="""Model structure used in the band gap calculation (e.g. bulk unit cell,
 surface slab, defect supercell).""", json_schema_extra = { "linkml_meta": {'domain_of': ['BandGap'],
          'is_a': 'has_qualitative_attribute',
@@ -26969,7 +26970,7 @@ class CatalysisDataset(Dataset, ClassifierMixin):
     term from CatalysisResearchFieldEnum (following DCAT-AP-PLUS Pattern 3).
     For example, a dataset from heterogeneous catalysis research would carry:
       rdf_type:
-        id: VOC4CAT:0007001
+        id: voc4cat:0007001
         title: \"heterogeneous catalysis\"
 
     The four CoreMeta4Cat minimum information pillars are linked via the slots
