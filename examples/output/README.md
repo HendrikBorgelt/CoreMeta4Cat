@@ -1513,7 +1513,7 @@ rdf_type:
 release_date: '2026-03-11'
 title:
 - "Support Engineering with Phosphorus: Tuning the Palladium-Catalyzed Selective Hydrogenation\
-  \ of \xCE\xB1,\xCE\xB2-Unsaturated Aldehydes"
+  \ of \u03B1,\u03B2-Unsaturated Aldehydes"
 was_generated_by:
 - activity_designator: Characterization
   carried_out_by:
