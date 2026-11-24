@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -51,6 +51,8 @@
     
     
       <link rel="stylesheet" href="../stylesheets/no-details-box.css">
+    
+      <link rel="stylesheet" href="../stylesheets/schema_classmap.css">
     
       <link rel="stylesheet" href="../css/ansi-colours.css">
     
@@ -523,9 +525,33 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../working-with-data/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../working-with-data/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -539,7 +565,87 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-data/community-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community datasets
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-data/usage-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -659,6 +765,18 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1166,6 +1284,9 @@
 
 <h1 id="getting-started-with-coremeta4cat">Getting Started with CoreMeta4Cat</h1>
 <p>Adopting a new metadata standard does not have to mean changing how you work overnight. CoreMeta4Cat is designed to be useful at every stage of the journey — including if you stay with spreadsheets permanently. This page explains a pragmatic, low-barrier path towards semantically richer catalysis data, regardless of whether you use an Electronic Lab Notebook, a data management platform, or simply Excel.</p>
+<blockquote>
+<p><strong>Want to check your dataset right away?</strong> Download the <a href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/assets/coremeta4cat_vocabulary.xlsx">CoreMeta4Cat metadata list</a> to see which fields apply to your data class. A user-friendly <strong>Metadata Checker</strong> tool that does this automatically is coming soon — no schema knowledge required.</p>
+</blockquote>
 <div style="text-align: center;">
     <a>
     <img src="../images/CoreMeta4Cat_Picture.png" alt="CoreMeta4Cat logo" style="width: 40%;">
@@ -1252,12 +1373,17 @@ Level 4 ──► Validate records against the full CoreMeta4Cat schema
   <img src="../images/workbook-sample.png" alt="Excerpt from the Synthesis sheet of the CoreMeta4Cat vocabulary workbook, showing all ten columns and the M/R/O/Inherited colour coding" style="max-width: 100%; border: 1px solid #ccc;">
 </div>
 
+<div class="admonition info">
+<p class="admonition-title">Why labels look like <code>SolGel</code> or <code>impregnation_temperature</code></p>
+<p>Labels are the schema's machine-readable names, which cannot contain spaces or hyphens. Classes (structured records such as a preparation method) are written in PascalCase, e.g. <code>SolGel</code> for the sol-gel method, and fields in snake_case, e.g. <code>impregnation_temperature</code>. The <code>description</code> column gives the plain-language meaning. See <a href="../how-to-extend/#general-rules">How to Extend: Rule 7</a> for the full conventions.</p>
+</div>
 <h3 id="proposing-a-change-the-inbox-workflow-in-detail">Proposing a change: the inbox workflow in detail</h3>
 <p>The workbook is also the mechanism for proposing changes to the vocabulary — no coding required. This section goes into more detail than the <a href="../contributing/">Contributing guide</a>; read that page for the short version.</p>
 <ol>
-<li><strong>Download</strong> the workbook using the button above. Don't create a new workbook from scratch — always start from the current generated file, since the automated check compares your edits against the live schema.</li>
+<li><strong>Download</strong> the workbook using the button above. Don't create a new workbook from scratch — always start from a generated file: it keeps a hidden copy of how it looked when it was generated, so the automated check can tell exactly which rows you changed and applies only those.</li>
 <li><strong>Edit the <code>Synthesis</code>, <code>Characterization</code>, <code>Reaction</code>, or <code>Simulation</code> sheet directly.</strong><ul>
-<li>To correct an existing field: change its <code>M / R / O</code>, <code>range</code>, <code>unit</code>, <code>uri</code>, or <code>description</code> cell.</li>
+<li>To correct an existing field: change its <code>M / R / O</code>, <code>range</code>, <code>multivalued</code>, <code>unit</code>, <code>uri</code>, or <code>description</code> cell. An <code>M / R / O</code> change applies to that row's class only.</li>
+<li>To remove a field from a class: delete its row.</li>
 <li>To add a new field: add a new row with a <code>label</code>, set <code>type</code> to <code>slot</code>, and set <code>domain</code> to the class it belongs to (leave <code>domain</code> empty for a top-level field).</li>
 <li>To add a new field that needs a brand-new class (e.g. a field whose <code>range</code> doesn't exist yet): add both the new <code>slot</code> row and the new <code>class</code> row in the same submission — they're validated together.</li>
 <li>Don't touch the grey inherited rows, don't rename sheets, and don't rename or remove column headers — the automated check matches on exact names.</li>
@@ -1297,6 +1423,31 @@ Level 4 ──► Validate records against the full CoreMeta4Cat schema
 <td>❌ <em>Unknown range <code>Concentraton</code>. This type is not a recognized primitive or schema class.</em></td>
 <td>The <code>range</code> cell references a type that doesn't exist (often a typo, or a new class you forgot to add as its own row).</td>
 <td>Use an existing primitive (<code>string</code>, <code>float</code>, <code>integer</code>, <code>boolean</code>) or class name, or add the new class as its own row in the same submission.</td>
+</tr>
+<tr>
+<td>❌ <em>This workbook was made from an older template: it has no hidden <code>_baseline</code> sheet …</em></td>
+<td>The file was downloaded before the check started recording what you changed, or the hidden sheet was removed.</td>
+<td>Download the current workbook and copy your edits into it.</td>
+</tr>
+<tr>
+<td>❌ <em>The URI <code>VOC4CAT:0005056</code> uses the prefix <code>VOC4CAT:</code>, which the schema does not declare. Did you mean <code>voc4cat:</code>?</em></td>
+<td>The <code>uri</code> cell uses a prefix the schema doesn't know (prefixes are case-sensitive).</td>
+<td>Use one of the schema's prefixes, or a full <code>https://</code> IRI.</td>
+</tr>
+<tr>
+<td>❌ <em>The unit <code>2026-01-02 00:00:00</code> looks like a date …</em></td>
+<td>Excel converted what you typed in the <code>unit</code> cell (e.g. <code>1/2</code>).</td>
+<td>Format the cell as Text and enter the UCUM code again (e.g. <code>Cel</code>, <code>mol/L</code>).</td>
+</tr>
+<tr>
+<td>⚠️ <em>Not applied: <code>has_temperature</code> is inherited from a chemdcat-ap base class and is read-only here …</em></td>
+<td>You edited a grey, read-only row.</td>
+<td>Open an issue, or ask a maintainer to change it in the schema directly.</td>
+</tr>
+<tr>
+<td>⚠️ <em>Conflict: the description of … was also changed in the schema after you downloaded the workbook …</em></td>
+<td>Someone changed the same cell on <code>main</code> after your download; your value was applied.</td>
+<td>Check that your value is still what you want.</td>
 </tr>
 <tr>
 <td>⚠️ <em>Range changed: <code>string</code> → <code>Mass</code>. This structural change may invalidate existing data files.</em></td>
@@ -1539,8 +1690,8 @@ voc4cat:XXXXXXX
 <h3 id="what-a-minimal-converter-looks-like">What a minimal converter looks like</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">openpyxl</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="s2">&quot;my_synthesis_data.xlsx&quot;</span><span class="p">)</span>
-<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="s2">&quot;Synthesis&quot;</span><span class="p">]</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="s2">"my_synthesis_data.xlsx"</span><span class="p">)</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="s2">"Synthesis"</span><span class="p">]</span>
 
 <span class="c1"># Read column headers — these carry the CURIE annotations</span>
 <span class="c1"># so you know exactly which column maps to which CoreMeta4Cat field</span>
@@ -1553,66 +1704,66 @@ voc4cat:XXXXXXX
         <span class="k">continue</span>  <span class="c1"># skip empty rows</span>
 
     <span class="n">record</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CatalysisDataset&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;was_generated_by&quot;</span><span class="p">:</span> <span class="p">[{</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Synthesis&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;nominal_composition&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">),</span>           <span class="c1"># dct:title</span>
-            <span class="s2">&quot;realized_plan&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Impregnation&quot;</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"CatalysisDataset"</span><span class="p">,</span>
+        <span class="s2">"was_generated_by"</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Synthesis"</span><span class="p">,</span>
+            <span class="s2">"nominal_composition"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Name"</span><span class="p">),</span>           <span class="c1"># dct:title</span>
+            <span class="s2">"realized_plan"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Impregnation"</span><span class="p">,</span>
                 <span class="c1"># voc4cat:0000058 — calcination final temperature</span>
-                <span class="s2">&quot;calcination_final_temperature&quot;</span><span class="p">:</span>
-                    <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calcination final temperature&quot;</span><span class="p">),</span>
+                <span class="s2">"calcination_final_temperature"</span><span class="p">:</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"calcination final temperature"</span><span class="p">),</span>
                 <span class="c1"># voc4cat:0000060 — calcination dwelling time</span>
-                <span class="s2">&quot;calcination_dwelling_time&quot;</span><span class="p">:</span>
-                    <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calcination dwelling time&quot;</span><span class="p">),</span>
+                <span class="s2">"calcination_dwelling_time"</span><span class="p">:</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"calcination dwelling time"</span><span class="p">),</span>
             <span class="p">},</span>
-            <span class="s2">&quot;had_input_entity&quot;</span><span class="p">:</span> <span class="p">[{</span>
-                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Precursor&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Precursor 1&quot;</span><span class="p">),</span>               <span class="c1"># voc4cat:0007794</span>
-                <span class="s2">&quot;precursor_quantity&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Precursor 1 amount&quot;</span><span class="p">)</span>  <span class="c1"># voc4cat:0007038</span>
+            <span class="s2">"had_input_entity"</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Precursor"</span><span class="p">,</span>
+                <span class="s2">"name"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Precursor 1"</span><span class="p">),</span>               <span class="c1"># voc4cat:0007794</span>
+                <span class="s2">"precursor_quantity"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Precursor 1 amount"</span><span class="p">)</span>  <span class="c1"># voc4cat:0007038</span>
             <span class="p">}]</span>
         <span class="p">}],</span>
-        <span class="s2">&quot;is_about_entity&quot;</span><span class="p">:</span> <span class="p">[{</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CatalystSample&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;support&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Support&quot;</span><span class="p">),</span>                    <span class="c1"># voc4cat:0007825</span>
-            <span class="s2">&quot;metal_loading_nominal&quot;</span><span class="p">:</span>
-                <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Metal loading, nominal (wt%)&quot;</span><span class="p">)</span>       <span class="c1"># voc4cat:0007815</span>
+        <span class="s2">"is_about_entity"</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"CatalystSample"</span><span class="p">,</span>
+            <span class="s2">"support"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Support"</span><span class="p">),</span>                    <span class="c1"># voc4cat:0007825</span>
+            <span class="s2">"metal_loading_nominal"</span><span class="p">:</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Metal loading, nominal (wt%)"</span><span class="p">)</span>       <span class="c1"># voc4cat:0007815</span>
         <span class="p">}]</span>
     <span class="p">}</span>
     <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;synthesis_records.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"synthesis_records.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>The column names passed to <code>data.get(...)</code> are the same human-readable labels you already have in your sheet header. The CURIEs in the comments document the semantic meaning of each mapping for anyone reading the script later.</p>
 <h3 id="the-resulting-json-record">The resulting JSON record</h3>
 <p>Running this converter produces a record like the following, which is a valid CoreMeta4Cat JSON instance:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CatalysisDataset&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;rdf_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;voc4cat:0007001&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;heterogeneous catalysis&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;was_generated_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalysisDataset"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"rdf_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"voc4cat:0007001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"heterogeneous catalysis"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"was_generated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Synthesis&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;nominal_composition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5wt% Ni/Al2O3&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;realized_plan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Impregnation&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;calcination_final_temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;calcination_dwelling_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthesis"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"nominal_composition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5wt% Ni/Al2O3"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"realized_plan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Impregnation"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"calcination_final_temperature"</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"calcination_dwelling_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span>
 <span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;had_input_entity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"had_input_entity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Precursor&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ni(NO3)2·6H2O&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;precursor_quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.24</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Precursor"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ni(NO3)2·6H2O"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"precursor_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.24</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;is_about_entity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"is_about_entity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CatalystSample&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;support&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Al2O3&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;metal_loading_nominal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalystSample"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Al2O3"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"metal_loading_nominal"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
@@ -1726,10 +1877,14 @@ linkml-validate<span class="w"> </span><span class="se">\</span>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/schema_classmap.js"></script>
+      
+        <script src="../javascripts/preview_version_selector.js"></script>
       
     
   </body>

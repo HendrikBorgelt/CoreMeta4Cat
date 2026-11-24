@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/elements/slots/vessel_internal_volume/">
+        <link rel="canonical" href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/elements/slots/acquisition_nucleus/">
       
       
       
@@ -17,15 +17,15 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
-        <title>Slot: vessel_internal_volume - CoreMeta4Cat</title>
+        <title>Slot: acquisition_nucleus - CoreMeta4Cat</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -45,6 +45,8 @@
     
     
       <link rel="stylesheet" href="../../../stylesheets/no-details-box.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/schema_classmap.css">
     
       <link rel="stylesheet" href="../../../css/ansi-colours.css">
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-vessel_internal_volume" class="md-skip">
+        <a href="#slot-acquisition_nucleus" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: vessel_internal_volume
+              Slot: acquisition_nucleus
             
           </span>
         </div>
@@ -281,9 +283,33 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../working-with-data/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../working-with-data/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -297,7 +323,87 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../working-with-data/community-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community datasets
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../working-with-data/usage-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -417,6 +523,18 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -833,17 +951,14 @@
   
 
 
-<h1 id="slot-vessel_internal_volume">Slot: vessel_internal_volume</h1>
-<p><em>The internal (working) volume of the autoclave vessel.</em></p>
+<h1 id="slot-acquisition_nucleus">Slot: acquisition_nucleus</h1>
+<p><em>NMR-active nucleus observed (e.g. 1H, 13C, 31P).</em></p>
 <div>
-<p>URI: <a href="https://w3id.org/nfdi4cat/coremeta4cat/slot/vessel_internal_volume">coremeta4cat:slot/vessel_internal_volume</a></p>
+<p>URI: <a href="http://nmrML.org/nmrCV#NMR:1400083">NMR:1400083</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../has_quantitative_attribute/">has_quantitative_attribute</a><ul>
-<li><a href="../has_volume/">has_volume</a><ul>
-<li><strong>vessel_internal_volume</strong></li>
-</ul>
-</li>
+<li><a href="../has_qualitative_attribute/">has_qualitative_attribute</a><ul>
+<li><strong>acquisition_nucleus</strong></li>
 </ul>
 </li>
 </ul>
@@ -858,8 +973,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/Autoclave/">Autoclave</a></td>
-<td>Autoclave reactor — a sealed pressure vessel for batch reactions at<br>elevated temperature and/or pressure.</td>
+<td><a href="../../classes/NMRSpectroscopy/">NMRSpectroscopy</a></td>
+<td>Nuclear magnetic resonance spectroscopy for structure elucidation.<br>Note: for detailed liquid-state NMR minimum information, the dedicated<br>nmr_dcat_ap profile (MARGARITAS) should be used in combination with<br>this subprofile.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -876,11 +991,15 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="../../classes/Volume/">Volume</a></td>
+<td><a href="../../types/String/">String</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../../classes/Autoclave/">Autoclave</a></td>
+<td><a href="../../classes/NMRSpectroscopy/">NMRSpectroscopy</a></td>
+</tr>
+<tr>
+<td>Slot URI</td>
+<td><a href="http://nmrML.org/nmrCV#NMR:1400083">NMR:1400083</a></td>
 </tr>
 <tr>
 <td>### Cardinality and Requirements</td>
@@ -897,7 +1016,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Recommended</td>
+<td>Required</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -922,24 +1041,26 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>coremeta4cat:vessel_internal_volume</td>
+<td>NMR:1400083</td>
 </tr>
 <tr>
 <td>native</td>
-<td>coremeta4cat:vessel_internal_volume</td>
+<td>coremeta4cat:acquisition_nucleus</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vessel_internal_volume</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The internal (working) volume of the autoclave vessel.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">acquisition_nucleus</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR-active nucleus observed (e.g. 1H, 13C, 31P).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/coremeta4cat</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_volume</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_qualitative_attribute</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR:1400083</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Autoclave</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Volume</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMRSpectroscopy</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">recommended</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -1003,10 +1124,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../javascripts/schema_classmap.js"></script>
+      
+        <script src="../../../javascripts/preview_version_selector.js"></script>
       
     
   </body>

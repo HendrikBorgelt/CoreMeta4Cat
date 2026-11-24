@@ -6,8 +6,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Rules and patterns for extending CoreMeta4Cat with new methods, techniques, and properties">
-      
       
       
         <link rel="canonical" href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/how-to-extend/">
@@ -23,15 +21,15 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
-        <title>How to Extend - CoreMeta4Cat</title>
+        <title>How to extend - CoreMeta4Cat</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -51,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../stylesheets/no-details-box.css">
+    
+      <link rel="stylesheet" href="../stylesheets/schema_classmap.css">
     
       <link rel="stylesheet" href="../css/ansi-colours.css">
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to Extend
+              How to extend
             
           </span>
         </div>
@@ -287,9 +287,33 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../working-with-data/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../working-with-data/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -303,7 +327,87 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-data/community-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community datasets
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-data/usage-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -692,6 +796,18 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1231,24 +1347,21 @@
 
 
 <h1 id="how-to-extend-coremeta4cat">How to Extend CoreMeta4Cat</h1>
-<p>This page explains how to add new entries to the CoreMeta4Cat schema — new preparation methods, characterisation techniques, reactor types, simulation methods, or shared slots. Each section follows the same general pattern, adapted to the specific pillar.</p>
-<div style="text-align: center;">
-    <a>
-    <img src="../images/CoreMeta4Cat_Picture.png" alt="CoreMeta4Cat logo" style="width: 40%;">
-    </a>
+<p>This page explains how to add new entries to the CoreMeta4Cat schema — new preparation methods, characterisation techniques, reactor types, simulation methods, or shared slots. Each section follows the same general pattern, adapted to the specific data class.</p>
+<p><img alt="CoreMeta4Cat logo" src="../images/CoreMeta4Cat_Picture.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Not what you were looking for?</p>
+<p>This page is for developers who want to contribute new terms to the CoreMeta4Cat schema. If you are a researcher who wants to check or annotate your dataset, start with the <a href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/getting-started/">Getting Started</a> page instead.</p>
 </div>
-
 <div class="admonition tip">
-<p class="admonition-title">Before you start</p>
-<p>Read the <a href="../design-patterns/">Design Patterns</a> page first if you are new to the schema. Understanding the Activity/Plan split and the mixin pattern will make the extension rules below straightforward.</p>
+<p class="admonition-title">Read Design Patterns first</p>
+<p>If you are new to the schema, read the <a href="https://nfdi4cat.github.io/CoreMeta4Cat/latest/design-patterns/">Design Patterns</a> page first. Understanding the Activity/Plan split and the mixin pattern will make the extension rules below straightforward.</p>
 </div>
 <hr />
 <h2 id="general-rules">General rules</h2>
 <p>These rules apply when extending any part of CoreMeta4Cat.</p>
-<p><strong>Rule 1 — Extend, don't modify.</strong>
-Add new subclasses and slots. Do not rename or remove existing classes, slots, or enum values — this would break backward compatibility for any dataset already using them.</p>
-<p><strong>Rule 2 — Inherit from the right parent.</strong>
-Each extension type has a designated parent class (see the table below). Always use <code>is_a:</code> with that parent, not with a sibling class.</p>
+<p><strong>Rule 1 — Extend, don't modify.</strong> Add new subclasses and slots. Do not rename or remove existing classes, slots, or enum values — this would break backward compatibility for any dataset already using them.</p>
+<p><strong>Rule 2 — Inherit from the right parent.</strong> Each extension type has a designated parent class (see the table below). Always use <code>is_a:</code> with that parent, not with a sibling class.</p>
 <table>
 <thead>
 <tr>
@@ -1295,14 +1408,48 @@ Each extension type has a designated parent class (see the table below). Always 
 </tr>
 </tbody>
 </table>
-<p><strong>Rule 3 — Register an ontology term.</strong>
-Every new class should have a <code>class_uri:</code> pointing to a term in an established ontology (Voc4Cat, CHMO, OBI, NCIT, …). If no suitable term exists yet, use a provisional coremeta4cat-prefixed URI (<code>coremeta4cat:MyNewClass</code>) and open a Voc4Cat issue to request a proper term.</p>
-<p><strong>Rule 4 — Declare slots in the right file.</strong>
-Slots used by exactly one class go in that class's subprofile file. Slots shared by two or more classes go in <code>coremeta4cat_common.yaml</code>.</p>
-<p><strong>Rule 5 — Apply existing mixins before adding new slots.</strong>
-If your new class needs drying, calcination, precipitation, or thermal process parameters, apply the appropriate mixin rather than redeclaring those slots. Only add method-specific slots beyond what the mixin provides.</p>
-<p><strong>Rule 6 — Mark obligation levels.</strong>
-Every slot in a new class should have either <code>required: true</code> (Mandatory), <code>recommended: true</code> (Recommended), or neither (Optional). Do not leave obligations implicit.</p>
+<p><strong>Rule 3 — Register an ontology term.</strong> Every new class should have a <code>class_uri:</code> pointing to a term in an established ontology (Voc4Cat, CHMO, OBI, NCIT, …). If no suitable term exists yet, use a provisional coremeta4cat-prefixed URI (<code>coremeta4cat:MyNewClass</code>) and open a Voc4Cat issue to request a proper term.</p>
+<p><strong>Rule 4 — Declare slots in the right file.</strong> Slots used by exactly one class go in that class's subprofile file. Slots shared by two or more classes go in <code>coremeta4cat_common.yaml</code>.</p>
+<p><strong>Rule 5 — Apply existing mixins before adding new slots.</strong> If your new class needs drying, calcination, precipitation, or thermal process parameters, apply the appropriate mixin rather than redeclaring those slots. Only add method-specific slots beyond what the mixin provides.</p>
+<p><strong>Rule 6 — Mark obligation levels.</strong> Every slot in a new class should have either <code>required: true</code> (Mandatory), <code>recommended: true</code> (Recommended), or neither (Optional). Do not leave obligations implicit.</p>
+<p><strong>Rule 7 — Follow the naming conventions.</strong> Schema element names are turned into Python class names, JSON Schema definitions and URIs, so they cannot contain spaces or hyphens. CoreMeta4Cat follows the standard LinkML conventions:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Convention</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classes</td>
+<td>PascalCase: every word capitalised, no separator</td>
+<td><code>SolGel</code>, <code>FixedBedReactor</code>, <code>CatalysisDataset</code></td>
+</tr>
+<tr>
+<td>Mixins</td>
+<td>PascalCase, ending in <code>Mixin</code></td>
+<td><code>DryingMixin</code>, <code>CalcinationMixin</code></td>
+</tr>
+<tr>
+<td>Enums</td>
+<td>PascalCase, ending in <code>Enum</code></td>
+<td><code>CatalysisResearchFieldEnum</code></td>
+</tr>
+<tr>
+<td>Slots</td>
+<td>snake_case: lowercase, words joined by <code>_</code></td>
+<td><code>impregnation_temperature</code>, <code>catalyst_support</code></td>
+</tr>
+<tr>
+<td>Enum values</td>
+<td>snake_case</td>
+<td><code>heterogeneous_catalysis</code></td>
+</tr>
+</tbody>
+</table>
+<p>Established abbreviations keep their usual capitals inside a class name (<code>XPS</code>, <code>DFT</code>, <code>NMRSpectroscopy</code>, <code>UVVisSpectroscopy</code>). Multi-word terms are joined rather than hyphenated: the sol-gel method is the class <code>SolGel</code>, where the capital G keeps "sol" and "gel" visibly apart. Put the human-readable spelling in the <code>description</code>; the ontology term in <code>class_uri</code> carries the official label. <code>just lint</code> runs the LinkML linter, which warns about names that break these conventions.</p>
 <hr />
 <h2 id="adding-a-preparation-method">Adding a preparation method</h2>
 <p>New catalyst synthesis routes are added to <code>coremeta4cat_synthesis_ap.yaml</code> as <code>PreparationMethod</code> subclasses.</p>
@@ -1320,9 +1467,9 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
 </code></pre></div>
 <p><strong>2. Add only method-specific slots.</strong></p>
 <p>Slots already provided by mixins must not be redeclared. Only list slots that are unique to this method:</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_specific_parameter_a</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_specific_parameter_b</span>
+<div class="highlight"><pre><span></span><code><span class="nt">slots</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_specific_parameter_a</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_specific_parameter_b</span>
 </code></pre></div>
 <p><strong>3. Declare the new slots in the slots section.</strong></p>
 <p>Add the slot definitions below the class definitions in the same file. Include <code>slot_uri</code>, <code>range</code>, <code>unit</code> (where applicable), and <code>multivalued: true</code>:</p>
@@ -1466,7 +1613,7 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coremeta4cat:neutron_wavelength</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">unit</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ao</span><span class="w">   </span><span class="c1"># Angstrom</span>
+<span class="w">      </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ao</span>
 
 <span class="w">  </span><span class="nt">moderator_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type of neutron moderator (e.g. cold, thermal, hot source).</span>
@@ -1633,7 +1780,7 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
 <span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyNewMixin</span>
 </code></pre></div>
-<div class="admonition warning">
+<div class="admonition tip">
 <p class="admonition-title">Mixin scope</p>
 <p>A mixin should cover a coherent, reusable process step — not an arbitrary collection of slots. If a set of slots is only needed by one class, declare the slots directly on that class rather than creating a mixin.</p>
 </div>
@@ -1641,13 +1788,13 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
 <h2 id="deep-dive-extending-the-import-hierarchy">🔬 Deep dive: Extending the import hierarchy</h2>
 <div class="admonition warning">
 <p class="admonition-title">Technical section</p>
-<p>This section is for schema developers who need to introduce a new chemistry-layer or intermediate module between CoreMeta4Cat and DCAT-AP-PLUS. Most users extending the four pillars do not need this.</p>
+<p>This section is for schema developers who need to introduce a new chemistry-layer or intermediate module between CoreMeta4Cat and DCAT-AP-PLUS. Most users extending the four data classes do not need this.</p>
 </div>
 <p>CoreMeta4Cat sits at the top of a layered import chain:</p>
 <div class="highlight"><pre><span></span><code>coremeta4cat.yaml  →  coremeta4cat_common.yaml  →  chem_dcat_ap  →  …  →  dcat_ap_plus
 </code></pre></div>
-<p>If you need to introduce a new intermediate chemistry layer (e.g. a <code>polymer_catalysis_ap</code> that adds polymer-specific base classes used across multiple pillars), add it between <code>coremeta4cat_common</code> and the first pillar that needs it. Import it in <code>coremeta4cat_common.yaml</code> via the <code>imports:</code> key, and document the new layer in the import hierarchy diagram in <code>coremeta4cat.yaml</code>.</p>
-<p>Do not import new intermediate layers directly in individual pillar files — this would create hidden import order dependencies and make the schema harder to reason about.</p>
+<p>If you need to introduce a new intermediate chemistry layer (e.g. a <code>polymer_catalysis_ap</code> that adds polymer-specific base classes used across multiple data classes), add it between <code>catcore_common</code> and the first data class module that needs it. Import it in <code>catcore_common.yaml</code> via the <code>imports:</code> key, and document the new layer in the import hierarchy diagram in <code>catcore.yaml</code>.</p>
+<p>Do not import new intermediate layers directly in individual data class files — this would create hidden import order dependencies and make the schema harder to reason about.</p>
 <hr />
 <h2 id="checklist-summary">Checklist summary</h2>
 <p>Before submitting a pull request with a new extension:</p>
@@ -1669,9 +1816,6 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
 
 
 
-
-  
-  
 
 
 
@@ -1719,10 +1863,14 @@ Every slot in a new class should have either <code>required: true</code> (Mandat
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/schema_classmap.js"></script>
+      
+        <script src="../javascripts/preview_version_selector.js"></script>
       
     
   </body>
