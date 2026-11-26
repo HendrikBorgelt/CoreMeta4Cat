@@ -10,7 +10,7 @@ description:
   and variation of inlet NH3, GHSV and pressure. File names follow the figures of a version of the article;
   from Fig6 on they do not match the published figure numbers.'
 rdf_type:
-  id: VOC4CAT:0007001
+- id: voc4cat:0007001
   title: heterogeneous catalysis
 keyword:
 - Ammonia decomposition
@@ -35,8 +35,9 @@ dataset_distribution:
     id: https://creativecommons.org/licenses/by/4.0/
     title: CC BY 4.0
 was_generated_by:
+- coremeta4cat:CHAR_b74m-m6rp_TCD
+was_generated_by_characterization:
 - id: coremeta4cat:CHAR_b74m-m6rp_TCD
-  activity_designator: Characterization
   title:
   - H2-TPR of the Ni-BCZY cermet (article Fig. 1)
   rdf_type:
